@@ -2,6 +2,7 @@
   "name": "asyncin-client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://lavioli.github.io/ASyncIn-Client/",
   "devDependencies": {
     "react-scripts": "0.7.0"
   },
