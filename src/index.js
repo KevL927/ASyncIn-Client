@@ -1,9 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './js/App';
 import './index.css';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+import routes from './js/routes/routes';
+
+document.addEventListener(
+	'DOMContentLoaded',
+	function() {
+		ReactDOM.render(
+			routes, document.getElementById('root')
+		);
+	}
 );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
-import '../App.css';
+import '../../App.css';
+import {Link} from 'react-router';
 
 class App extends Component {
   onSubmit (event) {
@@ -26,7 +27,9 @@ class App extends Component {
           <span className="I">I</span>
           <span className="n">n?</span>
           </h2>
-          <input type="submit" id="submit" onClick={this.onSubmit} value="Start" className="start-button"></input>
+          <button className="start-button">
+            <Link to ="/login">Start</Link>
+          </button>
         </div>
       </div>
     );
