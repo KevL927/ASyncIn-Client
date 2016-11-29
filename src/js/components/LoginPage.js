@@ -25,12 +25,10 @@ class Login_Page extends Component {
 
                     <input type="submit" id="submit" onClick={this.onSubmit} value="Submit" className="submit-button"></input>
 
-                    <button className="Google-Login">
-						<Link to="/home">Register/Log In with Google</Link>
-					</button>
-                    <button className="Faceebook Login">
-                    	<Link to="/home">Register/Log In with Facebook</Link> 
-                    </button>
+                    
+					<a className="Google-Login" href="/auth/google">Register/Log In with Google</a>
+				    <a className="Faceebook Login" href="">Register/Log In with Google</a>
+                    
 
                 </form>
             </div>
