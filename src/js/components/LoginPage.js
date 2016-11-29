@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import '../App.css';
+import '../../App.css';
 import {Link} from 'react-router';
 
-class Homepage extends Component {
-   onSubmit: function (event) {
+class Login_Page extends Component {
+   onSubmit (event) {
         event.preventDefault();
    		this.props.onAddSubmit(this.refs.usernameText.value, this.refs.passwordText.value);
         this.refs.usernameText.value = "";
         this.refs.passwordText.value = "";
-    },
-    
+    }
     render () {
         return (
             <div className="Login-page">
@@ -26,16 +25,16 @@ class Homepage extends Component {
 
                     <input type="submit" id="submit" onClick={this.onSubmit} value="Submit" className="submit-button"></input>
 
-                    <input type="submit" id="submit"  value="GoogleLogin" className="Google-Login">
+                    <button className="Google-Login">
 						<Link to="/home">Register/Log In with Google</Link>
-					</input>
-                    <input type="submit" id="submit"  value="Faceebook-Login" className="Faceebook Login">
+					</button>
+                    <button className="Faceebook Login">
                     	<Link to="/home">Register/Log In with Facebook</Link> 
-                    </input>
+                    </button>
 
                 </form>
             </div>
         );
     }
-});
-export default Homepage;
+};
+export default Login_Page;
