@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import { createAction } from 'redux-actions';
 import axios from 'axios';
+import { hashHistory } from 'react-router';
 
 //*********************************************************************
 //-----------------------LOGIN AND REGISTER ACTIONS -------------------
@@ -132,11 +133,11 @@ export const fetchTrackError = createAction('FETCH_TRACK_ERROR');
 export const addTrack = (currentUser) => dispatch => {
   return axios.get('/dashboard/' + currentUserId + 'track' + trackId)
       .then((response) => {
-        dispatch(fetchTrackSuccess());
+        dispatch(addTrackSuccess());
         return false;
       })
       .catch(err => {
-        dispatch(fetchTrackError(err));
+        dispatch(addTrackError(err));
       })
 };
 export const addTrackSuccess = createAction('ADD_TRACK_SUCCESS');
