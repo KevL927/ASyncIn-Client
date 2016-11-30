@@ -154,8 +154,8 @@ export const deleteTrack = (playlistId) => dispatch => {
             return false;
         });
 };
-export const deletePlaylistSuccess = createAction('DELETE_PLAYLIST_SUCCESS');
-export const deletePlaylistError = createAction('DELETE_PLAYLIST_ERROR');
+export const deleteTrackSuccess = createAction('DELETE_TRACK_SUCCESS');
+export const deleteTrackError = createAction('DELETE_TRACK_ERROR');
 /////////////////////////////////////////////////////////////////////////
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const logoutUser = () =>{
