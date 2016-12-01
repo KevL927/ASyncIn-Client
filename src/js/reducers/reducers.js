@@ -1,54 +1,25 @@
-import actions from '../actions/actions'
+import * as actions from '../actions/actions'
 import { handleActions } from 'redux-actions';
 
 const initialState = {
+	otherUsersPlaylist: [],
+	userPlaylist: [],
+	searchedSongs: [],
+	random: [],
+	top3: [],
+	tracks: {},
 	isAuthenicated: false,
 	currentUser:null,
 	error: null,
 	accessToken: null
 };
 
-
 export default handleActions ({
-	[actions.registerError]: (state, action) => {
-		return [...state, error: action.payload];
+	[actions.loginSuccess]: (state, action) => {
+		return {...state, isAuthenicated:true};
 	},
 	[actions.loginError]: (state, action) => {
-		return [...state, error: action.payload];
-	},
-	[actions.logoutUserError]: (state, action) => {
-		return [...state, error: action.payload];
-	},
-	[actions. ]: (state, action) => {
-		return [...state, error: action.payload];
-	},
-	[actions. ]: (state, action) => {
-		return [...state, error: action.payload];
-	},
-	[actions. ]: (state, action) => {
-		return [...state, error: action.payload];
-	},
-	[actions. ]: (state, action) => {
-		return [...state, error: action.payload];
-	},
-	[actions. ]: (state, action) => {
-		return [...state, error: action.payload];
-	},
-	[actions. ]: (state, action) => {
-		return [...state, error: action.payload];
-	},
-	[actions. ]: (state, action) => {
-		return [...state, error: action.payload];
-	},
-	[actions. ]: (state, action) => {
-		return [...state, error: action.payload];
-	},
-	[actions. ]: (state, action) => {
-		return [...state, error: action.payload];
-	},
-
+		return {...state, error: action.payload};
+	}
 },
 initialState)
-
-
-//set up loading to be false and when loading put to true

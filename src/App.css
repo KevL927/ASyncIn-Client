@@ -1,4 +1,4 @@
-.App {
+.MainPage {
   text-align: center;
   background-image: url("http://i.imgur.com/Wb6eVPe.png");
  
@@ -9,7 +9,7 @@
   height: 80px;
 }
 
-.App-header {
+.MainPage-header {
   background-image: url("http://i.imgur.com/3dI9j4c.jpg");
   background-size: cover;
   background-position: center center;

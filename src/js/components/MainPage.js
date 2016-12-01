@@ -3,16 +3,17 @@ import React, { Component } from 'react';
 import '../../App.css';
 import {Link} from 'react-router';
 import LoadingAni from './Loading';
+import {loading} from 'react'
 
-class App extends Component {
+class MainPage extends Component {
   onSubmit (event) {
         event.preventDefault();
     }
   render() {
     return (
-      <div className="App">
-      <LoadingAni/>
-        <div className="App-header">
+      <div className="MainPage">
+      {loading ? <LoadingAni/> :
+        <div className="MainPage-Header">
           <h2>
           <span className="S">S</span>
           <span className="y">y</span>
@@ -25,11 +26,12 @@ class App extends Component {
             <Link to ="/login">Start</Link>
           </button>
         </div>
+      }
       </div>
     );
   }
 }
 
-export default App;
+export default MainPage;
 
 //<img src={logo} className="App-logo" alt="logo" />
