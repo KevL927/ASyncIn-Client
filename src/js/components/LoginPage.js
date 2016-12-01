@@ -27,7 +27,7 @@ class Login_Page extends Component {
 
                     
 					<a className="Google-Login" href="/auth/google">Register/Log In with Google</a>
-				    <a className="Faceebook Login" href="">Register/Log In with Google</a>
+				    <a className="Facebook Login" href="/auth/facebook">Register/Log In with Facebook</a>
                     
 
                 </form>

@@ -6,7 +6,7 @@ import { hashHistory } from 'react-router';
 //*********************************************************************
 //-----------------------LOGIN AND REGISTER ACTIONS -------------------
 //*********************************************************************
-export const REGISTER_REQUEST = = (username, password) => dispatch => {
+export const REGISTER_REQUEST =  (username, password) => dispatch => {
     return axios.post('https://polar-escarpment-86427.herokuapp.com/api/v1/users', { username, password })
         .then(function(response) {
             console.log(response);
