@@ -24,13 +24,11 @@ class Login_Page extends Component {
                     <input type="password" className="input" name="password" ref="passwordText" required />
 
                     <input type="submit" id="submit" onClick={this.onSubmit} value="Submit" className="submit-button"></input>
-
                     
-					<a className="Google-Login" href="/auth/google">Register/Log In with Google</a>
-				    <a className="Faceebook Login" href="">Register/Log In with Google</a>
-                    
-
                 </form>
+                    <a className="Google-Login" href="/auth/google">Log In with Google</a>
+                    <a className="Faceebook-Login" href="">Log In with Facebook</a>
+                    <a className="Register" href="">Register</a>
             </div>
         );
     }

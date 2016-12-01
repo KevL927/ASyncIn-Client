@@ -15,11 +15,19 @@ class Register extends Component {
                 <form className="Register-form">
                     <legend>Fill out the Form, Asshole.</legend>
 
+                    <span className="email">Email Address:</span>
+
+                    <input type="text" id="email-input" className="input" ref="emailText" required />
+
                     <span className="username">Create Username:</span>
 
                     <input type="text" id="username" className="input" ref="usernameText" required />
                     
                     <span className="password">Create Password:</span>
+
+                    <input type="password" className="input" name="password" ref="passwordText" required />
+
+                    <span className="password">Verify Password:</span>
 
                     <input type="password" className="input" name="password" ref="passwordText" required />
 

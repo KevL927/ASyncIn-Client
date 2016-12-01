@@ -4,20 +4,20 @@ import axios from 'axios';
 import { hashHistory } from 'react-router';
 
 //*********************************************************************
-//-----------------------LOGIN AND REGISTER ACTIONS -------------------
+//-----------------LOGIN/LOGOUT AND REGISTER ACTIONS ------------------
 //*********************************************************************
-export const REGISTER_REQUEST = = (username, password) => dispatch => {
+export const registerRequest = (username, password) => dispatch => {
     return axios.post('https://polar-escarpment-86427.herokuapp.com/api/v1/users', { username, password })
         .then(function(response) {
             console.log(response);
-            hashHistory.push('/login');
+            hashHistory.push('/register');
         })
         .catch(function(error) {
             console.log(error);
         });
 };
 export const registerError = createAction('REGISTER_ERROR');
-
+//////////////////////////////////////////////////////////////////////
 export const loginRequest = (username, password) => dispatch => {
     return axios.get('https://asyncin.herokuapp.com', {
             auth: {
@@ -26,8 +26,8 @@ export const loginRequest = (username, password) => dispatch => {
             }
         })
         .then((response) => {
-            dispatch(loginSuccessful({ username, password }));
-            hashHistory.push('/message');
+            dispatch(loginSuccess({ username, password }));
+            hashHistory.push('/login');
             return { username, password };
         })
         .catch(err => {
@@ -36,9 +36,22 @@ export const loginRequest = (username, password) => dispatch => {
         })
 };
 
-
-export const loginSuccessful = createAction('LOGIN_SUCCESSFUL');
+export const loginSuccess = createAction('LOGIN_SUCCESS');
 export const loginError = createAction('LOGIN_ERROR');
+
+/////////////////////////////////////////////////////////////////////////
+export const LOGOUT_USER = 'LOGOUT_USER';
+export const logoutUser = () =>{
+    return function(dispatch, getState) {
+        if (!getState().isAuthenticated) {
+            dispatch(logoutUserFail());
+        } else {
+            dispatch(logoutUserNow(getState().currentUser));
+        }
+    };
+}
+export const logoutUserSuccess = 'LOGOUT_USER_SUCCESS';
+export const logoutUserError = 'LOGOUT_USER_ERROR';
 
 //*********************************************************************
 //-----------------------PLAYLIST ACTIONS -----------------------------
@@ -46,6 +59,7 @@ export const loginError = createAction('LOGIN_ERROR');
 export const fetchPlaylist = (currentUser) => dispatch => {
     return axios.get('/dashboard/' + currentUserId + '?access_token=' + accessToken + '/playlist' + playlistId)
         .then((response) => {
+          hashHistory.push('/userplaylists');
             dispatch(fetchPlaylistSuccess())
         })
         .catch(err => {
@@ -56,7 +70,6 @@ export const fetchPlaylist = (currentUser) => dispatch => {
 export const fetchPlaylistSuccess = createAction('FETCH_PLAYLIST_SUCCESS');
 export const fetchPlaylistError = createAction('FETCH_PLAYLIST_ERROR');
 ////////////////////////////////////////////////////////////////
-export const POST_PLAYLIST = 'POST_PLAYLIST';
 export const postPlaylist = (title, content) => dispatch => {
     return axios.post('/dashboard/' + currentUserId + '?access_token=' + accessToken + '/playlist' + playlistId {
             playlistId: playlistId
@@ -101,18 +114,7 @@ export const deletePlaylist = (playlistId) => dispatch => {
 };
 export const deletePlaylistSuccess = createAction('DELETE_PLAYLIST_SUCCESS');
 export const deletePlaylistError = createAction('DELETE_PLAYLIST_ERROR');
-/////////////////////////////////////////////////////////////////////////
-export const LOGOUT_USER = 'LOGOUT_USER';
-export const logoutUser = () =>{
-    return function(dispatch, getState) {
-        if (!getState().isAuthenticated) {
-            dispatch(logoutUserFail());
-        } else {
-            dispatch(logoutUserNow(getState().currentUser));
-        }
-    };
-}
-export const logouotUserError = 'LOGOUT_USER_ERROR';
+
 
 //*********************************************************************
 //-----------------------SONG ACTIONS -----------------------------
@@ -131,7 +133,7 @@ export const fetchTrackSuccess = createAction('FETCH_TRACK_SUCCESS');
 export const fetchTrackError = createAction('FETCH_TRACK_ERROR');
 ////////////////////////////////////////////////////////////////
 export const addTrack = (currentUser) => dispatch => {
-  return axios.get('/dashboard/' + currentUserId + 'track' + trackId)
+  return axios.post('/dashboard/' + currentUserId + '?access_token=' + accessToken + '/playlist' + playlistId + '/track' + trackId)
       .then((response) => {
         dispatch(addTrackSuccess());
         return false;
@@ -157,15 +159,95 @@ export const deleteTrack = (playlistId) => dispatch => {
 };
 export const deleteTrackSuccess = createAction('DELETE_TRACK_SUCCESS');
 export const deleteTrackError = createAction('DELETE_TRACK_ERROR');
-/////////////////////////////////////////////////////////////////////////
-export const LOGOUT_USER = 'LOGOUT_USER';
-export const logoutUser = () =>{
-    return function(dispatch, getState) {
-        if (!getState().isAuthenticated) {
-            dispatch(logoutUserFail());
-        } else {
-            dispatch(logoutUserNow(getState().currentUser));
-        }
-    };
-}
-export const logouotUserError = 'LOGOUT_USER_ERROR';
+
+//*********************************************************************
+//------------------- SEARCHING/ADDING FOR SONGS ----------------------
+//*********************************************************************
+export const fetchSearchedTrack = (currentUser) => dispatch => {
+  return axios.post('/dashboard/' + currentUserId + '?access_token=' + accessToken + '/playlist' + playlistId + '/track' + trackId)
+      .then((response) => {
+        dispatch(fetchSearchedTrackSuccess());
+        return false;
+      })
+      .catch(err => {
+        dispatch(fetchSearchedTrackError(err));
+      })
+};
+
+export const fetchSearchedTrackSuccess = createAction('FETCH_SEARCHED_TRACK_SUCCESS');
+export const fetchSearchedTrackError = createAction('FETCH_SEARCHED_TRACK_ERROR');
+///////////////////////////////////////////////////////////////////////
+export const addSearchedTrack = (currentUser) => dispatch => {
+  return axios.post('/dashboard/' + currentUserId + '?access_token=' + accessToken + '/playlist' + playlistId + '/track' + trackId)
+      .then((response) => {
+        dispatch(addSearchedTrackSuccess());
+        return false;
+      })
+      .catch(err => {
+        dispatch(addSearchedTrackError(err));
+      })
+};
+export const addSearchedTrackSuccess = createAction('ADD_SEARCHED_TRACK_SUCCESS');
+export const addSearchedTrackError = createAction('ADD_SEARCHED_TRACK_ERROR');
+
+//*********************************************************************
+//-------------- SEARCHING FOR OTHER USERS' PLAYLIST/TRACKS -----------------
+//*********************************************************************
+export const fetchOtherUsersPlaylist = (currentUser) => dispatch => {
+    return axios.get('/dashboard/' + currentUserId + 'track' + trackId)
+        .then((response) => {
+            dispatch(fetchOtherUsersPlaylistSuccess())
+        })
+        .catch(err => {
+            dispatch(fetchOtherUsersPlaylistError(err));
+            return false;
+        });
+};
+export const fetchOtherUsersPlaylistSuccess = createAction('FETCH_OTHER_USERS_PLAYLIST_SUCCESS');
+export const fetchOtherUsersPlaylistError = createAction('FETCH_OTHER_USERS_PLAYLIST_ERROR');
+////////////////////////////////////////////////////////////////
+export const addOtherUsersTracks = (currentUser) => dispatch => {
+  return axios.post('/dashboard/' + currentUserId + '?access_token=' + accessToken + '/playlist' + playlistId + '/track' + trackId)
+      .then((response) => {
+        dispatch(addOtherUsersTracksSuccess());
+        return false;
+      })
+      .catch(err => {
+        dispatch(addOtherUsersTracksError(err));
+      })
+};
+export const addOtherUsersTracksSuccess = createAction('ADD_OTHER_USERS_TRACK_SUCCESS');
+export const addOtherUsersTracksError = createAction('ADD_OTHER_USERS_TRACK_ERROR');
+
+//*********************************************************************
+//-------------------- RANDOMLY GENERATED PLAYLISTS --------------------
+//*********************************************************************
+export const fetchRandomPlaylists = (currentUser) => dispatch => {
+    return axios.get('/dashboard/' + currentUserId +'?access_token=' + accessToken + '/random/playlists' + playlistId)
+        .then((response) => {
+            dispatch(fetchRandomPlaylistsSuccess())
+        })
+        .catch(err => {
+            dispatch(fetchRandomPlaylistsError(err));
+            return false;
+        });
+};
+export const fetchRandomPlaylistsSuccess = createAction('FETCH_RANDOM_PLAYLISTS_SUCCESS');
+export const fetchRandomPlaylistsError = createAction('FETCH_RANDOM_PLAYLISTS_ERROR');
+
+//*********************************************************************
+//---------------------- TOP 3 GENERATED PLAYLISTS --------------------
+//*********************************************************************
+export const fetchTopThreePlaylists = (currentUser) => dispatch => {
+    return axios.get('/dashboard/' + currentUserId + '?access_token=' + accessToken +  'top3playlists' + playlistId)
+        .then((response) => {
+            dispatch(fetchTopThreePlaylistsSuccess())
+        })
+        .catch(err => {
+            dispatch(fetchTopThreePlaylistsError(err));
+            return false;
+        });
+};
+export const fetchTopThreePlaylistsSuccess = createAction('FETCH_TOP_THREE_PLAYLISTS_SUCCESS');
+export const fetchTopThreePlaylistsError = createAction('FETCH_TOP_THREE_PLAYLISTS_ERROR');
+
