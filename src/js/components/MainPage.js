@@ -15,6 +15,7 @@ class MainPage extends Component {
       {loading ? <LoadingAni/> :
         <div className="MainPage-Header">
           <h2>
+          
           <span className="S">S</span>
           <span className="y">y</span>
           <span className="n">n</span>

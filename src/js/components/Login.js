@@ -3,6 +3,7 @@ import '../../App.css';
 import { Link } from 'react-router';
 import { loginRequest } from '../actions/actions';
 import { connect } from 'react-redux';
+import MusicPlayer from './ReactPlayer'
 
 class Login extends Component {
    onSubmit(event) {
@@ -16,6 +17,7 @@ class Login extends Component {
     render() {
         return (
             <div className="Register-page">
+            <MusicPlayer/>
                 <form className="Register-form">
                     <legend>Fill out the Form, Asshole.</legend>
 
