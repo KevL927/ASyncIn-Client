@@ -5,6 +5,7 @@ import store from '../store/store';
 import App from '../components/MainPage';
 import LoginPage from '../components/LoginPage';
 import SongSearchPage from '../components/SongSearchPage';
+import RegisterPage from '../components/RegisterPage'
 
 const routes = (
 	<Provider store={store}>
@@ -13,6 +14,7 @@ const routes = (
 				<IndexRoute component={App} />
 					<Route path="login" component={LoginPage} />
 					<Route path="search" component={SongSearchPage} />
+					<Route path="register" component={RegisterPage} />
 			</Route>
 		</Router>
 	</Provider>

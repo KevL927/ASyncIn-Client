@@ -8,7 +8,7 @@ class RegisterPage extends Component {
     return (
       <div className="RegisterPage">
         <div className="RegisterPage-container">
-          
+          <Register/>
         </div>
       </div>
     );

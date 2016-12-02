@@ -4,17 +4,7 @@ import axios from 'axios';
 import { hashHistory } from 'react-router';
 
 
-// export const registerRequest = (username, password) => dispatch => {
-//     return axios.post('https://polar-escarpment-86427.herokuapp.com/api/v1/users', { username, password })
-//         .then(function(response) {
-//             console.log(response);
-//             hashHistory.push('/register');
-//         })
-//         .catch(function(error) {
-//             console.log(error);
-//         });
-// };
-// export const registerError = createAction('REGISTER_ERROR');
+
 
 //////////////////////////////////////////////////////////////////////
 export const loginRequest = (username, password) => dispatch => {

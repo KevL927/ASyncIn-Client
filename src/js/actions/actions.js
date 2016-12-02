@@ -5,6 +5,18 @@ import { hashHistory } from 'react-router';
 //*********************************************************************
 //-----------------LOGIN/LOGOUT AND REGISTER ACTIONS ------------------
 //*********************************************************************
+export const registerError = createAction('REGISTER_ERROR');
+export const registerRequest = (displayname,username, password) => dispatch => {
+    return axios.post('https://polar-escarpment-86427.herokuapp.com/api/v1/users', { displayname, username, password })
+        .then(function(response) {
+            console.log(response);
+            hashHistory.push('/register');
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+};
+
 export const loginSuccess = createAction('LOGIN_SUCCESS');
 export const loginError = createAction('LOGIN_ERROR');
 export const loginRequest = (username, password) => dispatch => {

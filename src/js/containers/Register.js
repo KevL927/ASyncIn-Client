@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
+import registerRequest from '../actions/actions';
+
+
 
 class Register extends Component {
-   onSubmit (event) {
+   onSubmitRegister (event) {
         event.preventDefault();
-   		this.props.onSubmitRegister(this.refs.usernameText.value, this.refs.passwordText.value);
-        this.refs.usernameText.value = "";
-        this.refs.passwordText.value = "";
+        if (this.refs.passwordText.value === this.refs.confirmpasswordText.value){
+       		this.props.onSubmitRegister(this.refs.usernameText.value, this.refs.passwordText.value, this.refs.emailText.value);
+            this.refs.usernameText.value = "";
+            this.refs.passwordText.value = "";
+            this.refs.emailText.value = "";
+        }
+        else {
+    
+            
+        }
     }
     render () {
         return (
@@ -17,7 +28,7 @@ class Register extends Component {
 
                     <span className="email">Email Address:</span>
 
-                    <input type="text" id="email-input" className="input" ref="emailText" required />
+                    <input type="email" id="email-input" className="input" ref="emailText" required />
 
                     <span className="username">Create Username:</span>
 
@@ -29,9 +40,9 @@ class Register extends Component {
 
                     <span className="password">Verify Password:</span>
 
-                    <input type="password" className="input" name="password" ref="passwordText" required />
+                    <input type="password" className="input" name="password" ref="confirmpasswordText" required />
 
-                    <button id="register-button" onClick={this.onSubmit.bind(this)} value="Submit" className="register-button"></button>
+                    <button id="register-button" onClick={this.onSubmitRegister.bind(this)} className="register-button">Submit</button>
                 </form>
             </div>
         );
@@ -40,13 +51,11 @@ class Register extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onSubmitLogin: function(username, password) {
-            dispatch(loginRequest(username, password));
+        onSubmitRegister: function(email, username, password) {
+            dispatch(registerRequest(email, username, password));
         }
     };
 }
 
 
 export default connect(null, mapDispatchToProps)(Register);
-
-export default Register;
