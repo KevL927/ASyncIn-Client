@@ -5,6 +5,8 @@ import { hashHistory } from 'react-router';
 //*********************************************************************
 //-----------------LOGIN/LOGOUT AND REGISTER ACTIONS ------------------
 //*********************************************************************
+export const loginSuccess = createAction('LOGIN_SUCCESS');
+export const loginError = createAction('LOGIN_ERROR');
 export const loginRequest = (username, password) => dispatch => {
     console.log("it worked!")
     return axios.get('https://asyncin.herokuapp.com', {
@@ -25,25 +27,54 @@ export const loginRequest = (username, password) => dispatch => {
         })
 };
 
-
-export const loginSuccess = createAction('LOGIN_SUCCESS');
-export const loginError = createAction('LOGIN_ERROR');
-
-export const youtubeSearchSuccess = createAction('LOGIN_SEARCH_SUCCESS');
-export const youtubeSearchError = createAction('LOGIN_SEARCH_ERROR');
-
+//*********************************************************************
+//-----------------SEARCH SONGS YOUTUBE/VIMEO/SC- --------------------
+//*********************************************************************
+export const searchYoutubeSuccess = createAction('SEARCH_YOUTUBE_SUCCESS');
+export const searchYoutubeError = createAction('SEARCH_YOUTUBE_ERROR');
 export const searchYoutube = (search) => dispatch => {
     return axios.post('https://asyncin.herokuapp.com/api/youtube', {search: search})
         .then((response) => {
-            console.log(response);
-            dispatch(youtubeSearchSuccess(response));
-            hashHistory.push('/search');
+            dispatch(searchYoutubeSuccess(response.data));
+            //hashHistory.push('/search');
             return { response };
         })
         .catch(err => {
-            dispatch(youtubeSearchError(err));
+            dispatch(searchYoutubeError(err));
             return false;
         })
 };
+/////////////////////////////////SOUNDCLOUD///////////////////////////////////
+export const searchSoundcloudSuccess = createAction('SEARCH_SOUNDCLOUD_SUCCESS');
+export const searchSoundcloudError = createAction('SEARCH_SOUNDCLOUD_ERROR');
+export const searchSoundcloud = (search) => dispatch => {
+    return axios.post('https://asyncin.herokuapp.com/api/soundcloud', {search: search})
+        .then((response) => {
+            dispatch(searchSoundcloudSuccess(response.data));
+            //hashHistory.push('/search');
+            return { response };
+        })
+        .catch(err => {
+            dispatch(searchSoundcloudError(err));
+            return false;
+        })
+};
+////////////////////////////////////VIMEO////////////////////////////////////////
+export const searchVimeoSuccess = createAction('SEARCH_VIMEO_SUCCESS');
+export const searchVimeoError = createAction('SEARCH_VIMEO_ERROR');
+export const searchVimeo = (search) => dispatch => {
+    return axios.post('https://asyncin.herokuapp.com/api/vimeo', {search: search})
+        .then((response) => {
+            dispatch(searchVimeoSuccess(response.data));
+            //hashHistory.push('/search');
+            return { response };
+        })
+        .catch(err => {
+            dispatch(searchVimeoError(err));
+            return false;
+        })
+};
+
+
 
 

@@ -3,9 +3,7 @@ import { createAction } from 'redux-actions';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
 
-//*********************************************************************
-//-----------------LOGIN/LOGOUT AND REGISTER ACTIONS ------------------
-//*********************************************************************
+
 // export const registerRequest = (username, password) => dispatch => {
 //     return axios.post('https://polar-escarpment-86427.herokuapp.com/api/v1/users', { username, password })
 //         .then(function(response) {
