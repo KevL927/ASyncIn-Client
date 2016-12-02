@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import { Link } from 'react-router';
 import { loginRequest } from '../actions/actions';
 import { connect } from 'react-redux';
 import MusicPlayer from './ReactPlayer'
