@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../../App.css';
 import {Link} from 'react-router';
-import LoadingAni from './Loading';
+import LoadingAni from '../containers/Loading';
 import {loading} from 'react'
 
 class MainPage extends Component {
