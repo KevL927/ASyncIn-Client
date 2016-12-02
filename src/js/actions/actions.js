@@ -2,9 +2,9 @@ import { createAction } from 'redux-actions';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
 
-export const loginSuccess = createAction('LOGIN_SUCCESS');
-export const loginError = createAction('LOGIN_ERROR');
-
+//*********************************************************************
+//-----------------LOGIN/LOGOUT AND REGISTER ACTIONS ------------------
+//*********************************************************************
 export const loginRequest = (username, password) => dispatch => {
     console.log("it worked!")
     return axios.get('https://asyncin.herokuapp.com', {
@@ -24,3 +24,6 @@ export const loginRequest = (username, password) => dispatch => {
             return false;
         })
 };
+
+export const loginSuccess = createAction('LOGIN_SUCCESS');
+export const loginError = createAction('LOGIN_ERROR');
