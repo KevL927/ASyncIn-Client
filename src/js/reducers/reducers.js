@@ -17,7 +17,10 @@ const initialState = {
 };
 
 export default handleActions (
-	{
+	{	
+		[actions.registerError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
 		[actions.loginSuccess]: (state, action) => {
 			return {...state, isAuthenicated:true};
 		},

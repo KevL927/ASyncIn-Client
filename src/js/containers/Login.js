@@ -7,8 +7,6 @@ import MusicPlayer from './ReactPlayer'
 class Login extends Component {
    onSubmit(event) {
         event.preventDefault();
-        console.log(this)
-        console.log(this.refs.passwordText.value)
    		this.props.onSubmitLogin(this.refs.usernameText.value, this.refs.passwordText.value);    
         this.refs.usernameText.value = "";
         this.refs.passwordText.value = "";
