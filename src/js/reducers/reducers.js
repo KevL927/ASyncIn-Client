@@ -4,7 +4,9 @@ import { handleActions } from 'redux-actions';
 const initialState = {
 	otherUsersPlaylist: [],
 	userPlaylist: [],
-	searchedSongs: [],
+	youtubeSearchedSongs: [],
+	vimeoSearchedSongs:[],
+	soundcloudSearchedSongs:[],
 	random: [],
 	top3: [],
 	tracks: {},
@@ -23,7 +25,7 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[actions.searchYoutubeSuccess]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, youtubeSearchedSongs: action.payload};
 		},
 		[actions.searchYoutubeError]: (state, action) => {
 			return {...state, error: action.payload};
