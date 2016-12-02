@@ -8,11 +8,11 @@ class LoginPage extends Component {
     return (
       <div className="LoginPage">
         <div className="LoginPage-container">
-          
+          <Login/>
         </div>
       </div>
     );
   }
 }
 
-export default LoginPage;
+export default LoginPage; 
