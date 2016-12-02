@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import '../../App.css';
+import Login from '../containers/Login'
 //import {Link} from 'react-router';
 
-class ContactDev extends Component {
+class LoginPage extends Component {
   render() {
     return (
-      <div className="contactDev">
-        <div className="contactDevContainer">
+      <div className="LoginPage">
+        <div className="LoginPage-container">
           
         </div>
       </div>
@@ -14,4 +15,4 @@ class ContactDev extends Component {
   }
 }
 
-export default ContactDev;
+export default LoginPage;
