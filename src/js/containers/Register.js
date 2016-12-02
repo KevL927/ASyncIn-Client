@@ -5,7 +5,7 @@ import {Link} from 'react-router';
 class Register extends Component {
    onSubmit (event) {
         event.preventDefault();
-   		this.props.onAddSubmit(this.refs.usernameText.value, this.refs.passwordText.value);
+   		this.props.onSubmitRegister(this.refs.usernameText.value, this.refs.passwordText.value);
         this.refs.usernameText.value = "";
         this.refs.passwordText.value = "";
     }
@@ -31,11 +31,22 @@ class Register extends Component {
 
                     <input type="password" className="input" name="password" ref="passwordText" required />
 
-                    <button id="register-button" onClick={this.onSubmit} value="Submit" className="register-button"></button>
+                    <button id="register-button" onClick={this.onSubmit.bind(this)} value="Submit" className="register-button"></button>
                 </form>
             </div>
         );
     }
 };
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onSubmitLogin: function(username, password) {
+            dispatch(loginRequest(username, password));
+        }
+    };
+}
+
+
+export default connect(null, mapDispatchToProps)(Register);
 
 export default Register;
