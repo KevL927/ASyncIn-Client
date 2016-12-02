@@ -14,12 +14,20 @@ const initialState = {
 	accessToken: null
 };
 
-export default handleActions ({
-	[actions.loginSuccess]: (state, action) => {
-		return {...state, isAuthenicated:true};
+export default handleActions (
+	{
+		[actions.loginSuccess]: (state, action) => {
+			return {...state, isAuthenicated:true};
+		},
+		[actions.loginError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[actions.searchYoutubeSuccess]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[actions.searchYoutubeError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
 	},
-	[actions.loginError]: (state, action) => {
-		return {...state, error: action.payload};
-	}
-},
-initialState)
+	initialState
+);
