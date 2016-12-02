@@ -27,6 +27,7 @@ export const loginRequest = (username, password) => dispatch => {
         })
 };
 
+
 //*********************************************************************
 //-----------------SEARCH SONGS YOUTUBE/VIMEO/SC- --------------------
 //*********************************************************************
@@ -76,5 +77,10 @@ export const searchVimeo = (search) => dispatch => {
 };
 
 
-
-
+// export const searchAllSuccess = createAction('SEARCH_ALL_SUCCESS');
+// export const searchAllError = createAction('SEARCH_ALL_ERROR');
+export const searchAll = (search) => dispatch => {
+   dispatch(searchYoutube(search));
+   dispatch(searchVimeo(search));
+   dispatch(searchSoundcloud(search));
+};

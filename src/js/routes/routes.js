@@ -3,7 +3,7 @@ import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import {Provider} from 'react-redux';
 import store from '../store/store';
 import App from '../components/MainPage';
-import Login_Page from '../components/Login';
+import LoginPage from '../components/LoginPage';
 import SongSearchPage from '../components/SongSearchPage';
 
 const routes = (
@@ -11,7 +11,7 @@ const routes = (
 		<Router history={browserHistory}>
 			<Route path="/">
 				<IndexRoute component={App} />
-					<Route path="login" component={Login_Page} />
+					<Route path="login" component={LoginPage} />
 					<Route path="search" component={SongSearchPage} />
 			</Route>
 		</Router>
