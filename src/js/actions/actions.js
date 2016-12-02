@@ -25,5 +25,25 @@ export const loginRequest = (username, password) => dispatch => {
         })
 };
 
+<<<<<<< HEAD
 export const loginSuccess = createAction('LOGIN_SUCCESS');
 export const loginError = createAction('LOGIN_ERROR');
+=======
+export const youtubeSearchSuccess = createAction('LOGIN_SEARCH_SUCCESS');
+export const youtubeSearchError = createAction('LOGIN_SEARCH_ERROR');
+
+export const searchYoutube = (search) => dispatch => {
+    return axios.post('https://asyncin.herokuapp.com/api/youtube', {search: search})
+        .then((response) => {
+            console.log(response);
+            dispatch(youtubeSearchSuccess(response));
+            hashHistory.push('/search');
+            return { response };
+        })
+        .catch(err => {
+            dispatch(youtubeSearchError(err));
+            return false;
+        })
+};
+
+>>>>>>> 05f9af4dd592024d97d5105c32a0bdb9c0fbcb26
