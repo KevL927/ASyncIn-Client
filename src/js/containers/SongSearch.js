@@ -6,16 +6,32 @@ import {searchAll} from '../actions/actions';
 
 class SongSearch extends Component {
   onSubmitSearch(event) {
-        event.preventDefault();
-        this.props.onSubmitSearch(this.refs.searchInput.value);
+    event.preventDefault();
+    this.props.onSubmitSearch(this.refs.searchInput.value);
+  }
+  generateResult() {
+    let arr = [];
+    if(!this.props.youtubeResults) {
+      arr = <div></div>
+    } else {
+        arr = this.props.youtubeResults.map((result, index) => {
+        return (<div key={index}>{result.link}</div>);
+        })
+    }
+    return arr;
   }
   render() {
     return (
+
       <div className="songSearch">
         <div className="songSearch-container">
           <form onSubmit={this.onSubmitSearch.bind(this)}>
             <input type="text" name="search" ref="searchInput" placeholder="Search.."/>
           </form>
+          <ul>
+            <h1>Youtube</h1>
+            {this.generateResults()}
+          </ul>
         </div>
       </div>
     );
