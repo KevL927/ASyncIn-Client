@@ -1,7 +1,9 @@
-import fetch from 'isomorphic-fetch';
 import { createAction } from 'redux-actions';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
+
+export const loginSuccess = createAction('LOGIN_SUCCESS');
+export const loginError = createAction('LOGIN_ERROR');
 
 export const loginRequest = (username, password) => dispatch => {
     console.log("it worked!")
@@ -22,6 +24,3 @@ export const loginRequest = (username, password) => dispatch => {
             return false;
         })
 };
-
-export const loginSuccess = createAction('LOGIN_SUCCESS');
-export const loginError = createAction('LOGIN_ERROR');

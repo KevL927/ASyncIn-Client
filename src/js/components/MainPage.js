@@ -24,7 +24,7 @@ class MainPage extends Component {
           <span className="n">n?</span>
           </h2>
           <button className="start-button">
-            <Link to ="/login">Start</Link>
+            <Link to="/login">Start</Link>
           </button>
         </div>
       }
