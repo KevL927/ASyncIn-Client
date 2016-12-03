@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import {Link} from 'react-router';
+// import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import {registerRequest} from '../actions/actions';
 import Feedback from './Feedback';
@@ -27,7 +27,7 @@ class Register extends Component {
         if(this.state.error) {
             return  <Feedback feedback={'password do not match'} />
         } else {
-            <div></div>
+            return <div></div>
         }
     }
     

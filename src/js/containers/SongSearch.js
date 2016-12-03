@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../../App.css';
 import {connect} from 'react-redux';
 import {searchAll, currentListeningUrl} from '../actions/actions';
-import {Link} from 'react-router';
 import MusicPlayer from './MusicPlayer';
 
 class SongSearch extends Component {

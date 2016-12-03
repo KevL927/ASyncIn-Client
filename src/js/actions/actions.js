@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 import axios from 'axios';
-import { hashHistory } from 'react-router';
+// import { hashHistory } from 'react-router';
 
 //*********************************************************************
 //-----------------LOGIN/LOGOUT AND REGISTER ACTIONS ------------------
