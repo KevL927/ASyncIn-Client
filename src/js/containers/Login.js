@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../App.css';
 import { loginRequest } from '../actions/actions';
 import { connect } from 'react-redux';
-import MusicPlayer from './ReactPlayer'
+import MusicPlayer from './MusicPlayer';
 
 class Login extends Component {
    onSubmit(event) {
