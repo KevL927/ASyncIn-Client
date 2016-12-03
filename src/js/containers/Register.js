@@ -4,11 +4,7 @@ import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import {registerRequest} from '../actions/actions';
 import Feedback from './Feedback';
-import { Field, reduxForm } from 'redux-form';
 
-// RegisterForm = reduxForm({
-//     form: 'register'
-// })(RegisterForm)
 
 class Register extends Component {
     state = {error: false}
