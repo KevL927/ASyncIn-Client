@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import {connect} from 'react-redux';
-import {searchAll} from '../actions/actions';
+import {searchAll, currentListeningUrl} from '../actions/actions';
 import {Link} from 'react-router';
 import MusicPlayer from './MusicPlayer';
 
 class SongSearch extends Component {
-  state = {currentListeningUrl: null}
-
   onSubmitSearch(event) {
     event.preventDefault();
     this.props.onSubmitSearch(this.refs.searchInput.value);
@@ -33,18 +31,19 @@ class SongSearch extends Component {
 
   playTrackOnClick(url, event) {
     event.preventDefault();
-    this.setState({currentListeningUrl: url});
+    this.props.onClickPlayUrl(url);
   }
 
   playMusicOrNot() {
-    if(this.state.currentListeningUrl) {
-      console.log(this.state);
-     return <MusicPlayer url={this.state.currentListeningUrl} />
+    if(this.props.currentListeningUrl) {
+      console.log(this.props);
+     return <MusicPlayer url={this.props.currentListeningUrl} />
     }
     return <div>no music</div>
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="songSearch">
         <div className="songSearch-container">
@@ -70,13 +69,17 @@ const mapStateToProps = (state) => {
   return {
     youtubeResults: state.youtubeSearchedSongs,
     soundcloudResults: state.soundcloudSearchedSongs,
-    vimeoResults: state.vimeoSearchedSongs
+    vimeoResults: state.vimeoSearchedSongs,
+    currentListeningUrl: state.currentListeningUrl
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
     onSubmitSearch: function(search) {
       dispatch(searchAll(search));
+    },
+    onClickPlayUrl: function (url) {
+      dispatch(currentListeningUrl(url));
     }
   };
 };

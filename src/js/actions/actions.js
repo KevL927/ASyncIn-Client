@@ -61,3 +61,9 @@ export const searchAll = (search) => dispatch => {
         })
 };
 
+
+export let currentListeningUrl = createAction('CURRENT_LISTENING_URL', url => url);
+
+//*********************************************************************
+//-----------------PLAYLIST ACTIONS ------------------
+//*********************************************************************
