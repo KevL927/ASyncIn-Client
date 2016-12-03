@@ -36,14 +36,12 @@ class SongSearch extends Component {
 
   playMusicOrNot() {
     if(this.props.currentListeningUrl) {
-      console.log(this.props);
      return <MusicPlayer url={this.props.currentListeningUrl} />
     }
     return <div>no music</div>
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="songSearch">
         <div className="songSearch-container">
