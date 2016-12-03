@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import '../../App.css';
 import {connect} from 'react-redux';
 import {searchAll} from '../actions/actions';
-// import {Link} from 'react-router';
+import {Link} from 'react-router';
+import MusicPlayer from './MusicPlayer';
 
 class SongSearch extends Component {
+  state = {currentListeningUrl: null}
+
   onSubmitSearch(event) {
     event.preventDefault();
     this.props.onSubmitSearch(this.refs.searchInput.value);
@@ -20,20 +23,38 @@ class SongSearch extends Component {
             <div>{track.title}</div>
             <div>{track.link}</div>
             <div>{track.thumbnail}</div>
+            <button onClick={this.playTrackOnClick.bind(this, track.link)}>click</button>
           </li>
         );
         })
     }
     return arr;
   }
-  render() {
-    return (
 
+  playTrackOnClick(url, event) {
+    event.preventDefault();
+    this.setState({currentListeningUrl: url});
+  }
+
+  playMusicOrNot() {
+    if(this.state.currentListeningUrl) {
+      console.log(this.state);
+     return <MusicPlayer url={this.state.currentListeningUrl} />
+    }
+    return <div>no music</div>
+  }
+
+  render() {
+
+
+    return (
       <div className="songSearch">
         <div className="songSearch-container">
           <form onSubmit={this.onSubmitSearch.bind(this)}>
             <input type="text" name="search" ref="searchInput" placeholder="Search.."/>
           </form>
+        </div>
+          {this.playMusicOrNot()}
           <ul>
             <h1>Youtube</h1>
             <ul>{this.generateResult(this.props.youtubeResults)}</ul>
@@ -42,7 +63,6 @@ class SongSearch extends Component {
             <h1>SoundCloud</h1>
             <ul>{this.generateResult(this.props.soundcloudResults)}</ul>
           </ul>
-        </div>
       </div>
     );
   }
