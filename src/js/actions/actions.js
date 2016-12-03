@@ -43,7 +43,7 @@ export const loginRequest = (username, password) => dispatch => {
 export const searchAllSuccess = createAction('SEARCH_ALL_SUCCESS');
 export const searchAllError = createAction('SEARCH_ALL_ERROR');
 export const searchAll = (search) => dispatch => {
-    return axios.post('http://localhost:8080/api/search', {search: search}, {headers: {'Content-Type': 'application/json'}})
+    return axios.post('https://asyncin.herokuapp.com/api/search', {search: search}, {headers: {'Content-Type': 'application/json'}})
         .then((response) => {
             dispatch(searchAllSuccess(response));
             return { response };

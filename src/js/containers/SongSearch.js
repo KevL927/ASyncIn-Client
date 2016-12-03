@@ -45,8 +45,6 @@ class SongSearch extends Component {
   }
 
   render() {
-
-
     return (
       <div className="songSearch">
         <div className="songSearch-container">
