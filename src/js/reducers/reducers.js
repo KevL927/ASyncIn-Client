@@ -26,6 +26,13 @@ export default handleActions (
 		[actions.loginError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
+		[actions.registerSuccess]: (state, action) => {
+			console.log(action.payload);
+			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist ,isAuthenicated:true};
+		},
+		[actions.registerError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
 		[actions.searchAllSuccess]: (state, action) => {
 			return {...state, youtubeSearchedSongs: action.payload.data.youtube, vimeoSearchedSongs: action.payload.data.vimeo, soundcloudSearchedSongs: action.payload.data.soundcloud}
 		},
