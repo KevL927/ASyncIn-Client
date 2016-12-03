@@ -2,8 +2,8 @@ import * as actions from '../actions/actions'
 import { handleActions } from 'redux-actions';
 
 const initialState = {
-	otherUsersPlaylists: [],
-	userSavedPlaylists: [],
+	otherUsersPlaylists: null,
+	userSavedPlaylists: null,
 	youtubeSearchedSongs: null,
 	vimeoSearchedSongs:null,
 	soundcloudSearchedSongs:null,
@@ -11,7 +11,9 @@ const initialState = {
 	topPlaylists: null,
 	isAuthenicated: false,
 	currentUser:null, //contains accessToken, username, token(email), userId, favouritePlaylist 
-	error: null
+	error: null,
+	newPlaylist: null,
+	currentListeningUrl: null
 };
 
 export default handleActions (
@@ -38,6 +40,9 @@ export default handleActions (
 		},
 		[actions.searchAllError]: (state, action) => {
 			return {...state, error: action.payload}
+		},
+		[actions.currentListeningUrl]: (state, action) => {
+			return {...state, currentListeningUrl: action.payload}
 		}
 	},
 	initialState
