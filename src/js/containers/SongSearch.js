@@ -9,13 +9,19 @@ class SongSearch extends Component {
     event.preventDefault();
     this.props.onSubmitSearch(this.refs.searchInput.value);
   }
-  generateResult() {
+  generateResult(resultArr) {
     let arr = [];
-    if(!this.props.youtubeResults) {
+    if(!resultArr) {
       arr = <div></div>
     } else {
-        arr = this.props.youtubeResults.map((result, index) => {
-        return (<div key={index}>{result.link}</div>);
+        arr = resultArr.map((track, index) => {
+        return (
+          <li key={index}>
+            <div>{track.title}</div>
+            <div>{track.link}</div>
+            <div>{track.thumbnail}</div>
+          </li>
+        );
         })
     }
     return arr;
@@ -30,7 +36,11 @@ class SongSearch extends Component {
           </form>
           <ul>
             <h1>Youtube</h1>
-            {this.generateResults()}
+            <ul>{this.generateResult(this.props.youtubeResults)}</ul>
+            <h1>Vimeo</h1>
+            <ul>{this.generateResult(this.props.vimeoResults)}</ul>
+            <h1>SoundCloud</h1>
+            <ul>{this.generateResult(this.props.soundcloudResults)}</ul>
           </ul>
         </div>
       </div>
