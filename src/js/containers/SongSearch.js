@@ -1,53 +1,52 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import {connect} from 'react-redux';
-import {searchYoutube, searchSoundcloud, searchVimeo, searchAll} from '../actions/actions';
+import {searchAll} from '../actions/actions';
 // import {Link} from 'react-router';
 
-const SongSearch = React.createClass({
-  getInitialState () {
-    return {
-      allResultsReturned: false
-    }
-  },
-  changeState() {
-    this.setState({
-      allResultsReturned: !this.state.allResultsReturned
-    });
-  },
-  // shouldComponentUpdate(newProps, newState) {
-  //   console.log(newProps, newState);
-  //   if(newProps.soundcloudResults !== []|| newProps.youtubeResults !== [] || newProps.vimeoResults !== []) {
-  //     return false;
-  //   }
-  //   this.changeState();
-  //   return true;
-  // },
-  // componentWillMount() {
-  //   console.log('componentWillMount');
-  // },
-  //  componentDidMount() {
-  //   console.log('componentDidMount');
-  // },
+class SongSearch extends Component {
   onSubmitSearch(event) {
-        event.preventDefault();
-        this.props.onSubmitSearch(this.refs.searchInput.value);
-        this.changeState();
-  },
+    event.preventDefault();
+    this.props.onSubmitSearch(this.refs.searchInput.value);
+  }
+  generateResult(resultArr) {
+    let arr = [];
+    if(!resultArr) {
+      arr = <div></div>
+    } else {
+        arr = resultArr.map((track, index) => {
+        return (
+          <li key={index}>
+            <div>{track.title}</div>
+            <div>{track.link}</div>
+            <div>{track.thumbnail}</div>
+          </li>
+        );
+        })
+    }
+    return arr;
+  }
   render() {
-    console.log('this.props', this.props, 'this.state', this.state)
-
     return (
+
       <div className="songSearch">
         <div className="songSearch-container">
           <form onSubmit={this.onSubmitSearch.bind(this)}>
             <input type="text" name="search" ref="searchInput" placeholder="Search.."/>
           </form>
+          <ul>
+            <h1>Youtube</h1>
+            <ul>{this.generateResult(this.props.youtubeResults)}</ul>
+            <h1>Vimeo</h1>
+            <ul>{this.generateResult(this.props.vimeoResults)}</ul>
+            <h1>SoundCloud</h1>
+            <ul>{this.generateResult(this.props.soundcloudResults)}</ul>
+          </ul>
         </div>
       </div>
     );
   }
-})
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -59,9 +58,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSubmitSearch: function(search) {
-      // dispatch(searchYoutube(search));
-      // dispatch(searchSoundcloud(search));
-      // dispatch(searchVimeo(search));
       dispatch(searchAll(search));
     }
   };

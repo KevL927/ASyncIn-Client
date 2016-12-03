@@ -27,30 +27,10 @@ export default handleActions (
 		[actions.loginError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
-		[actions.searchYoutubeSuccess]: (state, action) => {
-			return {...state, youtubeSearchedSongs: action.payload};
-		},
-		[actions.searchYoutubeError]: (state, action) => {
-			return {...state, error: action.payload};
-		},
-		[actions.searchSoundcloudSuccess]: (state, action) => {
-			return {...state, soundcloudSearchedSongs: action.payload};
-		},
-		[actions.searchSoundcloudError]: (state, action) => {
-			return {...state, error: action.payload};
-		},
-		[actions.searchVimeoSuccess]: (state, action) => {
-			return {...state, vimeoSearchedSongs: action.payload};
-		},
-		[actions.searchVimeoError]: (state, action) => {
-			return {...state, error: action.payload};
-		},
 		[actions.searchAllSuccess]: (state, action) => {
-			console.log(action)
-			return {...state, youtubeSearchedSongs: action.payload}
+			return {...state, youtubeSearchedSongs: action.payload.data.youtube, vimeoSearchedSongs: action.payload.data.vimeo, soundcloudSearchedSongs: action.payload.data.soundcloud}
 		},
 		[actions.searchAllError]: (state, action) => {
-			console.log(action)
 			return {...state, error: action.payload}
 		}
 	},
