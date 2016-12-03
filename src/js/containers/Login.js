@@ -7,27 +7,27 @@ import MusicPlayer from './MusicPlayer';
 class Login extends Component {
    onSubmit(event) {
         event.preventDefault();
-   		this.props.onSubmitLogin(this.refs.usernameText.value, this.refs.passwordText.value);    
-        this.refs.usernameText.value = "";
+   		this.props.onSubmitLogin(this.refs.emailText.value, this.refs.passwordText.value);    
+        this.refs.emailText.value = "";
         this.refs.passwordText.value = "";
     }
     render() {
         return (
-            <div className="Register-page">
+            <div className="Login-page">
             <MusicPlayer/>
-                <form className="Register-form">
+                <form className="Login-form">
                     <legend>Fill out the Form, Asshole.</legend>
 
-                    <span className="username">Username:</span>
+                    <span className="email">Email: </span>
 
-                    <input type="text" id="username" className="input" ref="usernameText" required />
+                    <input type="text" id="email" className="input" ref="emailText" required />
                     
                     <span className="password">Password:</span>
 
                     <input type="password" className="input" name="password" ref="passwordText" required />
 
 
-                    <button id="register-button" onClick={this.onSubmit.bind(this)} value="Submit" className="register-button">Submit</button>
+                    <button id="login-button" onClick={this.onSubmit.bind(this)} value="Submit" className="login-button">Submit</button>
                 </form>
             </div>
         );
@@ -36,8 +36,8 @@ class Login extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onSubmitLogin: function(username, password) {
-            dispatch(loginRequest(username, password));
+        onSubmitLogin: function(email, password) {
+            dispatch(loginRequest(email, password));
         }
     };
 }

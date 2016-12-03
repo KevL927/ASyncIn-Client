@@ -19,19 +19,19 @@ export const registerRequest = (displayname,username, password) => dispatch => {
 
 export const loginSuccess = createAction('LOGIN_SUCCESS');
 export const loginError = createAction('LOGIN_ERROR');
-export const loginRequest = (username, password) => dispatch => {
+export const loginRequest = (email, password) => dispatch => {
     console.log("it worked!")
-    return axios.get('https://asyncin.herokuapp.com', {
+    return axios.get('https://asyncin.herokuapp.com/api/v1/users/login/'+email, {
             auth: {
-                username,
-                password
+                username: email,
+                password: password
             }
-        })
+        },{headers: {'Content-Type': 'application/json'}})
         .then((response) => {
 
-            dispatch(loginSuccess({ username, password }));
-            hashHistory.push('/login');
-            return { username, password };
+            dispatch(loginSuccess({response}));
+          //  hashHistory.push('/dashboard');
+           return {response: '200'}
         })
         .catch(err => {
             dispatch(loginError(err));

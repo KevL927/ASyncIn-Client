@@ -2,18 +2,16 @@ import * as actions from '../actions/actions'
 import { handleActions } from 'redux-actions';
 
 const initialState = {
-	otherUsersPlaylist: [],
-	userPlaylist: [],
+	otherUsersPlaylists: [],
+	userSavedPlaylists: [],
 	youtubeSearchedSongs: null,
 	vimeoSearchedSongs:null,
 	soundcloudSearchedSongs:null,
 	random: [],
-	top3: [],
-	tracks: {},
+	topPlaylists: null,
 	isAuthenicated: false,
-	currentUser:null,
-	error: null,
-	accessToken: null
+	currentUser:null, //contains accessToken, username, token(email), userId, favouritePlaylist 
+	error: null
 };
 
 export default handleActions (
@@ -22,7 +20,8 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[actions.loginSuccess]: (state, action) => {
-			return {...state, isAuthenicated:true};
+			console.log(action.payload);
+			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist ,isAuthenicated:true};
 		},
 		[actions.loginError]: (state, action) => {
 			return {...state, error: action.payload};
