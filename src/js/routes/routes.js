@@ -6,7 +6,7 @@ import App from '../components/MainPage';
 import LoginPage from '../components/LoginPage';
 import SongSearchPage from '../components/SongSearchPage';
 import RegisterPage from '../components/RegisterPage';
-import MusicPlayer from '../containers/MusicPlayer';
+import TestAction from '../containers/TestAction';
 
 
 const routes = (
@@ -17,7 +17,7 @@ const routes = (
 					<Route path="login" component={LoginPage} />
 					<Route path="search" component={SongSearchPage} />
 					<Route path="register" component={RegisterPage} />
-					<Route path="player" name="MusicPlayer" handler={MusicPlayer} />
+					<Route path="test" component={TestAction} />
 			</Route>
 		</Router>
 	</Provider>
