@@ -30,14 +30,16 @@ export const loginError = createAction('LOGIN_ERROR');
 export const loginRequest = (email, password) => dispatch => {
     return axios.get('https://asyncin.herokuapp.com/api/v1/users/login/'+email, {
             auth: {
-                username: email,
-                password: password
+                //if email was username, then you can do auth: {username, password}
+                username: email, 
+                password
             }
         },{headers: {'Content-Type': 'application/json'}})
         .then((response) => {
-
+            console.log('through')
             dispatch(loginSuccess({response}));
           //  hashHistory.push('/dashboard');
+         
            return {response: '200'}
         })
         .catch(err => {
@@ -46,10 +48,12 @@ export const loginRequest = (email, password) => dispatch => {
         })
 };
 
-////////////////////////////////////SEARCHALL////////////////////////////////////////
-export const searchAllSuccess = createAction('SEARCH_ALL_SUCCESS');
-export const searchAllError = createAction('SEARCH_ALL_ERROR');
-export const searchAll = (search) => dispatch => {
+//*********************************************************************
+//---------------------------SEARCH ACTION ----------------------------
+//*********************************************************************
+export let searchAllSuccess = createAction('SEARCH_ALL_SUCCESS');
+export let searchAllError = createAction('SEARCH_ALL_ERROR');
+export let searchAll = (search) => dispatch => {
     return axios.post('https://asyncin.herokuapp.com/api/search', {search: search}, {headers: {'Content-Type': 'application/json'}})
         .then((response) => {
             dispatch(searchAllSuccess(response));
@@ -65,5 +69,22 @@ export const searchAll = (search) => dispatch => {
 export let currentListeningUrl = createAction('CURRENT_LISTENING_URL', url => url);
 
 //*********************************************************************
-//-----------------PLAYLIST ACTIONS ------------------
+//---------------------------PLAYLIST ACTIONS--------------------------
 //*********************************************************************
+
+
+//GET playlist with accessToken for that user
+//GET /api/v1/playlists?access_token=gfhgfhghghghd
+
+
+//GET playlist by playlistId (when the user uses another user's playlist)
+//GET /api/v1/playlists/:playlistId?access_token=<accesstokenOfCurrentlyLoggedInUser>
+
+//POST playlist of currentUser
+//POST /api/v1/playlists/:userId?access_token=gfhgfhghghghd
+
+//PUT/EDIT existing playlist
+//PUT /api/v1/playlists/:userId/:playlistId
+
+//DELETE existing playlist
+//DELETE /api/v1/:userId/:playlistId
