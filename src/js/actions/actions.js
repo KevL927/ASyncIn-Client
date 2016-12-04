@@ -91,6 +91,20 @@ export const getUserPlaylists = (accessToken) => dispatch => {
 
 //GET playlist by playlistId (when the user uses another user's playlist)
 //GET /api/v1/playlists/:playlistId?access_token=<accesstokenOfCurrentlyLoggedInUser>
+export const getOtherUserPlaylistSuccess = createAction('GET_OTHER_USER_PLAYLIST_SUCCESS');
+export const getOtherUserPlaylistError = createAction('GET_OTHER_USER_PLAYLIST_ERROR');
+export const getOtherUserPlaylist = (playlistId, accessToken) => dispatch => {
+    return axios.get('https://asyncin.herokuapp.com/api/v1/playlists/' + playlistId + '?access_token=' + accessToken)
+        .then((response) => {
+            console.log('here');
+            dispatch(getOtherUserPlaylistSuccess(response));
+            return { response } 
+        })
+        .catch(err => {
+            dispatch(getOtherUserPlaylistError(err));
+            return false;
+        })
+}
 
 //POST playlist of currentUser
 //POST /api/v1/playlists/:userId?access_token=gfhgfhghghghd
