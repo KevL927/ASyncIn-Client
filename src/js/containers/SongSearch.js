@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import {connect} from 'react-redux';
-import {searchAll, currentListeningUrl} from '../actions/actions';
+import * as actions from '../actions/actions';
 import MusicPlayer from './MusicPlayer';
 
 class SongSearch extends Component {
   onSubmitSearch(event) {
     event.preventDefault();
-    this.props.onSubmitSearch(this.refs.searchInput.value);
+    this.props.dispatch(actions.searchAll(this.refs.searchInput.value));
   }
   generateResult(resultArr) {
     let arr = [];
@@ -30,7 +30,7 @@ class SongSearch extends Component {
 
   playTrackOnClick(url, event) {
     event.preventDefault();
-    this.props.onClickPlayUrl(url);
+    this.props.dispatch(actions.currentListeningUrl(url));
   }
 
   playMusicOrNot() {
@@ -70,15 +70,5 @@ const mapStateToProps = (state) => {
     currentListeningUrl: state.currentListeningUrl
   }
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSubmitSearch: function(search) {
-      dispatch(searchAll(search));
-    },
-    onClickPlayUrl: function (url) {
-      dispatch(currentListeningUrl(url));
-    }
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SongSearch) ;
+export default connect(mapStateToProps)(SongSearch) ;
