@@ -51,9 +51,9 @@ export const loginRequest = (email, password) => dispatch => {
 //*********************************************************************
 //---------------------------SEARCH ACTION ----------------------------
 //*********************************************************************
-export let searchAllSuccess = createAction('SEARCH_ALL_SUCCESS');
-export let searchAllError = createAction('SEARCH_ALL_ERROR');
-export let searchAll = (search) => dispatch => {
+export const searchAllSuccess = createAction('SEARCH_ALL_SUCCESS');
+export const searchAllError = createAction('SEARCH_ALL_ERROR');
+export const searchAll = (search) => dispatch => {
     return axios.post('https://asyncin.herokuapp.com/api/search', {search: search}, {headers: {'Content-Type': 'application/json'}})
         .then((response) => {
             dispatch(searchAllSuccess(response));
@@ -66,15 +66,15 @@ export let searchAll = (search) => dispatch => {
 };
 
 
-export let currentListeningUrl = createAction('CURRENT_LISTENING_URL', url => url);
+export const currentListeningUrl = createAction('CURRENT_LISTENING_URL', url => url);
 
 //*********************************************************************
 //---------------------------PLAYLIST ACTIONS--------------------------
 //*********************************************************************
 
-
 //GET playlist with accessToken for that user
 //GET /api/v1/playlists?access_token=gfhgfhghghghd
+ 
 
 
 //GET playlist by playlistId (when the user uses another user's playlist)
