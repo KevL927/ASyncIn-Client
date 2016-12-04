@@ -6,8 +6,8 @@ import App from '../components/MainPage';
 import LoginPage from '../components/LoginPage';
 import SongSearchPage from '../components/SongSearchPage';
 import RegisterPage from '../components/RegisterPage';
-import TestAction from '../containers/TestAction';
-
+import TestPlaylistAction from '../containers/TestPlaylistAction';
+import TestUserAction from '../containers/TestUserActions';
 
 const routes = (
 	<Provider store={store}>
@@ -17,7 +17,8 @@ const routes = (
 					<Route path="login" component={LoginPage} />
 					<Route path="search" component={SongSearchPage} />
 					<Route path="register" component={RegisterPage} />
-					<Route path="test" component={TestAction} />
+					<Route path="test/playlists" component={TestPlaylistAction} />
+					<Route path="test/users" component={TestUserAction} />
 			</Route>
 		</Router>
 	</Provider>

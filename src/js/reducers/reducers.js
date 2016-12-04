@@ -3,6 +3,7 @@ import { handleActions } from 'redux-actions';
 
 const initialState = {
 	otherUserPlaylist: null,
+	otherUsers:null,
 	userSavedPlaylists: null,
 	youtubeSearchedSongs: null,
 	vimeoSearchedSongs:null,
@@ -12,8 +13,16 @@ const initialState = {
 	isAuthenicated: false,
 	currentUser:null, //contains accessToken, username, token(email), userId, favouritePlaylist 
 	error: null,
-	newPlaylist: null,
-	currentListeningUrl: null
+	currentListeningUrl: null,
+	otherUserProfile:null,
+	temporaryPlaylist:null
+	// newPlaylist: {
+	//     userId: currentUser.userId,
+	//     name: null,
+	//     tracks: [],
+	//     rating: 0,
+	//     isPublic: true
+	// }
 };
 
 export default handleActions (
@@ -52,6 +61,61 @@ export default handleActions (
 			return {...state, otherUserPlaylist: action.payload.data};
 		},
 		[actions.getOtherUserPlaylistError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+			[actions.createPlaylistSuccess]: (state, action) => {
+				console.log(action.payload.data)
+			return {...state, userSavedPlaylists: action.payload.data};
+		},
+		[actions.createPlaylistError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[actions.updatePlaylistSuccess]: (state, action) => {
+				console.log(action.payload.data)
+			return {...state, userSavedPlaylists: action.payload.data};
+		},
+		[actions.updatePlaylistError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[actions.deletePlaylistSuccess]: (state, action) => {
+				console.log(action.payload.data)
+			return {...state, userSavedPlaylists: action.payload};
+		},
+		[actions.deletePlaylistError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[actions.getAllUsersSuccess]: (state, action) => {
+				console.log(action.payload.data)
+			return {...state, otherUsers: action.payload.data};
+		},
+		[actions.getAllUsersError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[actions.getUserSuccess]: (state, action) => {
+			return {...state, otherUserProfile: action.payload.data};
+		},
+		[actions.getUserError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[actions.updateUsernameSuccess]: (state, action) => {
+				console.log(action.payload.data)
+			return {...state, currentUser: action.payload.data};
+		},
+		[actions.updateUsernameError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[actions.updatePasswordSuccess]: (state, action) => {
+				console.log(action.payload.data)
+			return {...state};
+		},
+		[actions.updatePasswordError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[actions.updateFavouritePlaylistSuccess]: (state, action) => {
+				console.log(action.payload.data)
+			return {...state, currentUser: action.payload.data.user, temporaryPlaylist: action.payload.data.playlist};
+		},
+		[actions.updateFavouritePlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		}
 	},
