@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import '../../App.css';
 // import {Link} from 'react-router';
 import {connect} from 'react-redux';
-import {registerRequest} from '../actions/actions';
+import * as actions from '../actions/actions';
 import Feedback from './Feedback';
-
 
 class Register extends Component {
     state = {error: false}
@@ -12,7 +11,7 @@ class Register extends Component {
         event.preventDefault();
         if (this.refs.passwordText.value === this.refs.confirmPasswordText.value){
             
-       		this.props.onSubmitRegisterDispatch(this.refs.emailText.value, this.refs.displayNameText.value, this.refs.passwordText.value);
+       		this.props.dispatch(actions.registerRequest(this.refs.emailText.value, this.refs.displayNameText.value, this.refs.passwordText.value));
             this.refs.displayNameText.value = "";
             this.refs.passwordText.value = "";
             this.refs.confirmPasswordText.value = "";
@@ -63,14 +62,4 @@ class Register extends Component {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onSubmitRegisterDispatch: function(email, displayName, password) {
-            console.log('inside')
-            dispatch(registerRequest(email, displayName, password));
-        }
-    };
-}
-
-
-export default connect(null, mapDispatchToProps)(Register);
+export default connect()(Register);
