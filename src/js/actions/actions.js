@@ -79,6 +79,7 @@ export const getUserPlaylistsError = createAction('GET_USER_PLAYLISTS_ERROR');
 export const getUserPlaylists = (accessToken) => dispatch => {
     return axios.get('https://asyncin.herokuapp.com/api/v1/playlists?access_token=' + accessToken)
         .then((response) => {
+            console.log('actions');
             dispatch(getUserPlaylistsSuccess(response));
             return { response }
         })
