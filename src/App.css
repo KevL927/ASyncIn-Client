@@ -3,6 +3,9 @@
   background-image: url("http://i.imgur.com/Wb6eVPe.png");
  
 }
+.LoginPage{
+  text-align: center;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
