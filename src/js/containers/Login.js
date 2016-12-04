@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import { loginRequest } from '../actions/actions';
+import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 import MusicPlayer from './MusicPlayer';
 
 class Login extends Component {
    onSubmit(event) {
         event.preventDefault();
-   		this.props.onSubmitLogin(this.refs.emailText.value, this.refs.passwordText.value);    
+   		this.props.dispatch(actions.loginRequest(this.refs.emailText.value, this.refs.passwordText.value));    
         this.refs.emailText.value = "";
         this.refs.passwordText.value = "";
     }
@@ -34,15 +34,6 @@ class Login extends Component {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onSubmitLogin: function(email, password) {
-            dispatch(loginRequest(email, password));
-        }
-    };
-}
-
-
-export default connect(null, mapDispatchToProps)(Login);
+export default connect()(Login);
 
 
