@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../../App.css';
+import {connect} from 'react-redux';
+import * as actions from '../actions/actions';
 import UserPlaylists from '../containers/UserPlaylists';
 //import {Link} from 'react-router';
 
@@ -14,5 +16,11 @@ class UserPlaylistsPage extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser,
+    userSavedPlaylists: state.userSavedPlaylists
+  }
+}
 
-export default UserPlaylistsPage;
+export default connect(mapStateToProps)(UserPlaylistsPage);

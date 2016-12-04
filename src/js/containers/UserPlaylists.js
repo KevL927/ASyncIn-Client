@@ -7,7 +7,7 @@ class UserPlaylist extends Component {
     return (
       <div className="UserPlaylist">
         <div className="UserPlaylist-container">
-  
+          <UserPlaylists/>
         </div>
       </div>
     );
