@@ -3,6 +3,7 @@ import '../../App.css';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 import MusicPlayer from './MusicPlayer';
+import {Button, Form, FormGroup, FormControl, ControlLabel, Col, Checkbox} from 'react-bootstrap';
 
 class Login extends Component {
    onSubmit(event) {
@@ -15,20 +16,37 @@ class Login extends Component {
         return (
             <div className="Login-page">
             <MusicPlayer/>
-                <form className="Login-form">
-                    <legend>Fill out the Form, Asshole.</legend>
+                <Form horizontal>
+                    <legend>Hey, Stranger. Wanna Jam?</legend>
 
-                    <span className="email">Email: </span>
-
-                    <input type="text" id="email" className="input" ref="emailText" required />
+                    <FormGroup controlId="formHorizontalEmail" >
+                      <Col componentClass={ControlLabel} sm={2}>
+                        Email
+                      </Col>
+                      <Col sm={10}>
+                        <FormControl type="email" placeholder="Email" ref="emailText" />
+                      </Col>
+                    </FormGroup>
                     
-                    <span className="password">Password:</span>
-
-                    <input type="password" className="input" name="password" ref="passwordText" required />
-
-
-                    <button id="login-button" onClick={this.onSubmit.bind(this)} value="Submit" className="login-button">Submit</button>
-                </form>
+                    <FormGroup controlId="formHorizontalPassword">
+                      <Col componentClass={ControlLabel} sm={2}>
+                        Password
+                      </Col>
+                      <Col sm={10}>
+                        <FormControl type="password" placeholder="Password" ref="passwordText" />
+                      </Col>
+                    </FormGroup>
+                    <FormGroup>
+                      <Col smOffset={2} sm={10}>
+                        <Checkbox>Remember me</Checkbox>
+                      </Col>
+                    </FormGroup>
+                    <FormGroup>
+                        <Col smOffset={2} sm={10}>
+                            <Button id="login-button" onClick={this.onSubmit.bind(this)} value="Submit" className="login-button">Sign in</Button>
+                        </Col>
+                    </FormGroup>
+                  </Form>
             </div>
         );
     }
