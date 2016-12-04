@@ -25,7 +25,6 @@ class UserSavedPlaylists extends Component {
 	}
 
 	render() {
-		console.log(this.props);
 		return (
 			<div className="UserPlaylist">
 			<h1>My Saved Playlists</h1>
