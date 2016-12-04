@@ -37,7 +37,7 @@ export const loginRequest = (email, password) => dispatch => {
         },{headers: {'Content-Type': 'application/json'}})
         .then((response) => {
             console.log('through')
-            dispatch(loginSuccess({response}));
+            dispatch(loginSuccess(response));
           //  hashHistory.push('/dashboard');
          
            return {response: '200'}
@@ -74,7 +74,19 @@ export const currentListeningUrl = createAction('CURRENT_LISTENING_URL', url => 
 
 //GET playlist with accessToken for that user
 //GET /api/v1/playlists?access_token=gfhgfhghghghd
- 
+export const getUserPlaylistsSuccess = createAction('GET_USER_PLAYLISTS_SUCCESS');
+export const getUserPlaylistsError = createAction('GET_USER_PLAYLISTS_ERROR');
+export const getUserPlaylists = (accessToken) => dispatch => {
+    return axios.get('https://asyncin.herokuapp.com/api/v1/playlists?access_token=' + accessToken)
+        .then((response) => {
+            dispatch(getUserPlaylistsSuccess(response));
+            return { response }
+        })
+        .catch(err => {
+            dispatch(getUserPlaylistsError(err));
+            return false;
+        })
+}
 
 
 //GET playlist by playlistId (when the user uses another user's playlist)

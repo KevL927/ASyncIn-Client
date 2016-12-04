@@ -22,14 +22,12 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[actions.loginSuccess]: (state, action) => {
-			console.log(action.payload);
 			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist ,isAuthenicated:true};
 		},
 		[actions.loginError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
 		[actions.registerSuccess]: (state, action) => {
-			console.log(action.payload);
 			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist ,isAuthenicated:true};
 		},
 		[actions.registerError]: (state, action) => {
@@ -39,10 +37,16 @@ export default handleActions (
 			return {...state, youtubeSearchedSongs: action.payload.data.youtube, vimeoSearchedSongs: action.payload.data.vimeo, soundcloudSearchedSongs: action.payload.data.soundcloud}
 		},
 		[actions.searchAllError]: (state, action) => {
-			return {...state, error: action.payload}
+			return {...state, error: action.payload};
 		},
 		[actions.currentListeningUrl]: (state, action) => {
 			return {...state, currentListeningUrl: action.payload}
+		},
+		[actions.getUserPlaylistsSuccess]: (state, action) => {
+			return {...state, userSavedPlaylists: action.payload.data};
+		},
+		[actions.getUserPlaylistsError]: (state, action) => {
+			return {...state, error: action.payload};
 		}
 	},
 	initialState
