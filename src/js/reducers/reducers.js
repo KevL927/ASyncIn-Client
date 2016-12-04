@@ -63,22 +63,24 @@ export default handleActions (
 		[actions.getOtherUserPlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
-			[actions.createPlaylistSuccess]: (state, action) => {
-				console.log(action.payload.data)
-			return {...state, userSavedPlaylists: action.payload.data};
+		[actions.createPlaylistSuccess]: (state, action) => {
+			let tempPlaylist = state.userSavedPlaylists;
+				tempPlaylist.push(action.payload.data);
+				console.log(tempPlaylist);
+			return {...state, userSavedPlaylists: tempPlaylist};
 		},
 		[actions.createPlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
 		[actions.updatePlaylistSuccess]: (state, action) => {
-				console.log(action.payload.data)
+			console.log(action.payload.data)
 			return {...state, userSavedPlaylists: action.payload.data};
 		},
 		[actions.updatePlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
 		[actions.deletePlaylistSuccess]: (state, action) => {
-				console.log(action.payload.data)
+			console.log(action.payload.data)
 			return {...state, userSavedPlaylists: action.payload};
 		},
 		[actions.deletePlaylistError]: (state, action) => {

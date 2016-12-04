@@ -6,7 +6,7 @@ import * as actions from '../actions/actions';
 
 const newPlaylist = {
     userId: "584330db148e20001c34747b",
-    name: "taylor swift4",
+    name: "taylor swift78",
     tracks: [
       {
       link: "https://soundcloud.com/alibrustofski/bad-blood-taylor-swift-cover-by-ali-brustofski",
