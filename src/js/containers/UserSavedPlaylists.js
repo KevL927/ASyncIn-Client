@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/actions';
+import AddPlaylist from './AddPlaylist';
 
 class UserSavedPlaylists extends Component {
 	componentWillMount() {
@@ -29,6 +30,7 @@ class UserSavedPlaylists extends Component {
 			<div className="UserPlaylist">
 			<h1>My Saved Playlists</h1>
 			<div className="UserPlaylist-container">
+				<AddPlaylist />
 		     	{this.generateResult(this.props.userSavedPlaylists)}
 			</div>
 			</div>
