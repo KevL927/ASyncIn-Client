@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../../App.css';
-import Login from '../containers/Login'
-//import {Link} from 'react-router';
+import Login from '../containers/Login';
 
-class LoginPage extends Component {
-  render() {
+export default () => {
     return (
       <div className="LoginPage">
         <div className="LoginPage-container">
@@ -12,7 +10,4 @@ class LoginPage extends Component {
         </div>
       </div>
     );
-  }
-}
-
-export default LoginPage; 
+};

@@ -97,7 +97,6 @@ export const getOtherUserPlaylistError = createAction('GET_OTHER_USER_PLAYLIST_E
 export const getOtherUserPlaylist = (playlistId, accessToken) => dispatch => {
     return axios.get('https://asyncin.herokuapp.com/api/v1/playlists/' + playlistId + '?access_token=' + accessToken)
         .then((response) => {
-            console.log('here');
             dispatch(getOtherUserPlaylistSuccess(response));
             return { response } 
         })
