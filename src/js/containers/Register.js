@@ -4,6 +4,7 @@ import '../../App.css';
 import {connect} from 'react-redux';
 import * as actions from '../actions/actions';
 import Feedback from './Feedback';
+import play from '../../play.png';
 
 class Register extends Component {
     state = {error: false}
@@ -33,29 +34,33 @@ class Register extends Component {
     render () {
         return (
             <div className="Register-page">
+            <img src={play} className='image-login' alt="play"/>
+            <span className="title">Sync-In</span>
+            <img src={play} className='image-login2' alt="play"/>
                 <form className="Register-form">
-                    <legend>Fill out the Form, Asshole.</legend>
+
+                    <p className="stranger">Welcome, Stranger. :)</p>
                     
                     
-                    <span className="email">Email Address:</span>
+                    <label className="email">Email Address:</label>
 
                     <input type="email" id="email-input" className="input" ref="emailText" required />
 
-                    <span className="username">Create Display Name:</span>
+                    <label className="username">Create Display Name:</label>
 
                     <input type="text" id="displayName" className="input" ref="displayNameText" required />
                     
-                    <span className="password">Create Password:</span>
+                    <label className="password">Create Password:</label>
 
                     <input type="password" className="input" name="password" ref="passwordText" required />
 
-                    <span className="password">Verify Password:</span>
+                    <label className="password">Verify Password:</label>
 
                     <input type="password" className="input" name="password" ref="confirmPasswordText" required />
                     
                     {this.renderFeedback()}
 
-                    <button id="register-button" onClick={this.onSubmitRegister.bind(this)} className="register-button">Submit</button>
+                    <button id="register-button" onClick={this.onSubmitRegister.bind(this)} type="submit"className="register-button">Submit</button>
                 </form>
             </div>
         );

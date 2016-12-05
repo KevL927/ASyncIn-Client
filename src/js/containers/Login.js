@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import * as actions from '../actions/actions';
+import play from '../../play.png';
 import { connect } from 'react-redux';
 import MusicPlayer from './MusicPlayer';
-import {Button, Form, FormGroup, FormControl, ControlLabel, Col, Checkbox} from 'react-bootstrap';
+import {Link} from 'react-router';
+
 
 class Login extends Component {
    onSubmit(event) {
         event.preventDefault();
-        console.log(this.refs.emailText.getInputDOMNode().value);
    		this.props.dispatch(actions.loginRequest(this.refs.emailText.value, this.refs.passwordText.value));    
         // this.refs.emailText.value = "";
         // this.refs.passwordText.value = "";
@@ -16,19 +17,24 @@ class Login extends Component {
     render() {
         return (
             <div className="Login-page">
+            <img src={play} className='image-login' alt="play"/>
+            <span className="title">Sync-In</span>
+            <img src={play} className='image-login2' alt="play"/>
             <MusicPlayer/>
-                    <p>Fill out the Form, Asshole.</p>
+                <form className="login-container">
+                    <label className="username">Email:</label>
 
-                    <span className="username">Username:</span>
-
-                    <input type="text" id="username" className="input" ref="usernameText" required />
+                    <input type="text" id="username" className="input" ref="emailText" required />
                     
-                    <span className="password">Password:</span>
+                    <label className="password">Password:</label>
 
                     <input type="password" className="input" name="password" ref="passwordText" required />
 
 
-                    <button id="register-button" onClick={this.onSubmit.bind(this)} value="Submit" className="register-button">Submit</button>
+                    <button id="register-button" onClick={this.onSubmit.bind(this)} value="Submit" type="submit" className="register-button">Submit</button>
+                    <Link to="/register" id="registerlink"> Dont have an account? Let's hook you up, man. </Link>
+                </form>
+
             </div>
         );
     }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
+import play from '../../play.png';
 import '../../App.css';
 import {Link} from 'react-router';
-import LoadingAni from '../containers/Loading';
-import {loading} from 'react'
+
+
 
 class MainPage extends Component {
   onSubmit (event) {
@@ -12,21 +12,19 @@ class MainPage extends Component {
   render() {
     return (
       <div className="MainPage">
-      {loading ? <LoadingAni/> :
-        <div className="MainPage-Header">
-          <h2>
-          <span className="S">S</span>
-          <span className="y">y</span>
-          <span className="n">n</span>
-          <span className="c">c</span>
-          <span className="I">I</span>
-          <span className="n">n?</span>
-          </h2>
-          <button className="start-button">
-            <Link to="/login">Start</Link>
-          </button>
-        </div>
-      }
+          <div className="MainPage-Header">
+            <span className="S">S</span>
+            <span className="y">y</span>
+            <span className="n">n</span>
+            <span className="c">c</span>
+            <span className="-">-</span>
+            <span className="I">I</span>
+            <span className="n">n</span>
+            <span id="about"> The Ultimate Music Platform</span>
+          </div>
+              <Link to="/login">
+                <img src={play} className='image' alt="play"/> 
+              </Link>
       </div>
     );
   }
