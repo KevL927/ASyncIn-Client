@@ -15,7 +15,7 @@ export const registerRequest = (email, username, password) => dispatch => {
     	"password": password
 })
         .then(response => {
-            
+        
             dispatch(registerSuccess({response}));
            // hashHistory.push('/dashboard');
         })
@@ -113,9 +113,10 @@ export const getOtherUserPlaylist = (playlistId, accessToken) => dispatch => {
 export const createPlaylistSuccess = createAction('CREATE_PLAYLIST_SUCCESS');
 export const createPlaylistError = createAction('CREATE_PLAYLIST_ERROR');
 export const createPlaylist = (playlistObject, accessToken) => dispatch => {
-    
+    console.log(playlistObject);
     return axios.post('https://asyncin.herokuapp.com/api/v1/playlists/' + playlistObject.userId + '?access_token=' + accessToken, playlistObject)
         .then(response => {
+            console.log(response)
             dispatch(createPlaylistSuccess(response));
            // hashHistory.push('/dashboard');
         })

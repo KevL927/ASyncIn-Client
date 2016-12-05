@@ -16,13 +16,6 @@ const initialState = {
 	currentListeningUrl: null,
 	otherUserProfile:null,
 	temporaryPlaylist:null
-	// newPlaylist: {
-	//     userId: currentUser.userId,
-	//     name: null,
-	//     tracks: [],
-	//     rating: 0,
-	//     isPublic: true
-	// }
 };
 
 export default handleActions (
