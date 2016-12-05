@@ -8,9 +8,7 @@ class AddPlaylist extends Component {
         showInput: false,
         showError: false
     }
-    componentWillMount() {
-        this.props.dispatch(actions.getUserPlaylists('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'));
-    }
+    
     changeState() {
         this.setState({
             showInput: !this.state.showInput
@@ -25,14 +23,14 @@ class AddPlaylist extends Component {
     onSubmitAddPlaylist(event) {
 		event.preventDefault();
 	    let newPlaylist = {
-        	    userId: '584330db148e20001c34747b',
+        	    userId: this.props.currentUser.userId,
         	    name: this.refs.playlistInputText.value,
         	    tracks: [],
         	    rating: 0,
         	    isPublic: true
     	    }
         this.changeState();
-		this.props.dispatch(actions.createPlaylist(newPlaylist, 'iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'));
+		this.props.dispatch(actions.createPlaylist(newPlaylist, this.props.currentUser.accessToken));
 
 	}
     renderInput() {
@@ -49,6 +47,7 @@ class AddPlaylist extends Component {
     }
 
 	render() {
+        console.log(this.props);
 		return (
             <div>
                 <button className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</button>
