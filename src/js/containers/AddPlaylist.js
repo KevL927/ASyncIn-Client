@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/actions';
+import UserSavedPlaylists from './UserSavedPlaylists'
 
 class AddPlaylist extends Component {
     state = {
@@ -8,6 +9,10 @@ class AddPlaylist extends Component {
         newPlaylist: null
     }
     
+    componentWillMount() {
+        console.log('ComponentWillMount');
+        this.props.dispatch(actions.getUserPlaylists('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'))
+    }
     
     onClickGenerateInput(event) {
         event.preventDefault();
@@ -22,8 +27,8 @@ class AddPlaylist extends Component {
         	    rating: 0,
         	    isPublic: true
     	    }
-        console.log(newPlaylist);
 		this.props.dispatch(actions.createPlaylist(newPlaylist, 'iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'))
+
 	}
     renderInput() {
         if(this.state.showInput === true) {
@@ -38,11 +43,11 @@ class AddPlaylist extends Component {
         return <div></div>
     }
 	render() {
-	    console.log(this.props.userSavedPlaylists);
 		return (
             <div>
                 <button className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</button>
                 {this.renderInput()}
+                <UserSavedPlaylists userPlaylists={this.props.userSavedPlaylists}/>
             </div>
             
 		);
