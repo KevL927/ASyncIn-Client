@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import * as actions from '../actions/actions';
 // import {Link} from 'react-router';
 // import MusicPlayer from './MusicPlayer';
+import TopPlaylist from './TopPlaylist';
 
 const newPlaylist = {
     userId: "584330db148e20001c34747b",
@@ -40,7 +41,11 @@ const deletePlaylist = {
 	userId: "584330db148e20001c34747b"
 }
 
+
 class TestPlaylistAction extends Component {
+	// componentWillMount() {
+ //       this.props.dispatch(actions.getTopPlaylist('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'));
+ //   }
 	onClickGetMyPlaylists(event) {
 		event.preventDefault();
 		this.props.dispatch(actions.getUserPlaylists('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'))
@@ -107,7 +112,12 @@ class TestPlaylistAction extends Component {
 	   			>delete
 	   			</button>
 	   		</div>
-	   		
+	   		<div>
+	   			<h2>
+	   				top playlist
+	   			</h2>
+   			<TopPlaylist topPlaylists={this.props.topPlaylists} />
+	   		</div>
 	   	</div>
 	   );
 	}
@@ -116,7 +126,8 @@ class TestPlaylistAction extends Component {
 const mapStateToProps = (state) => {
   return {
     userSavedPlaylists: state.userSavedPlaylists,
-    otherUserPlaylist: state.otherUserPlaylist
+    otherUserPlaylist: state.otherUserPlaylist,
+    topPlaylists: state.topPlaylists
   }
 }
 

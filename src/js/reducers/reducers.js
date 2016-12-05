@@ -77,7 +77,6 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[actions.getAllUsersSuccess]: (state, action) => {
-				console.log(action.payload.data)
 			return {...state, otherUsers: action.payload.data};
 		},
 		[actions.getAllUsersError]: (state, action) => {
@@ -90,24 +89,28 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[actions.updateUsernameSuccess]: (state, action) => {
-				console.log(action.payload.data)
 			return {...state, currentUser: action.payload.data};
 		},
 		[actions.updateUsernameError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
 		[actions.updatePasswordSuccess]: (state, action) => {
-				console.log(action.payload.data)
 			return {...state};
 		},
 		[actions.updatePasswordError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
 		[actions.updateFavouritePlaylistSuccess]: (state, action) => {
-				console.log(action.payload.data)
 			return {...state, currentUser: action.payload.data.user, temporaryPlaylist: action.payload.data.playlist};
 		},
 		[actions.updateFavouritePlaylistError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[actions.getTopPlaylistSuccess]: (state, action) => {
+				console.log('top playlist: ',action.payload.data)
+			return {...state, topPlaylists: action.payload.data};
+		},
+		[actions.getTopPlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		}
 	},

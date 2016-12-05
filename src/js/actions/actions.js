@@ -267,4 +267,19 @@ export const updateFavouritePlaylist = (accessToken,token, playlistId, rating) =
         });
 };
 
+//Top Playlist
+export const getTopPlaylistSuccess = createAction('GET_TOP_PLAYLIST_SUCCESS');
+export const getTopPlaylistError = createAction('GET_TOP_PLAYLIST_ERROR');
+export const getTopPlaylist = (accessToken) => dispatch => {
+    
+    return axios.get('https://asyncin.herokuapp.com/api/v1/playlists?access_token=' + accessToken)
+        .then(response => {
+            dispatch(getTopPlaylistSuccess(response));
+           // hashHistory.push('/dashboard');
+        })
+        .catch(err => {
+            dispatch(getTopPlaylistError(err));
+            return false;
+        });
+};
 
