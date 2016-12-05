@@ -17,9 +17,6 @@ class Login extends Component {
         return (
             <div className="Login-page">
             <MusicPlayer/>
-                <div className="Register-page">
-            <MusicPlayer/>
-                <form className="Register-form">
                     <p>Fill out the Form, Asshole.</p>
 
                     <span className="username">Username:</span>
@@ -32,8 +29,6 @@ class Login extends Component {
 
 
                     <button id="register-button" onClick={this.onSubmit.bind(this)} value="Submit" className="register-button">Submit</button>
-                </form>
-            </div>
             </div>
         );
     }
