@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import store from '../store/store';
 import App from '../components/MainPage';
 import LoginPage from '../components/LoginPage';
+import PlaylistPlayerPage from '../components/PlaylistPlayerPage';
 import SongSearchPage from '../components/SongSearchPage';
 import RegisterPage from '../components/RegisterPage';
 import TestPlaylistAction from '../containers/TestPlaylistAction';
@@ -19,9 +20,10 @@ const routes = (
 					<Route path="register" component={RegisterPage} />
 					<Route path="test/playlists" component={TestPlaylistAction} />
 					<Route path="test/users" component={TestUserAction} />
+					<Route path="viewplaylist" component={PlaylistPlayerPage} />
 			</Route>
 		</Router>
 	</Provider>
-)
+);
 
 export default routes;
