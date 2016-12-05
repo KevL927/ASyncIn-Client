@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import * as actions from '../actions/actions';
-import { connect } from 'react-redux';
-import MusicPlayer from './MusicPlayer';
+// import { connect } from 'react-redux';
+// import MusicPlayer from './MusicPlayer';
 import DisplayTracks from './DisplayTracks';
 import {connectTo} from '../utils/connector';
 
@@ -12,8 +12,6 @@ class PlaylistPlayer extends Component {
     componentDidMount() {
         this.props.dispatch(actions.getOtherUserPlaylist('58433240148e20001c34747c','iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'));
     }
-
-        
     renderStateOrNot() {
         if(this.props.otherUserPlaylist) {
             return (
