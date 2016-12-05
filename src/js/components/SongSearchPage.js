@@ -7,9 +7,6 @@ import SongSearch from '../containers/SongSearch';
 import AddPlaylist from '../containers/AddPlaylist';
 
 class SongSearchPage extends Component {
-  componentWillMount() {
-      this.props.dispatch(actions.loginRequest('admin@email.com', 'password'));
-  }
   render() {
     return (
       <div className="musicPlayer">
