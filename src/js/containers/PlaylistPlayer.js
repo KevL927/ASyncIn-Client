@@ -4,6 +4,8 @@ import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 import MusicPlayer from './MusicPlayer';
 import DisplayTracks from './DisplayTracks';
+import {connectTo} from '../utils/connector';
+
 
 class PlaylistPlayer extends Component {
     
@@ -56,4 +58,4 @@ class PlaylistPlayer extends Component {
         };
     };
 
-export default connect(mapStateToProps)(PlaylistPlayer);
+export default connectTo(PlaylistPlayer);
