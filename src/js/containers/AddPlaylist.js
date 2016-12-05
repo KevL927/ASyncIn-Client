@@ -11,7 +11,7 @@ class AddPlaylist extends Component {
     
     componentWillMount() {
         console.log('ComponentWillMount');
-        this.props.dispatch(actions.getUserPlaylists('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'))
+        this.props.dispatch(actions.getUserPlaylists('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'));
     }
     
     onClickGenerateInput(event) {
@@ -27,7 +27,7 @@ class AddPlaylist extends Component {
         	    rating: 0,
         	    isPublic: true
     	    }
-		this.props.dispatch(actions.createPlaylist(newPlaylist, 'iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'))
+		this.props.dispatch(actions.createPlaylist(newPlaylist, 'iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'));
 
 	}
     renderInput() {
@@ -57,7 +57,8 @@ class AddPlaylist extends Component {
 const mapStateToProps = (state) => {
   return {
     userSavedPlaylists: state.userSavedPlaylists,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    error: state.error
   }
 }
 
