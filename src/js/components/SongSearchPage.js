@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../../App.css';
 // import {Link} from 'react-router';
 import SongSearch from '../containers/SongSearch';
-import UserSavedPlaylists from '../containers/UserSavedPlaylists';
+import AddPlaylist from '../containers/AddPlaylist';
 
 class SongSearchPage extends Component {
   render() {
@@ -10,7 +10,7 @@ class SongSearchPage extends Component {
       <div className="musicPlayer">
         <div className="musicPlayer-container">
           <SongSearch />
-          <UserSavedPlaylists />
+          <AddPlaylist />
         </div>
       </div>
     );

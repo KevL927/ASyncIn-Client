@@ -8,9 +8,10 @@ import {Button, Form, FormGroup, FormControl, ControlLabel, Col, Checkbox} from 
 class Login extends Component {
    onSubmit(event) {
         event.preventDefault();
+        console.log(this.refs.emailText.getInputDOMNode().value);
    		this.props.dispatch(actions.loginRequest(this.refs.emailText.value, this.refs.passwordText.value));    
-        this.refs.emailText.value = "";
-        this.refs.passwordText.value = "";
+        // this.refs.emailText.value = "";
+        // this.refs.passwordText.value = "";
     }
     render() {
         return (
