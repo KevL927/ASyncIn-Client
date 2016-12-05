@@ -17,37 +17,23 @@ class Login extends Component {
         return (
             <div className="Login-page">
             <MusicPlayer/>
-                <Form horizontal>
-                    <legend>Hey, Stranger. Wanna Jam?</legend>
+                <div className="Register-page">
+            <MusicPlayer/>
+                <form className="Register-form">
+                    <p>Fill out the Form, Asshole.</p>
 
-                    <FormGroup controlId="formHorizontalEmail" >
-                      <Col componentClass={ControlLabel} sm={2}>
-                        Email
-                      </Col>
-                      <Col sm={10}>
-                        <FormControl type="email" placeholder="Email" ref="emailText" />
-                      </Col>
-                    </FormGroup>
+                    <span className="username">Username:</span>
+
+                    <input type="text" id="username" className="input" ref="usernameText" required />
                     
-                    <FormGroup controlId="formHorizontalPassword">
-                      <Col componentClass={ControlLabel} sm={2}>
-                        Password
-                      </Col>
-                      <Col sm={10}>
-                        <FormControl type="password" placeholder="Password" ref="passwordText" />
-                      </Col>
-                    </FormGroup>
-                    <FormGroup>
-                      <Col smOffset={2} sm={10}>
-                        <Checkbox>Remember me</Checkbox>
-                      </Col>
-                    </FormGroup>
-                    <FormGroup>
-                        <Col smOffset={2} sm={10}>
-                            <Button id="login-button" onClick={this.onSubmit.bind(this)} value="Submit" className="login-button">Sign in</Button>
-                        </Col>
-                    </FormGroup>
-                  </Form>
+                    <span className="password">Password:</span>
+
+                    <input type="password" className="input" name="password" ref="passwordText" required />
+
+
+                    <button id="register-button" onClick={this.onSubmit.bind(this)} value="Submit" className="register-button">Submit</button>
+                </form>
+            </div>
             </div>
         );
     }
