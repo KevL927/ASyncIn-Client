@@ -52,10 +52,4 @@ class PlaylistPlayer extends Component {
     
 }
 
-    const mapStateToProps = (state) => {
-        return {
-            otherUserPlaylist: state.otherUserPlaylist
-        };
-    };
-
 export default connectTo(PlaylistPlayer);

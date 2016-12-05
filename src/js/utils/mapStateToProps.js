@@ -1,4 +1,4 @@
-import traverse from './traverse';
+import traverse from './traverse-otherUserPlaylist';
 
 
 export default function (state, props) {
