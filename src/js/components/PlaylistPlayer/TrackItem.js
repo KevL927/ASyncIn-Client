@@ -1,9 +1,12 @@
 import React from 'react';
+import * as actions from '../../actions/actions';
 
-export default (props) => {
-        return (
-          <li className="track-item">
-            {this.props.track.name}
-          </li>
-        );
+export default ({ index, title, link, thumbnail, source, onTrackItemClick }) => {
+  
+  return (
+    <li key={index} className="track">
+      <a onClick={() => onTrackItemClick(link)} href="/#/viewplaylist">{title}</a>
+    </li>
+  );
+        
 };
