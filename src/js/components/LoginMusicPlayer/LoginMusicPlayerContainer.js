@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import LoginMusicPlayer from '../containers/LoginMusicPlayer'
+import LoginMusicPlayer from './LoginMusicPlayer'
 //import {Link} from 'react-router';
 
 class LoginMusicPlayerPage extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import '../../App.css';
-import Register from '../containers/Register';
+import '../../../App.css';
+import Register from './Register';
 //import {Link} from 'react-router';
 
 class RegisterPage extends Component {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../App.css';
+import '../../../App.css';
 //import {Link} from 'react-router';
 
 class NavigationBar extends Component {
@@ -15,4 +15,4 @@ class NavigationBar extends Component {
   }
 }
 
-export default App;
+export default NavigationBar;

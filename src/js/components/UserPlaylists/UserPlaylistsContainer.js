@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../../App.css';
+import '../../../App.css';
 import {connect} from 'react-redux';
-import * as actions from '../actions/actions';
-import UserPlaylists from '../containers/UserPlaylists';
+import * as actions from '../../actions/actions';
+import UserPlaylists from './UserPlaylists';
 //import {Link} from 'react-router';
 
 class UserPlaylistsPage extends Component {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import '../../App.css';
+import '../../../App.css';
 import {connect} from 'react-redux';
-import * as actions from '../actions/actions';
-import MusicPlayer from './MusicPlayer';
+import * as actions from '../../actions/actions';
+import MusicPlayer from '../MusicPlayer/MusicPlayer';
 
 class SongSearch extends Component {
   onSubmitSearch(event) {
