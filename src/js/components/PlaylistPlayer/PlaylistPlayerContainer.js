@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../../App.css';
 import PlaylistPlayer from './PlaylistPlayer'
 
 class PlaylistPlayerPage extends Component {

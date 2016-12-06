@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../App.css';
+
 import LoginMusicPlayer from './LoginMusicPlayer'
 //import {Link} from 'react-router';
 
