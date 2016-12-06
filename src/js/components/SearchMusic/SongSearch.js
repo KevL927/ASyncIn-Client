@@ -5,10 +5,20 @@ import * as actions from '../../actions/actions';
 import MusicPlayer from '../MusicPlayer/MusicPlayer';
 
 class SongSearch extends Component {
+  state = {
+    tempPlaylist: []
+  }
   onSubmitSearch(event) {
     event.preventDefault();
     this.props.dispatch(actions.searchAll(this.refs.searchInput.value));
   }
+
+  onCheckInsert(track) {
+    console.log('track', track);
+    this.state.check.push(track);
+    console.log('this.state', this.state);
+  }
+
   generateResult(resultArr) {
     let arr = [];
     if(!resultArr) {
@@ -17,6 +27,7 @@ class SongSearch extends Component {
         arr = resultArr.map((track, index) => {
         return (
           <li key={index}>
+            <input type="checkbox" name="searchResult" value={index} onClick={this.onCheckInsert.bind(this, track)}></input>
             <div>{track.title}</div>
             <div>{track.link}</div>
             <div>{track.thumbnail}</div>
@@ -41,6 +52,7 @@ class SongSearch extends Component {
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className="songSearch">
         <div className="songSearch-container">
