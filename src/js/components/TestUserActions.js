@@ -14,7 +14,7 @@ class TestUserAction extends Component {
 	}
 	onClickUpdateUsername(event) {
 	    event.preventDefault();
-	    this.props.dispatch(actions.updateUsername('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os', 'tom'))
+	    this.props.dispatch(actions.updateUsername('9yayvsx0zkwckc0o0o4ckc48ksskk4osk4', 'Michelle'))
 	}
 	onClickUpdatePassword(event){
 		event.preventDefault();
