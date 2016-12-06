@@ -57,7 +57,7 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[actions.createPlaylistSuccess]: (state, action) => {
-			let tempPlaylist = [ ...state.userSavedPlaylists, action.payload.data ];
+			let tempPlaylist = [ action.payload.data, ...state.userSavedPlaylists ];
 			return {...state, userSavedPlaylists: tempPlaylist};
 		},
 		[actions.createPlaylistError]: (state, action) => {
