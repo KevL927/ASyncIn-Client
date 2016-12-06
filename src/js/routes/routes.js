@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Route, browserHistory, IndexRoute} from 'react-router';
+import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import {Provider} from 'react-redux';
 import store from '../store/store';
 import App from '../components/MainPage';
@@ -12,7 +12,7 @@ import TestUserAction from '../components/TestUserActions';
 
 const routes = (
 	<Provider store={store}>
-		<Router history={browserHistory}>
+		<Router history={hashHistory}>
 			<Route path="/">
 				<IndexRoute component={App} />
 					<Route path="login" component={LoginContainer} />

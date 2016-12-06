@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 import axios from 'axios';
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 
 //*********************************************************************
 //-----------------LOGIN/LOGOUT AND REGISTER ACTIONS ------------------
@@ -38,7 +38,7 @@ export const loginRequest = (email, password) => dispatch => {
         .then((response) => {
             console.log('through')
             dispatch(loginSuccess(response));
-            browserHistory.push('/search')
+            hashHistory.push('/search')
          
            return {response: '200'}
         })
