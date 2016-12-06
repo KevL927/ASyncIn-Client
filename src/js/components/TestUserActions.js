@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/actions';
+import FavouritePlaylist from './FavouritePlaylist/FavouritePlaylist'
 
 
 class TestUserAction extends Component {
@@ -22,7 +23,7 @@ class TestUserAction extends Component {
 	}
 	onClickUpdateFavouritePlaylist(event){
 		event.preventDefault();
-	    this.props.dispatch(actions.updateFavouritePlaylist('oge6xtnpj40g0g0o8s00wsggswwc4w8cwg', 'admin1@gmail.com','58439fffb4c017001c500530', 10))
+	    this.props.dispatch(actions.updateFavouritePlaylist('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os', 'admin@email.com','58433240148e20001c34747c', 67))
 	}
 	
 	render() {
@@ -67,8 +68,9 @@ class TestUserAction extends Component {
 		   		<h2>
 		   			Update Favorite Playlist
 		   		</h2>
+		   		{console.log(this.props.currentUser)}
 		   		<button onClick={this.onClickUpdateFavouritePlaylist.bind(this)}>
-				update favorite Playlist
+				favorite Playlist
 				</button>
 	   		</div>
 	   		
@@ -79,6 +81,7 @@ class TestUserAction extends Component {
 
 const mapStateToProps = (state) => {
   return {
+  	currentUser: state.currentUser,
     otherUsers: state.otherUsers,
     otherUserProfile: state.otherUserProfile
   }
