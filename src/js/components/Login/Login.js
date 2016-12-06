@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import '../../App.css';
-import * as actions from '../actions/actions';
-import play from '../../play.png';
+import '../../../App.css';
+import * as actions from '../../actions/actions';
+import play from '../../../play.png';
 import { connect } from 'react-redux';
-import MusicPlayer from './MusicPlayer';
+import MusicPlayer from '../MusicPlayer/MusicPlayer';
 import {Link} from 'react-router';
 
 

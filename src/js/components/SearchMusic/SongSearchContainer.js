@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import '../../App.css';
+import '../../../App.css';
 // import {Link} from 'react-router';
-import * as actions from '../actions/actions';
+import * as actions from '../../actions/actions';
 import {connect} from 'react-redux';
-import SongSearch from '../containers/SongSearch';
-import AddPlaylist from '../containers/AddPlaylist';
+import SongSearch from './SongSearch';
+import AddPlaylist from '../AddPlaylist/AddPlaylist';
 
 class SongSearchPage extends Component {
   render() {

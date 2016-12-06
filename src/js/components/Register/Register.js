@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import '../../App.css';
+import '../../../App.css';
 // import {Link} from 'react-router';
 import {connect} from 'react-redux';
-import * as actions from '../actions/actions';
-import Feedback from './Feedback';
-import play from '../../play.png';
+import * as actions from '../../actions/actions';
+import Feedback from '../Feedback';
+import play from '../../../play.png';
 
 class Register extends Component {
     state = {error: false}

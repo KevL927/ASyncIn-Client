@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import '../../App.css';
-import PlaylistPlayer from '../containers/PlaylistPlayer'
-//import {Link} from 'react-router';
+import '../../../App.css';
+import PlaylistPlayer from './PlaylistPlayer'
 
 class PlaylistPlayerPage extends Component {
   render() {

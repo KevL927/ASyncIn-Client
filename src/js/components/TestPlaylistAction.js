@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import * as actions from '../actions/actions';
 // import {Link} from 'react-router';
 // import MusicPlayer from './MusicPlayer';
-import TopPlaylist from './TopPlaylist';
+import TopPlaylist from './TopPlaylists/TopPlaylists';
 
 const newPlaylist = {
     userId: "584330db148e20001c34747b",
