@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../../App.css';
+
 import * as actions from '../../actions/actions';
 import play from '../../../play.png';
 import { connect } from 'react-redux';
