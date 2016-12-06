@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Dashboard from '../containers/Dashboard'
 import SongSearch from '../containers/SongSearch';
 import AddPlaylist from '../containers/AddPlaylist';
+import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist'
 
 class DashboardPage extends Component {
   render() {
@@ -11,6 +12,7 @@ class DashboardPage extends Component {
           <SongSearch />
           <AddPlaylist />
           <UserSavedPlaylist />
+          <FavouritePlaylist />
         </div>
       </div>
     );
