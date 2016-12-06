@@ -15,7 +15,7 @@ class SongSearch extends Component {
 
   onCheckInsert(track) {
     console.log('track', track);
-    this.state.check.push(track);
+    this.state.tempPlaylist.push(track);
     console.log('this.state', this.state);
   }
 
