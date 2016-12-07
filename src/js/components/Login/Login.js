@@ -31,8 +31,10 @@ class Login extends Component {
                     <input type="password" className="input" name="password" ref="passwordText" required />
 
 
-                    <button id="register-button" onClick={this.onSubmit.bind(this)} value="Submit" type="submit" className="register-button">Submit</button>
+                    <button id="login-button" onClick={this.onSubmit.bind(this)} value="Submit" type="submit" className="login-button">Submit</button>
                     <Link to="/register" id="registerlink"> Dont have an account? Let's hook you up, man. </Link>
+                    <a id="google-login" href="/#/auth/google" className="google-login">Log in with Google</a><br />
+                    <a id="facebook-login" href="/#/auth/facebook" className="facebook-login">Log in with Facebook</a>
                 </form>
 
             </div>
