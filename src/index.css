@@ -3,7 +3,40 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+/*********************************************************************
+//------------------------------NAVIGATION BAR--------------------------
+//*********************************************************************/
+.NavUL {
+  list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(40,10,9, 1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
 
+li {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+}
+li:hover {
+    background-color: #db7c3d;
+    color: white;
+}
+
+#songSearch-page, #UserPlaylist-page{
+  padding: 14px 0px;
+  margin-top:30px;
+  background-color: black;
+  height:1500px;
+  color: white;
+}
 /*********************************************************************
 //------------------------------MAIN PAGE CSS--------------------------
 //*********************************************************************/
@@ -78,9 +111,7 @@ span {
     ), url("http://i.imgur.com/3dI9j4c.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat;
   height: 58.6em;
   color: #fcf8e3;
 }
@@ -221,17 +252,41 @@ button[type=submit]:hover {
     }
 
 /*********************************************************************
-//------------------------------????--------------------------
+//------------------------------SONG SEARCH--------------------------
 //*********************************************************************/
+#songSearch-page {
+  background:linear-gradient(
+      rgba(138,91,16, .85), 
+      rgba(255,197,103, 0.10)
+    ), url("http://i.imgur.com/3iMyQfm.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+
+#search-songs {
+ 
+
+}
+#search-song-form {
+  transform: translate(-50%, -50%);
+
+}
+
+
 
 /*********************************************************************
-//------------------------------????--------------------------
+//--------------------------USER PLAYLIST PAGE--------------------------
 //*********************************************************************/
-
-/*********************************************************************
-//------------------------------????--------------------------
-//*********************************************************************/
-
+#UserPlaylist-page {
+  background:linear-gradient(
+      rgba(138,91,16, .85), 
+      rgba(255,197,103, 0.10)
+    ), url("http://i.imgur.com/wZLxya6.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center left;
+}
 /*********************************************************************
 //------------------------------????--------------------------
 //*********************************************************************/

@@ -5,6 +5,7 @@ import * as actions from '../../actions/actions';
 import MusicPlayer from '../MusicPlayer/MusicPlayer';
 import SearchResult from './SearchResult';
 import AddPlaylist from '../AddPlaylist/AddPlaylist';
+import NavigationBar from '../NavigationBar';
 
 class SongSearch extends Component {
   state = {
@@ -69,23 +70,26 @@ class SongSearch extends Component {
 
   render() {
     return (
-      <div className="songSearch">
-        <div className="songSearch-container">
-          <form onSubmit={this.onSubmitSearch.bind(this)}>
-            <input type="text" name="search" ref="searchInput" placeholder="Search.."/>
-          </form>
-        </div>
-          {this.playMusicOrNot()}
-          <ul>
-            <h1>Youtube</h1>
-            <input type="checkbox" name="searchGroup" ref="youtubeBox" onClick={this.onCheckGroup.bind(this)} ></input>
-            <ul>{this.generateResult(this.props.youtubeResults)}</ul>
-            <h1>Vimeo</h1>
-            <ul>{this.generateResult(this.props.vimeoResults)}</ul>
-            <h1>SoundCloud</h1>
-            <ul>{this.generateResult(this.props.soundcloudResults)}</ul>
-          </ul>
-          <AddPlaylist currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist}/>
+      <div id="songSearch-page">
+        <NavigationBar/>
+          <div className="songSearch">
+            <div className="songSearch-container">
+              <form onSubmit={this.onSubmitSearch.bind(this)}>
+                <input type="text" id="search-songs" name="search" ref="searchInput" placeholder="Search.."/>
+              </form>
+            </div>
+              {this.playMusicOrNot()}
+              <ul>
+                <h1>Youtube</h1>
+                <input type="checkbox" name="searchGroup" ref="youtubeBox" onClick={this.onCheckGroup.bind(this)} ></input>
+                <ul>{this.generateResult(this.props.youtubeResults)}</ul>
+                <h1>Vimeo</h1>
+                <ul>{this.generateResult(this.props.vimeoResults)}</ul>
+                <h1>SoundCloud</h1>
+                <ul>{this.generateResult(this.props.soundcloudResults)}</ul>
+              </ul>
+              <AddPlaylist currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist}/>
+          </div>
       </div>
     );
   }
