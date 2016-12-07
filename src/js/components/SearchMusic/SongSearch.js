@@ -8,7 +8,7 @@ import SearchResult from './SearchResult';
 class SongSearch extends Component {
   state = {
     tempPlaylist: [],
-    checked: false
+    checkedYouTube: false
 
 
   }
@@ -28,6 +28,12 @@ class SongSearch extends Component {
     }
   }
 
+  onCheckGroup(event) {
+    if (this.refs.youtubeBox.checked) {
+      this.setState({checkedYouTube: true})
+    }
+  }
+
   generateResult(resultArr) {
     let arr = [];
     if(!resultArr) {
@@ -36,7 +42,7 @@ class SongSearch extends Component {
         arr = resultArr.map((track, index) => {
         return (
           <li key={index}>
-            <input type="checkbox" name="searchResult" ref={track.link} onClick={this.onCheckInsert.bind(this, track)} ></input>
+            <input type="checkbox" name="searchResult" ref={track.link} id={track.source} onClick={this.onCheckInsert.bind(this, track)}></input>
             
             <SearchResult track={track}/>
 
@@ -65,7 +71,6 @@ class SongSearch extends Component {
     return (
       <div className="songSearch">
         <div className="songSearch-container">
-
           <form onSubmit={this.onSubmitSearch.bind(this)}>
             <input type="text" name="search" ref="searchInput" placeholder="Search.."/>
           </form>
@@ -73,6 +78,7 @@ class SongSearch extends Component {
           {this.playMusicOrNot()}
           <ul>
             <h1>Youtube</h1>
+            <input type="checkbox" name="searchGroup" ref="youtubeBox" onClick={this.onCheckGroup.bind(this)} ></input>
             <ul>{this.generateResult(this.props.youtubeResults)}</ul>
             <h1>Vimeo</h1>
             <ul>{this.generateResult(this.props.vimeoResults)}</ul>
