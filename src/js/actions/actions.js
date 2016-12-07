@@ -38,6 +38,8 @@ export const loginRequest = (email, password) => dispatch => {
         .then((response) => {
             console.log('through')
             dispatch(loginSuccess(response));
+             console.log(response.data.access_token, response.data.token)
+            hashHistory.push('/dashboard?access_token=' + response.data.access_token +'&token='+ response.data.token)
            // hashHistory.push('/search')
          
            return {response: '200'}

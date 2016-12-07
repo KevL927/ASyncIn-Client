@@ -23,6 +23,7 @@ class TestUserAction extends Component {
 	}
 	onClickUpdateFavouritePlaylist(event){
 		event.preventDefault();
+		//access_token, token, playlistId, rating
 	    this.props.dispatch(actions.updateFavouritePlaylist('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os', 'admin@email.com','58433240148e20001c34747c', 67))
 	}
 	
