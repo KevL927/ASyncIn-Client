@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import { hashHistory } from 'react-router';
-import RenderTracks from '../PlaylistPlayer/RenderTracks';
+import PlaylistPlayerContainer from '../PlaylistPlayer/PlaylistPlayerContainer';
 
 class UserPlaylistList extends Component {
 	
 	onClickRedirect(playlist, event){
 	    this.props.dispatch(actions.currentListeningPlaylist(playlist));
-	    //hashHistory.push('/myplaylist')	
+	   
 	}
 	generateResult(resultArr) {
 	  let arr = [];
@@ -28,8 +28,13 @@ class UserPlaylistList extends Component {
 	
 	renderTracksOrNot(){
 		if(this.props.currentListeningPlaylist){
-			console.log('from userplaylistlist',this.props.currentListeningPlaylist)
-			return <RenderTracks playlistObject={this.props.currentListeningPlaylist} />
+			console.log('from userplaylistlist', this.props.currentListeningPlaylist)
+			return (
+				<div>
+					<h1>My Playlists</h1>
+					<PlaylistPlayerContainer playlistObject={this.props.currentListeningPlaylist} url={this.props.currentListeningUrl}/>
+				</div>
+			);
 		}
 		else{
 			return <div>No playlist selected</div>
@@ -39,7 +44,7 @@ class UserPlaylistList extends Component {
 	render() {
 		return (
 			<div className="UserPlaylist">
-			<h1>My Saved Playlists</h1>
+			
 			<div className="UserPlaylist-container">
 		     	{this.generateResult(this.props.userSavedPlaylists)}
 		     	{this.renderTracksOrNot()}
@@ -51,6 +56,6 @@ class UserPlaylistList extends Component {
 
 
 export default connect(
-    ({ currentListeningPlaylist, userSavedPlaylists}) => 
-    ({ currentListeningPlaylist, userSavedPlaylists })
+    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl }) => 
+    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl })
 )(UserPlaylistList);
