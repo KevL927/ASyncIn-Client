@@ -1,15 +1,11 @@
 import ReactPlayer from 'react-player'
-import React, { Component } from 'react'
+import React from 'react'
 
 
-class MusicPlayer extends Component {
-  render () {
+export default ({ url }) => {
     return (
     	<div>
-    		<ReactPlayer url={this.props.url} playing/>
+    		<ReactPlayer url={url} playing/>
     	</div>
     )
-  }
 }
-
-export default MusicPlayer;

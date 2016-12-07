@@ -6,4 +6,4 @@ export default (currentListeningUrl) => {
         return <MusicPlayer url={currentListeningUrl} />;
     }
     return <MusicPlayer />;
-}
+};
