@@ -1,16 +1,19 @@
 import React from 'react';
+import RenderTracks from '../PlaylistPlayer/RenderTracks';
 
+export default ({ playlistArray }) => {
 
-export default ({ playlistArray }) => (
+    // playlistArray.map((playlist, index) => (
+    //   console.log('top3', playlist)
+    // ))
 
-    playlistArray.map((playlist, index) => (
-      console.log('top3', playlist)
-    ))
-//   <div>
-//     <h2>Top 3 Playlists</h2>
-//     {playlistArray.map((playlist, index) => (
-//       <RenderTracks key={index} playlistName={playlist.name} />
-//     ))}
-//   </div>
+    return (
+      <div>
+        <h2>Top 3 Playlists</h2>
 
-);
+        {playlistArray.map((playlist, index) => (
+        <RenderTracks key={index} playlistName={playlist.name} />
+        ))}
+      </div>
+    );
+};
