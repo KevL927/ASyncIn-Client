@@ -10,11 +10,11 @@ class TopPlaylists extends Component {
     componentWillMount() {
         this.props.dispatch(actions.getTopPlaylist('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'));
     }
-    // <Top3Playlists playlistObject={this.props.topPlaylists.slice(0,3)} />,
+
     renderToplists() {
         if(this.props.topPlaylists) {
             return (
-                
+                <Top3Playlists playlistArray={this.props.topPlaylists.slice(0,3)} />,
                 <Top4To10Playlists playlistArray={this.props.topPlaylists.slice(4,10)} />
             );
         } 
