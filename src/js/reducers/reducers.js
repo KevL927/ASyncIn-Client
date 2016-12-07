@@ -14,6 +14,7 @@ const initialState = {
 	currentUser:null, //contains accessToken, username, token(email), userId, favouritePlaylist 
 	error: null,
 	currentListeningUrl: null,
+	currentListeningPlaylist: null,
 	otherUserProfile:null,
 	temporaryPlaylist:null
 };
@@ -50,6 +51,9 @@ export default handleActions (
 		[actions.currentListeningUrl]: (state, action) => {
 			return {...state, currentListeningUrl: action.payload}
 		},
+		[actions.currentListeningPlaylist]: (state, action) => {
+			return {...state, currentListeningPlaylist: action.payload}
+		},
 		[actions.getUserPlaylistsSuccess]: (state, action) => {
 			return {...state, userSavedPlaylists: action.payload.data};
 		},
@@ -70,6 +74,7 @@ export default handleActions (
 			return {...state, error: action.payload.response.data.message};
 		},
 		[actions.updatePlaylistSuccess]: (state, action) => {
+			console.log(action.payload.data);
 			return {...state, userSavedPlaylists: action.payload.data};
 		},
 		[actions.updatePlaylistError]: (state, action) => {
