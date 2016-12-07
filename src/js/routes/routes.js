@@ -11,6 +11,7 @@ import TestPlaylistAction from '../components/TestPlaylistAction';
 import TestUserAction from '../components/TestUserActions';
 import Dashboard from '../components/Dashboard/DashboardPage';
 import TopPlaylists from '../components/TopPlaylists/TopPlaylists';
+import UserPlaylistList from '../components/UserPlaylists/UserPlaylistList';
 
 
 const routes = (
@@ -26,6 +27,7 @@ const routes = (
 					<Route path="test/users" component={TestUserAction} />
 					<Route path="viewplaylist" component={PlaylistPlayerContainer} />
 					<Route path="topplaylists" component={TopPlaylists} />
+					<Route path="myplaylists" component={UserPlaylistList} />
 			</Route>
 		</Router>
 	</Provider>
