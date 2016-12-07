@@ -10,7 +10,8 @@ class DashboardPage extends Component {
   
   componentWillMount(){
     //token, accesstoken
-    this.props.dispatch(actions.getCurrentUser('admin@email.com', 'iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'));
+    console.log(this.props.location.query.access_token);
+    this.props.dispatch(actions.getCurrentUser(this.props.location.query.token, this.props.location.query.access_token));
   }
   
   renderComponents() {
