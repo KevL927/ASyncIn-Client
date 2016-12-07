@@ -14,7 +14,7 @@ class TopPlaylists extends Component {
         if(this.props.topPlaylists) {
             return (
                 <div>
-                    <RenderPlaylist playlistArray={this.props.topPlaylists.slice(0,3)} />
+                    <RenderPlaylist url={this.props.currentListeningUrl} playlistArray={this.props.topPlaylists.slice(0,3)} />
                     <RenderPlaylist playlistArray={this.props.topPlaylists.slice(4,10)} />
                 </div>
             );
@@ -30,5 +30,5 @@ class TopPlaylists extends Component {
 
 
 export default connect(
-    ({ topPlaylists }) => ({ topPlaylists })
+    ({ topPlaylists, currentListeningUrl }) => ({ topPlaylists, currentListeningUrl })
 )(TopPlaylists);
