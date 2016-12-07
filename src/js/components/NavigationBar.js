@@ -8,7 +8,13 @@ class NavigationBar extends Component {
   render() {
     return (
       <div className="NavigationBar">
-        
+        <ul className="NavUL">
+        	<li>Home</li>
+        	<li>Saved Playlists</li>
+        	<li>Explore Playlists</li>
+        	<li>Contact Us</li>
+        	<li>Logout</li>
+        </ul>
       </div>
     );
   }
