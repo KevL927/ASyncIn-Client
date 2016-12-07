@@ -9,6 +9,7 @@ import SongSearchContainer from '../components/SearchMusic/SongSearchContainer';
 import RegisterContainer from '../components/Register/RegisterContainer';
 import TestPlaylistAction from '../components/TestPlaylistAction';
 import TestUserAction from '../components/TestUserActions';
+import Dashboard from '../components/Dashboard/DashboardPage';
 
 const routes = (
 	<Provider store={store}>
@@ -16,6 +17,7 @@ const routes = (
 			<Route path="/">
 				<IndexRoute component={App} />
 					<Route path="login" component={LoginContainer} />
+					<Route path="dashboard" component={Dashboard} />	
 					<Route path="search" component={SongSearchContainer} />
 					<Route path="register" component={RegisterContainer} />
 					<Route path="test/playlists" component={TestPlaylistAction} />

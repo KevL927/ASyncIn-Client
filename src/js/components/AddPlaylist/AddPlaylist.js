@@ -22,13 +22,14 @@ class AddPlaylist extends Component {
 
     onSubmitAddPlaylist(event) {
 		event.preventDefault();
+		console.log(this.props.currentUser);
 	    let newPlaylist = {
-        	    userId: this.props.currentUser.userId,
-        	    name: this.refs.playlistInputText.value,
-        	    tracks: [],
-        	    rating: 0,
-        	    isPublic: true
-    	    }
+    	    userId: this.props.currentUser.userId,
+    	    name: this.refs.playlistInputText.value,
+    	    tracks: [],
+    	    rating: 0,
+    	    isPublic: true
+    	}
         this.changeState();
 		this.props.dispatch(actions.createPlaylist(newPlaylist, this.props.currentUser.accessToken));
 
@@ -47,7 +48,6 @@ class AddPlaylist extends Component {
     }
 
 	render() {
-        console.log(this.props);
 		return (
             <div>
                 <button className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</button>
@@ -60,12 +60,4 @@ class AddPlaylist extends Component {
 	}
 }
 
-const mapStateToProps = (state) => {
-  return {
-    userSavedPlaylists: state.userSavedPlaylists,
-    currentUser: state.currentUser,
-    error: state.error
-  }
-}
-
-export default connect(mapStateToProps)(AddPlaylist) ;
+export default connect()(AddPlaylist) ;

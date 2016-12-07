@@ -24,9 +24,15 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[actions.loginSuccess]: (state, action) => {
-			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist ,isAuthenicated:true};
+			return {...state, isAuthenicated:true};
 		},
 		[actions.loginError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[actions.getCurrentUserSuccess]: (state, action) => {
+			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist, isAuthenicated:true};
+		},
+		[actions.getCurrentUserError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
 		[actions.registerSuccess]: (state, action) => {

@@ -38,7 +38,7 @@ export const loginRequest = (email, password) => dispatch => {
         .then((response) => {
             console.log('through')
             dispatch(loginSuccess(response));
-            hashHistory.push('/search')
+           // hashHistory.push('/search')
          
            return {response: '200'}
         })
@@ -47,6 +47,23 @@ export const loginRequest = (email, password) => dispatch => {
             return false;
         })
 };
+
+///login_success/:token
+
+export const getCurrentUserSuccess = createAction('GET_CURRENT_USER_SUCCESS');
+export const getCurrentUserError = createAction('GET_CURRENT_USER_ERROR');
+export const getCurrentUser = (token, accessToken) => dispatch => {
+    return axios.get('https://asyncin.herokuapp.com/api/v1/users/login_success/' + token + '?access_token=' + accessToken)
+        .then((response) => {
+            dispatch(getCurrentUserSuccess(response));
+           return {response: '200'}
+        })
+        .catch(err => {
+            dispatch(getCurrentUserError(err));
+            return false;
+        })
+};
+
 
 //*********************************************************************
 //---------------------------SEARCH ACTION ----------------------------
