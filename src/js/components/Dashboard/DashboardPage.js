@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import SongSearch from '../SearchMusic/SongSearch';
-import AddPlaylist from '../AddPlaylist/AddPlaylist';
 import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
 
 
 class DashboardPage extends Component {
   
   componentWillMount(){
-    //token, accesstoken
-    console.log(this.props.location.query.access_token);
     this.props.dispatch(actions.getCurrentUser(this.props.location.query.token, this.props.location.query.access_token));
   }
   
@@ -20,9 +17,8 @@ class DashboardPage extends Component {
       return (
         <div>
           <h3>Welcome, {this.props.currentUser.username}</h3>
-          <SongSearch />
+          <SongSearch currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} />
           <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} />
-          <AddPlaylist currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists}/>
         </div>
       );
     }else{
@@ -45,8 +41,3 @@ export default connect(
   ({ currentUser, userSavedPlaylists }) => 
   ({ currentUser, userSavedPlaylists })
 )(DashboardPage);
-
-    // <SongSearch />
-          // <AddPlaylist />
-          // <UserSavedPlaylist />
-          // <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylist} />

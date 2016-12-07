@@ -35,6 +35,7 @@ class AddPlaylist extends Component {
 
 	}
     renderInput() {
+       
         return (
             <div>
                 <form onSubmit={this.onSubmitAddPlaylist.bind(this)}>
@@ -51,9 +52,9 @@ class AddPlaylist extends Component {
 		return (
             <div>
                 <button className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</button>
-                {(this.state.showInput == true) ? this.renderInput(): ''}
+                {(this.state.showInput === true) ? this.renderInput(): ''}
                 {(this.props.error) ? this.renderError(): ''}
-                <UserSavedPlaylists userPlaylists={this.props.userSavedPlaylists}/>
+                <UserSavedPlaylists userPlaylists={this.props.userSavedPlaylists} newPlaylist={this.props.newPlaylist} currentUser={this.props.currentUser}/>
             </div>
             
 		);
