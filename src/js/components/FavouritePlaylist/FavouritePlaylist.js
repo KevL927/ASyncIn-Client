@@ -28,7 +28,6 @@ class FavouritePlaylist extends Component {
     
 
 	render() {
-	    console.log(this.props.favouritePlaylists)
 		return (
             <div>
                 <div>{this.renderFavouritePlaylist()}</div>

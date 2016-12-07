@@ -12,7 +12,6 @@ class DashboardPage extends Component {
   }
   
   renderComponents() {
-    console.log(this.props)
     if(this.props.currentUser) {
       return (
         <div>
