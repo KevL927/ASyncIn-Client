@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-
-// import {Link} from 'react-router';
-import * as actions from '../../actions/actions';
 import {connect} from 'react-redux';
 import SongSearch from './SongSearch';
 import AddPlaylist from '../AddPlaylist/AddPlaylist';

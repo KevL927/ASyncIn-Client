@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import * as actions from '../../actions/actions';
 
 
 class FavouritePlaylist extends Component {
@@ -13,9 +12,9 @@ class FavouritePlaylist extends Component {
         else{
             playlist = this.props.favouritePlaylists.map((playlist, index) => {
                 return (
-                    <div>
+                    <div key={index}>
                       <h3>Favourite Playlists</h3>
-                      <li key={index}>
+                      <li >
                             {playlist.name}
                       </li>
                     </div>

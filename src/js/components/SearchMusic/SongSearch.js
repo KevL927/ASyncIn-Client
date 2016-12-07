@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
 import MusicPlayer from '../MusicPlayer/MusicPlayer';
 import SearchResult from './SearchResult';
+import AddPlaylist from '../AddPlaylist/AddPlaylist';
 
 class SongSearch extends Component {
   state = {
     tempPlaylist: [],
     checkedYouTube: false
-
+  
 
   }
   onSubmitSearch(event) {
@@ -85,6 +86,7 @@ class SongSearch extends Component {
             <h1>SoundCloud</h1>
             <ul>{this.generateResult(this.props.soundcloudResults)}</ul>
           </ul>
+          <AddPlaylist currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist}/>
       </div>
     );
   }

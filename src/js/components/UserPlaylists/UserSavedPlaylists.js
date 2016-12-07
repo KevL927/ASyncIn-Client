@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-// import * as actions from '../actions/actions';
+import * as actions from '../../actions/actions';
 
 class UserSavedPlaylists extends Component {
+	
+	onClickAddNewPlaylist(newPlaylist, targetPlaylist, event){
+		event.preventDefault();
+		let newPlaylistArray = targetPlaylist.tracks.concat(newPlaylist);
+		let newPlaylistObject = targetPlaylist;
+		newPlaylistObject.tracks = newPlaylistArray;
+		console.log(newPlaylistObject);
+		
+		this.props.dispatch(actions.updatePlaylist(newPlaylistObject, this.props.currentUser.accessToken))
+	}
 	generateResult(resultArr) {
 	  let arr = [];
 	  if(!resultArr) {
@@ -11,7 +21,7 @@ class UserSavedPlaylists extends Component {
 	      arr = resultArr.map((playlist, index) => {
 	      return (
 	        <li key={index}>
-	          <div>{playlist.name}</div>
+	          <div><button onClick={this.onClickAddNewPlaylist.bind(this, this.props.newPlaylist, playlist)}>{playlist.name}</button></div>
 	        </li>
 	      );
 	      })
