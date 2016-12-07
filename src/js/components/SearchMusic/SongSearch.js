@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import update from 'react-addons-update';
+import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
 import MusicPlayer from '../MusicPlayer/MusicPlayer';
+import SearchResult from './SearchResult';
 
 class SongSearch extends Component {
   state = {
-    tempPlaylist: []
+    tempPlaylist: [],
+    checked: false
+
+
   }
   onSubmitSearch(event) {
     event.preventDefault();
     this.props.dispatch(actions.searchAll(this.refs.searchInput.value));
   }
-
-  onCheckInsert(track) {
-    console.log('track', track);
-    this.state.tempPlaylist.push(track);
-    console.log('this.state', this.state);
+  onCheckInsert(track, event) {
+    if(this.refs[track.link].checked) {
+      const newPlaylist = update(this.state.tempPlaylist, {$push: [track]});
+      this.setState({tempPlaylist: newPlaylist})
+    }
+    if(this.refs[track.link].checked === false) {
+      const index = this.state.tempPlaylist.indexOf(track)
+      const newPlaylist = update(this.state.tempPlaylist, {$splice: [[index, 1]]});
+      this.setState({tempPlaylist: newPlaylist})
+    }
   }
 
   generateResult(resultArr) {
@@ -26,10 +36,10 @@ class SongSearch extends Component {
         arr = resultArr.map((track, index) => {
         return (
           <li key={index}>
-            <input type="checkbox" name="searchResult" value={index} onClick={this.onCheckInsert.bind(this, track)}></input>
-            <div>{track.title}</div>
-            <div>{track.link}</div>
-            <div>{track.thumbnail}</div>
+            <input type="checkbox" name="searchResult" ref={track.link} onClick={this.onCheckInsert.bind(this, track)} ></input>
+            
+            <SearchResult track={track}/>
+
             <button onClick={this.playTrackOnClick.bind(this, track.link)}>click</button>
           </li>
         );
@@ -55,6 +65,7 @@ class SongSearch extends Component {
     return (
       <div className="songSearch">
         <div className="songSearch-container">
+
           <form onSubmit={this.onSubmitSearch.bind(this)}>
             <input type="text" name="search" ref="searchInput" placeholder="Search.."/>
           </form>
