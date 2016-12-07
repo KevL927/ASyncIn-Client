@@ -9,8 +9,6 @@ class UserSavedPlaylists extends Component {
 		let newPlaylistArray = targetPlaylist.tracks.concat(newPlaylist);
 		let newPlaylistObject = targetPlaylist;
 		newPlaylistObject.tracks = newPlaylistArray;
-		console.log(newPlaylistObject);
-		
 		this.props.dispatch(actions.updatePlaylist(newPlaylistObject, this.props.currentUser.accessToken))
 	}
 	generateResult(resultArr) {

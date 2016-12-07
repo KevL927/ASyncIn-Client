@@ -68,7 +68,6 @@ class SongSearch extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="songSearch">
         <div className="songSearch-container">
