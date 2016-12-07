@@ -36,9 +36,7 @@ export const loginRequest = (email, password) => dispatch => {
             }
         },{headers: {'Content-Type': 'application/json'}})
         .then((response) => {
-            console.log('through')
             dispatch(loginSuccess(response));
-             console.log(response.data.access_token, response.data.token)
             hashHistory.push('/dashboard?access_token=' + response.data.access_token +'&token='+ response.data.token)
            // hashHistory.push('/search')
          
@@ -76,6 +74,7 @@ export const searchAll = (search) => dispatch => {
     return axios.post('https://asyncin.herokuapp.com/api/search', {search: search}, {headers: {'Content-Type': 'application/json'}})
         .then((response) => {
             dispatch(searchAllSuccess(response));
+            hashHistory.push('/search');
             return { response };
         })
         .catch(err => {
@@ -86,6 +85,8 @@ export const searchAll = (search) => dispatch => {
 
 
 export const currentListeningUrl = createAction('CURRENT_LISTENING_URL', url => url);
+
+export const currentListeningPlaylist = createAction('CURRENT_LISTENING_PLAYLIST', playlist => playlist);
 
 //*********************************************************************
 //---------------------------PLAYLIST ACTIONS--------------------------
@@ -154,6 +155,7 @@ export const updatePlaylist = (playlistObject, accessToken) => dispatch => {
     
     return axios.put('https://asyncin.herokuapp.com/api/v1/playlists/' + playlistObject.userId +'/'+ playlistObject._id + '?access_token=' + accessToken, playlistObject)
         .then(response => {
+            
             dispatch(updatePlaylistSuccess(response));
            // hashHistory.push('/dashboard');
         })
