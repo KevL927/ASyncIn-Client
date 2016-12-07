@@ -282,7 +282,10 @@ button[type=submit]:hover {
   background:linear-gradient(
       rgba(138,91,16, .85), 
       rgba(255,197,103, 0.10)
-    ), url("http://i.imgur.com/3dI9j4c.jpg");
+    ), url("http://i.imgur.com/wZLxya6.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center left;
 }
 /*********************************************************************
 //------------------------------????--------------------------
