@@ -112,7 +112,7 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[actions.getTopPlaylistSuccess]: (state, action) => {
-				console.log('top playlist: ',action.payload.data)
+			console.log(action);
 			return {...state, topPlaylists: action.payload.data};
 		},
 		[actions.getTopPlaylistError]: (state, action) => {
