@@ -4,7 +4,7 @@ export default ({ index, title, link, thumbnail, source, onTrackItemClick }) => 
   
   return (
     <li key={index} className="track">
-      <a onClick={() => onTrackItemClick(link)} href="/#/myplaylists">{title}</a>
+      <a onClick={(event) => onTrackItemClick(event, link)} href="">{title}</a>
     </li>
   );
         
