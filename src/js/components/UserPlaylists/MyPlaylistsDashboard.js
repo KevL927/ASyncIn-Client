@@ -15,7 +15,7 @@ class MyPlaylistsDashboard extends Component {
 
 	viewTracks(playlist) {
 		if(playlist) {
-		 	return <RenderTracks playlistObject={playlist} />
+		 	return <ul><RenderTracks playlistObject={playlist} /></ul>
 		}
 		return;
 	}
