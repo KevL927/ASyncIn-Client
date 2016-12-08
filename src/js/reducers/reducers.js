@@ -59,7 +59,7 @@ export default handleActions (
 			if (Array.isArray(action.payload)) {
 				return { ...state, queue: [ ...state.queue, ...action.payload ] };
 			} else {
-				return { ...state, queue: [ ...state.queue, action.payload ] };
+				return { ...state, queue: [ action.payload, ...state.queue ] };
 			}
 		},
 		[actions.getUserPlaylistsSuccess]: (state, action) => {
