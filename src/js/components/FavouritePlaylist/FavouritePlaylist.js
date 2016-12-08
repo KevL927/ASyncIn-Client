@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-
+import * as actions from '../../actions/actions';
 
 class FavouritePlaylist extends Component {
-    
+    onClickRedirect(playlist, event){
+	    this.props.dispatch(actions.currentListeningPlaylist(playlist));
+	   
+	}
     renderFavouritePlaylist(){
         let playlist = [];
         if(!this.props.favouritePlaylists) {
@@ -14,9 +17,9 @@ class FavouritePlaylist extends Component {
                 return (
                     <div key={index}>
                       <h3>Favourite Playlists</h3>
-                      <li >
-                            {playlist.name}
-                      </li>
+                      <li key={index}>
+	          <div><button onClick={this.onClickRedirect.bind(this, playlist)}>{playlist.name}</button></div>
+	        </li>
                     </div>
                 );
             })
