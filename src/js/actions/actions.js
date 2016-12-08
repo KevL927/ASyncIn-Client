@@ -51,7 +51,8 @@ export const loginRequest = (email, password) => dispatch => {
         })
 };
 
-///login_success/:token
+export const logout = createAction('LOGOUT');
+
 
 export const getCurrentUserSuccess = createAction('GET_CURRENT_USER_SUCCESS');
 export const getCurrentUserError = createAction('GET_CURRENT_USER_ERROR');

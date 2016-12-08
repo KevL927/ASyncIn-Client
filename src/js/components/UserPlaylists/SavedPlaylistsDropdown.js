@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 
-class UserSavedPlaylists extends Component {
+class SavedPlaylistsDropdown extends Component {
 	
 	onClickAddNewPlaylist(newPlaylist, targetPlaylist, event){
 		event.preventDefault();
@@ -30,7 +30,7 @@ class UserSavedPlaylists extends Component {
 	render() {
 		return (
 			<div className="UserPlaylist">
-			<h1>My Saved Playlists</h1>
+			<h1>Saved Playlists Dropdown</h1>
 			<div className="UserPlaylist-container">
 		     	{this.generateResult(this.props.userPlaylists)}
 			</div>
@@ -39,4 +39,4 @@ class UserSavedPlaylists extends Component {
 	}
 }
 
-export default connect()(UserSavedPlaylists) ;
+export default connect()(SavedPlaylistsDropdown) ;

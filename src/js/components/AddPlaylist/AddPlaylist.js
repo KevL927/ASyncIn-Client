@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
-import UserSavedPlaylists from '../UserPlaylists/UserSavedPlaylists'
+import SavedPlaylistsDropdown from '../UserPlaylists/SavedPlaylistsDropdown'
 
 class AddPlaylist extends Component {
     state = {
@@ -54,7 +54,7 @@ class AddPlaylist extends Component {
                 <button className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</button>
                 {(this.state.showInput === true) ? this.renderInput(): ''}
                 {(this.props.error) ? this.renderError(): ''}
-                <UserSavedPlaylists userPlaylists={this.props.userSavedPlaylists} newPlaylist={this.props.newPlaylist} currentUser={this.props.currentUser}/>
+                <SavedPlaylistsDropdown userPlaylists={this.props.userSavedPlaylists} newPlaylist={this.props.newPlaylist} currentUser={this.props.currentUser}/>
             </div>
             
 		);
