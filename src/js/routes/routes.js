@@ -3,20 +3,21 @@ import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import {Provider} from 'react-redux';
 import store from '../store/store';
 import App from '../components/MainPage';
-import LoginContainer from '../components/Login/LoginContainer';
-import PlaylistPlayerContainer from '../components/PlaylistPlayer/PlaylistPlayerContainer';
-import SongSearchContainer from '../components/SearchMusic/SongSearchContainer';
-import RegisterContainer from '../components/Register/RegisterContainer';
-import TestPlaylistAction from '../components/TestPlaylistAction';
-import TestUserAction from '../components/TestUserActions';
+import LoginPage from '../components/Pages/LoginPage';
+import RegisterPage from '../components/Pages/RegisterPage';
+import NavigationBar from '../components/Pages/NavigationBar';
 import DashboardPage from '../components/Pages/DashboardPage';
 import TopPlaylists from '../components/Pages/TopPlaylistsPage';
+import SongSearchPage from '../components/Pages/SongSearchPage';
+
+
+import TestPlaylistAction from '../components/TestPlaylistAction';
+import TestUserAction from '../components/TestUserActions';
+
+
 import UserPlaylistList from '../components/UserPlaylists/UserPlaylistList';
-import NavigationBar from '../components/Pages/NavigationBar';
-import test1 from '../components/Test/test1'; 
-import test2 from '../components/Test/test2'; 
-import test3 from '../components/Test/test3'; 
-import test4 from '../components/Test/test4'; 
+
+
 
 
 const routes = (
@@ -24,14 +25,14 @@ const routes = (
 		<Router history={hashHistory}>
 			<Route path="/">
 				<IndexRoute component={App} />
-					<Route path="login" component={LoginContainer} />	
-					<Route path="register" component={RegisterContainer} />
+					<Route path="login" component={LoginPage} />	
+					<Route path="register" component={RegisterPage} />
 			</Route>
 
-			<Route path="/home" component={NavigationBar}>
+			<Route path="/dashboard" component={NavigationBar}>
 				<IndexRoute component={DashboardPage}/>
 				<Route path="top" component={TopPlaylists} />
-				<Route path="tester" component={test4} />
+				<Route path="search" component={SongSearchPage} />
 
 			</Route>
 		</Router>

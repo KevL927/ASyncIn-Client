@@ -10,9 +10,9 @@ class NavigationBar extends Component {
       <div>
         <div className="NavigationBar">
           <ul className="NavUL">
-            <li><Link to="/home">Dashboard</Link></li>
-            <li>Saved Playlists</li>
-            <li><Link to="/home/top">Explore Playlists</Link></li>
+            <li><Link to="/dashboard">Dashboard</Link></li>
+            <li><Link to="/dashboard/search">Search</Link></li>
+            <li><Link to="/dashboard/top">Explore Top Playlists</Link></li>
             <li>Contact Us</li>
             <li>Logout</li>
           </ul>
