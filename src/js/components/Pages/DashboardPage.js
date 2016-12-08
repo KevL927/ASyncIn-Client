@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import SongSearch from '../SearchMusic/SongSearch';
 import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
-import UserSavedPlaylists from '../UserPlaylists/UserSavedPlaylists';
+import UserPlaylistList from '../UserPlaylists/UserPlaylistList';
 import NavigationBar from './NavigationBar';
 
 
@@ -27,7 +27,7 @@ class DashboardPage extends Component {
             <input type="text" name="search" ref="searchInput" placeholder="Search.."/>
           </form>
         </div>
-          <UserSavedPlaylists userPlaylists={this.props.userSavedPlaylists} />
+          <UserPlaylistList />
           <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} />
         </div>
       );

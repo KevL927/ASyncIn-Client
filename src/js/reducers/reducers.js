@@ -21,6 +21,9 @@ const initialState = {
 
 export default handleActions (
 	{	
+		[actions.registerSuccess]: (state, action) => {
+			return {...state, isAuthenicated:true};
+		},
 		[actions.registerError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
@@ -34,12 +37,6 @@ export default handleActions (
 			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist, isAuthenicated:true};
 		},
 		[actions.getCurrentUserError]: (state, action) => {
-			return {...state, error: action.payload};
-		},
-		[actions.registerSuccess]: (state, action) => {
-			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist ,isAuthenicated:true};
-		},
-		[actions.registerError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
 		[actions.searchAllSuccess]: (state, action) => {
