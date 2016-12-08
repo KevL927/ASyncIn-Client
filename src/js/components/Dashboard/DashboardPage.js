@@ -4,6 +4,7 @@ import * as actions from '../../actions/actions';
 import SongSearch from '../SearchMusic/SongSearch';
 import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
 import UserSavedPlaylists from '../UserPlaylists/UserSavedPlaylists'
+import NavigationBar from '../NavigationBar'
 
 
 class DashboardPage extends Component {
@@ -19,8 +20,10 @@ class DashboardPage extends Component {
   renderComponents() {
     if(this.props.currentUser) {
       return (
-        <div>
-          <h3>Welcome, {this.props.currentUser.username}</h3>
+  
+        <div id="DashboardPage">
+          <NavigationBar/>
+          <span id="Welcome">Welcome, {this.props.currentUser.username}</span>
            <div className="songSearch-container">
           <form onSubmit={this.onSubmitSearch.bind(this)}>
             <input type="text" name="search" ref="searchInput" placeholder="Search.."/>

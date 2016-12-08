@@ -73,11 +73,12 @@ class SongSearch extends Component {
       <div id="songSearch-page">
         <NavigationBar/>
           <div className="songSearch">
-            <div className="songSearch-container">
+            
               <form onSubmit={this.onSubmitSearch.bind(this)}>
                 <input type="text" id="search-songs" name="search" ref="searchInput" placeholder="Search.."/>
               </form>
-            </div>
+          </div>  
+            <div className="songSearch-container">
               {this.playMusicOrNot()}
               <ul>
                 <h1>Youtube</h1>

@@ -1,4 +1,4 @@
-body {
+body { 
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -24,16 +24,17 @@ li {
     padding: 14px 16px;
     text-decoration: none;
     font-family: 'Ubuntu', sans-serif;
+    color: white;
 }
 li:hover {
     background-color: #db7c3d;
     color: white;
 }
 
-#songSearch-page, #UserPlaylist-page{
+#songSearch-page, #UserPlaylist-page, #DashboardPage {
   padding: 14px 0px;
   margin-top:30px;
-  background-color: black;
+  background-color: cyan;
   height:1500px;
   color: white;
 }
@@ -191,27 +192,6 @@ button[type=submit]:hover {
 #registerlink:hover {
   color: gold;
 }
-.image-login, .image-login2 {
-    position: absolute;
-    top: 39%;
-    left: 86%;
-    width: 282px;
-    height: 282px;
-    margin:-60px 0 0 -120px;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-}
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
- .image-login2 {
-    left: 11%;
-    }
-
-
-
 
 
 
@@ -219,10 +199,7 @@ button[type=submit]:hover {
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+
 
 /*********************************************************************
 //------------------------------Register Page--------------------------
@@ -232,24 +209,7 @@ button[type=submit]:hover {
 }
 
 
-.image-login, .image-login2 {
-    position: absolute;
-    top: 39%;
-    left: 86%;
-    width: 282px;
-    height: 282px;
-    margin:-60px 0 0 -120px;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-}
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
- .image-login2 {
-    left: 11%;
-    }
 
 /*********************************************************************
 //------------------------------SONG SEARCH--------------------------
@@ -263,7 +223,9 @@ button[type=submit]:hover {
   background-repeat: no-repeat;
   background-position: center left;
 }
-
+ .songSearch-container {
+  display: flex;
+ }
 #search-songs {
  
 
@@ -288,5 +250,21 @@ button[type=submit]:hover {
   background-position: center left;
 }
 /*********************************************************************
-//------------------------------????--------------------------
+//------------------------------DASHBOARD--------------------------
 //*********************************************************************/
+#Welcome {
+  color: pink;
+}
+#DashboardPage {
+background:linear-gradient(
+      rgba(138,91,16, .50), 
+      rgba(255,197,103, 0.30)
+    ), url("http://i.imgur.com/MSoIpIJ.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+
+  
+}
