@@ -14,7 +14,6 @@ const initialState = {
 	currentUser:null, 
 	error: null,
 	currentListeningUrl: null,
-	currentListeningPlaylist: null,
 	queue: [],
 	otherUserProfile:null,
 	temporaryPlaylist:null
@@ -51,9 +50,6 @@ export default handleActions (
 		},
 		[actions.currentListeningUrl]: (state, action) => {
 			return {...state, currentListeningUrl: action.payload}
-		},
-		[actions.currentListeningPlaylist]: (state, action) => {
-			return {...state, currentListeningPlaylist: action.payload}
 		},
 		[actions.queue]: (state, action) => {
 			if (Array.isArray(action.payload)) {
