@@ -12,7 +12,15 @@ class NavigationFooterPlayer extends Component {
    this.props.dispatch(actions.logout());
    hashHistory.push('/');
  }
+  playMusicOrNot() {
+    console.log('this.props.queue', this.props.queue)
+    if(this.props.queue.length === 0) {
+      return <div></div>
+    }
+    return playMusicFunc(this.props.queue[0].link);
+  }
   render() {
+    console.log(this.props)
     return (
       <div>
         <div className="NavigationBar">
@@ -26,7 +34,7 @@ class NavigationFooterPlayer extends Component {
         </div>
         {this.props.children}
         <div>
-          <div> {playMusicFunc(this.props.currentListeningUrl)}</div>
+          <div> {this.playMusicOrNot()}</div>
          <RenderTracks playlistObject={this.props.currentListeningPlaylist} />
         </div>
       </div>
@@ -37,5 +45,5 @@ class NavigationFooterPlayer extends Component {
 // export default NavigationBar;
 
 export default connect(
-    ({ currentListeningUrl, currentListeningPlaylist }) => ({ currentListeningUrl, currentListeningPlaylist })
+    ({ currentListeningUrl, currentListeningPlaylist, queue }) => ({ currentListeningUrl, currentListeningPlaylist, queue })
 )(NavigationFooterPlayer);

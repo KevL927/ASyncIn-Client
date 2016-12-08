@@ -8,7 +8,7 @@ class MyPlaylistsDashboard extends Component {
 	
 	onClickRedirect(playlist, event){
 	    this.props.dispatch(actions.currentListeningPlaylist(playlist));
-	   
+	    this.props.dispatch(actions.queue(playlist.tracks));
 	}
 	generateResult(resultArr) {
 	  let arr = [];
@@ -26,7 +26,11 @@ class MyPlaylistsDashboard extends Component {
 	  return arr;
 	}
 	
-
+	// dispatchPlaylistToQueue(playlist) {
+	// 	playlist.tracks.forEach((element) => {
+	// 		this.props.dispatch(actions.queue(element))
+	// 	})
+	// }
 
 	render() {
 		return (
