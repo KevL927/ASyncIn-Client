@@ -12,13 +12,15 @@ class NavigationFooterPlayer extends Component {
    this.props.dispatch(actions.logout());
    hashHistory.push('/');
  }
+
   playMusicOrNot() {
     console.log('this.props.queue', this.props.queue)
     if(this.props.queue.length === 0) {
-      return <div></div>
+      return playMusicFunc();
     }
     return playMusicFunc(this.props.queue[0].link);
   }
+
   render() {
     console.log(this.props)
     return (

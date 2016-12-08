@@ -53,15 +53,14 @@ class MyPlaylistsDashboard extends Component {
 	      arr = resultArr.map((playlist, index) => {
 	      return (
 	        <li key={index}>
-	        	{playlist.name}
+	        	
 	        	 <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
-	          <button onClick={this.expandCollapse.bind(this, index)} ref={index}>
-	          	 Expand
+
+	          	 <h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name}</h4>
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
 		         </Collapse>
 		          
-	          </button>
 	        </li>
 	      );
 	      })
