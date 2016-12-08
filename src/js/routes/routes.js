@@ -2,20 +2,19 @@ import React from 'react';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import {Provider} from 'react-redux';
 import store from '../store/store';
-import App from '../components/MainPage';
+import App from '../components/Pages/MainPage';
 import LoginPage from '../components/Pages/LoginPage';
 import RegisterPage from '../components/Pages/RegisterPage';
 import NavigationBar from '../components/Pages/NavigationBar';
 import DashboardPage from '../components/Pages/DashboardPage';
 import TopPlaylists from '../components/Pages/TopPlaylistsPage';
 import SongSearchPage from '../components/Pages/SongSearchPage';
+import ContactsPage from '../components/Pages/ContactsPage';
 
 
 import TestPlaylistAction from '../components/TestPlaylistAction';
 import TestUserAction from '../components/TestUserActions';
 
-
-import UserPlaylistList from '../components/UserPlaylists/UserPlaylistList';
 
 
 
@@ -27,6 +26,7 @@ const routes = (
 				<IndexRoute component={App} />
 					<Route path="login" component={LoginPage} />	
 					<Route path="register" component={RegisterPage} />
+					<Route path="contact" component={ContactsPage} />
 			</Route>
 
 			<Route path="/dashboard" component={NavigationBar}>

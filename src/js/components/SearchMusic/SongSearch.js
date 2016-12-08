@@ -9,13 +9,12 @@ import AddPlaylist from '../AddPlaylist/AddPlaylist';
 class SongSearch extends Component {
   state = {
     tempPlaylist: [],
-    checkedYouTube: false
-  
 
   }
   onSubmitSearch(event) {
     event.preventDefault();
     this.props.dispatch(actions.searchAll(this.refs.searchInput.value));
+    
   }
   onCheckInsert(track, event) {
     if(this.refs[track.link].checked) {
@@ -26,12 +25,6 @@ class SongSearch extends Component {
       const index = this.state.tempPlaylist.indexOf(track)
       const newPlaylist = update(this.state.tempPlaylist, {$splice: [[index, 1]]});
       this.setState({tempPlaylist: newPlaylist})
-    }
-  }
-
-  onCheckGroup(event) {
-    if (this.refs.youtubeBox.checked) {
-      this.setState({checkedYouTube: true})
     }
   }
 
@@ -71,7 +64,6 @@ class SongSearch extends Component {
             </div>
               <ul>
                 <h1>Youtube</h1>
-                <input type="checkbox" name="searchGroup" ref="youtubeBox" onClick={this.onCheckGroup.bind(this)} ></input>
                 <ul>{this.generateResult(this.props.youtubeResults)}</ul>
                 <h1>Vimeo</h1>
                 <ul>{this.generateResult(this.props.vimeoResults)}</ul>

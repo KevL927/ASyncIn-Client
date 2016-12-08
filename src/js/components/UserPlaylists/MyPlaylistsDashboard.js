@@ -4,7 +4,7 @@ import * as actions from '../../actions/actions';
 import { hashHistory } from 'react-router';
 import PlaylistPlayerContainer from '../PlaylistPlayer/PlaylistPlayerContainer';
 
-class UserPlaylistList extends Component {
+class MyPlaylistsDashboard extends Component {
 	
 	onClickRedirect(playlist, event){
 	    this.props.dispatch(actions.currentListeningPlaylist(playlist));
@@ -45,4 +45,4 @@ class UserPlaylistList extends Component {
 export default connect(
     ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl }) => 
     ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl })
-)(UserPlaylistList);
+)(MyPlaylistsDashboard);

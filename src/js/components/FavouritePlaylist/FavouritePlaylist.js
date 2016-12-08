@@ -18,9 +18,9 @@ class FavouritePlaylist extends Component {
                     <div key={index}>
                       <h3>Favourite Playlists</h3>
                       <li key={index}>
-	          <div><button onClick={this.onClickRedirect.bind(this, playlist)}>{playlist.name}</button></div>
-	        </li>
-                    </div>
+	                    <div><button onClick={this.onClickRedirect.bind(this, playlist)}>{playlist.name}</button></div>
+	                </li>
+                </div>
                 );
             })
             
