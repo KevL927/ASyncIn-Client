@@ -12,6 +12,11 @@ import TestUserAction from '../components/TestUserActions';
 import Dashboard from '../components/Dashboard/DashboardPage';
 import TopPlaylists from '../components/TopPlaylists/TopPlaylists';
 import UserPlaylistList from '../components/UserPlaylists/UserPlaylistList';
+import NavigationBar from '../components/NavigationBar';
+import test1 from '../components/Test/test1'; 
+import test2 from '../components/Test/test2'; 
+import test3 from '../components/Test/test3'; 
+import test4 from '../components/Test/test4'; 
 
 
 const routes = (
@@ -28,6 +33,13 @@ const routes = (
 					<Route path="viewplaylist" component={PlaylistPlayerContainer} />
 					<Route path="topplaylists" component={TopPlaylists} />
 					<Route path="myplaylists" component={UserPlaylistList} />
+			</Route>
+
+			<Route path="/muse">
+				<IndexRoute component={NavigationBar}/>
+				<Route path="/topplaylists" component={TopPlaylists} />
+				<Route path="/tester" component={test4} />
+
 			</Route>
 		</Router>
 	</Provider>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import RenderPlaylist from './RenderPlaylist';
+import NavigationBar from '../NavigationBar';
 
 
 class TopPlaylists extends Component {
@@ -23,7 +24,14 @@ class TopPlaylists extends Component {
     }
     
 	render() {
-		return <div>{this.renderToplists()}</div>;
+
+		return (
+
+            <div>
+                <div><NavigationBar/></div>
+                <div>{this.renderToplists()}</div>
+            </div>
+        );
 	}
 	
 }
