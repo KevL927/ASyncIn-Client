@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 class MusicPlayer extends Component {
 	shouldComponentUpdate(nextProps, nextState) {
 		if(nextProps.url === this.props.url) {
-			return false
+			return false;
 		}
 		return true;
 	}
@@ -15,12 +15,8 @@ class MusicPlayer extends Component {
     	<div>
     		<ReactPlayer url={this.props.url} playing/>
     	</div>
-    )
+    	);
 	}
 }
 
 export default MusicPlayer;
-
-// export default ({ url }) => {
-    
-// }

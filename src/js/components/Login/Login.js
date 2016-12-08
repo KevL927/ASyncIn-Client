@@ -33,8 +33,8 @@ class Login extends Component {
 
                     <button id="login-button" onClick={this.onSubmit.bind(this)} value="Submit" type="submit" className="login-button">Submit</button>
                     <Link to="/register" id="registerlink"> Dont have an account? Let's hook you up, man. </Link>
-                    <a id="google-login" href="/#/auth/google" className="google-login">Log in with Google</a><br />
-                    <a id="facebook-login" href="/#/auth/facebook" className="facebook-login">Log in with Facebook</a>
+                    <a id="google-login" href="https://asyncin.herokuapp.com/auth/google" className="google-login">Log in with Google</a><br />
+                    <a id="facebook-login" href="https://asyncin.herokuapp.com/auth/facebook" className="facebook-login">Log in with Facebook</a>
                 </form>
 
             </div>
