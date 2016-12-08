@@ -5,7 +5,7 @@ import store from '../store/store';
 import App from '../components/Pages/MainPage';
 import LoginPage from '../components/Pages/LoginPage';
 import RegisterPage from '../components/Pages/RegisterPage';
-import NavigationBar from '../components/Pages/NavigationBar';
+import NavigationFooterPlayer from '../components/Pages/Navigation-FooterPlayer';
 import DashboardPage from '../components/Pages/DashboardPage';
 import TopPlaylists from '../components/Pages/TopPlaylistsPage';
 import SongSearchPage from '../components/Pages/SongSearchPage';
@@ -29,7 +29,7 @@ const routes = (
 					<Route path="contact" component={ContactsPage} />
 			</Route>
 
-			<Route path="/dashboard" component={NavigationBar}>
+			<Route path="/dashboard" component={NavigationFooterPlayer}>
 				<IndexRoute component={DashboardPage}/>
 				<Route path="top" component={TopPlaylists} />
 				<Route path="search" component={SongSearchPage} />

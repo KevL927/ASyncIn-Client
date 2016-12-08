@@ -4,7 +4,6 @@ import * as actions from '../../actions/actions';
 import SongSearch from '../SearchMusic/SongSearch';
 import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
 import MyPlaylistsDashboard from '../UserPlaylists/MyPlaylistsDashboard';
-import NavigationBar from './NavigationBar';
 
 
 class DashboardPage extends Component {
