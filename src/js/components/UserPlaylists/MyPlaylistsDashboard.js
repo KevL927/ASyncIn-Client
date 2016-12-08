@@ -5,19 +5,29 @@ import { hashHistory } from 'react-router';
 import PlaylistPlayerContainer from '../PlaylistPlayer/PlaylistPlayerContainer';
 import RenderTracks from '../PlaylistPlayer/RenderTracks';
 import Collapse from 'react-collapse';
+import update from 'react-addons-update';
 
 class MyPlaylistsDashboard extends Component {
 	state = {
-		isOpened: false
+		isOpenedArray: []
 	}
 
 	onClickAddToQueue(playlist, event){
 	    this.props.dispatch(actions.queue(playlist.tracks));
 	}
 
-	expandCollapse(event) {
+	expandCollapse(index, event) {
 		event.preventDefault();
-		this.setState({isOpened: !this.state.isOpened})
+		if (this.state.isOpenedArray.indexOf(index) === -1) {
+			const tempOpenedArr = update(this.state.isOpenedArray, {$push: [index]});
+      		this.setState({isOpenedArray: tempOpenedArr})
+		} else {
+			const index = this.state.isOpenedArray.indexOf(index)
+			const tempOpenedArr = update(this.state.isOpenedArray, {$splice: [[index, 1]]});
+			this.setState({isOpenedArray: tempOpenedArr});
+		}
+
+		
 	}
 
 	viewTracks(playlist) {
@@ -25,6 +35,14 @@ class MyPlaylistsDashboard extends Component {
 		 	return <ul><RenderTracks playlistObject={playlist} /></ul>
 		}
 		return;
+	}
+
+	checkOpenedOrNot(index) {
+		if (this.state.isOpenedArray.indexOf(index) !== -1) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	generateResult(resultArr) {
@@ -37,9 +55,9 @@ class MyPlaylistsDashboard extends Component {
 	        <li key={index}>
 	        	{playlist.name}
 	        	 <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
-	          <button onClick={this.expandCollapse.bind(this)}>
+	          <button onClick={this.expandCollapse.bind(this, index)} ref={index}>
 	          	 Expand
-		         <Collapse isOpened={this.state.isOpened}>
+		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
 		         </Collapse>
 		          
