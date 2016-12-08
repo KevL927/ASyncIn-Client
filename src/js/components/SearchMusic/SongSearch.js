@@ -5,7 +5,6 @@ import * as actions from '../../actions/actions';
 import MusicPlayer from '../MusicPlayer/MusicPlayer';
 import SearchResult from './SearchResult';
 import AddPlaylist from '../AddPlaylist/AddPlaylist';
-import NavigationBar from '../NavigationBar';
 
 class SongSearch extends Component {
   state = {
@@ -61,24 +60,15 @@ class SongSearch extends Component {
     this.props.dispatch(actions.currentListeningUrl(url));
   }
 
-  playMusicOrNot() {
-    if(this.props.currentListeningUrl) {
-     return <MusicPlayer url={this.props.currentListeningUrl} />
-    }
-    return <div>no music</div>
-  }
-
   render() {
     return (
       <div id="songSearch-page">
-        <NavigationBar/>
           <div className="songSearch">
             <div className="songSearch-container">
               <form onSubmit={this.onSubmitSearch.bind(this)}>
                 <input type="text" id="search-songs" name="search" ref="searchInput" placeholder="Search.."/>
               </form>
             </div>
-              {this.playMusicOrNot()}
               <ul>
                 <h1>Youtube</h1>
                 <input type="checkbox" name="searchGroup" ref="youtubeBox" onClick={this.onCheckGroup.bind(this)} ></input>

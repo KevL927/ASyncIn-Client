@@ -3,21 +3,48 @@ import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import {Provider} from 'react-redux';
 import store from '../store/store';
 import App from '../components/MainPage';
-import LoginContainer from '../components/Login/LoginContainer';
-import PlaylistPlayerContainer from '../components/PlaylistPlayer/PlaylistPlayerContainer';
-import SongSearchContainer from '../components/SearchMusic/SongSearchContainer';
-import RegisterContainer from '../components/Register/RegisterContainer';
+import LoginPage from '../components/Pages/LoginPage';
+import RegisterPage from '../components/Pages/RegisterPage';
+import NavigationBar from '../components/Pages/NavigationBar';
+import DashboardPage from '../components/Pages/DashboardPage';
+import TopPlaylists from '../components/Pages/TopPlaylistsPage';
+import SongSearchPage from '../components/Pages/SongSearchPage';
+
+
 import TestPlaylistAction from '../components/TestPlaylistAction';
 import TestUserAction from '../components/TestUserActions';
-import Dashboard from '../components/Dashboard/DashboardPage';
-import TopPlaylists from '../components/TopPlaylists/TopPlaylists';
+
+
 import UserPlaylistList from '../components/UserPlaylists/UserPlaylistList';
+
+
 
 
 const routes = (
 	<Provider store={store}>
 		<Router history={hashHistory}>
 			<Route path="/">
+				<IndexRoute component={App} />
+					<Route path="login" component={LoginPage} />	
+					<Route path="register" component={RegisterPage} />
+			</Route>
+
+			<Route path="/dashboard" component={NavigationBar}>
+				<IndexRoute component={DashboardPage}/>
+				<Route path="top" component={TopPlaylists} />
+				<Route path="search" component={SongSearchPage} />
+
+			</Route>
+		</Router>
+	</Provider>
+);
+
+export default routes;
+
+
+/*
+
+	<Route path="/">
 				<IndexRoute component={App} />
 					<Route path="login" component={LoginContainer} />
 					<Route path="dashboard" component={Dashboard} />	
@@ -29,8 +56,4 @@ const routes = (
 					<Route path="topplaylists" component={TopPlaylists} />
 					<Route path="myplaylists" component={UserPlaylistList} />
 			</Route>
-		</Router>
-	</Provider>
-);
-
-export default routes;
+*/

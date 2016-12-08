@@ -5,5 +5,5 @@ export default (currentListeningUrl) => {
     if(currentListeningUrl) {
         return <MusicPlayer url={currentListeningUrl} />;
     }
-    return <MusicPlayer />;
+    return <div>No music</div>;
 };

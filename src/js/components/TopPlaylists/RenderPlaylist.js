@@ -7,11 +7,9 @@ class RenderPlaylist extends Component {
   
   rendertheStuff() {
     if(this.props.playlistArray.length < 4) {
-      console.log(this.props.currentListeningUrl);
       return (
         <div>
           <h2>Top 3 Playlists</h2>
-              {playMusicFunc(this.props.currentListeningUrl)}
           {this.props.playlistArray.map((playlist, index) => (
             <div>
               <li>#{index+1} - {playlist.name}</li>
