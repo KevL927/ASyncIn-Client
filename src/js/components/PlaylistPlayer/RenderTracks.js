@@ -19,6 +19,7 @@ class RenderTracks extends Component {
     }
     
     render() {
+        console.log('RenderTracks', this.props);
         return <div>{this.unwrapTracks()}</div>;
     }
 
