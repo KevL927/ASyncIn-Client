@@ -6,7 +6,7 @@ import RenderTracks from '../PlaylistPlayer/RenderTracks';
 import * as actions from '../../actions/actions';
 
 
-class NavigationBar extends Component {
+class NavigationFooterPlayer extends Component {
  
  logout(){
    this.props.dispatch(actions.logout());
@@ -38,4 +38,4 @@ class NavigationBar extends Component {
 
 export default connect(
     ({ currentListeningUrl, currentListeningPlaylist }) => ({ currentListeningUrl, currentListeningPlaylist })
-)(NavigationBar);
+)(NavigationFooterPlayer);
