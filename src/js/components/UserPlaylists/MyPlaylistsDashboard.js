@@ -3,13 +3,23 @@ import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import { hashHistory } from 'react-router';
 import PlaylistPlayerContainer from '../PlaylistPlayer/PlaylistPlayerContainer';
+import RenderTracks from '../PlaylistPlayer/RenderTracks';
 
 class MyPlaylistsDashboard extends Component {
 	
-	onClickRedirect(playlist, event){
-	    this.props.dispatch(actions.currentListeningPlaylist(playlist));
+	onClickAddToQueue(playlist, event){
 	    this.props.dispatch(actions.queue(playlist.tracks));
 	}
+
+
+
+	viewTracks(playlist) {
+		if(playlist) {
+		 	return <ul><RenderTracks playlistObject={playlist} /></ul>
+		}
+		return;
+	}
+
 	generateResult(resultArr) {
 	  let arr = [];
 	  if(!resultArr) {
@@ -18,19 +28,17 @@ class MyPlaylistsDashboard extends Component {
 	      arr = resultArr.map((playlist, index) => {
 	      return (
 	        <li key={index}>
-	          <div><button onClick={this.onClickRedirect.bind(this, playlist)}>{playlist.name}</button></div>
+	          <div>
+		          <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
+		          {playlist.name}
+		          {this.viewTracks(playlist)}
+	          </div>
 	        </li>
 	      );
 	      })
 	  }
 	  return arr;
 	}
-	
-	// dispatchPlaylistToQueue(playlist) {
-	// 	playlist.tracks.forEach((element) => {
-	// 		this.props.dispatch(actions.queue(element))
-	// 	})
-	// }
 
 	render() {
 		return (
