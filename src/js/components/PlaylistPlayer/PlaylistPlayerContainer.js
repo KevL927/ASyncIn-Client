@@ -9,7 +9,6 @@ export default ({ playlistObject, url }) => {
 
         return (
             <div>
-                {playMusicFunc(url)}
                 <RenderTracks playlistObject={playlistObject} />
                 <AddPlaylist />
             </div>

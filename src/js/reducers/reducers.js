@@ -11,7 +11,7 @@ const initialState = {
 	random: [],
 	topPlaylists: null,
 	isAuthenicated: false,
-	currentUser:null, //contains accessToken, username, token(email), userId, favouritePlaylist 
+	currentUser:null, 
 	error: null,
 	currentListeningUrl: null,
 	currentListeningPlaylist: null,
@@ -21,6 +21,9 @@ const initialState = {
 
 export default handleActions (
 	{	
+		[actions.registerSuccess]: (state, action) => {
+			return {...state, isAuthenicated:true};
+		},
 		[actions.registerError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
@@ -30,16 +33,13 @@ export default handleActions (
 		[actions.loginError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
+		[actions.logout]: (state, action) => {
+			return {...state, initialState};
+		},
 		[actions.getCurrentUserSuccess]: (state, action) => {
 			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist, isAuthenicated:true};
 		},
 		[actions.getCurrentUserError]: (state, action) => {
-			return {...state, error: action.payload};
-		},
-		[actions.registerSuccess]: (state, action) => {
-			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist ,isAuthenicated:true};
-		},
-		[actions.registerError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
 		[actions.searchAllSuccess]: (state, action) => {
@@ -74,7 +74,6 @@ export default handleActions (
 			return {...state, error: action.payload.response.data.message};
 		},
 		[actions.updatePlaylistSuccess]: (state, action) => {
-			console.log(action.payload.data);
 			return {...state, userSavedPlaylists: action.payload.data};
 		},
 		[actions.updatePlaylistError]: (state, action) => {

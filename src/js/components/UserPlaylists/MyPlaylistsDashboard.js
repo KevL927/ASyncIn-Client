@@ -4,7 +4,7 @@ import * as actions from '../../actions/actions';
 import { hashHistory } from 'react-router';
 import RenderTracks from '../PlaylistPlayer/RenderTracks';
 
-class UserPlaylistList extends Component {
+class MyPlaylistsDashboard extends Component {
 	
 	onClickRedirect(playlist, event){
 	    this.props.dispatch(actions.currentListeningPlaylist(playlist));
@@ -26,6 +26,7 @@ class UserPlaylistList extends Component {
 	  return arr;
 	}
 	
+
 	renderTracksOrNot(){
 		if(this.props.currentListeningPlaylist){
 			console.log('from userplaylistlist',this.props.currentListeningPlaylist)
@@ -46,6 +47,18 @@ class UserPlaylistList extends Component {
 			     	{this.renderTracksOrNot()}
 				</div>
 				</div>
+
+
+
+	render() {
+		return (
+			<div className="UserPlaylist">
+			
+			<div className="UserPlaylist-container">
+				<h2>My Saved Playlists</h2>
+		     	{this.generateResult(this.props.userSavedPlaylists)}
+			</div>
+
 			</div>
 		);
 	}
@@ -53,6 +66,12 @@ class UserPlaylistList extends Component {
 
 
 export default connect(
+
     ({ currentListeningPlaylist, userSavedPlaylists}) => 
     ({ currentListeningPlaylist, userSavedPlaylists })
 )(UserPlaylistList);
+
+    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl }) => 
+    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl })
+)(MyPlaylistsDashboard);
+

@@ -17,7 +17,10 @@ export const registerRequest = (email, username, password) => dispatch => {
         .then(response => {
         
             dispatch(registerSuccess({response}));
-           // hashHistory.push('/dashboard');
+              console.log(response)
+           hashHistory.push('/dashboard?access_token=' + response.data.user.accessToken +'&token='+ response.data.user.token);
+           return {response: '200'}
+         
         })
         .catch(err => {
             dispatch(registerError(err));
@@ -48,7 +51,8 @@ export const loginRequest = (email, password) => dispatch => {
         })
 };
 
-///login_success/:token
+export const logout = createAction('LOGOUT');
+
 
 export const getCurrentUserSuccess = createAction('GET_CURRENT_USER_SUCCESS');
 export const getCurrentUserError = createAction('GET_CURRENT_USER_ERROR');
@@ -74,7 +78,7 @@ export const searchAll = (search) => dispatch => {
     return axios.post('https://asyncin.herokuapp.com/api/search', {search: search}, {headers: {'Content-Type': 'application/json'}})
         .then((response) => {
             dispatch(searchAllSuccess(response));
-            hashHistory.push('/search');
+            hashHistory.push('/dashboard/search');
             return { response };
         })
         .catch(err => {

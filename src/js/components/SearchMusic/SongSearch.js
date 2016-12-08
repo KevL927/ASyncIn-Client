@@ -5,18 +5,16 @@ import * as actions from '../../actions/actions';
 import MusicPlayer from '../MusicPlayer/MusicPlayer';
 import SearchResult from './SearchResult';
 import AddPlaylist from '../AddPlaylist/AddPlaylist';
-import NavigationBar from '../NavigationBar';
 
 class SongSearch extends Component {
   state = {
     tempPlaylist: [],
-    checkedYouTube: false
-  
 
   }
   onSubmitSearch(event) {
     event.preventDefault();
     this.props.dispatch(actions.searchAll(this.refs.searchInput.value));
+    
   }
   onCheckInsert(track, event) {
     if(this.refs[track.link].checked) {
@@ -27,12 +25,6 @@ class SongSearch extends Component {
       const index = this.state.tempPlaylist.indexOf(track)
       const newPlaylist = update(this.state.tempPlaylist, {$splice: [[index, 1]]});
       this.setState({tempPlaylist: newPlaylist})
-    }
-  }
-
-  onCheckGroup(event) {
-    if (this.refs.youtubeBox.checked) {
-      this.setState({checkedYouTube: true})
     }
   }
 
@@ -61,28 +53,23 @@ class SongSearch extends Component {
     this.props.dispatch(actions.currentListeningUrl(url));
   }
 
-  playMusicOrNot() {
-    if(this.props.currentListeningUrl) {
-     return <MusicPlayer url={this.props.currentListeningUrl} />
-    }
-    return <div>no music</div>
-  }
-
   render() {
     return (
       <div id="songSearch-page">
-        <NavigationBar/>
           <div className="songSearch">
             
               <form onSubmit={this.onSubmitSearch.bind(this)}>
                 <input type="text" id="search-songs" name="search" ref="searchInput" placeholder="Search.."/>
               </form>
+<<<<<<< HEAD
           </div>  
             <div className="songSearch-container">
               {this.playMusicOrNot()}
+=======
+            </div>
+>>>>>>> 9b0cb23849e02eb83bfad82f8c992ae7e3f6c6da
               <ul>
                 <h1>Youtube</h1>
-                <input type="checkbox" name="searchGroup" ref="youtubeBox" onClick={this.onCheckGroup.bind(this)} ></input>
                 <ul>{this.generateResult(this.props.youtubeResults)}</ul>
                 <h1>Vimeo</h1>
                 <ul>{this.generateResult(this.props.vimeoResults)}</ul>

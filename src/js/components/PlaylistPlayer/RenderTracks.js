@@ -15,7 +15,7 @@ class RenderTracks extends Component {
         if(this.props.playlistObject) {
             return <TrackList onTrackItemClick={this.onTrackItemClick.bind(this)} tracks={this.props.playlistObject.tracks} />;
         } 
-        return <h2>Loading Playlist</h2>;
+        return <div></div>;
     }
     
     render() {

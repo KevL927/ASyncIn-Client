@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import play from '../../play.png';
+import play from '../../../play.png';
 import {Link} from 'react-router';
 
 
