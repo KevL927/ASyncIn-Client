@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
-import RenderPlaylist from './RenderPlaylist';
+import RenderPlaylist from '../TopPlaylists/RenderPlaylist';
+import NavigationBar from './NavigationBar';
 
 
-class TopPlaylists extends Component {
+class TopPlaylistsPage extends Component {
  
     componentWillMount() {
         this.props.dispatch(actions.getTopPlaylist('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'));
@@ -37,4 +38,4 @@ class TopPlaylists extends Component {
 
 export default connect(
     ({ topPlaylists, currentListeningUrl }) => ({ topPlaylists, currentListeningUrl })
-)(TopPlaylists);
+)(TopPlaylistsPage);

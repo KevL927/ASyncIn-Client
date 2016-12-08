@@ -5,7 +5,6 @@ import * as actions from '../../actions/actions';
 import MusicPlayer from '../MusicPlayer/MusicPlayer';
 import SearchResult from './SearchResult';
 import AddPlaylist from '../AddPlaylist/AddPlaylist';
-import NavigationBar from '../NavigationBar';
 
 class SongSearch extends Component {
   state = {

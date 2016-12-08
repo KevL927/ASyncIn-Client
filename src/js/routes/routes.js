@@ -9,10 +9,10 @@ import SongSearchContainer from '../components/SearchMusic/SongSearchContainer';
 import RegisterContainer from '../components/Register/RegisterContainer';
 import TestPlaylistAction from '../components/TestPlaylistAction';
 import TestUserAction from '../components/TestUserActions';
-import Dashboard from '../components/Dashboard/DashboardPage';
-import TopPlaylists from '../components/TopPlaylists/TopPlaylists';
+import DashboardPage from '../components/Pages/DashboardPage';
+import TopPlaylists from '../components/Pages/TopPlaylistsPage';
 import UserPlaylistList from '../components/UserPlaylists/UserPlaylistList';
-import NavigationBar from '../components/NavigationBar';
+import NavigationBar from '../components/Pages/NavigationBar';
 import test1 from '../components/Test/test1'; 
 import test2 from '../components/Test/test2'; 
 import test3 from '../components/Test/test3'; 
@@ -24,6 +24,27 @@ const routes = (
 		<Router history={hashHistory}>
 			<Route path="/">
 				<IndexRoute component={App} />
+					<Route path="login" component={LoginContainer} />	
+					<Route path="register" component={RegisterContainer} />
+			</Route>
+
+			<Route path="/home" component={NavigationBar}>
+				<IndexRoute component={DashboardPage}/>
+				<Route path="top" component={TopPlaylists} />
+				<Route path="tester" component={test4} />
+
+			</Route>
+		</Router>
+	</Provider>
+);
+
+export default routes;
+
+
+/*
+
+	<Route path="/">
+				<IndexRoute component={App} />
 					<Route path="login" component={LoginContainer} />
 					<Route path="dashboard" component={Dashboard} />	
 					<Route path="search" component={SongSearchContainer} />
@@ -34,15 +55,4 @@ const routes = (
 					<Route path="topplaylists" component={TopPlaylists} />
 					<Route path="myplaylists" component={UserPlaylistList} />
 			</Route>
-
-			<Route path="/muse">
-				<IndexRoute component={NavigationBar}/>
-				<Route path="/topplaylists" component={TopPlaylists} />
-				<Route path="/tester" component={test4} />
-
-			</Route>
-		</Router>
-	</Provider>
-);
-
-export default routes;
+*/

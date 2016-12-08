@@ -4,7 +4,7 @@ import * as actions from '../../actions/actions';
 import SongSearch from '../SearchMusic/SongSearch';
 import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
 import UserSavedPlaylists from '../UserPlaylists/UserSavedPlaylists';
-import NavigationBar from '../NavigationBar';
+import NavigationBar from './NavigationBar';
 
 
 class DashboardPage extends Component {
@@ -39,7 +39,6 @@ class DashboardPage extends Component {
   render() {
     return (
      <div>
-      <NavigationBar />
        <div className="DashboardPage">
            {this.renderComponents()}
        </div>
