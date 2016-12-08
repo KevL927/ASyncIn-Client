@@ -33,6 +33,7 @@ class UserPlaylistList extends Component {
 			<div className="UserPlaylist">
 			
 			<div className="UserPlaylist-container">
+				<h2>My Saved Playlists</h2>
 		     	{this.generateResult(this.props.userSavedPlaylists)}
 			</div>
 			</div>
