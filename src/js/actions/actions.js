@@ -309,3 +309,17 @@ export const getTopPlaylist = (accessToken) => dispatch => {
         });
 };
 
+export const updateQueueSuccess = createAction('UPDATE_FAVOURITE_PLAYLIST_SUCCESS');
+export const updateQueueError = createAction('UPDATE_FAVOURITE_PLAYLIST_ERROR');
+export const updateQueue = (accessToken,token, queue) => dispatch => {
+    
+    return axios.put('https://asyncin.herokuapp.com/api/v1/users/'+token+'?access_token=' + accessToken, 
+                {queue:queue})
+        .then(response => {
+            dispatch(updateQueueSuccess(response));
+        })
+        .catch(err => {
+            dispatch(updateQueueSuccess(err));
+            return false;
+        });
+};

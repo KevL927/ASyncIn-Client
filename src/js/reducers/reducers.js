@@ -120,6 +120,12 @@ export default handleActions (
 		},
 		[actions.getTopPlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
+		},
+		[actions.updateQueueSuccess]: (state, action) => {
+			return {...state, queue: action.payload.data};
+		},
+		[actions.updateQueueError]: (state, action) => {
+			return {...state, error: action.payload};
 		}
 	},
 	initialState
