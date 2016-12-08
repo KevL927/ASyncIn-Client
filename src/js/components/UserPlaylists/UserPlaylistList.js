@@ -26,20 +26,7 @@ class UserPlaylistList extends Component {
 	  return arr;
 	}
 	
-	renderTracksOrNot(){
-		if(this.props.currentListeningPlaylist){
-			console.log('from userplaylistlist', this.props.currentListeningPlaylist)
-			return (
-				<div>
-					<h1>My Playlists</h1>
-					<PlaylistPlayerContainer playlistObject={this.props.currentListeningPlaylist} url={this.props.currentListeningUrl}/>
-				</div>
-			);
-		}
-		else{
-			return <div>No playlist selected</div>
-		}
-	}
+
 
 	render() {
 		return (
@@ -47,7 +34,6 @@ class UserPlaylistList extends Component {
 			
 			<div className="UserPlaylist-container">
 		     	{this.generateResult(this.props.userSavedPlaylists)}
-		     	{this.renderTracksOrNot()}
 			</div>
 			</div>
 		);

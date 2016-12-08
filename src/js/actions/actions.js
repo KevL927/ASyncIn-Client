@@ -17,7 +17,10 @@ export const registerRequest = (email, username, password) => dispatch => {
         .then(response => {
         
             dispatch(registerSuccess({response}));
-           // hashHistory.push('/dashboard');
+              console.log(response)
+           hashHistory.push('/dashboard?access_token=' + response.data.user.accessToken +'&token='+ response.data.user.token);
+           return {response: '200'}
+         
         })
         .catch(err => {
             dispatch(registerError(err));
