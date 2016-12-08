@@ -92,6 +92,8 @@ export const currentListeningUrl = createAction('CURRENT_LISTENING_URL', url => 
 
 export const currentListeningPlaylist = createAction('CURRENT_LISTENING_PLAYLIST', playlist => playlist);
 
+export const queue = createAction('QUEUE', queue => queue);
+
 //*********************************************************************
 //---------------------------PLAYLIST ACTIONS--------------------------
 //*********************************************************************

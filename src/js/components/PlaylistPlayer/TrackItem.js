@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default ({ index, title, link, thumbnail, source, onTrackItemClick }) => {
+export default ({ onTrackItemClick, track }) => {
   
   return (
-    <li key={index} className="track">
-      <a onClick={(event) => onTrackItemClick(event, link)} href="">{title}</a>
+    <li className="track">
+      <a onClick={(event) => onTrackItemClick(event, track)} href="">{track.title}</a>
     </li>
   );
         

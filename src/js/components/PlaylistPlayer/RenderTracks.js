@@ -6,9 +6,9 @@ import TrackList from './TrackList';
 
 class RenderTracks extends Component {
     
-    onTrackItemClick(event, url) {
+    onTrackItemClick(event, track) {
         event.preventDefault();
-        this.props.dispatch(actions.currentListeningUrl(url));
+        this.props.dispatch(actions.queue(track));
     }
     
     unwrapTracks() {
