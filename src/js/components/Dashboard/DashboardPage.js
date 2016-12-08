@@ -29,13 +29,14 @@ class DashboardPage extends Component {
         <div id="DashboardPage">
           <NavigationBar/>
           <span id="Welcome">Welcome, {this.props.currentUser.username}</span>
-           <div className="songSearch-container">
-          <form onSubmit={this.onSubmitSearch.bind(this)}>
-            <input type="text" name="search" ref="searchInput" placeholder="Search.."/>
+           <form onSubmit={this.onSubmitSearch.bind(this)}>
+            <input type="text" name="search" ref="searchInput" placeholder="Search.." id="search-song-form"/>
           </form>
-        </div>
-          <UserSavedPlaylists userPlaylists={this.props.userSavedPlaylists} />
-          <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} />
+           <div className="songSearch-container">
+              <UserSavedPlaylists userPlaylists={this.props.userSavedPlaylists} />
+              <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} />
+          </div>
+          
         </div>
       );
     }else{

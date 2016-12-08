@@ -223,16 +223,16 @@ button[type=submit]:hover {
   background-repeat: no-repeat;
   background-position: center left;
 }
- .songSearch-container {
+ #DashboardPage {
   display: flex;
  }
-#search-songs {
+.songSearch-contianer {
  
 
 }
 #search-song-form {
   transform: translate(-50%, -50%);
-
+  width:50%;
 }
 
 
