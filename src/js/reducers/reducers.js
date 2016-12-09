@@ -37,7 +37,7 @@ export default handleActions (
 			return {...state, initialState};
 		},
 		[actions.getCurrentUserSuccess]: (state, action) => {
-			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist, isAuthenicated:true};
+			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist, isAuthenicated:true, queue: action.payload.data.user.queue};
 		},
 		[actions.getCurrentUserError]: (state, action) => {
 			return {...state, error: action.payload};
@@ -122,10 +122,10 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[actions.updateQueueSuccess]: (state, action) => {
-			return {...state, queue: action.payload.data};
+			return {...state};
 		},
 		[actions.updateQueueError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state};
 		}
 	},
 	initialState
