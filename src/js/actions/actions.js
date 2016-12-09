@@ -300,6 +300,7 @@ export const updateFavouritePlaylist = (accessToken,token, playlistId, rating) =
                     rating:rating
                 })
         .then(response => {
+            console.log(response);
             dispatch(updateFavouritePlaylistSuccess(response));
            // hashHistory.push('/dashboard');
         })
