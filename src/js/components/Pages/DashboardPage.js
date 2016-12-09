@@ -9,7 +9,9 @@ import MyPlaylistsDashboard from '../UserPlaylists/MyPlaylistsDashboard';
 class DashboardPage extends Component {
   
   componentWillMount(){
-    this.props.dispatch(actions.getCurrentUser(this.props.location.query.token, this.props.location.query.access_token));
+    if (!this.props.currentUser) {
+      this.props.dispatch(actions.getCurrentUser(this.props.location.query.token, this.props.location.query.access_token));
+    }
   }
    onSubmitSearch(event) {
     event.preventDefault();
