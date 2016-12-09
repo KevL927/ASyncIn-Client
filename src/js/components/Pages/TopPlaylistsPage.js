@@ -7,7 +7,7 @@ import RenderPlaylist from '../TopPlaylists/RenderPlaylist';
 class TopPlaylistsPage extends Component {
  
     componentWillMount() {
-        this.props.dispatch(actions.getTopPlaylist('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'));
+        this.props.dispatch(actions.getTopPlaylist(this.props.currentUser.accessToken));
     }
 
     renderToplists() {
@@ -23,7 +23,6 @@ class TopPlaylistsPage extends Component {
     }
     
 	render() {
-
 		return (
 
             <div>
@@ -36,5 +35,5 @@ class TopPlaylistsPage extends Component {
 
 
 export default connect(
-    ({ topPlaylists, currentListeningUrl }) => ({ topPlaylists, currentListeningUrl })
+    ({ topPlaylists, currentListeningUrl, currentUser }) => ({ topPlaylists, currentListeningUrl, currentUser })
 )(TopPlaylistsPage);
