@@ -36,7 +36,7 @@ class MyPlaylistsDashboard extends Component {
 
 	viewTracks(playlist) {
 		if(playlist) {
-		 	return <ul><RenderSavedPlaylistTracks playlistObject={playlist} /></ul>
+		 	return <ul><RenderSavedPlaylistTracks currentUser={this.props.currentUser} playlistObject={playlist} /></ul>
 		}
 		return;
 	}

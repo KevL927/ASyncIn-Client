@@ -1,12 +1,12 @@
 import React from 'react';
 import TrackItemWithDelete from './TrackItemWithDelete';
 
-export default ({ tracks, onTrackItemClick }) => (
+export default ({ tracks, onTrackItemClick, onClickDeleteTrack }) => (
   
   <div>
     {tracks.map((track, index) => (
 
-      <TrackItemWithDelete onTrackItemClick={onTrackItemClick} track={track} key={index} />
+      <TrackItemWithDelete onTrackItemClick={onTrackItemClick} onClickDeleteTrack={onClickDeleteTrack} track={track} key={index} />
     ))}
   </div>
   

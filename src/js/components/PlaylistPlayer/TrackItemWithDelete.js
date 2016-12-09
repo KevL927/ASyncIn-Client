@@ -1,10 +1,11 @@
 import React from 'react';
 
-export default ({ onTrackItemClick, track }) => {
+export default ({ onTrackItemClick, track, onClickDeleteTrack}) => {
   
+ 
   return (
     <li className="track">
-    	<button>Delete Track</button>
+    	<button onClick={(event) => onClickDeleteTrack(event, track)}>Delete Track</button>
     	<a onClick={(event) => onTrackItemClick(event, track)} href="">{track.title}</a>
     </li>
   );
