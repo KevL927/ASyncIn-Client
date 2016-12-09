@@ -33,8 +33,8 @@ class NavigationFooterPlayer extends Component {
           </ul>
         </div>
         {this.props.children}
+        {this.playMusicOrNot()}
         <div>
-          <div> {this.playMusicOrNot()}</div>
          <RenderTracks playlistObject={{tracks: this.props.queue}} currentUser={this.props.currentUser} />
         </div>
       </div>
