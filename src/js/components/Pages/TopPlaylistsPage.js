@@ -10,11 +10,11 @@ class TopPlaylistsPage extends Component {
         isOpenedArray: []
     }
 
-shouldComponentUpdate(nextProps, nextState){
-    console.log('next',nextProps.favouritePlaylist);
-  if(nextProps.favouritePlaylist)
-  return true;
-}
+    shouldComponentUpdate(nextProps, nextState){
+        console.log('next',nextProps.favouritePlaylist);
+      if(nextProps.favouritePlaylist)
+      return true;
+    }
     onClickAddToQueue(playlist, event){
         this.props.dispatch(actions.queue(playlist.tracks));  
     }
@@ -41,6 +41,13 @@ shouldComponentUpdate(nextProps, nextState){
 
     componentWillMount() {
         this.props.dispatch(actions.getTopPlaylist(this.props.currentUser.accessToken));
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if(nextProps.favouritePlaylist) {
+            this.props.dispatch(actions.getTopPlaylist(this.props.currentUser.accessToken));
+            return true;
+        }
     }
 
     renderToplists() {
