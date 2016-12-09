@@ -28,7 +28,7 @@ class DashboardPage extends Component {
             <input type="text" name="search" ref="searchInput" placeholder="Search.."/>
           </form>
         </div>
-          <MyPlaylistsDashboard />
+          <MyPlaylistsDashboard userSavedPlaylists={this.props.userSavedPlaylists} currentUser={this.props.currentUser}  queue={this.props.queue}/>
           <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} />
         </div>
       );
@@ -38,6 +38,7 @@ class DashboardPage extends Component {
   }
   
   render() {
+    console.log(this.props,'dashboard')
     return (
      <div>
        <div className="DashboardPage">
@@ -51,6 +52,6 @@ class DashboardPage extends Component {
 
 
 export default connect(  
-  ({ currentUser, userSavedPlaylists }) => 
-  ({ currentUser, userSavedPlaylists })
+  ({ currentUser, userSavedPlaylists,  queue }) => 
+  ({ currentUser, userSavedPlaylists, queue })
 )(DashboardPage);
