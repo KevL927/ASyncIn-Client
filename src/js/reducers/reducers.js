@@ -19,7 +19,7 @@ const initialState = {
 	favouritePlaylist:null
 };
 
-const reducers = handleActions (
+export default handleActions (
 	{	
 		[actions.registerSuccess]: (state, action) => {
 			return {...state, isAuthenicated:true};
@@ -135,6 +135,3 @@ const reducers = handleActions (
 	},
 	initialState
 );
-
-console.dir(reducers)
-export default reducers;
