@@ -38,7 +38,6 @@ class DashboardPage extends Component {
   }
   
   render() {
-    console.log(this.props,'dashboard')
     return (
      <div>
        <div className="DashboardPage">

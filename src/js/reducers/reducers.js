@@ -84,7 +84,7 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[actions.deletePlaylistSuccess]: (state, action) => {
-			return {...state, userSavedPlaylists: action.payload};
+			return {...state, userSavedPlaylists: action.payload.data};
 		},
 		[actions.deletePlaylistError]: (state, action) => {
 			return {...state, error: action.payload};

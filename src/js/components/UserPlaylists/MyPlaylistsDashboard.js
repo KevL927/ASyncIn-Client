@@ -11,7 +11,13 @@ class MyPlaylistsDashboard extends Component {
 	state = {
 		isOpenedArray: []
 	}
-
+	
+	// shouldComponentUpdate(nextProps, nextState){
+	// 	console.log(nextProps)
+	// 	if(nextProps.userSavedPlaylists){
+	// 		return true
+	// 	}
+	// }
 	onClickAddToQueue(playlist, event){
 	    this.props.dispatch(actions.queue(playlist.tracks));  
 	}
@@ -43,8 +49,11 @@ class MyPlaylistsDashboard extends Component {
 		}
 	}
 
+	deletePlaylist(playlistObject, event){
+		event.preventDefault();
+		this.props.dispatch(actions.deletePlaylist(playlistObject, this.props.currentUser.accessToken))
+	}
 	generateResult(resultArr) {
-		console.log('generateResult')
 	  let arr = [];
 	  if(!resultArr) {
 	    arr = <div></div>
@@ -52,11 +61,9 @@ class MyPlaylistsDashboard extends Component {
 	      arr = resultArr.map((playlist, index) => {
 	      return (
 	        <li key={index}>
-	        {console.log(playlist)}
 	        	 <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
-	        	 <button>Delete Playlist</button>
+	        	 <button onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
 	          	 <h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name}</h4>
-	          	 
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
 		         </Collapse>
@@ -74,14 +81,12 @@ class MyPlaylistsDashboard extends Component {
 	}
 
 	render() {
-		console.log(this.props,"myplaylistsdashboard")
 		return (
 			<div className="UserPlaylist">
-			
 			<div className="UserPlaylist-container">
 				<h2>My Saved Playlists</h2>
 		     	{this.generateResult(this.props.userSavedPlaylists)}
-		     	{this.updateServerQueue()};
+		     	{this.updateServerQueue()}
 			</div>
 			</div>
 		);
@@ -90,4 +95,3 @@ class MyPlaylistsDashboard extends Component {
 
 
 export default connect()(MyPlaylistsDashboard);
-//<button onClick={this.deletePlaylist.bind(this)}>Delete Playlist</button>
