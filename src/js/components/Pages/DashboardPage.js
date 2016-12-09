@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
-import SongSearch from '../SearchMusic/SongSearch';
 import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
 import MyPlaylistsDashboard from '../UserPlaylists/MyPlaylistsDashboard';
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import RenderTracks from '../PlaylistPlayer/RenderTracks';
-import playMusicFunc from '../MusicPlayer/playMusicFunc';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
 
@@ -22,7 +21,7 @@ class RenderPlaylist extends Component {
     
     favouriteOrUnfavourite(playlistObject) {
 
-      if(this.props.favouritePlaylist.length == 0){ return <button onClick={this.onClickUpdateFavouritePlaylist.bind(this, playlistObject)}>Favourite</button>}
+      if(this.props.favouritePlaylist.length === 0){ return <button onClick={this.onClickUpdateFavouritePlaylist.bind(this, playlistObject)}>Favourite</button>}
 
       let favouritePlaylistIdArray = [];
 

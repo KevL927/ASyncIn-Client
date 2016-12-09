@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
-import { hashHistory } from 'react-router';
-import PlaylistPlayerContainer from '../PlaylistPlayer/PlaylistPlayerContainer';
 import RenderSavedPlaylistTracks from '../PlaylistPlayer/RenderSavedPlaylistTracks';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
