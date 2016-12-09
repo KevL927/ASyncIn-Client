@@ -13,7 +13,7 @@ class MyPlaylistsDashboard extends Component {
 	}
 
 	onClickAddToQueue(playlist, event){
-	    this.props.dispatch(actions.queue(playlist.tracks));
+	    this.props.dispatch(actions.queue(playlist.tracks));  
 	}
 
 	expandCollapse(index, event) {
@@ -67,20 +67,11 @@ class MyPlaylistsDashboard extends Component {
 	  }
 	  return arr;
 	}
-
-
-/*
- <div onClick={this.expandCollapse.bind(this)}>
-	 Click expand
-	 <Collapse isOpened={this.state.isOpened}>
-	   <p>Paragraph of text</p>
-	   <p>Another paragraph is also OK</p>
-	   <p>Images and any other content are ok too</p>
-	   <img src="nyancat.gif" />
-	 </Collapse>
-
-</div>
-*/
+	updateServerQueue() {
+		if(this.props.currentUser && this.props.queue.length !== 0) {
+			this.props.dispatch(actions.updateQueue(this.props.currentUser.accessToken, this.props.currentUser.token, this.props.queue));
+		}
+	}
 
 	render() {
 		console.log(this.state)
@@ -90,6 +81,7 @@ class MyPlaylistsDashboard extends Component {
 			<div className="UserPlaylist-container">
 				<h2>My Saved Playlists</h2>
 		     	{this.generateResult(this.props.userSavedPlaylists)}
+		     	{this.updateServerQueue()};
 			</div>
 			</div>
 		);
@@ -98,6 +90,6 @@ class MyPlaylistsDashboard extends Component {
 
 
 export default connect(
-    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl }) => 
-    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl })
+    ({ userSavedPlaylists, currentListeningUrl, currentUser, queue }) => 
+    ({ userSavedPlaylists, currentListeningUrl, currentUser, queue })
 )(MyPlaylistsDashboard);

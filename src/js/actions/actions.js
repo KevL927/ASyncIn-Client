@@ -94,6 +94,22 @@ export const currentListeningPlaylist = createAction('CURRENT_LISTENING_PLAYLIST
 
 export const queue = createAction('QUEUE', queue => queue);
 
+export const updateQueueSuccess = createAction('UPDATE_FAVOURITE_PLAYLIST_SUCCESS');
+export const updateQueueError = createAction('UPDATE_FAVOURITE_PLAYLIST_ERROR');
+export const updateQueue = (accessToken,token, queue) => dispatch => {
+    
+    return axios.put('https://asyncin.herokuapp.com/api/v1/users/queue/'+token+'?access_token=' + accessToken, 
+                {queue:queue})
+        .then(response => {
+            console.log(response);
+            dispatch(updateQueueSuccess(response));
+        })
+        .catch(err => {
+            dispatch(updateQueueSuccess(err));
+            return false;
+        });
+};
+
 //*********************************************************************
 //---------------------------PLAYLIST ACTIONS--------------------------
 //*********************************************************************
@@ -305,21 +321,6 @@ export const getTopPlaylist = (accessToken) => dispatch => {
         })
         .catch(err => {
             dispatch(getTopPlaylistError(err));
-            return false;
-        });
-};
-
-export const updateQueueSuccess = createAction('UPDATE_FAVOURITE_PLAYLIST_SUCCESS');
-export const updateQueueError = createAction('UPDATE_FAVOURITE_PLAYLIST_ERROR');
-export const updateQueue = (accessToken,token, queue) => dispatch => {
-    
-    return axios.put('https://asyncin.herokuapp.com/api/v1/users/'+token+'?access_token=' + accessToken, 
-                {queue:queue})
-        .then(response => {
-            dispatch(updateQueueSuccess(response));
-        })
-        .catch(err => {
-            dispatch(updateQueueSuccess(err));
             return false;
         });
 };
