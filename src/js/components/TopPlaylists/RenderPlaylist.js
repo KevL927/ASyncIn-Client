@@ -53,6 +53,7 @@ class RenderPlaylist extends Component {
             <div>
               <li>#{index+1} - {playlist.name}</li>
               <li>favourites: {playlist.rating}</li>
+              <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
               <RenderTracks key={index} playlistObject={playlist} />
             </div>
           ))}
@@ -66,12 +67,14 @@ class RenderPlaylist extends Component {
           <h2>Top 4-10 Playlists</h2>
           {this.props.playlistArray.map((playlist, index) => (
             <div>
+
               <li onClick={this.expandCollapse.bind(this, index)} ref={index}>
                 #{index+4} - {playlist.name}
               </li>
               <li>
                 favourites: {playlist.rating}
               </li>
+              <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
               <Collapse isOpened={this.checkOpenedOrNot(index)}>
               {this.viewTracks(playlist)}
              </Collapse>
