@@ -26,8 +26,6 @@ class MyPlaylistsDashboard extends Component {
 			const tempOpenedArr = update(this.state.isOpenedArray, {$splice: [[index, 1]]});
 			this.setState({isOpenedArray: tempOpenedArr});
 		}
-
-		
 	}
 
 	viewTracks(playlist) {
@@ -46,6 +44,7 @@ class MyPlaylistsDashboard extends Component {
 	}
 
 	generateResult(resultArr) {
+		console.log('generateResult')
 	  let arr = [];
 	  if(!resultArr) {
 	    arr = <div></div>
@@ -53,10 +52,11 @@ class MyPlaylistsDashboard extends Component {
 	      arr = resultArr.map((playlist, index) => {
 	      return (
 	        <li key={index}>
-	        	
+	        {console.log(playlist)}
 	        	 <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
-
+	        	 <button>Delete Playlist</button>
 	          	 <h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name}</h4>
+	          	 
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
 		         </Collapse>
@@ -74,7 +74,7 @@ class MyPlaylistsDashboard extends Component {
 	}
 
 	render() {
-		console.log(this.state)
+		console.log(this.props,"myplaylistsdashboard")
 		return (
 			<div className="UserPlaylist">
 			
@@ -89,7 +89,5 @@ class MyPlaylistsDashboard extends Component {
 }
 
 
-export default connect(
-    ({ userSavedPlaylists, currentListeningUrl, currentUser, queue }) => 
-    ({ userSavedPlaylists, currentListeningUrl, currentUser, queue })
-)(MyPlaylistsDashboard);
+export default connect()(MyPlaylistsDashboard);
+//<button onClick={this.deletePlaylist.bind(this)}>Delete Playlist</button>

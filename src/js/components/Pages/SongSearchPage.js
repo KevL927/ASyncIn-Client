@@ -4,6 +4,12 @@ import SongSearch from '../SearchMusic/SongSearch';
 import AddPlaylist from '../AddPlaylist/AddPlaylist';
 
 class SongSearchContainer extends Component {
+  shouldComponentUpdate(nextProps, nextState){
+    if(nextProps.userSavedPlaylists){
+      return true
+    }
+    
+  }
   render() {
     return (
       <div className="musicPlayer">
