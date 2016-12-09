@@ -19,7 +19,7 @@ const initialState = {
 	favouritePlaylist:null
 };
 
-export default handleActions (
+const reducers = handleActions (
 	{	
 		[actions.registerSuccess]: (state, action) => {
 			return {...state, isAuthenicated:true};
@@ -113,11 +113,11 @@ export default handleActions (
 		[actions.updatePasswordError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
-		[actions.updateFavouritePlaylistSuccess]: (state, action) => {
-			console.log(action.payload.data)
+		[actions.updateFavPlaylistSuccess]: (state, action) => {
+			console.log('fav reducer',action.payload.data)
 			return {...state, currentUser: action.payload.data.user, favouritePlaylist: action.payload.data.user.favouritePlaylists};
 		},
-		[actions.updateFavouritePlaylistError]: (state, action) => {
+		[actions.updateFavPlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
 		[actions.getTopPlaylistSuccess]: (state, action) => {
@@ -135,3 +135,6 @@ export default handleActions (
 	},
 	initialState
 );
+
+console.dir(reducers)
+export default reducers;
