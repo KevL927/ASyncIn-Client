@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import { hashHistory } from 'react-router';
 import PlaylistPlayerContainer from '../PlaylistPlayer/PlaylistPlayerContainer';
-import RenderTracks from '../PlaylistPlayer/RenderTracks';
+import RenderSavedPlaylistTracks from '../PlaylistPlayer/RenderSavedPlaylistTracks';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
 
@@ -36,7 +36,7 @@ class MyPlaylistsDashboard extends Component {
 
 	viewTracks(playlist) {
 		if(playlist) {
-		 	return <ul><RenderTracks playlistObject={playlist} /></ul>
+		 	return <ul><RenderSavedPlaylistTracks playlistObject={playlist} /></ul>
 		}
 		return;
 	}
@@ -53,6 +53,7 @@ class MyPlaylistsDashboard extends Component {
 		event.preventDefault();
 		this.props.dispatch(actions.deletePlaylist(playlistObject, this.props.currentUser.accessToken))
 	}
+
 	generateResult(resultArr) {
 	  let arr = [];
 	  if(!resultArr) {
