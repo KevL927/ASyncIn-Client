@@ -14,10 +14,10 @@ class NavigationFooterPlayer extends Component {
  }
 
   playMusicOrNot() {
-    if(this.props.queue.length === 0) {
-      return playMusicFunc();
+    if(!this.props.currentListeningUrl && this.props.queue.length !== 0) {
+      return playMusicFunc(this.props.queue[0].link);
     }
-    return playMusicFunc(this.props.queue[0].link);
+    return playMusicFunc(this.props.currentListeningUrl);
   }
 
   render() {
@@ -45,5 +45,5 @@ class NavigationFooterPlayer extends Component {
 // export default NavigationBar;
 
 export default connect(
-    ({ currentListeningPlaylist, queue, currentUser }) => ({ currentListeningPlaylist, queue, currentUser })
+    ({ currentListeningUrl, queue, currentUser }) => ({ currentListeningUrl, queue, currentUser })
 )(NavigationFooterPlayer);

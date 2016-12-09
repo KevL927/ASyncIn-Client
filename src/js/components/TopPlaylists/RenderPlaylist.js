@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import RenderTracks from '../PlaylistPlayer/RenderTracks';
-import playMusicFunc from '../MusicPlayer/playMusicFunc';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
 

@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
+import {connect} from 'react-redux';
 import ReactPlayer from 'react-player';
 import screenfull from 'screenfull';
 import Duration from './Duration';
+import * as actions from '../../actions/actions';
+import playMusicFunc from '../MusicPlayer/playMusicFunc';
 
 
 class MusicPlayer extends Component {
+	
+    // componentWillReceiveProps(nextProps) {
+    //   this.props.url !== nextProps.url // Check if it's a new user, you can also use some unique, like the ID
+    // }  
 	
 	state = {
 		playing: true,
 		volume: 0.8,
 		played: 0,
 		loaded: 0,
-		duration: 0
+		duration: 0,
+		currentPlayingIndexInQueue: 1
 	}
 	
 	// load = url => {
@@ -25,8 +33,15 @@ class MusicPlayer extends Component {
 	playPause = () => {
 		this.setState({ playing: !this.state.playing })
 	}
-	stop = () => {
-		this.setState({ url: null, playing: false })
+	next = () => {
+		if(this.props.queue.length <= this.state.currentPlayingIndexInQueue) {
+			console.log(this.props.queue);
+			console.log(this.state.currentPlayingIndexInQueue)
+			return console.log('no more tracks on queue');
+		}
+		console.log(this.state.currentPlayingIndexInQueue)
+		this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue + 1 })
+		return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue].link));
 	}
 	setVolume = e => {
 		this.setState({ volume: parseFloat(e.target.value) })
@@ -54,7 +69,7 @@ class MusicPlayer extends Component {
 	render() {
 		const {
 	      playing, volume,
-	      played, loaded, duration,
+	      played, duration,
 	    } = this.state
 	    const SEPARATOR = ' · ';
 	    
@@ -80,8 +95,12 @@ class MusicPlayer extends Component {
 	            		onDuration={duration => this.setState({ duration })}
 		    		/>
 		    	</div>
-		    	<div id="video-controller">
-		    		<button onClick={this.stop}>Stop</button>
+		    	<div id="video-controller-1">
+	                <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button>
+	                <button onClick={this.onClickFullscreen}>Fullscreen</button>
+	            </div>
+	            <div id="video-controller-2">
+		    		<button onClick={this.next}>Next</button>
 	                <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button>
 	                <button onClick={this.onClickFullscreen}>Fullscreen</button>
 	            </div>
@@ -105,4 +124,7 @@ class MusicPlayer extends Component {
 	}
 }
 
-export default MusicPlayer;
+export default connect(
+  ({ queue }) => 
+  ({ queue })
+)(MusicPlayer);
