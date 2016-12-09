@@ -177,7 +177,6 @@ export const updatePlaylist = (playlistObject, accessToken) => dispatch => {
     
     return axios.put('https://asyncin.herokuapp.com/api/v1/playlists/' + playlistObject.userId +'/'+ playlistObject._id + '?access_token=' + accessToken, playlistObject)
         .then(response => {
-            
             dispatch(updatePlaylistSuccess(response));
            // hashHistory.push('/dashboard');
         })
