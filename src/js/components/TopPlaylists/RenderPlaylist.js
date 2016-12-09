@@ -13,6 +13,7 @@ class RenderPlaylist extends Component {
           {this.props.playlistArray.map((playlist, index) => (
             <div>
               <li>#{index+1} - {playlist.name}</li>
+              <li>favourites: {playlist.rating}</li>
               <RenderTracks key={index} playlistObject={playlist} />
             </div>
           ))}
@@ -27,6 +28,7 @@ class RenderPlaylist extends Component {
           {this.props.playlistArray.map((playlist, index) => (
             <div>
               <li>#{index+4} - {playlist.name}</li>
+              <li>favourites: {playlist.rating}</li>
             </div>
           ))}
         </div>
