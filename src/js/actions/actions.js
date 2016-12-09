@@ -291,8 +291,8 @@ export const updatePassword = (accessToken,newPassword) => dispatch => {
     "rating":28
 }
 */
-export const updateFavouritePlaylistSuccess = createAction('UPDATE_FAVOURITE_PLAYLIST_SUCCESS');
-export const updateFavouritePlaylistError = createAction('UPDATE_FAVOURITE_PLAYLIST_ERROR');
+export const updateFavPlaylistSuccess = createAction('UPDATE_FAV_PLAYLIST_SUCCESS');
+export const updateFavPlaylistError = createAction('UPDATE_FAV_PLAYLIST_ERROR');
 export const updateFavouritePlaylist = (accessToken,token, playlistId, rating) => dispatch => {
     
     return axios.put('https://asyncin.herokuapp.com/api/v1/users/'+token+'?access_token=' + accessToken, 
@@ -300,12 +300,12 @@ export const updateFavouritePlaylist = (accessToken,token, playlistId, rating) =
                     rating:rating
                 })
         .then(response => {
-            console.log(response);
-            dispatch(updateFavouritePlaylistSuccess(response));
+            console.log(response.data);
+            dispatch(updateFavPlaylistSuccess(response));
            // hashHistory.push('/dashboard');
         })
         .catch(err => {
-            dispatch(updateFavouritePlaylistError(err));
+            dispatch(updateFavPlaylistError(err));
             return false;
         });
 };

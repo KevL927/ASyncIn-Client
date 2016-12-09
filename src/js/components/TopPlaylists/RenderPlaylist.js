@@ -10,30 +10,27 @@ class RenderPlaylist extends Component {
     state = {
       isOpenedArray: []
     }
-
-// shouldComponentUpdate(nextProps, nextState){
-//   if(nextProps.favouritePlaylist)
-//   return true;
-// }
   	onClickUpdateFavouritePlaylist(playlistObject,event){
-  	  console.log(playlistObject);
+      console.log('clicked', playlistObject);
 	    event.preventDefault();
-	    this.props.dispatch(actions.updateFavouritePlaylist(this.props.currentUser.accessToken, this.props.currentUser.token, playlistObject._id, playlistObject.rating))
+	    this.props.dispatch(actions.updateFavouritePlaylist(this.props.currentUser.accessToken, this.props.currentUser.token, playlistObject._id, playlistObject.rating));
 	}
 	
     onClickAddToQueue(playlist, event){
-        this.props.dispatch(actions.queue(playlist.tracks));  
+        this.props.dispatch(actions.queue(playlist.tracks));
     }
     
     favouriteOrUnfavourite(playlistObject) {
+
       if(this.props.favouritePlaylist.length == 0){ return <button onClick={this.onClickUpdateFavouritePlaylist.bind(this, playlistObject)}>Favourite</button>}
-      let favouritePlaylistIdArray = []
+
+      let favouritePlaylistIdArray = [];
+
       for(let i=0; i<this.props.favouritePlaylist.length; i++){ 
         favouritePlaylistIdArray.push(this.props.favouritePlaylist[i]._id);
         }
         
         if( favouritePlaylistIdArray.indexOf(playlistObject._id) >= 0){
-          console.log('favourited')
           return <button onClick={this.onClickUpdateFavouritePlaylist.bind(this, playlistObject)}>Unfavourite</button>
         }
         else{
@@ -77,10 +74,10 @@ class RenderPlaylist extends Component {
         <div>
           <h2>Top 3 Playlists</h2>
           {this.props.playlistArray.map((playlist, index) => (
-            <div>
+            <div key={index}>
               <li>#{index+1} - {playlist.name}</li>
               <li>favourites: {playlist.rating}</li>
-              {this.favouriteOrUnfavourite(playlist, index)}
+              {this.favouriteOrUnfavourite(playlist)}
               <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
               <RenderTracks key={index} playlistObject={playlist} />
             </div>
@@ -94,8 +91,7 @@ class RenderPlaylist extends Component {
         <div>
           <h2>Top 4-10 Playlists</h2>
           {this.props.playlistArray.map((playlist, index) => (
-            <div>
-
+            <div key={index}>
               <li onClick={this.expandCollapse.bind(this, index)} ref={index}>
                 #{index+4} - {playlist.name}
               </li>
@@ -115,7 +111,6 @@ class RenderPlaylist extends Component {
   }
   
   render() {
-    console.log('fav',this.props)
     return <div>{this.rendertheStuff()}</div>  
   }
   
