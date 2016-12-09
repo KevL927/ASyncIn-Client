@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import ReactPlayer from 'react-player';
 import screenfull from 'screenfull';
-import Duration from './Duration'
+import Duration from './Duration';
 
 
 class MusicPlayer extends Component {
@@ -94,6 +94,7 @@ class MusicPlayer extends Component {
 	                  onChange={this.onSeekChange}
 	                  onMouseUp={this.onSeekMouseUp}
                 	/>
+                	<Duration seconds={duration * played} />
                 </div>
                 <div id="video-volume">
                 <h3>Volume</h3>
