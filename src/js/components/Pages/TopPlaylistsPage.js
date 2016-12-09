@@ -10,6 +10,11 @@ class TopPlaylistsPage extends Component {
         isOpenedArray: []
     }
 
+shouldComponentUpdate(nextProps, nextState){
+    console.log('next',nextProps.favouritePlaylist);
+  if(nextProps.favouritePlaylist)
+  return true;
+}
     onClickAddToQueue(playlist, event){
         this.props.dispatch(actions.queue(playlist.tracks));  
     }
@@ -42,8 +47,8 @@ class TopPlaylistsPage extends Component {
         if(this.props.topPlaylists) {
             return (
                 <div>
-                    <RenderPlaylist url={this.props.currentListeningUrl} playlistArray={this.props.topPlaylists.slice(0,3)} />
-                    <RenderPlaylist playlistArray={this.props.topPlaylists.slice(4,10)} />
+                    <RenderPlaylist url={this.props.currentListeningUrl} playlistArray={this.props.topPlaylists.slice(0,3)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist}/>
+                    <RenderPlaylist playlistArray={this.props.topPlaylists.slice(4,10)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist}/>
                 </div>
             );
         } 
@@ -63,5 +68,5 @@ class TopPlaylistsPage extends Component {
 
 
 export default connect(
-    ({ topPlaylists, currentListeningUrl, currentUser }) => ({ topPlaylists, currentListeningUrl, currentUser })
+    ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist }) => ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist })
 )(TopPlaylistsPage);

@@ -16,7 +16,7 @@ const initialState = {
 	currentListeningUrl: null,
 	queue: [],
 	otherUserProfile:null,
-	temporaryPlaylist:null
+	favouritePlaylist:null
 };
 
 export default handleActions (
@@ -37,7 +37,7 @@ export default handleActions (
 			return {...state, initialState};
 		},
 		[actions.getCurrentUserSuccess]: (state, action) => {
-			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist, isAuthenicated:true, queue: action.payload.data.user.queue};
+			return {...state, currentUser:action.payload.data.user, favouritePlaylist:action.payload.data.user.favouritePlaylists, userSavedPlaylists:action.payload.data.playlist, isAuthenicated:true, queue: action.payload.data.user.queue};
 		},
 		[actions.getCurrentUserError]: (state, action) => {
 			return {...state, error: action.payload};
@@ -110,7 +110,8 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[actions.updateFavouritePlaylistSuccess]: (state, action) => {
-			return {...state, currentUser: action.payload.data.user, temporaryPlaylist: action.payload.data.playlist};
+			console.log(action.payload.data)
+			return {...state, currentUser: action.payload.data.user, favouritePlaylist: action.payload.data.user.favouritePlaylists};
 		},
 		[actions.updateFavouritePlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
