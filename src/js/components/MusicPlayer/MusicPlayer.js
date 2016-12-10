@@ -20,6 +20,7 @@ class MusicPlayer extends Component {
 		played: 0,
 		loaded: 0,
 		duration: 0,
+		currentPlayingIndexInQueue: 1
 	}
 	
 	playPause = () => {
