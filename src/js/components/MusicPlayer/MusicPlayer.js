@@ -93,16 +93,16 @@ class MusicPlayer extends Component {
 		    		/>
 		    	</div>
 		    	<div id="video-controller-1">
-	                <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button>
+	                <button onClick={this.playPause} "player-buttons">{playing ? 'Pause' : 'Play'}</button>
 	                <button onClick={this.onClickFullscreen}>Fullscreen</button>
 	            </div>
 	            <div id="video-controller-2">
-	            	<button onClick={this.prev}>Prev</button>
-		    		<button onClick={this.next}>Next</button>
-	                <button onClick={this.shuffle}>Fullscreen</button>
+	            	<button onClick={this.prev} className="player-buttons">Prev</button>
+		    		<button onClick={this.next} className="player-buttons">Next</button>
+	                <button onClick={this.shuffle} className="player-buttons">Fullscreen</button>
 	            </div>
 	            <div id="video-seek">
-	            <h3>Seek</h3>
+	            <span id="seek">Seek</span>
 	            	<input
 	                  type='range' min={0} max={1} step='any'
 	                  value={played}
@@ -113,7 +113,7 @@ class MusicPlayer extends Component {
                 	<Duration seconds={duration * played} /> / <Duration seconds={duration} />
                 </div>
                 <div id="video-volume">
-                <h3>Volume</h3>
+                <span id="volume">Volume</span>
                 	<input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume} />
             	</div>
 	    	</footer>
