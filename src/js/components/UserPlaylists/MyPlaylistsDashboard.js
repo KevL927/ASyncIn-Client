@@ -7,15 +7,10 @@ import update from 'react-addons-update';
 
 class MyPlaylistsDashboard extends Component {
 	state = {
-		isOpenedArray: []
+		isOpenedArray: [],
+		editable:null
 	}
-	
-	// shouldComponentUpdate(nextProps, nextState){
-	// 	console.log(nextProps)
-	// 	if(nextProps.userSavedPlaylists){
-	// 		return true
-	// 	}
-	// }
+
 	onClickAddToQueue(playlist, event){
 	    this.props.dispatch(actions.queue(playlist.tracks));  
 	}
@@ -51,6 +46,23 @@ class MyPlaylistsDashboard extends Component {
 		event.preventDefault();
 		this.props.dispatch(actions.deletePlaylist(playlistObject, this.props.currentUser.accessToken))
 	}
+	
+	editPlaylistName(playlistObject, event){
+		event.preventDefault();
+		this.setState({
+			editable: playlistObject._id
+		})
+		return <div>{this.state.editable?<input contentEditable  ref="input" />:null }</div>
+		
+	}
+	edit(playlistObject, event){
+		console.log(playlistObject);
+		const updatedPlaylist = update(playlistObject, {name: {$set:this.refs.input.value}})
+	this.props.dispatch(actions.updatePlaylist(updatedPlaylist, this.props.currentUser.accessToken));
+	this.setState({
+			editable: null
+		})
+	}
 
 	generateResult(resultArr) {
 	  let arr = [];
@@ -62,11 +74,12 @@ class MyPlaylistsDashboard extends Component {
 	        <li key={index}>
 	        	 <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
 	        	 <button onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
+	        	 <button onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
+	        	 {this.state.editable == playlist._id ?<input contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" />:null }
 	          	 <h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name}</h4>
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
 		         </Collapse>
-		          
 	        </li>
 	      );
 	      })
@@ -80,6 +93,7 @@ class MyPlaylistsDashboard extends Component {
 	}
 
 	render() {
+		{	console.log(this.state.editable)}
 		return (
 			<div className="UserPlaylist">
 			<div className="UserPlaylist-container">
@@ -94,3 +108,4 @@ class MyPlaylistsDashboard extends Component {
 
 
 export default connect()(MyPlaylistsDashboard);
+
