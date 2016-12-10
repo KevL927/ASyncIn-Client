@@ -53,7 +53,6 @@ class SongSearch extends Component {
   }
 
   render() {
-    console.log('songsearch props',this.props)
     return (
       <div id="songSearch-page">
           <div className="songSearch">
