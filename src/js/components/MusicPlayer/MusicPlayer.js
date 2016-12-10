@@ -35,12 +35,20 @@ class MusicPlayer extends Component {
 	}
 	next = () => {
 		if(this.props.queue.length <= this.state.currentPlayingIndexInQueue) {
+			return console.log('no more tracks on queue');
+		}
+		console.log(this.state.currentPlayingIndexInQueue)
+		this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue + 1 })
+		return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue].link));
+	}
+	prev = () => {
+		if(this.state.currentPlayingIndexInQueue <= 0) {
 			console.log(this.props.queue);
 			console.log(this.state.currentPlayingIndexInQueue)
 			return console.log('no more tracks on queue');
 		}
 		console.log(this.state.currentPlayingIndexInQueue)
-		this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue + 1 })
+		this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue - 1 })
 		return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue].link));
 	}
 	setVolume = e => {
@@ -100,9 +108,9 @@ class MusicPlayer extends Component {
 	                <button onClick={this.onClickFullscreen}>Fullscreen</button>
 	            </div>
 	            <div id="video-controller-2">
+	            	<button onClick={this.prev}>Prev</button>
 		    		<button onClick={this.next}>Next</button>
-	                <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button>
-	                <button onClick={this.onClickFullscreen}>Fullscreen</button>
+	                <button onClick={this.shuffle}>Fullscreen</button>
 	            </div>
 	            <div id="video-seek">
 	            <h3>Seek</h3>
