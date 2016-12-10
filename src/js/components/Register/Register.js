@@ -34,9 +34,9 @@ class Register extends Component {
     render () {
         return (
             <div className="Register-page">
-            <img src={play} className='image-login' alt="play"/>
+            
             <span className="title">Sync-In</span>
-            <img src={play} className='image-login2' alt="play"/>
+            
                 <form className="Register-form">
 
                     <p className="stranger">Welcome, Stranger. :)</p>

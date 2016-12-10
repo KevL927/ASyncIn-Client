@@ -3,8 +3,13 @@ import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import SongSearch from '../SearchMusic/SongSearch';
 import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
+<<<<<<< HEAD
+import UserSavedPlaylists from '../UserPlaylists/UserSavedPlaylists'
+import NavigationBar from '../NavigationBar'
+=======
 import UserSavedPlaylists from '../UserPlaylists/UserSavedPlaylists';
 import NavigationBar from '../NavigationBar';
+>>>>>>> 9b0cb23849e02eb83bfad82f8c992ae7e3f6c6da
 
 
 class DashboardPage extends Component {
@@ -20,15 +25,18 @@ class DashboardPage extends Component {
   renderComponents() {
     if(this.props.currentUser) {
       return (
-        <div>
-          <h3>Welcome, {this.props.currentUser.username}</h3>
-           <div className="songSearch-container">
-          <form onSubmit={this.onSubmitSearch.bind(this)}>
-            <input type="text" name="search" ref="searchInput" placeholder="Search.."/>
+  
+        <div id="DashboardPage">
+          <NavigationBar/>
+          <span id="Welcome">Welcome, {this.props.currentUser.username}</span>
+           <form onSubmit={this.onSubmitSearch.bind(this)}>
+            <input type="text" name="search" ref="searchInput" placeholder="Search.." id="search-song-form"/>
           </form>
-        </div>
-          <UserSavedPlaylists userPlaylists={this.props.userSavedPlaylists} />
-          <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} />
+           <div className="songSearch-container">
+              <UserSavedPlaylists userPlaylists={this.props.userSavedPlaylists} />
+              <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} />
+          </div>
+          
         </div>
       );
     }else{

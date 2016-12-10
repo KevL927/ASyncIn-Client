@@ -17,9 +17,9 @@ class Login extends Component {
     render() {
         return (
             <div className="Login-page">
-            <img src={play} className='image-login' alt="play"/>
+            
             <span className="title">Sync-In</span>
-            <img src={play} className='image-login2' alt="play"/>
+            
             <MusicPlayer/>
                 <form className="login-container">
                     <label className="username">Email:</label>
