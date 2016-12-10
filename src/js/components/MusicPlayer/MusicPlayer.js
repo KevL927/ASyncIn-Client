@@ -76,8 +76,8 @@ class MusicPlayer extends Component {
 		    		<ReactPlayer 
 		    			ref={player => { this.player = player }}
 	            		className='react-player'
-	            		width={480}
-		            	height={270}
+	            		width={179}
+		            	height={114}
 		    			url={this.props.url} 
 		    			playing={playing}
 	            		volume={volume}
@@ -93,7 +93,7 @@ class MusicPlayer extends Component {
 		    		/>
 		    	</div>
 		    	<div id="video-controller-1">
-	                <button onClick={this.playPause} "player-buttons">{playing ? 'Pause' : 'Play'}</button>
+	                <button onClick={this.playPause} className="player-buttons">{playing ? 'Pause' : 'Play'}</button>
 	                <button onClick={this.onClickFullscreen}>Fullscreen</button>
 	            </div>
 	            <div id="video-controller-2">
