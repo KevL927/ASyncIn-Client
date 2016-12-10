@@ -23,13 +23,6 @@ class MusicPlayer extends Component {
 		currentPlayingIndexInQueue: 1
 	}
 	
-	// load = url => {
-	// 	this.setState({
-	// 		played: 0,
-	// 		loaded: 0
-	// 	})
-	// }
-	
 	playPause = () => {
 		this.setState({ playing: !this.state.playing })
 	}
