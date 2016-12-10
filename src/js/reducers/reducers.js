@@ -15,6 +15,7 @@ const initialState = {
 	error: null,
 	currentListeningUrl: null,
 	queue: [],
+	currentPlayingIndexInQueue: 0,
 	otherUserProfile:null,
 	favouritePlaylist:null
 };
