@@ -4,6 +4,7 @@ import * as actions from '../../actions/actions';
 import RenderTracks from '../PlaylistPlayer/RenderTracks';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
+import ScrollArea from 'react-scrollbar';
 
 class RenderPlaylist extends Component {
     state = {
@@ -72,6 +73,7 @@ class RenderPlaylist extends Component {
       return (
         <div>
           <h2>Top 3 Playlists</h2>
+          <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
           {this.props.playlistArray.map((playlist, index) => (
             <div key={index}>
               <li>#{index+1} - {playlist.name}</li>
@@ -81,6 +83,7 @@ class RenderPlaylist extends Component {
               <RenderTracks key={index} playlistObject={playlist} />
             </div>
           ))}
+          </ScrollArea>
         </div>
       );
     }
@@ -89,6 +92,7 @@ class RenderPlaylist extends Component {
       return (
         <div>
           <h2>Top 4-10 Playlists</h2>
+          <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
           {this.props.playlistArray.map((playlist, index) => (
             <div key={index}>
               <li onClick={this.expandCollapse.bind(this, index)} ref={index}>
@@ -104,6 +108,7 @@ class RenderPlaylist extends Component {
              </Collapse>
             </div>
           ))}
+          </ScrollArea>
         </div>
       );
     }
