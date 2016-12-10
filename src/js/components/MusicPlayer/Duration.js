@@ -10,7 +10,7 @@ export default function Duration ({ className, seconds }) {
 
 function format (seconds) {
   const date = new Date(seconds * 1000)
-  const hh = date.getHours()
+  const hh = date.getHours()-19
   const mm = date.getMinutes()
   const ss = pad(date.getSeconds())
   if (hh) {

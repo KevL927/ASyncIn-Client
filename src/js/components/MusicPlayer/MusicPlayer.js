@@ -15,7 +15,7 @@ class MusicPlayer extends Component {
     // }  
 	
 	state = {
-		playing: true,
+		playing: false,
 		volume: 0.8,
 		played: 0,
 		loaded: 0,
