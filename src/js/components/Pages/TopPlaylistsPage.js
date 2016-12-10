@@ -55,7 +55,7 @@ class TopPlaylistsPage extends Component {
             return (
                 <div>
                     <RenderPlaylist url={this.props.currentListeningUrl} playlistArray={this.props.topPlaylists.slice(0,3)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist}/>
-                    <RenderPlaylist playlistArray={this.props.topPlaylists.slice(4,10)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist}/>
+                    <RenderPlaylist playlistArray={this.props.topPlaylists.slice(3,10)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist}/>
                 </div>
             );
         } 

@@ -89,6 +89,7 @@ class RenderPlaylist extends Component {
     }
     
     if(this.props.playlistArray.length > 3) {
+      console.log(this.props.playlistArray,'4-10');
       return (
         <div>
           <h2>Top 4-10 Playlists</h2>
