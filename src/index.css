@@ -46,7 +46,7 @@ body {
     width: 100%;
 }
 
-li {
+li.nav-li {
     float: left;
     display: block;
     text-align: center;
@@ -55,8 +55,13 @@ li {
     font-family: 'Ubuntu', sans-serif;
     color: white;
 }
+a {
+   text-decoration: none;
+   color: white;
+}   
+
 li:hover {
-    background-color: #db7c3d;
+    background-color: #3d2221;
     color: white;
 }
 
@@ -64,7 +69,7 @@ li:hover {
   padding: 14px 0px;
   margin-top:30px;
   background-color: cyan;
-  height:1500px;
+  height:2300px;
   color: white;
 }
 /*********************************************************************
@@ -302,13 +307,41 @@ background:linear-gradient(
 #react-player {
   width: 100%;
   bottom: 0;
+  background-color: rgba(40,10,9, 1);
+}
+#video-pic-viewer {
+  float:left;
+
+}
+#video-controller-1, #video-controller-2 {
+  float:right;
+  padding: 1em;
 }
 
-.react-player {
-  width: 179;
-  height: 114;
+#video-seek, #video-volume {
+  color: white;
+  padding: 1em;
 }
+
 
 #seek, #volume {
   font-size: 1em;
+}
+
+.player-buttons {
+  background-color: #3d2221;
+  padding: 1em;
+  color: white;
+  margin: 3px;
+  border: none;
+}
+
+li.track {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+    color: black;
 }

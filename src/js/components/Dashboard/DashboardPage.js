@@ -3,13 +3,10 @@ import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import SongSearch from '../SearchMusic/SongSearch';
 import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
-<<<<<<< HEAD
 import UserSavedPlaylists from '../UserPlaylists/UserSavedPlaylists'
 import NavigationBar from '../NavigationBar'
-=======
-import UserSavedPlaylists from '../UserPlaylists/UserSavedPlaylists';
-import NavigationBar from '../NavigationBar';
->>>>>>> 9b0cb23849e02eb83bfad82f8c992ae7e3f6c6da
+
+
 
 
 class DashboardPage extends Component {

@@ -76,8 +76,8 @@ class MusicPlayer extends Component {
 		    		<ReactPlayer 
 		    			ref={player => { this.player = player }}
 	            		className='react-player'
-	            		width={480}
-		            	height={270}
+	            		width={179}
+		            	height={114}
 		    			url={this.props.url} 
 		    			playing={playing}
 	            		volume={volume}
