@@ -113,7 +113,7 @@ class MusicPlayer extends Component {
 	                  onChange={this.onSeekChange}
 	                  onMouseUp={this.onSeekMouseUp}
                 	/>
-                	<Duration seconds={duration * played} />
+                	<Duration seconds={duration * played} /> / <Duration seconds={duration} />
                 </div>
                 <div id="video-volume">
                 <h3>Volume</h3>
