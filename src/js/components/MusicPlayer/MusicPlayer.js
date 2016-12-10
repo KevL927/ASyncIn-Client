@@ -93,7 +93,7 @@ class MusicPlayer extends Component {
 		    		/>
 		    	</div>
 		    	<div id="video-controller-1">
-	                <button onClick={this.playPause} "player-buttons">{playing ? 'Pause' : 'Play'}</button>
+	                <button onClick={this.playPause} className="player-buttons">{playing ? 'Pause' : 'Play'}</button>
 	                <button onClick={this.onClickFullscreen}>Fullscreen</button>
 	            </div>
 	            <div id="video-controller-2">
