@@ -58,6 +58,7 @@ li.nav-li {
 a {
    text-decoration: none;
    color: white;
+   background-color: orange;
 }   
 
 li:hover {
