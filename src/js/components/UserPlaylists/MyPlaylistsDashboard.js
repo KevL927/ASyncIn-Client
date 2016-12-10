@@ -75,8 +75,8 @@ class MyPlaylistsDashboard extends Component {
 	        	 <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
 	        	 <button onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
 	        	 <button onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
-	        	 {this.state.editable == playlist._id ?<input contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" />:null }
-	          	 <h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name}</h4>
+	        	 {this.state.editable == playlist._id ?<input contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" />:<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name}</h4> }
+	          	 
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
 		         </Collapse>
