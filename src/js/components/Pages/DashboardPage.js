@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
-import SongSearch from '../SearchMusic/SongSearch';
 import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
 import MyPlaylistsDashboard from '../UserPlaylists/MyPlaylistsDashboard';
 
@@ -9,7 +8,9 @@ import MyPlaylistsDashboard from '../UserPlaylists/MyPlaylistsDashboard';
 class DashboardPage extends Component {
   
   componentWillMount(){
-    this.props.dispatch(actions.getCurrentUser(this.props.location.query.token, this.props.location.query.access_token));
+    if (!this.props.currentUser) {
+      this.props.dispatch(actions.getCurrentUser(this.props.location.query.token, this.props.location.query.access_token));
+    }
   }
    onSubmitSearch(event) {
     event.preventDefault();
@@ -26,7 +27,7 @@ class DashboardPage extends Component {
             <input type="text" name="search" ref="searchInput" placeholder="Search.."/>
           </form>
         </div>
-          <MyPlaylistsDashboard />
+          <MyPlaylistsDashboard userSavedPlaylists={this.props.userSavedPlaylists} currentUser={this.props.currentUser}  queue={this.props.queue}/>
           <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} />
         </div>
       );
@@ -49,6 +50,6 @@ class DashboardPage extends Component {
 
 
 export default connect(  
-  ({ currentUser, userSavedPlaylists }) => 
-  ({ currentUser, userSavedPlaylists })
+  ({ currentUser, userSavedPlaylists,  queue }) => 
+  ({ currentUser, userSavedPlaylists, queue })
 )(DashboardPage);

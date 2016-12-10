@@ -14,10 +14,10 @@ const initialState = {
 	currentUser:null, 
 	error: null,
 	currentListeningUrl: null,
-	currentListeningPlaylist: null,
 	queue: [],
+	currentPlayingIndexInQueue: 0,
 	otherUserProfile:null,
-	temporaryPlaylist:null
+	favouritePlaylist:null
 };
 
 export default handleActions (
@@ -38,7 +38,7 @@ export default handleActions (
 			return {...state, initialState};
 		},
 		[actions.getCurrentUserSuccess]: (state, action) => {
-			return {...state, currentUser:action.payload.data.user, userSavedPlaylists:action.payload.data.playlist, isAuthenicated:true};
+			return {...state, currentUser:action.payload.data.user, favouritePlaylist:action.payload.data.user.favouritePlaylists, userSavedPlaylists:action.payload.data.playlist, isAuthenicated:true, queue: action.payload.data.user.queue};
 		},
 		[actions.getCurrentUserError]: (state, action) => {
 			return {...state, error: action.payload};
@@ -51,9 +51,6 @@ export default handleActions (
 		},
 		[actions.currentListeningUrl]: (state, action) => {
 			return {...state, currentListeningUrl: action.payload}
-		},
-		[actions.currentListeningPlaylist]: (state, action) => {
-			return {...state, currentListeningPlaylist: action.payload}
 		},
 		[actions.queue]: (state, action) => {
 			if (Array.isArray(action.payload)) {
@@ -74,6 +71,10 @@ export default handleActions (
 		[actions.getOtherUserPlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
+		[actions.createPlaylistSuccess]: (state, action) => {
+			let tempPlaylist = [ action.payload.data, ...state.userSavedPlaylists ];
+			return {...state, userSavedPlaylists: tempPlaylist};
+		},
 		[actions.createPlaylistError]: (state, action) => {
 			return {...state, error: action.payload.response.data.message};
 		},
@@ -84,7 +85,7 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[actions.deletePlaylistSuccess]: (state, action) => {
-			return {...state, userSavedPlaylists: action.payload};
+			return {...state, userSavedPlaylists: action.payload.data};
 		},
 		[actions.deletePlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
@@ -113,10 +114,11 @@ export default handleActions (
 		[actions.updatePasswordError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
-		[actions.updateFavouritePlaylistSuccess]: (state, action) => {
-			return {...state, currentUser: action.payload.data.user, temporaryPlaylist: action.payload.data.playlist};
+		[actions.updateFavPlaylistSuccess]: (state, action) => {
+			console.log('fav reducer',action.payload.data)
+			return {...state, currentUser: action.payload.data.user, favouritePlaylist: action.payload.data.user.favouritePlaylists};
 		},
-		[actions.updateFavouritePlaylistError]: (state, action) => {
+		[actions.updateFavPlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
 		[actions.getTopPlaylistSuccess]: (state, action) => {
@@ -124,6 +126,12 @@ export default handleActions (
 		},
 		[actions.getTopPlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
+		},
+		[actions.updateQueueSuccess]: (state, action) => {
+			return {...state};
+		},
+		[actions.updateQueueError]: (state, action) => {
+			return {...state};
 		}
 	},
 	initialState

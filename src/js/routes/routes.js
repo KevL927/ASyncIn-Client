@@ -12,9 +12,6 @@ import SongSearchPage from '../components/Pages/SongSearchPage';
 import ContactsPage from '../components/Pages/ContactsPage';
 
 
-import TestPlaylistAction from '../components/TestPlaylistAction';
-import TestUserAction from '../components/TestUserActions';
-
 
 
 
@@ -41,19 +38,3 @@ const routes = (
 
 export default routes;
 
-
-/*
-
-	<Route path="/">
-				<IndexRoute component={App} />
-					<Route path="login" component={LoginContainer} />
-					<Route path="dashboard" component={Dashboard} />	
-					<Route path="search" component={SongSearchContainer} />
-					<Route path="register" component={RegisterContainer} />
-					<Route path="test/playlists" component={TestPlaylistAction} />
-					<Route path="test/users" component={TestUserAction} />
-					<Route path="viewplaylist" component={PlaylistPlayerContainer} />
-					<Route path="topplaylists" component={TopPlaylists} />
-					<Route path="myplaylists" component={UserPlaylistList} />
-			</Route>
-*/

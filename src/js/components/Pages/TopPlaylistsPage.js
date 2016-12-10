@@ -2,20 +2,60 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import RenderPlaylist from '../TopPlaylists/RenderPlaylist';
-
+import update from 'react-addons-update';
 
 class TopPlaylistsPage extends Component {
  
+    state = {
+        isOpenedArray: []
+    }
+
+    shouldComponentUpdate(nextProps, nextState){
+        console.log('next',nextProps.favouritePlaylist);
+      if(nextProps.favouritePlaylist)
+      return true;
+    }
+    onClickAddToQueue(playlist, event){
+        this.props.dispatch(actions.queue(playlist.tracks));  
+    }
+
+    expandCollapse(index, event) {
+        event.preventDefault();
+        if (this.state.isOpenedArray.indexOf(index) === -1) {
+            const tempOpenedArr = update(this.state.isOpenedArray, {$push: [index]});
+            this.setState({isOpenedArray: tempOpenedArr})
+        } else {
+            const index = this.state.isOpenedArray.indexOf(index)
+            const tempOpenedArr = update(this.state.isOpenedArray, {$splice: [[index, 1]]});
+            this.setState({isOpenedArray: tempOpenedArr});
+        }   
+    }
+
+    checkOpenedOrNot(index) {
+        if (this.state.isOpenedArray.indexOf(index) !== -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     componentWillMount() {
-        this.props.dispatch(actions.getTopPlaylist('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os'));
+        this.props.dispatch(actions.getTopPlaylist(this.props.currentUser.accessToken));
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if(nextProps.favouritePlaylist) {
+            this.props.dispatch(actions.getTopPlaylist(this.props.currentUser.accessToken));
+            return true;
+        }
     }
 
     renderToplists() {
         if(this.props.topPlaylists) {
             return (
                 <div>
-                    <RenderPlaylist url={this.props.currentListeningUrl} playlistArray={this.props.topPlaylists.slice(0,3)} />
-                    <RenderPlaylist playlistArray={this.props.topPlaylists.slice(4,10)} />
+                    <RenderPlaylist url={this.props.currentListeningUrl} playlistArray={this.props.topPlaylists.slice(0,3)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist}/>
+                    <RenderPlaylist playlistArray={this.props.topPlaylists.slice(4,10)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist}/>
                 </div>
             );
         } 
@@ -23,7 +63,6 @@ class TopPlaylistsPage extends Component {
     }
     
 	render() {
-
 		return (
 
             <div>
@@ -36,5 +75,5 @@ class TopPlaylistsPage extends Component {
 
 
 export default connect(
-    ({ topPlaylists, currentListeningUrl }) => ({ topPlaylists, currentListeningUrl })
+    ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist }) => ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist })
 )(TopPlaylistsPage);
