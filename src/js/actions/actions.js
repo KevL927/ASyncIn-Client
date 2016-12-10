@@ -324,3 +324,5 @@ export const getTopPlaylist = (accessToken) => dispatch => {
             return false;
         });
 };
+
+export const shuffledQueue = createAction('shuffledQueue');

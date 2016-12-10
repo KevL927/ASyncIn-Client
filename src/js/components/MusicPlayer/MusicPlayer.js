@@ -5,7 +5,7 @@ import ReactPlayer from 'react-player';
 import screenfull from 'screenfull';
 import Duration from './Duration';
 import * as actions from '../../actions/actions';
-import playMusicFunc from '../MusicPlayer/playMusicFunc';
+import shuffle from './shuffleQueue'
 
 
 class MusicPlayer extends Component {
@@ -16,6 +16,7 @@ class MusicPlayer extends Component {
 	
 	state = {
 		playing: false,
+		shuffle: false,
 		volume: 0.8,
 		played: 0,
 		loaded: 0,
@@ -34,11 +35,20 @@ class MusicPlayer extends Component {
 		return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue].link));
 	}
 	prev = () => {
-		if(this.state.currentPlayingIndexInQueue <= 0) {
+		if(this.state.currentPlayingIndexInQueue <= -1) {
 			return console.log('no more tracks on queue');
 		}
 		this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue - 1 })
 		return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue].link));
+	}
+	shuffle = () => {
+		if(this.state.shuffle) {
+			this.setState({ shuffle: false })
+			return this.props.dispatch(actions.shuffledQueue(null));
+		}
+		this.setState({ shuffle: true })
+		let shuffledQueue = shuffle(this.props.queue)
+		return this.props.dispatch(actions.shuffledQueue(shuffledQueue))
 	}
 	setVolume = e => {
 		this.setState({ volume: parseFloat(e.target.value) })
@@ -99,7 +109,7 @@ class MusicPlayer extends Component {
 	            <div id="video-controller-2">
 	            	<button onClick={this.prev} className="player-buttons">Prev</button>
 		    		<button onClick={this.next} className="player-buttons">Next</button>
-	                <button onClick={this.shuffle} className="player-buttons">Fullscreen</button>
+		    		<button onClick={this.shuffle} className="player-buttons">{this.state.shuffle ? 'Shuffle Off' : 'Shuffle On'}</button>
 	            </div>
 	            <div id="video-seek">
 	            <span id="seek">Seek</span>
@@ -122,6 +132,6 @@ class MusicPlayer extends Component {
 }
 
 export default connect(
-  ({ queue }) => 
-  ({ queue })
+  ({ queue, shuffledQueue }) => 
+  ({ queue, shuffledQueue })
 )(MusicPlayer);

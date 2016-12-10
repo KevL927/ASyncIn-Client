@@ -7,20 +7,24 @@ import * as actions from '../../actions/actions';
 
 
 class NavigationFooterPlayer extends Component {
- 
+
  logout(){
    this.props.dispatch(actions.logout());
    hashHistory.push('/');
  }
 
   playMusicOrNot() {
-    if(!this.props.currentListeningUrl && this.props.queue.length !== 0) {
+    if(!this.props.currentListeningUrl && this.props.queue.length !== 0 && !this.props.shuffledQueue) {
       return playMusicFunc(this.props.queue[0].link);
+    }
+    if(this.props.shuffledQueue) {
+      return playMusicFunc(this.props.shuffledQueue[0].link);
     }
     return playMusicFunc(this.props.currentListeningUrl);
   }
 
   render() {
+    console.log('inside render ',this.props.shuffledQueue)
     return (
       <div>
         <div className="NavigationBar">
@@ -35,7 +39,7 @@ class NavigationFooterPlayer extends Component {
         {this.props.children}
         {this.playMusicOrNot()}
         <div>
-         <RenderTracks playlistObject={{tracks: this.props.queue}} currentUser={this.props.currentUser} />
+        <RenderTracks playlistObject={{tracks: this.props.queue}} currentUser={this.props.currentUser} />
         </div>
       </div>
     );
@@ -45,5 +49,6 @@ class NavigationFooterPlayer extends Component {
 // export default NavigationBar;
 
 export default connect(
-    ({ currentListeningUrl, queue, currentUser }) => ({ currentListeningUrl, queue, currentUser })
+    ({ currentListeningUrl, queue, currentUser, shuffledQueue }) =>
+    ({ currentListeningUrl, queue, currentUser, shuffledQueue })
 )(NavigationFooterPlayer);

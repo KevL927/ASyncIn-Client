@@ -15,7 +15,7 @@ const initialState = {
 	error: null,
 	currentListeningUrl: null,
 	queue: [],
-	currentPlayingIndexInQueue: 0,
+	shuffledQueue: null,
 	otherUserProfile:null,
 	favouritePlaylist:null
 };
@@ -132,7 +132,11 @@ export default handleActions (
 		},
 		[actions.updateQueueError]: (state, action) => {
 			return {...state};
-		}
+		},
+		[actions.shuffledQueue]: (state, action) => {
+			console.log('shuffledQueue ',action);
+			return {...state, shuffledQueue: action.payload};
+		},
 	},
 	initialState
 );
