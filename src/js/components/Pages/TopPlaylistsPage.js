@@ -84,5 +84,5 @@ class TopPlaylistsPage extends Component {
 
 
 export default connect(
-    ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist }) => ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist })
+    ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist, userSavedPlaylists }) => ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist, userSavedPlaylists })
 )(TopPlaylistsPage);
