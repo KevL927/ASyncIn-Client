@@ -71,13 +71,18 @@ class MusicPlayer extends Component {
 	}
 	continueButton = () => {
 		if(this.state.continueAll) {
-			// this.setState({ playing: false })
 			return this.setState({ continueAll: false })
 	}
 	this.setState({ continueAll: true })
 	return this.continuePlay()
 	}
 	continuePlay = () => {
+		if((this.state.continueAll) &&  (this.props.queue.length <= this.state.currentPlayingIndexInQueue)) {
+			this.setState({ currentPlayingIndexInQueue: 0 })
+			console.log('Im here in continous play')
+			this.setState({ playing: true })
+			return this.next()
+		}
 		if(this.state.continueAll) {
 			this.setState({ playing: true })
 			return this.next()
