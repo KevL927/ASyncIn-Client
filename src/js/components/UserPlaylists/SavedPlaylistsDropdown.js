@@ -5,6 +5,8 @@ import * as actions from '../../actions/actions';
 class SavedPlaylistsDropdown extends Component {
 	
 	onClickAddNewPlaylist(newPlaylist, targetPlaylist, event){
+		console.log('newPlaylist', newPlaylist);
+		console.log('targetPlaylist', targetPlaylist);
 		event.preventDefault();
 		let newPlaylistArray = targetPlaylist.tracks.concat(newPlaylist);
 		let newPlaylistObject = targetPlaylist;

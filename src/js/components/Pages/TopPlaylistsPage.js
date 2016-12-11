@@ -68,13 +68,13 @@ class TopPlaylistsPage extends Component {
     }
     
 	render() {
-        console.log('this.props', this.props);
+        console.log('this.props', this.state);
 		return (
 
             <div>
                 <div>{this.renderToplists()}</div>
                 <div>
-                    <AddPlaylist currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} />
+                    <AddPlaylist currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} />
                 </div>
             </div>
         );
