@@ -27,6 +27,11 @@ class SongSearch extends Component {
     }
   }
 
+  onClickAddToQueue (track, event) {
+      event.preventDefault();
+      this.props.dispatch(actions.queue(track));
+  }
+
   generateResult(resultArr) {
     let arr = [];
     if(!resultArr) {
@@ -38,7 +43,7 @@ class SongSearch extends Component {
             <input type="checkbox" name="searchResult" ref={track.link} id={track.source} onClick={this.onCheckInsert.bind(this, track)}></input>
             
             <SearchResult track={track}/>
-
+            <button onClick={this.onClickAddToQueue.bind(this, track)}>Add to Queue</button>
             <button onClick={this.playTrackOnClick.bind(this, track.link)}>click</button>
           </li>
         );
