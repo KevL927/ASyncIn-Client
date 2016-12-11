@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import * as userActions from '../../actions/user-actions';
 import * as actions from '../../actions/actions';
 import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
 import MyPlaylistsDashboard from '../UserPlaylists/MyPlaylistsDashboard';
@@ -9,7 +10,7 @@ class DashboardPage extends Component {
   
   componentWillMount(){
     if (!this.props.currentUser) {
-      this.props.dispatch(actions.getCurrentUser(this.props.location.query.token, this.props.location.query.access_token));
+      this.props.dispatch(userActions.getCurrentUser(this.props.location.query.token, this.props.location.query.access_token));
     }
   }
    onSubmitSearch(event) {
