@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import * as actions from '../../actions/actions';
+import * as playlistActions from '../../actions/playlist-actions';
 import SavedPlaylistsDropdown from '../UserPlaylists/SavedPlaylistsDropdown'
 
 class AddPlaylist extends Component {
@@ -22,7 +22,6 @@ class AddPlaylist extends Component {
 
     onSubmitAddPlaylist(event) {
 		event.preventDefault();
-		console.log(this.props.currentUser);
 	    let newPlaylist = {
     	    userId: this.props.currentUser.userId,
     	    name: this.refs.playlistInputText.value,
@@ -31,7 +30,7 @@ class AddPlaylist extends Component {
     	    isPublic: true
     	}
         this.changeState();
-		this.props.dispatch(actions.createPlaylist(newPlaylist, this.props.currentUser.accessToken));
+		this.props.dispatch(playlistActions.createPlaylist(newPlaylist, this.props.currentUser.accessToken));
 
 	}
     renderInput() {

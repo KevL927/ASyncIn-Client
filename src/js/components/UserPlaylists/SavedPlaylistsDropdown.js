@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import * as actions from '../../actions/actions';
+import * as playlistActions from '../../actions/playlist-actions';
 
 class SavedPlaylistsDropdown extends Component {
 	
@@ -11,7 +11,7 @@ class SavedPlaylistsDropdown extends Component {
 		let newPlaylistArray = targetPlaylist.tracks.concat(newPlaylist);
 		let newPlaylistObject = targetPlaylist;
 		newPlaylistObject.tracks = newPlaylistArray;
-		this.props.dispatch(actions.updatePlaylist(newPlaylistObject, this.props.currentUser.accessToken))
+		this.props.dispatch(playlistActions.updatePlaylist(newPlaylistObject, this.props.currentUser.accessToken))
 	}
 	generateResult(resultArr) {
 	  let arr = [];

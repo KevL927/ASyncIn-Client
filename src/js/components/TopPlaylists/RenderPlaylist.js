@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
+import * as playlistActions from '../../actions/playlist-actions';
 import RenderTracks from '../PlaylistPlayer/RenderTracksTopPlaylist';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
@@ -11,9 +12,8 @@ class RenderPlaylist extends Component {
       isOpenedArray: []
     }
   	onClickUpdateFavouritePlaylist(playlistObject,event){
-      console.log('clicked', playlistObject);
 	    event.preventDefault();
-	    this.props.dispatch(actions.updateFavouritePlaylist(this.props.currentUser.accessToken, this.props.currentUser.token, playlistObject._id, playlistObject.rating));
+	    this.props.dispatch(playlistActions.updateFavouritePlaylist(this.props.currentUser.accessToken, this.props.currentUser.token, playlistObject._id, playlistObject.rating));
 	}
 	
     onClickAddToQueue(playlist, event){
