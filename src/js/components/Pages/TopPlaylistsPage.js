@@ -44,8 +44,7 @@ class TopPlaylistsPage extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        if(nextProps.favouritePlaylist) {
-            this.props.dispatch(actions.getTopPlaylist(this.props.currentUser.accessToken));
+        if(nextProps.topPlaylists) {
             return true;
         }
     }
@@ -63,6 +62,7 @@ class TopPlaylistsPage extends Component {
     }
     
 	render() {
+        console.log('this.props', this.props);
 		return (
 
             <div>
