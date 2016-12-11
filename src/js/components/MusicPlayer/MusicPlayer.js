@@ -47,8 +47,10 @@ class MusicPlayer extends Component {
 			return this.props.dispatch(actions.shuffledQueue(null));
 		}
 		this.setState({ shuffle: true })
-		let shuffledQueue = shuffle(this.props.queue)
-		return this.props.dispatch(actions.shuffledQueue(shuffledQueue))
+		let shuffledQueue = this.props.queue.map((track, index) => {
+			return track;
+		})
+		return this.props.dispatch(actions.shuffledQueue(shuffle(shuffledQueue)))
 	}
 	setVolume = e => {
 		this.setState({ volume: parseFloat(e.target.value) })
