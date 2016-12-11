@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import playMusicFunc from '../MusicPlayer/playMusicFunc';
 import RenderTracks from '../PlaylistPlayer/RenderTracks';
 import * as actions from '../../actions/actions';
+import * as userActions from '../../actions/user-actions';
 
 
 class NavigationFooterPlayer extends Component {
@@ -15,7 +16,7 @@ class NavigationFooterPlayer extends Component {
 	}
 
   logout(){
-     this.props.dispatch(actions.logout());
+     this.props.dispatch(userActions.logout());
      hashHistory.push('/');
   }
 
@@ -45,6 +46,7 @@ class NavigationFooterPlayer extends Component {
             <li className="nav-li"><Link to="/dashboard/search">Search</Link></li>
             <li className="nav-li"><Link to="/dashboard/top">Explore Top Playlists</Link></li>
             <li className="nav-li"><Link to="/contact">Contact Us</Link></li>
+            <li className="nav-li"><Link to="/settings">Account Settings</Link></li>
             <li onClick={this.logout.bind(this)} className="nav-li">Logout</li>
           </ul>
         </div>
