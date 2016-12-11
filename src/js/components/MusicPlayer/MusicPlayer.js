@@ -21,7 +21,7 @@ class MusicPlayer extends Component {
 		played: 0,
 		loaded: 0,
 		duration: 0,
-		currentPlayingIndexInQueue: 1,
+		currentPlayingIndexInQueue: 0,
 		continueAll: false
 	}
 	
@@ -30,22 +30,24 @@ class MusicPlayer extends Component {
 	}
 	next = () => {
 		if(this.props.shuffledQueue) {
-			if(this.props.shuffledQueue.length <= this.state.currentPlayingIndexInQueue) {
-				return console.log('no more tracks on queue');
+			if(this.props.shuffledQueue.length - 1 <= this.state.currentPlayingIndexInQueue) {
+				this.setState({ currentPlayingIndexInQueue: -1 })
+				return this.setState({ playing: true })
 			}
-			this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue + 1 })
+			this.setState({ currentPlayingIndexInQueue: ++this.state.currentPlayingIndexInQueue})
 			return this.props.dispatch(actions.currentListeningUrl(this.props.shuffledQueue[this.state.currentPlayingIndexInQueue].link));
 		} else {
-			if(this.props.queue.length <= this.state.currentPlayingIndexInQueue) {
-				return console.log('no more tracks on queue');
+			if(this.props.queue.length - 1 <= this.state.currentPlayingIndexInQueue) {
+				this.setState({ currentPlayingIndexInQueue: -1 })
+				return this.setState({ playing: true })
 			}
-			this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue + 1 })
+			this.setState({ currentPlayingIndexInQueue: ++this.state.currentPlayingIndexInQueue })
 			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue].link));
 		}
 	}
 	prev = () => {
 		if(this.props.shuffledQueue) {
-			if(this.state.currentPlayingIndexInQueue <= -1) {
+			if(this.state.currentPlayingIndexInQueue <= 0) {
 				return console.log('no more tracks on queue');
 			}
 			this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue - 1 })
@@ -77,11 +79,18 @@ class MusicPlayer extends Component {
 	return this.continuePlay()
 	}
 	continuePlay = () => {
-		if((this.state.continueAll) &&  (this.props.queue.length <= this.state.currentPlayingIndexInQueue)) {
-			this.setState({ currentPlayingIndexInQueue: 0 })
+		if(this.state.continueAll && this.props.queue.length - 1 <= this.state.currentPlayingIndexInQueue) {
+			this.setState({ currentPlayingIndexInQueue: -1 })
 			console.log('Im here in continous play')
 			this.setState({ playing: true })
 			return this.next()
+		} else if (this.state.continueAll && this.props.shuffleQueue) {
+			if (this.props.shuffledQueue.length - 1 <= this.state.currentPlayingIndexInQueue) {
+				this.setState({ currentPlayingIndexInQueue: -1 })
+				console.log('Im here in continous play')
+				this.setState({ playing: true })
+				return this.next()
+			}
 		}
 		if(this.state.continueAll) {
 			this.setState({ playing: true })
@@ -112,6 +121,7 @@ class MusicPlayer extends Component {
 	}
 
 	render() {
+		console.log(this.state.currentPlayingIndexInQueue);
 		const {
 	      playing, volume,
 	      played, duration,
