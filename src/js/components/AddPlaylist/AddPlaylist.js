@@ -31,8 +31,11 @@ class AddPlaylist extends Component {
     	    isPublic: true
     	}
         this.changeState();
-		this.props.dispatch(playlistActions.createPlaylist(newPlaylist, this.props.currentUser.accessToken));
         this.props.dispatch(actions.clearError());
+		this.props.dispatch(playlistActions.createPlaylist(newPlaylist, this.props.currentUser.accessToken));
+        setTimeout(() => {
+            this.props.dispatch(actions.clearFeedback());
+        }, 5000);
 	}
     renderInput() {
        
@@ -48,13 +51,17 @@ class AddPlaylist extends Component {
             return <div>{this.props.error}</div>
     }
 
+    renderFeedback() {
+        return <div>{this.props.feedback}</div>
+    }
+
 	render() {
-        console.log('inside AddPlaylist', this.props);
 		return (
             <div>
                 <button className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</button>
                 {(this.state.showInput === true) ? this.renderInput(): ''}
                 {(this.props.error) ? this.renderError(): ''}
+                {(this.props.feedback) ? this.renderFeedback(): ''}
                 <SavedPlaylistsDropdown userPlaylists={this.props.userSavedPlaylists} newPlaylist={this.props.newPlaylist} currentUser={this.props.currentUser}/>
             </div>
             

@@ -15,11 +15,12 @@ const initialState = {
 	isAuthenicated: false,
 	currentUser:null, 
 	error: null,
+	feedback: null,
 	currentListeningUrl: null,
 	queue: [],
 	shuffledQueue: null,
 	otherUserProfile:null,
-	favouritePlaylist:null
+	favouritePlaylist:null,
 };
 
 export default handleActions (
@@ -75,7 +76,7 @@ export default handleActions (
 		},
 		[playlistActions.createPlaylistSuccess]: (state, action) => {
 			let tempPlaylist = [ action.payload.data, ...state.userSavedPlaylists ];
-			return {...state, userSavedPlaylists: tempPlaylist};
+			return {...state, userSavedPlaylists: tempPlaylist, feedback: 'Playlist successfully added'};
 		},
 		[playlistActions.createPlaylistError]: (state, action) => {
 			return {...state, error: action.payload.response.data.message};
@@ -139,6 +140,9 @@ export default handleActions (
 		},
 		[actions.clearError]: (state, action) => {
 			return {...state, error: null}
+		},
+		[actions.clearFeedback]: (state, action) => {
+			return {...state, feedback: null}
 		}
 	},
 	initialState
