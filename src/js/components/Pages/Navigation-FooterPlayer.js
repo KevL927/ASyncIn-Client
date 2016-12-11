@@ -15,14 +15,11 @@ class NavigationFooterPlayer extends Component {
 
   playMusicOrNot() {
     if(!this.props.currentListeningUrl && this.props.queue.length !== 0 && !this.props.shuffledQueue) {
-      console.log('3 ifs')
       return playMusicFunc(this.props.queue[0].link);
     }
-    if(this.props.shuffledQueue) {
-      console.log('1 if')
+    if(!this.props.currentListeningUrl && this.props.shuffledQueue) {
       return playMusicFunc(this.props.shuffledQueue[0].link);
     }
-    console.log('no if')
     return playMusicFunc(this.props.currentListeningUrl);
   }
   
@@ -36,6 +33,7 @@ class NavigationFooterPlayer extends Component {
   render() {
     console.log('shuffled',this.props.shuffledQueue)
      console.log('regular',this.props.queue)
+     console.log('currentListeningUrl', this.props.currentListeningUrl)
     return (
       <div>
         <div className="NavigationBar">
