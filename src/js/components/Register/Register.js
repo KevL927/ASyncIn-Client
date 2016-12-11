@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // import {Link} from 'react-router';
 import {connect} from 'react-redux';
-import * as actions from '../../actions/actions';
+import * as userActions from '../../actions/user-actions';
 import Feedback from '../Feedback';
 import play from '../../../play.png';
 
@@ -11,8 +11,7 @@ class Register extends Component {
     onSubmitRegister (event) {
         event.preventDefault();
         if (this.refs.passwordText.value === this.refs.confirmPasswordText.value){
-            
-       		this.props.dispatch(actions.registerRequest(this.refs.emailText.value, this.refs.displayNameText.value, this.refs.passwordText.value));
+       		this.props.dispatch(userActions.registerRequest(this.refs.emailText.value, this.refs.displayNameText.value, this.refs.passwordText.value));
             this.refs.displayNameText.value = "";
             this.refs.passwordText.value = "";
             this.refs.confirmPasswordText.value = "";
