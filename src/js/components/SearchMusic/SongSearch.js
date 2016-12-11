@@ -32,6 +32,11 @@ class SongSearch extends Component {
       this.props.dispatch(actions.queue(track));
   }
 
+  playTrackOnClick(url, event) {
+    event.preventDefault();
+    this.props.dispatch(actions.currentListeningUrl(url));
+  }
+
   generateResult(resultArr) {
     let arr = [];
     if(!resultArr) {
@@ -44,17 +49,12 @@ class SongSearch extends Component {
             
             <SearchResult track={track}/>
             <button onClick={this.onClickAddToQueue.bind(this, track)}>Add to Queue</button>
-            <button onClick={this.playTrackOnClick.bind(this, track.link)}>click</button>
+            <button onClick={this.playTrackOnClick.bind(this, track.link)}>Play Preview</button>
           </li>
         );
         })
     }
     return arr;
-  }
-
-  playTrackOnClick(url, event) {
-    event.preventDefault();
-    this.props.dispatch(actions.currentListeningUrl(url));
   }
 
   render() {
