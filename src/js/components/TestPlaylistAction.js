@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import * as actions from '../actions/actions';
+import * as actions from '../actions/playlist-actions';
 // import {Link} from 'react-router';
 // import MusicPlayer from './MusicPlayer';
 import TopPlaylist from './Pages/TopPlaylistsPage';

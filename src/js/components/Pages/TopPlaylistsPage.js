@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
+import * as playlistActions from '../../actions/playlist-actions';
 import RenderPlaylist from '../TopPlaylists/RenderPlaylist';
 import update from 'react-addons-update';
 import AddPlaylist from '../AddPlaylist/AddPlaylist';
@@ -8,7 +9,7 @@ import AddPlaylist from '../AddPlaylist/AddPlaylist';
 class TopPlaylistsPage extends Component {
  
     componentWillMount() {
-        this.props.dispatch(actions.getTopPlaylist(this.props.currentUser.accessToken));
+        this.props.dispatch(playlistActions.getTopPlaylist(this.props.currentUser.accessToken));
     }
  
     state = {

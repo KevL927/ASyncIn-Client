@@ -1,5 +1,6 @@
 import * as actions from '../actions/actions'
 import * as userActions from '../actions/user-actions'
+import * as playlistActions from '../actions/playlist-actions'
 import { handleActions } from 'redux-actions';
 
 const initialState = {
@@ -60,35 +61,35 @@ export default handleActions (
 				return { ...state, queue: [ action.payload, ...state.queue ] };
 			}
 		},
-		[actions.getUserPlaylistsSuccess]: (state, action) => {
+		[playlistActions.getUserPlaylistsSuccess]: (state, action) => {
 			return {...state, userSavedPlaylists: action.payload.data};
 		},
-		[actions.getUserPlaylistsError]: (state, action) => {
+		[playlistActions.getUserPlaylistsError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
-		[actions.getOtherUserPlaylistSuccess]: (state, action) => {
+		[playlistActions.getOtherUserPlaylistSuccess]: (state, action) => {
 			return {...state, otherUserPlaylist: action.payload.data};
 		},
-		[actions.getOtherUserPlaylistError]: (state, action) => {
+		[playlistActions.getOtherUserPlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
-		[actions.createPlaylistSuccess]: (state, action) => {
+		[playlistActions.createPlaylistSuccess]: (state, action) => {
 			let tempPlaylist = [ action.payload.data, ...state.userSavedPlaylists ];
 			return {...state, userSavedPlaylists: tempPlaylist};
 		},
-		[actions.createPlaylistError]: (state, action) => {
+		[playlistActions.createPlaylistError]: (state, action) => {
 			return {...state, error: action.payload.response.data.message};
 		},
-		[actions.updatePlaylistSuccess]: (state, action) => {
+		[playlistActions.updatePlaylistSuccess]: (state, action) => {
 			return {...state, userSavedPlaylists: action.payload.data};
 		},
-		[actions.updatePlaylistError]: (state, action) => {
+		[playlistActions.updatePlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
-		[actions.deletePlaylistSuccess]: (state, action) => {
+		[playlistActions.deletePlaylistSuccess]: (state, action) => {
 			return {...state, userSavedPlaylists: action.payload.data};
 		},
-		[actions.deletePlaylistError]: (state, action) => {
+		[playlistActions.deletePlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
 		[userActions.getAllUsersSuccess]: (state, action) => {
@@ -115,16 +116,16 @@ export default handleActions (
 		[userActions.updatePasswordError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
-		[actions.updateFavPlaylistSuccess]: (state, action) => {
+		[playlistActions.updateFavPlaylistSuccess]: (state, action) => {
 			return {...state, currentUser: action.payload.data.user, favouritePlaylist: action.payload.data.user.favouritePlaylists};
 		},
-		[actions.updateFavPlaylistError]: (state, action) => {
+		[playlistActions.updateFavPlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
-		[actions.getTopPlaylistSuccess]: (state, action) => {
+		[playlistActions.getTopPlaylistSuccess]: (state, action) => {
 			return {...state, topPlaylists: action.payload.data};
 		},
-		[actions.getTopPlaylistError]: (state, action) => {
+		[playlistActions.getTopPlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
 		[actions.updateQueueSuccess]: (state, action) => {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
+import * as playlistActions from '../../actions/playlist-actions';
 import TrackListWithDelete from './TrackListWithDelete';
 import update from 'react-addons-update';
 
@@ -23,7 +24,7 @@ class RenderTracks extends Component {
           const trackArr = update(this.props.playlistObject.tracks, {$splice: [[trackIndex, 1]]});
           const newPlaylistObject = Object.assign({}, this.props.playlistObject, {tracks: trackArr})
           console.log(newPlaylistObject);
-          this.props.dispatch(actions.updatePlaylist(newPlaylistObject, this.props.currentUser.accessToken))
+          this.props.dispatch(playlistActions.updatePlaylist(newPlaylistObject, this.props.currentUser.accessToken))
         // this.props.dispatch(actions.updatePlaylist(playlistObject));
     }
     

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import * as actions from '../actions/actions';
+import * as actions from '../actions/user-actions';
+import * as playlistActions from '../actions/playlist-actions';
 
 
 
@@ -24,7 +25,7 @@ class TestUserAction extends Component {
 	onClickUpdateFavouritePlaylist(event){
 		event.preventDefault();
 		//access_token, token, playlistId, rating
-	    this.props.dispatch(actions.updateFavouritePlaylist('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os', 'admin@email.com','58433240148e20001c34747c', 67))
+	    this.props.dispatch(playlistActions.updateFavouritePlaylist('iqz0zrbwsg40sg4ss8co44gww4o8gsg8os', 'admin@email.com','58433240148e20001c34747c', 67))
 	}
 	
 	render() {

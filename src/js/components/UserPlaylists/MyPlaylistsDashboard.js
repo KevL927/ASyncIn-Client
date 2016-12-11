@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
+import * as playlistActions from '../../actions/playlist-actions';
 import RenderSavedPlaylistTracks from '../PlaylistPlayer/RenderSavedPlaylistTracks';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
@@ -45,7 +46,7 @@ class MyPlaylistsDashboard extends Component {
 
 	deletePlaylist(playlistObject, event){
 		event.preventDefault();
-		this.props.dispatch(actions.deletePlaylist(playlistObject, this.props.currentUser.accessToken))
+		this.props.dispatch(playlistActions.deletePlaylist(playlistObject, this.props.currentUser.accessToken))
 	}
 	
 	editPlaylistName(playlistObject, event){
@@ -59,7 +60,7 @@ class MyPlaylistsDashboard extends Component {
 	edit(playlistObject, event){
 		console.log(playlistObject);
 		const updatedPlaylist = update(playlistObject, {name: {$set:this.refs.input.value}})
-	this.props.dispatch(actions.updatePlaylist(updatedPlaylist, this.props.currentUser.accessToken));
+	this.props.dispatch(playlistActions.updatePlaylist(updatedPlaylist, this.props.currentUser.accessToken));
 	this.setState({
 			editable: null
 		})
