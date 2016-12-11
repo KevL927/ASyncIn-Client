@@ -73,7 +73,7 @@ class SongSearch extends Component {
               <h1>SoundCloud</h1>
                 <ul>{this.generateResult(this.props.soundcloudResults)}</ul>
               </ul>
-              <AddPlaylist currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist}/>
+              <AddPlaylist error={this.props.error} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist}/>
             </div>
           </div>
       </div>
@@ -86,7 +86,8 @@ const mapStateToProps = (state) => {
     youtubeResults: state.youtubeSearchedSongs,
     soundcloudResults: state.soundcloudSearchedSongs,
     vimeoResults: state.vimeoSearchedSongs,
-    currentListeningUrl: state.currentListeningUrl
+    currentListeningUrl: state.currentListeningUrl,
+    error: state.error
   }
 }
 
