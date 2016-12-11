@@ -6,15 +6,14 @@ import update from 'react-addons-update';
 
 class TopPlaylistsPage extends Component {
  
+    componentWillMount() {
+        this.props.dispatch(actions.getTopPlaylist(this.props.currentUser.accessToken));
+    }
+ 
     state = {
         isOpenedArray: []
     }
 
-    shouldComponentUpdate(nextProps, nextState){
-        console.log('next',nextProps.favouritePlaylist);
-      if(nextProps.favouritePlaylist)
-      return true;
-    }
     onClickAddToQueue(playlist, event){
         this.props.dispatch(actions.queue(playlist.tracks));  
     }
@@ -36,16 +35,6 @@ class TopPlaylistsPage extends Component {
             return true;
         } else {
             return false;
-        }
-    }
-
-    componentWillMount() {
-        this.props.dispatch(actions.getTopPlaylist(this.props.currentUser.accessToken));
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        if(nextProps.topPlaylists) {
-            return true;
         }
     }
 
