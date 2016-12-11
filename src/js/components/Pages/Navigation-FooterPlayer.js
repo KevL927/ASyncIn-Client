@@ -15,16 +15,27 @@ class NavigationFooterPlayer extends Component {
 
   playMusicOrNot() {
     if(!this.props.currentListeningUrl && this.props.queue.length !== 0 && !this.props.shuffledQueue) {
+      console.log('3 ifs')
       return playMusicFunc(this.props.queue[0].link);
     }
     if(this.props.shuffledQueue) {
+      console.log('1 if')
       return playMusicFunc(this.props.shuffledQueue[0].link);
     }
+    console.log('no if')
     return playMusicFunc(this.props.currentListeningUrl);
   }
-
+  
+  renderQueueOrShuffled() {
+    if(!this.props.shuffledQueue) {
+      return this.props.queue;
+    }  
+    return this.props.shuffledQueue;
+  }
+  
   render() {
-    console.log('inside render ',this.props.shuffledQueue)
+    console.log('shuffled',this.props.shuffledQueue)
+     console.log('regular',this.props.queue)
     return (
       <div>
         <div className="NavigationBar">
@@ -39,7 +50,7 @@ class NavigationFooterPlayer extends Component {
         {this.props.children}
         {this.playMusicOrNot()}
         <div>
-        <RenderTracks playlistObject={{tracks: this.props.queue}} currentUser={this.props.currentUser} />
+        <RenderTracks playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} />
         </div>
       </div>
     );
