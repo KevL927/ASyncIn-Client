@@ -87,11 +87,6 @@ class MyPlaylistsDashboard extends Component {
 	  }
 	  return arr;
 	}
-	updateServerQueue() {
-		if(this.props.currentUser && this.props.queue.length !== 0) {
-			this.props.dispatch(actions.updateQueue(this.props.currentUser.accessToken, this.props.currentUser.token, this.props.queue));
-		}
-	}
 
 	render() {
 		{	console.log(this.state.editable)}
@@ -101,7 +96,6 @@ class MyPlaylistsDashboard extends Component {
 			<ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
 			<div className="UserPlaylist-container">
 		     	{this.generateResult(this.props.userSavedPlaylists)}
-		     	{this.updateServerQueue()}
 			</div>
 			</ScrollArea>
 			</div>
