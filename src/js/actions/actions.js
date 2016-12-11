@@ -23,6 +23,8 @@ export const searchAll = (search) => dispatch => {
 
 export const clearError = createAction('CLEAR_ERROR');
 
+export const clearFeedback = createAction('CLEAR_FEEDBACK');
+
 export const currentListeningUrl = createAction('CURRENT_LISTENING_URL', url => url);
 
 export const currentListeningPlaylist = createAction('CURRENT_LISTENING_PLAYLIST', playlist => playlist);
@@ -36,7 +38,6 @@ export const updateQueue = (accessToken,token, queue) => dispatch => {
     return axios.put('https://asyncin.herokuapp.com/api/v1/users/queue/'+token+'?access_token=' + accessToken, 
                 {queue:queue})
         .then(response => {
-            console.log(response);
             dispatch(updateQueueSuccess(response));
         })
         .catch(err => {

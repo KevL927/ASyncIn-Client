@@ -69,13 +69,12 @@ class TopPlaylistsPage extends Component {
     }
     
 	render() {
-        console.log('this.props', this.state);
 		return (
 
             <div>
                 <div>{this.renderToplists()}</div>
                 <div>
-                    <AddPlaylist currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} error={this.props.error} />
+                    <AddPlaylist currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} error={this.props.error} feedback={this.props.feedback} />
                 </div>
             </div>
         );
@@ -85,5 +84,5 @@ class TopPlaylistsPage extends Component {
 
 
 export default connect(
-    ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist, userSavedPlaylists, error }) => ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist, userSavedPlaylists, error })
+    ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist, userSavedPlaylists, error, feedback }) => ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist, userSavedPlaylists, error, feedback })
 )(TopPlaylistsPage);
