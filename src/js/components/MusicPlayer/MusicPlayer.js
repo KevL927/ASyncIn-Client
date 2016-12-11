@@ -21,7 +21,8 @@ class MusicPlayer extends Component {
 		played: 0,
 		loaded: 0,
 		duration: 0,
-		currentPlayingIndexInQueue: 1
+		currentPlayingIndexInQueue: 1,
+		continuous: false
 	}
 	
 	playPause = () => {
@@ -67,6 +68,9 @@ class MusicPlayer extends Component {
 			return track;
 		})
 		return this.props.dispatch(actions.shuffledQueue(shuffle(shuffledQueue)))
+	}
+	continuous = () => {
+		this.setState({ continuous: !this.state.continuous })
 	}
 	setVolume = e => {
 		this.setState({ volume: parseFloat(e.target.value) })
@@ -114,7 +118,7 @@ class MusicPlayer extends Component {
 	            		onPlay={() => this.setState({ playing: true })}
 	            		onPause={() => this.setState({ playing: false })}
 	            		onBuffer={() => console.log('onBuffer')}
-	            		onEnded={() => this.setState({ playing: false })}
+	            		onEnded={() => this.next() }
 	            		onError={e => console.log('onError', e)}
 	            		onProgress={this.onProgress}
 	            		onDuration={duration => this.setState({ duration })}
@@ -128,6 +132,7 @@ class MusicPlayer extends Component {
 	            	<button onClick={this.prev} className="player-buttons">Prev</button>
 		    		<button onClick={this.next} className="player-buttons">Next</button>
 		    		<button onClick={this.shuffle} className="player-buttons">{this.state.shuffle ? 'Shuffle Off' : 'Shuffle On'}</button>
+		    		<button onClick={this.continuous} className="player-buttons">{this.state.continuous ? 'Continuous Play Off' : 'Continuous Play On'}</button>
 	            </div>
 	            <div id="video-seek">
 	            <span id="seek">Seek</span>

@@ -7,11 +7,17 @@ import * as actions from '../../actions/actions';
 
 
 class NavigationFooterPlayer extends Component {
+  
+  updateServerQueue() {
+		if(this.props.currentUser && this.props.queue.length !== 0) {
+			this.props.dispatch(actions.updateQueue(this.props.currentUser.accessToken, this.props.currentUser.token, this.props.queue));
+		}
+	}
 
- logout(){
-   this.props.dispatch(actions.logout());
-   hashHistory.push('/');
- }
+  logout(){
+     this.props.dispatch(actions.logout());
+     hashHistory.push('/');
+  }
 
   playMusicOrNot() {
     if(!this.props.currentListeningUrl && this.props.queue.length !== 0 && !this.props.shuffledQueue) {
@@ -44,6 +50,7 @@ class NavigationFooterPlayer extends Component {
         </div>
         {this.props.children}
         {this.playMusicOrNot()}
+        {this.updateServerQueue()}
         <div>
         <RenderTracks playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} />
         </div>
