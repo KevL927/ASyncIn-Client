@@ -115,7 +115,6 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[actions.updateFavPlaylistSuccess]: (state, action) => {
-			console.log('fav reducer',action.payload.data)
 			return {...state, currentUser: action.payload.data.user, favouritePlaylist: action.payload.data.user.favouritePlaylists};
 		},
 		[actions.updateFavPlaylistError]: (state, action) => {
@@ -134,7 +133,6 @@ export default handleActions (
 			return {...state};
 		},
 		[actions.shuffledQueue]: (state, action) => {
-			console.log('shuffledQueue ',action);
 			return {...state, shuffledQueue: action.payload};
 		},
 	},
