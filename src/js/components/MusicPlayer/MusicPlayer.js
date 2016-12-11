@@ -22,7 +22,7 @@ class MusicPlayer extends Component {
 		loaded: 0,
 		duration: 0,
 		currentPlayingIndexInQueue: 1,
-		continuous: false
+		continueAll: false
 	}
 	
 	playPause = () => {
@@ -69,8 +69,19 @@ class MusicPlayer extends Component {
 		})
 		return this.props.dispatch(actions.shuffledQueue(shuffle(shuffledQueue)))
 	}
-	continuous = () => {
-		this.setState({ continuous: !this.state.continuous })
+	continueButton = () => {
+		if(this.state.continueAll) {
+			// this.setState({ playing: false })
+			return this.setState({ continueAll: false })
+	}
+	this.setState({ continueAll: true })
+	return this.continuePlay()
+	}
+	continuePlay = () => {
+		if(this.state.continueAll) {
+			this.setState({ playing: true })
+			return this.next()
+		}
 	}
 	setVolume = e => {
 		this.setState({ volume: parseFloat(e.target.value) })
@@ -118,7 +129,7 @@ class MusicPlayer extends Component {
 	            		onPlay={() => this.setState({ playing: true })}
 	            		onPause={() => this.setState({ playing: false })}
 	            		onBuffer={() => console.log('onBuffer')}
-	            		onEnded={() => this.next() }
+	            		onEnded={() => this.continuePlay()}
 	            		onError={e => console.log('onError', e)}
 	            		onProgress={this.onProgress}
 	            		onDuration={duration => this.setState({ duration })}
@@ -132,7 +143,7 @@ class MusicPlayer extends Component {
 	            	<button onClick={this.prev} className="player-buttons">Prev</button>
 		    		<button onClick={this.next} className="player-buttons">Next</button>
 		    		<button onClick={this.shuffle} className="player-buttons">{this.state.shuffle ? 'Shuffle Off' : 'Shuffle On'}</button>
-		    		<button onClick={this.continuous} className="player-buttons">{this.state.continuous ? 'Continuous Play Off' : 'Continuous Play On'}</button>
+		    		<button onClick={this.continueButton} className="player-buttons">{this.state.continueAll ? 'Continuous Play Off' : 'Continuous Play On'}</button>
 	            </div>
 	            <div id="video-seek">
 	            <span id="seek">Seek</span>
