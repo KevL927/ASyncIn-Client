@@ -73,10 +73,10 @@ class MyPlaylistsDashboard extends Component {
 	  } else {
 	      arr = resultArr.map((playlist, index) => {
 	      return (
-	        <li key={index}>
-	        	 <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
-	        	 <button onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
-	        	 <button onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
+	        <li key={index} id="user-playlist-buttons-li">
+	        	 <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
+	        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
+	        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
 	        	 {this.state.editable == playlist._id ?<input contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" />:<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name}</h4> }
 	          	 
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
@@ -92,14 +92,16 @@ class MyPlaylistsDashboard extends Component {
 	render() {
 		{	console.log(this.state.editable)}
 		return (
+		
 			<div className="UserPlaylist">
-			<h2>My Saved Playlists</h2>
-			<ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
-			<div className="UserPlaylist-container">
-		     	{this.generateResult(this.props.userSavedPlaylists)}
+				<span id="my-saved-playlists">My Saved Playlists</span>
+					<ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
+						<div className="UserPlaylist-container">
+				     		{this.generateResult(this.props.userSavedPlaylists)}
+						</div>
+					</ScrollArea>
 			</div>
-			</ScrollArea>
-			</div>
+			
 		);
 	}
 }
