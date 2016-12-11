@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import RenderPlaylist from '../TopPlaylists/RenderPlaylist';
 import update from 'react-addons-update';
+import AddPlaylist from '../AddPlaylist/AddPlaylist';
 
 class TopPlaylistsPage extends Component {
  
@@ -11,7 +12,23 @@ class TopPlaylistsPage extends Component {
     }
  
     state = {
-        isOpenedArray: []
+        isOpenedArray: [],
+        tempPlaylist: [],
+        tempTracksArr: []
+    }
+
+    onCheckInsert(event, track) {
+        if(event.target.checked === true) {
+            const newPlaylist = update(this.state.tempPlaylist, {$push: [track]});
+            const newTracksArr = update(this.state.tempTracksArr, {$push: [track.link]});
+            this.setState({tempPlaylist: newPlaylist, tempTracksArr: newTracksArr});
+        }
+        if(event.target.checked === false) {
+            const index = this.state.tempTracksArr.indexOf(track.link);
+            const newPlaylist = update(this.state.tempPlaylist, {$splice: [[index, 1]]});
+            const newTracksArr = update(this.state.tempTracksArr, {$splice: [[index, 1]]});
+            this.setState({tempPlaylist: newPlaylist, tempTracksArr: newTracksArr});
+        }
     }
 
     onClickAddToQueue(playlist, event){
@@ -42,8 +59,8 @@ class TopPlaylistsPage extends Component {
         if(this.props.topPlaylists) {
             return (
                 <div>
-                    <RenderPlaylist url={this.props.currentListeningUrl} playlistArray={this.props.topPlaylists.slice(0,3)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist}/>
-                    <RenderPlaylist playlistArray={this.props.topPlaylists.slice(3,10)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist}/>
+                    <RenderPlaylist url={this.props.currentListeningUrl} playlistArray={this.props.topPlaylists.slice(0,3)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist} onCheckInsert={this.onCheckInsert.bind(this)} />
+                    <RenderPlaylist playlistArray={this.props.topPlaylists.slice(3,10)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist} onCheckInsert={this.onCheckInsert.bind(this)} />
                 </div>
             );
         } 
@@ -51,11 +68,14 @@ class TopPlaylistsPage extends Component {
     }
     
 	render() {
-        console.log('this.props', this.props);
+        console.log('this.props', this.state);
 		return (
 
             <div>
                 <div>{this.renderToplists()}</div>
+                <div>
+                    <AddPlaylist currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} />
+                </div>
             </div>
         );
 	}
@@ -64,5 +84,5 @@ class TopPlaylistsPage extends Component {
 
 
 export default connect(
-    ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist }) => ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist })
+    ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist, userSavedPlaylists }) => ({ topPlaylists, currentListeningUrl, currentUser, favouritePlaylist, userSavedPlaylists })
 )(TopPlaylistsPage);

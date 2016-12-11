@@ -49,6 +49,7 @@ class AddPlaylist extends Component {
     }
 
 	render() {
+        console.log('inside AddPlaylist', this.props);
 		return (
             <div>
                 <button className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</button>

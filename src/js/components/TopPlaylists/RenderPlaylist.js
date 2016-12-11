@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
-import RenderTracks from '../PlaylistPlayer/RenderTracks';
+import RenderTracks from '../PlaylistPlayer/RenderTracksTopPlaylist';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
 import ScrollArea from 'react-scrollbar';
@@ -63,7 +63,7 @@ class RenderPlaylist extends Component {
 
     viewTracks(playlist) {
       if(playlist) {
-        return <ul><RenderTracks playlistObject={playlist} /></ul>
+        return <ul><RenderTracks playlistObject={playlist} onCheckInsert={this.props.onCheckInsert} /></ul>
       }
       return;
     }
@@ -80,7 +80,7 @@ class RenderPlaylist extends Component {
               <li>favourites: {playlist.rating}</li>
               {this.favouriteOrUnfavourite(playlist)}
               <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
-              <RenderTracks key={index} playlistObject={playlist} />
+              <RenderTracks key={index} playlistObject={playlist} onCheckInsert={this.props.onCheckInsert} />
             </div>
           ))}
           </ScrollArea>
