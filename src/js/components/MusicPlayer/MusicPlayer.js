@@ -10,10 +10,6 @@ import shuffle from './shuffleQueue'
 
 class MusicPlayer extends Component {
 	
-    // componentWillReceiveProps(nextProps) {
-    //   this.props.url !== nextProps.url // Check if it's a new user, you can also use some unique, like the ID
-    // }  
-	
 	state = {
 		playing: false,
 		shuffle: false,
@@ -48,13 +44,15 @@ class MusicPlayer extends Component {
 	prev = () => {
 		if(this.props.shuffledQueue) {
 			if(this.state.currentPlayingIndexInQueue <= 0) {
-				return console.log('no more tracks on queue');
+				this.setState({ currentPlayingIndexInQueue: this.props.shuffledQueue.length - 1 })
+				return this.setState({ playing: true })
 			}
 			this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue - 1 })
 			return this.props.dispatch(actions.currentListeningUrl(this.props.shuffledQueue[this.state.currentPlayingIndexInQueue].link));
 		} else {
-			if(this.state.currentPlayingIndexInQueue <= -1) {
-				return console.log('no more tracks on queue');
+			if(this.state.currentPlayingIndexInQueue <= 0) {
+				this.setState({ currentPlayingIndexInQueue: this.props.queue.length - 1 })
+				return this.setState({ playing: true })
 			}
 			this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue - 1 })
 			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue].link));
@@ -81,13 +79,11 @@ class MusicPlayer extends Component {
 	continuePlay = () => {
 		if(this.state.continueAll && this.props.queue.length - 1 <= this.state.currentPlayingIndexInQueue) {
 			this.setState({ currentPlayingIndexInQueue: -1 })
-			console.log('Im here in continous play')
 			this.setState({ playing: true })
 			return this.next()
 		} else if (this.state.continueAll && this.props.shuffleQueue) {
 			if (this.props.shuffledQueue.length - 1 <= this.state.currentPlayingIndexInQueue) {
 				this.setState({ currentPlayingIndexInQueue: -1 })
-				console.log('Im here in continous play')
 				this.setState({ playing: true })
 				return this.next()
 			}
@@ -121,7 +117,6 @@ class MusicPlayer extends Component {
 	}
 
 	render() {
-		console.log(this.state.currentPlayingIndexInQueue);
 		const {
 	      playing, volume,
 	      played, duration,
