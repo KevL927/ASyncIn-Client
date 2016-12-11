@@ -31,9 +31,6 @@ class NavigationFooterPlayer extends Component {
   }
   
   render() {
-    console.log('shuffled',this.props.shuffledQueue)
-     console.log('regular',this.props.queue)
-     console.log('currentListeningUrl', this.props.currentListeningUrl)
     return (
       <div>
         <div className="NavigationBar">
