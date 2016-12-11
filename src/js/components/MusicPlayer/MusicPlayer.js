@@ -151,11 +151,11 @@ class MusicPlayer extends Component {
 		    		/>
 		    	</div>
 		    	<div id="video-controller-1">
-	                <button onClick={this.playPause} className="player-buttons">{playing ? 'Pause' : 'Play'}</button>
 	                <button onClick={this.onClickFullscreen}>Fullscreen</button>
 	            </div>
 	            <div id="video-controller-2">
 	            	<button onClick={this.prev} className="player-buttons">Prev</button>
+	            	<button onClick={this.playPause} className="player-buttons">{playing ? 'Pause' : 'Play'}</button>
 		    		<button onClick={this.next} className="player-buttons">Next</button>
 		    		<button onClick={this.shuffle} className="player-buttons">{this.state.shuffle ? 'Shuffle Off' : 'Shuffle On'}</button>
 		    		<button onClick={this.continueButton} className="player-buttons">{this.state.continueAll ? 'Continuous Play Off' : 'Continuous Play On'}</button>
