@@ -137,6 +137,9 @@ export default handleActions (
 		[actions.shuffledQueue]: (state, action) => {
 			return {...state, shuffledQueue: action.payload};
 		},
+		[actions.clearError]: (state, action) => {
+			return {...state, error: null}
+		}
 	},
 	initialState
 );

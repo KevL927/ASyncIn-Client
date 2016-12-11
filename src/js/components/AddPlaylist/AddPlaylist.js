@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as playlistActions from '../../actions/playlist-actions';
+import * as actions from '../../actions/actions';
 import SavedPlaylistsDropdown from '../UserPlaylists/SavedPlaylistsDropdown'
 
 class AddPlaylist extends Component {
@@ -31,7 +32,7 @@ class AddPlaylist extends Component {
     	}
         this.changeState();
 		this.props.dispatch(playlistActions.createPlaylist(newPlaylist, this.props.currentUser.accessToken));
-
+        this.props.dispatch(actions.clearError());
 	}
     renderInput() {
        
@@ -43,7 +44,7 @@ class AddPlaylist extends Component {
             </div>
         )
     }
-    renderError() {     
+    renderError() {
             return <div>{this.props.error}</div>
     }
 

@@ -21,6 +21,7 @@ export const searchAll = (search) => dispatch => {
         })
 };
 
+export const clearError = createAction('CLEAR_ERROR');
 
 export const currentListeningUrl = createAction('CURRENT_LISTENING_URL', url => url);
 
