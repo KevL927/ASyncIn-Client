@@ -28,11 +28,19 @@ class MusicPlayer extends Component {
 		this.setState({ playing: !this.state.playing })
 	}
 	next = () => {
-		if(this.props.queue.length <= this.state.currentPlayingIndexInQueue) {
-			return console.log('no more tracks on queue');
+		if(this.props.shuffledQueue) {
+			if(this.props.shuffledQueue.length <= this.state.currentPlayingIndexInQueue) {
+				return console.log('no more tracks on queue');
+			}
+			this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue + 1 })
+			return this.props.dispatch(actions.currentListeningUrl(this.props.shuffledQueue[this.state.currentPlayingIndexInQueue].link));
+		} else {
+			if(this.props.queue.length <= this.state.currentPlayingIndexInQueue) {
+				return console.log('no more tracks on queue');
+			}
+			this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue + 1 })
+			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue].link));
 		}
-		this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue + 1 })
-		return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue].link));
 	}
 	prev = () => {
 		if(this.state.currentPlayingIndexInQueue <= -1) {
