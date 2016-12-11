@@ -1,24 +1,3 @@
-/*********************************************************************
-//------------------------------Scroll-bar=>mysaved playlist --------------------------
-//*********************************************************************/
-
-.content{
-  background: #82bb95;
-   width: 800px;
-  height: auto;
-  margin: 10px;
-  float: left;
-  padding: 8px;
-  box-sizing: border-box;
-}
-
-.area{
-  margin: 0 auto;
-  width: 800px;
-  height: 300px;
-  background: #e5e5e5;
-}
-
 
 body { 
   margin: 0;
@@ -26,10 +5,9 @@ body {
   font-family: sans-serif;
 }
 
-#react-player {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+li {
+  list-style-type: none;
+  text-align:center;
 }
 
 /*********************************************************************
@@ -46,7 +24,7 @@ body {
     width: 100%;
 }
 
-li.nav-li {
+.nav-li {
     float: left;
     display: block;
     text-align: center;
@@ -56,14 +34,26 @@ li.nav-li {
     color: white;
 }
 a {
-   text-decoration: none;
-   color: white;
-   background-color: orange;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(40,10,9, 1);
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
 }   
 
-li:hover {
+
+a:hover, .nav-li:hover {
     background-color: #3d2221;
     color: white;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 #songSearch-page, #UserPlaylist-page, #DashboardPage {
@@ -209,10 +199,16 @@ button[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
 }
 
 button[type=submit]:hover {
     background-color: #c4682b;
+    -webkit-transform: scale(1.3);
+  transform: scale(1.3);
 }
 
 .App-logo {
@@ -226,6 +222,8 @@ button[type=submit]:hover {
 
 #registerlink:hover {
   color: gold;
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
 }
 
 
@@ -261,7 +259,7 @@ button[type=submit]:hover {
  #DashboardPage {
   display: flex;
  }
-.songSearch-contianer {
+.songSearch-container {
  
 
 }
@@ -283,6 +281,57 @@ button[type=submit]:hover {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center left;
+}
+h4 {
+  text-align: center;
+}
+.content{
+  background: darkcyan;
+   width: 800px;
+  height: auto;
+  margin: 10px;
+  float: left;
+  padding: 8px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.area{
+  margin: 0 auto;
+  width: 800px;
+  height: 300px;
+  background: black;
+  text-decoration: none;
+}
+
+#my-saved-playlists {
+  text-align: center;
+  font-size: 4em;
+  text-decoration: none;
+}
+#user-playlist-buttons-li{
+  text-decoration-line: none;
+}
+.user-playlist-buttons {
+  text-decoration: none;
+  color: white;
+  background-color: orange;
+  padding: 1em;
+  border: none;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.user-playlist-buttons:hover {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+#react-player {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 /*********************************************************************
 //------------------------------DASHBOARD--------------------------
@@ -315,7 +364,7 @@ background:linear-gradient(
 
 }
 #video-controller-1, #video-controller-2 {
-  float:right;
+  float:left;
   padding: 1em;
 }
 
@@ -335,6 +384,14 @@ background:linear-gradient(
   color: white;
   margin: 3px;
   border: none;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.player-buttons:hover{
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 li.track {
@@ -346,3 +403,12 @@ li.track {
     font-family: 'Ubuntu', sans-serif;
     color: black;
 }
+
+
+
+/*********************************************************************
+//----------------------USER'S SAVED PLAYLIST-------------------------
+//*********************************************************************/
+
+
+
