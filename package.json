@@ -38,7 +38,8 @@
     "redux-actions": "^1.1.0",
     "redux-form": "^6.2.1",
     "redux-thunk": "^2.1.0",
-    "screenfull": "^3.0.2"
+    "screenfull": "^3.0.2",
+    "validator": "^6.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
