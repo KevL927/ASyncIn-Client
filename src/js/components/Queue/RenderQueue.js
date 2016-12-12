@@ -13,7 +13,6 @@ class RenderQueue extends Component {
     }
 
     onTrackPlayNow(event, trackLink) {
-        console.log('trackLink', trackLink);
         event.preventDefault();
         this.props.dispatch(actions.currentListeningUrl(trackLink));
 
@@ -31,7 +30,11 @@ class RenderQueue extends Component {
                     onTrackItemClick={this.onTrackItemClick.bind(this)} 
                     onClickDeleteQueueTrack={this.onClickDeleteQueueTrack.bind(this)} 
                     onTrackPlayNow={this.onTrackPlayNow.bind(this)} 
-                    tracks={this.props.playlistObject.tracks} 
+                    tracks={this.props.playlistObject.tracks}
+                    currentUser={this.props.currentUser} 
+                    userSavedPlaylists={this.props.userSavedPlaylists} 
+                    error={this.props.error} 
+                    feedback={this.props.feedback}
                 />
             )
         } 

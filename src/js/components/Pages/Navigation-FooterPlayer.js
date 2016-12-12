@@ -62,7 +62,7 @@ class NavigationFooterPlayer extends Component {
         <ButtonToolbar>
           <SplitButton bsStyle="primary" title="Right dropup" dropup pullRight id="split-button-dropup-pull-right">
           <MenuItem>
-            <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} />
+            <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} error={this.props.error} feedback={this.props.feedback}/>
             </MenuItem>
           </SplitButton>
         </ButtonToolbar>
@@ -76,8 +76,8 @@ class NavigationFooterPlayer extends Component {
 //export default NavigationBar;
 
 export default connect(
-    ({ currentListeningUrl, queue, currentUser, shuffledQueue }) =>
-    ({ currentListeningUrl, queue, currentUser, shuffledQueue })
+    ({ userSavedPlaylists, error, feedback, currentListeningUrl, queue, currentUser, shuffledQueue }) =>
+    ({ userSavedPlaylists, error, feedback, currentListeningUrl, queue, currentUser, shuffledQueue })
 )(NavigationFooterPlayer);
 
 //<RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} queue={this.props.queue} />
