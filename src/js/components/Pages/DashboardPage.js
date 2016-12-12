@@ -40,7 +40,7 @@ class DashboardPage extends Component {
   render() {
     return (
      <div>
-       <div className="DashboardPage">
+       <div id="DashboardPage">
            {this.renderComponents()}
        </div>
      </div>
