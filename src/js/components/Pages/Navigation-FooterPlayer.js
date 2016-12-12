@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link, hashHistory} from 'react-router';
 import {connect} from 'react-redux';
 import playMusicFunc from '../MusicPlayer/playMusicFunc';
-import RenderTracks from '../PlaylistPlayer/RenderTracks';
+import RenderQueue from '../Queue/RenderQueue';
 import * as actions from '../../actions/actions';
 import * as userActions from '../../actions/user-actions';
 
@@ -54,7 +54,7 @@ class NavigationFooterPlayer extends Component {
         {this.playMusicOrNot()}
         {this.updateServerQueue()}
         <div>
-        <RenderTracks playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} />
+        <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} />
         </div>
       </div>
     );
