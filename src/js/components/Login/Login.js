@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-
 import * as userActions from '../../actions/user-actions';
 import play from '../../../play.png';
 import { connect } from 'react-redux';
-import MusicPlayer from '../MusicPlayer/MusicPlayer';
 import {Link} from 'react-router';
 
 
@@ -11,16 +9,14 @@ class Login extends Component {
    onSubmit(event) {
         event.preventDefault();
    		this.props.dispatch(userActions.loginRequest(this.refs.emailText.value, this.refs.passwordText.value));    
-        // this.refs.emailText.value = "";
-        // this.refs.passwordText.value = "";
+        this.refs.emailText.value = "";
+        this.refs.passwordText.value = "";
     }
     render() {
         return (
             <div className="Login-page">
             
             <span className="title">Sync-In</span>
-            
-            <MusicPlayer/>
                 <form className="login-container">
                     <label className="username">Email:</label>
 
