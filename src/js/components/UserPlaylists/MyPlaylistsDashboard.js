@@ -54,16 +54,19 @@ class MyPlaylistsDashboard extends Component {
 		this.setState({
 			editable: playlistObject._id
 		})
-		return <div>{this.state.editable?<input contentEditable  ref="input" />:null }</div>
+		return <div>{this.state.editable?<input contentEditable autoFocus ref="input" required/>:null }</div>
 		
 	}
 	edit(playlistObject, event){
-		console.log(playlistObject);
-		const updatedPlaylist = update(playlistObject, {name: {$set:this.refs.input.value}})
-	this.props.dispatch(playlistActions.updatePlaylist(updatedPlaylist, this.props.currentUser.accessToken));
-	this.setState({
+		event.preventDefault();
+		if(this.refs.input.value !== "") {
+			const updatedPlaylist = update(playlistObject, {name: {$set:this.refs.input.value}})
+			this.props.dispatch(playlistActions.updatePlaylist(updatedPlaylist, this.props.currentUser.accessToken));
+		}
+		this.setState({
 			editable: null
 		})
+
 	}
 
 	generateResult(resultArr) {
@@ -77,7 +80,8 @@ class MyPlaylistsDashboard extends Component {
 	        	 <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
 	        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
 	        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
-	        	 {this.state.editable == playlist._id ?<input contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" />:<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name}</h4> }
+
+	        	 {this.state.editable == playlist._id ? <form onSubmit={this.edit.bind(this, playlist)}><input autoFocus contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" required/> </form>:<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name}</h4> }
 	          	 
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
@@ -90,7 +94,6 @@ class MyPlaylistsDashboard extends Component {
 	}
 
 	render() {
-		{	console.log(this.state.editable)}
 		return (
 		
 			<div className="UserPlaylist">
