@@ -41,6 +41,7 @@ class NavigationFooterPlayer extends Component {
   render() {
     return (
       <div>
+      <div>
         <div className="NavigationBar">
           <ul className="NavUL">
             <li><Link to="/dashboard">Dashboard</Link></li>
@@ -55,8 +56,9 @@ class NavigationFooterPlayer extends Component {
         {this.playMusicOrNot()}
         {this.updateServerQueue()}
         </div>
-
+  
         <div id="Q-list">
+
         <ButtonToolbar>
           <SplitButton bsStyle="primary" title="Right dropup" dropup pullRight id="split-button-dropup-pull-right">
           <MenuItem>
@@ -64,16 +66,18 @@ class NavigationFooterPlayer extends Component {
             </MenuItem>
           </SplitButton>
         </ButtonToolbar>
-        <div>
-        <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} queue={this.props.queue} />
         </div>
+        </div>
+
     );
   }
 }
 
-// export default NavigationBar;
+//export default NavigationBar;
 
 export default connect(
     ({ currentListeningUrl, queue, currentUser, shuffledQueue }) =>
     ({ currentListeningUrl, queue, currentUser, shuffledQueue })
 )(NavigationFooterPlayer);
+
+//<RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} queue={this.props.queue} />
