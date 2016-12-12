@@ -125,7 +125,6 @@ export const updateUsername = (newUsername) => (dispatch, getState) => {
     return axios.put('https://asyncin.herokuapp.com/api/v1/users?access_token=' + accessToken, 
                 {currentUsername: currentUsername, newUsername: newUsername})
         .then(response => {
-            console.log('actions', response)
             dispatch(updateUsernameSuccess(response));
         })
         .catch(err => {
@@ -136,13 +135,12 @@ export const updateUsername = (newUsername) => (dispatch, getState) => {
 
 export const updatePasswordSuccess = createAction('UPDATE_PASSWORD_SUCCESS');
 export const updatePasswordError = createAction('UPDATE_PASSWORD_ERROR');
-export const updatePassword = (accessToken,newPassword) => dispatch => {
-    
+export const updatePassword = (currentPassword, newPassword) =>(dispatch, getState) => {
+     let accessToken = getState().currentUser.accessToken;
     return axios.put('https://asyncin.herokuapp.com/api/v1/users?access_token=' + accessToken, 
-                {newPassword: newPassword})
+                {currentPassword:currentPassword, newPassword: newPassword})
         .then(response => {
             dispatch(updatePasswordSuccess(response));
-           // hashHistory.push('/dashboard');
         })
         .catch(err => {
             dispatch(updatePasswordError(err));
