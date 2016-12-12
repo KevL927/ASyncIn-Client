@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import validator from 'validator';
 import * as userActions from '../../actions/user-actions';
 import Feedback from '../Feedback';
-import play from '../../../play.png';
 
 
 class Register extends Component {
@@ -13,43 +12,29 @@ class Register extends Component {
     onSubmitRegister (event) {
         event.preventDefault();
         let emailText = ReactDOM.findDOMNode(this.refs.emailText).value;
-        let displayNameText = ReactDOM.findDOMNode(this.refs.displayNameText).value;
-        let passwordText = ReactDOM.findDOMNode(this.refs.passwordText).value;
-        let confirmPasswordText = ReactDOM.findDOMNode(this.refs.confirmPasswordText).value;
 
         if(!validator.isEmail(emailText) || emailText.length <= 6) {
             console.log('Invalid email.')
             return;
         }
-        
-        if(!validator.isAlphanumeric(displayNameText) || displayNameText.length <= 4) {
-            console.log('Please enter text and/or numbers only longer than length of 4.');
+        if (this.refs.passwordText.value === this.refs.confirmPasswordText.value){
+       		this.props.dispatch(userActions.registerRequest(this.refs.emailText.value, this.refs.displayNameText.value, this.refs.passwordText.value));
             this.refs.displayNameText.value = "";
-            return;
-        }
-        
-        if(passwordText.length <= 5) {
-            console.log('Password length must be longer than 5');
             this.refs.passwordText.value = "";
             this.refs.confirmPasswordText.value = "";
-            return;
+            this.refs.emailText.value = "";
         }
-        
-        if(passwordText !== confirmPasswordText) {
-            console.log('Password does not match. Please type again.');
-            this.refs.passwordText.value = "";
-            this.refs.confirmPasswordText.value = "";
-            return;
-        } else {
-        return this.props.dispatch(userActions.registerRequest(emailText, displayNameText, passwordText));
+        else {
+            this.setState({error: true});
         }
     }
     
+    
     renderFeedback() {
         if(this.state.error) {
-            return  <Feedback feedback={'password does not match'} />
+            return  <Feedback feedback={'password does not match'} />;
         } else {
-            return <div></div>
+            return <div></div>;
         }
     }
     
@@ -74,6 +59,6 @@ class Register extends Component {
         );
     }
     
-};
+}
 
 export default connect()(Register);
