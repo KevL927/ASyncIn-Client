@@ -11,9 +11,10 @@ class RenderQueue extends Component {
         this.props.dispatch(actions.queue(track));
     }
 
-    onClickDeleteQueueTrack(event, track) {
+    onClickDeleteQueueTrack(event, trackIndex) {
+        console.log(trackIndex);
         event.preventDefault();
-        this.props.dispatch(actions.deleteQueueTrack(track));
+        this.props.dispatch(actions.deleteQueueTrack(trackIndex));
     }
     
     unwrapTracks() {

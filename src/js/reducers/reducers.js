@@ -89,11 +89,7 @@ export default handleActions (
 			}
 		},
 		[actions.deleteQueueTrack]: (state, action) => {
-			let queueLinkArr = [];
-			for (let i = 0; i < state.queue.length; i++) {
-				queueLinkArr.push(state.queue[i].link);
-			}
-			const index = queueLinkArr.indexOf(action.payload.link);
+			const index = action.payload			
 			let newQueue = update(state.queue, {$splice: [[index, 1]]});
 			return { ...state, queue: newQueue};
 		},

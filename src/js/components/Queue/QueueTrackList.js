@@ -5,7 +5,7 @@ export default ({ tracks, onTrackItemClick, onClickDeleteQueueTrack }) => (
   
   <div>
     {tracks.map((track, index) => (
-      <QueueTrack onTrackItemClick={onTrackItemClick} onClickDeleteQueueTrack={onClickDeleteQueueTrack} track={track} key={index} />
+      <QueueTrack onTrackItemClick={onTrackItemClick} onClickDeleteQueueTrack={onClickDeleteQueueTrack} track={track} trackIndex={index} />
     ))}
   </div>
   
