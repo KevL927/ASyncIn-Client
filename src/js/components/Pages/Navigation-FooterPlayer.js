@@ -45,8 +45,8 @@ class NavigationFooterPlayer extends Component {
             <li><Link to="/dashboard">Dashboard</Link></li>
             <li><Link to="/dashboard/search">Search</Link></li>
             <li><Link to="/dashboard/top">Explore Top Playlists</Link></li>
-            <li><Link to="/contact">Contact Us</Link></li>
-            <li><Link to="/settings">Account Settings</Link></li>
+            <li><Link to="/dashboard/contact">Contact Us</Link></li>
+            <li><Link to="/dashboard/settings">Account Settings</Link></li>
             <li onClick={this.logout.bind(this)} className="nav-li">Logout</li>
           </ul>
         </div>
