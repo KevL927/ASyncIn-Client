@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
 import SearchResult from './SearchResult';
 import AddPlaylist from '../AddPlaylist/AddPlaylist';
+import {Grid, Row, Col, thumbnail} from 'react-bootstrap';
 
 class SongSearch extends Component {
   state = {
@@ -63,21 +64,28 @@ class SongSearch extends Component {
         <form onSubmit={this.onSubmitSearch.bind(this)}>
           <input type="text" id="search-songs" name="search" ref="searchInput" placeholder="Search.."/>
         </form>
-        <div className="songSearch">
-          <div className="songSearch-container">
-            <ul>
-              <h1>Youtube</h1>
-                <ul>{this.generateResult(this.props.youtubeResults)}</ul>
-              <h1>Vimeo</h1>
-                <ul>{this.generateResult(this.props.vimeoResults)}</ul>
-              <h1>SoundCloud</h1>
-                <ul>{this.generateResult(this.props.soundcloudResults)}</ul>
-              </ul>
-              <AddPlaylist error={this.props.error} feedback={this.props.feedback} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist}/>
-            </div>
+        <div>
+            <Grid>
+              <Row>
+                <Col md={4}>
+                  <h1>Youtube</h1>
+                    {this.generateResult(this.props.youtubeResults)}
+                </Col>
+                <Col md={4}>
+                  <h1>Vimeo</h1>
+                  {this.generateResult(this.props.vimeoResults)}
+                </Col>
+                <Col md={4}>
+                  <h1>SoundCloud</h1>
+                  {this.generateResult(this.props.soundcloudResults)}
+                </Col>
+              </Row>
+            </Grid>
           </div>
-      </div>
-    );
+              <AddPlaylist error={this.props.error} feedback={this.props.feedback} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} thumbnail/>
+            
+          </div>
+    )
   }
 }
 

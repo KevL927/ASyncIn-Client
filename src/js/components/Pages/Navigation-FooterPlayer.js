@@ -5,6 +5,7 @@ import playMusicFunc from '../MusicPlayer/playMusicFunc';
 import RenderQueue from '../Queue/RenderQueue';
 import * as actions from '../../actions/actions';
 import * as userActions from '../../actions/user-actions';
+import {ButtonToolbar, SplitButton, MenuItem} from 'react-bootstrap';
 
 
 class NavigationFooterPlayer extends Component {
@@ -53,8 +54,7 @@ class NavigationFooterPlayer extends Component {
         {this.props.children}
         {this.playMusicOrNot()}
         {this.updateServerQueue()}
-        <div>
-        <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} queue={this.props.queue} />
+
         </div>
       </div>
     );
