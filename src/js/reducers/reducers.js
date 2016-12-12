@@ -63,6 +63,30 @@ export default handleActions (
 				return { ...state, queue: [ ...state.queue, action.payload ] };
 			}
 		},
+		[actions.deleteQueueTrack]: (state, action) => {
+			let queueLinkArr = [];
+			for (let i = 0; i < state.queue.length; i++) {
+				queueLinkArr.push(state.queue[i].link);
+			}
+			const index = queueLinkArr.indexOf(action.payload.link);
+			let newQueue = update(state.queue, {$splice: [[index, 1]]});
+			return { ...state, queue: newQueue};
+		},
+		[actions.updateQueueSuccess]: (state, action) => {
+			return {...state};
+		},
+		[actions.updateQueueError]: (state, action) => {
+			return {...state};
+		},
+		[actions.shuffledQueue]: (state, action) => {
+			return {...state, shuffledQueue: action.payload};
+		},
+		[actions.clearError]: (state, action) => {
+			return {...state, error: null}
+		},
+		[actions.clearFeedback]: (state, action) => {
+			return {...state, feedback: null}
+		},
 		[playlistActions.getUserPlaylistsSuccess]: (state, action) => {
 			return {...state, userSavedPlaylists: action.payload.data};
 		},
@@ -130,21 +154,6 @@ export default handleActions (
 		},
 		[playlistActions.getTopPlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
-		},
-		[actions.updateQueueSuccess]: (state, action) => {
-			return {...state};
-		},
-		[actions.updateQueueError]: (state, action) => {
-			return {...state};
-		},
-		[actions.shuffledQueue]: (state, action) => {
-			return {...state, shuffledQueue: action.payload};
-		},
-		[actions.clearError]: (state, action) => {
-			return {...state, error: null}
-		},
-		[actions.clearFeedback]: (state, action) => {
-			return {...state, feedback: null}
 		}
 	},
 	initialState

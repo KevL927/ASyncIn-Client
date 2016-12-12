@@ -31,6 +31,8 @@ export const currentListeningPlaylist = createAction('CURRENT_LISTENING_PLAYLIST
 
 export const queue = createAction('QUEUE', queue => queue);
 
+export const deleteQueueTrack = createAction('DELETE_QUEUE_TRACK', track => track);
+
 export const updateQueueSuccess = createAction('UPDATE_FAVOURITE_PLAYLIST_SUCCESS');
 export const updateQueueError = createAction('UPDATE_FAVOURITE_PLAYLIST_ERROR');
 export const updateQueue = (accessToken,token, queue) => dispatch => {

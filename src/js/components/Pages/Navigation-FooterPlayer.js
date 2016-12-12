@@ -54,7 +54,7 @@ class NavigationFooterPlayer extends Component {
         {this.playMusicOrNot()}
         {this.updateServerQueue()}
         <div>
-        <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} />
+        <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} queue={this.props.queue} />
         </div>
       </div>
     );
