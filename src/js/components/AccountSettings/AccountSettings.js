@@ -40,14 +40,15 @@ class AccountSettings extends Component {
         return (
             <div className="account-settings">
                 <span className="title">Account Settings</span>
+                <div className="update-password-display-name">
                 <form className="update-display-name-form" onSubmit={this.submitDisplayNameForm.bind(this)}>
-                    <span className="title">Update Display Name</span>
+                    <label className="title">Update Display Name</label>
                     <label className="display-name">New Display Name:</label>
                     <input type="text" id="display-name-input" className="input" ref="displayNameText" />
                     <button id="register-button" type="submit"className="register-button">Update display name</button>
                 </form>
                 <form className="update-password-form" onSubmit={this.submitNewPasswordForm.bind(this)}>
-                    <span className="title">Update Password</span>
+                    <label className="title">Update Password</label>
                     <label className="current-password">Current password:</label>
                     <input type="password" className="input" name="current-password" ref="currentPasswordText" />
                     <label className="new-password">New Password:</label>
@@ -56,6 +57,7 @@ class AccountSettings extends Component {
                     <input type="password" className="input" name="confirm-new-password" ref="confirmNewPasswordText" />
                     <button id="register-button" type="submit"className="register-button">Set new password</button>
                 </form>
+                </div>
             </div>
         );
     }

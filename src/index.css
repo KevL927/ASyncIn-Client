@@ -64,8 +64,8 @@ a:hover, .nav-li:hover {
 #songSearch-page, #UserPlaylist-page, #DashboardPage {
   padding: 14px 0px;
   margin-top:30px;
-  background-color: cyan;
-  height:5000px;
+  background-color: lightpink;
+  height:1500px;
   color: white;
 }
 /*********************************************************************
@@ -130,7 +130,7 @@ span {
 /*********************************************************************
 //------------------------------LOGIN PAGE CSS--------------------------
 //*********************************************************************/
-.LoginPage, .Register-page {
+.LoginPage, .Register-page, .account-settings{
   text-align: center;
     text-align: center;
   background:linear-gradient(
@@ -143,7 +143,7 @@ span {
   height: 66.9em;
   color: #fcf8e3;
 }
-.LoginPage label, .Register-page label {
+.LoginPage label, .Register-page label, .update-password-display-name label {
   font-size: 4em;
     margin: 10px;
     text-shadow: 0px 3px 0px #8e4600,
@@ -152,10 +152,10 @@ span {
                  0px 34px 30px rgba(0,0,0,0.1);
     font-family: 'Ubuntu', sans-serif;
 }
-.Register-page label {
+.Register-page label, .account-settings label{
   font-size: 3em;
 }
-.login-container, .Register-form {
+.login-container, .Register-form, .update-password-display-name {
     border-radius: 5px;
     background-color: rgba(40,10,9, .70);
     padding: 20px;
@@ -342,17 +342,7 @@ h4 {
 #Welcome {
   color: pink;
 }
-#DashboardPage {
-background:linear-gradient(
-      rgba(138,91,16, .50), 
-      rgba(255,197,103, 0.30)
-    ), url("http://i.imgur.com/MSoIpIJ.gif");
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-}
+
 
 /*********************************************************************
 //--------------------------USER PLAYLIST PAGE--------------------------
@@ -361,6 +351,19 @@ background:linear-gradient(
   float:right;
   
   background-color:orange;
+}
+
+/*********************************************************************
+//---------------------------ACCOUNT SETTINGS--------------------------
+//*********************************************************************/
+.update-password-display-name {
+  top: 62%;
+  position: absolute;
+  margin-bottom: 30px;
+}
+.account-settings label {
+  font-size: 2em;
+  height: 73.9em;
 }
 
 /*********************************************************************
