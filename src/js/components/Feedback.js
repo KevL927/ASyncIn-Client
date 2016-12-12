@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 
 class Feedback extends Component {
   render () {
-    return (
+    return ( 
     	<div>
-    		{this.props.feedback}
+    		  <p>{this.props.feedback}</p>
     	</div>
     )
   }
