@@ -47,6 +47,31 @@ export default handleActions (
 		[userActions.getCurrentUserError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
+		[userActions.getAllUsersSuccess]: (state, action) => {
+			return {...state, otherUsers: action.payload.data};
+		},
+		[userActions.getAllUsersError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[userActions.getUserSuccess]: (state, action) => {
+			return {...state, otherUserProfile: action.payload.data};
+		},
+		[userActions.getUserError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[userActions.updateUsernameSuccess]: (state, action) => {
+			let tempUserObject = update(state.currentUser, { username: { $set : action.payload.data.username } })
+			return {...state, currentUser: tempUserObject};
+		},
+		[userActions.updateUsernameError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[userActions.updatePasswordSuccess]: (state, action) => {
+			return {...state};
+		},
+		[userActions.updatePasswordError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
 		[actions.searchAllSuccess]: (state, action) => {
 			return {...state, youtubeSearchedSongs: action.payload.data.youtube, vimeoSearchedSongs: action.payload.data.vimeo, soundcloudSearchedSongs: action.payload.data.soundcloud}
 		},
@@ -116,31 +141,6 @@ export default handleActions (
 			return {...state, userSavedPlaylists: action.payload.data};
 		},
 		[playlistActions.deletePlaylistError]: (state, action) => {
-			return {...state, error: action.payload};
-		},
-		[userActions.getAllUsersSuccess]: (state, action) => {
-			return {...state, otherUsers: action.payload.data};
-		},
-		[userActions.getAllUsersError]: (state, action) => {
-			return {...state, error: action.payload};
-		},
-		[userActions.getUserSuccess]: (state, action) => {
-			return {...state, otherUserProfile: action.payload.data};
-		},
-		[userActions.getUserError]: (state, action) => {
-			return {...state, error: action.payload};
-		},
-		[userActions.updateUsernameSuccess]: (state, action) => {
-			let tempUserObject = update(state.currentUser, { username: { $set : action.payload.data.username } })
-			return {...state, currentUser: tempUserObject};
-		},
-		[userActions.updateUsernameError]: (state, action) => {
-			return {...state, error: action.payload};
-		},
-		[userActions.updatePasswordSuccess]: (state, action) => {
-			return {...state};
-		},
-		[userActions.updatePasswordError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
 		[playlistActions.updateFavPlaylistSuccess]: (state, action) => {
