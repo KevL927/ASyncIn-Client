@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import QueueTrackList from './QueueTrackList';
+import playMusicFunc from '../MusicPlayer/playMusicFunc';
 
 
 class RenderQueue extends Component {
@@ -11,21 +12,33 @@ class RenderQueue extends Component {
         this.props.dispatch(actions.queue(track));
     }
 
+    onTrackPlayNow(event, trackLink) {
+        console.log('trackLink', trackLink);
+        event.preventDefault();
+        this.props.dispatch(actions.currentListeningUrl(trackLink));
+
+    }
+
     onClickDeleteQueueTrack(event, trackIndex) {
-        console.log(trackIndex);
         event.preventDefault();
         this.props.dispatch(actions.deleteQueueTrack(trackIndex));
     }
     
     unwrapTracks() {
         if(this.props.playlistObject) {
-            return <QueueTrackList onTrackItemClick={this.onTrackItemClick.bind(this)} onClickDeleteQueueTrack={this.onClickDeleteQueueTrack.bind(this)} tracks={this.props.playlistObject.tracks} />;
+            return (
+                <QueueTrackList 
+                    onTrackItemClick={this.onTrackItemClick.bind(this)} 
+                    onClickDeleteQueueTrack={this.onClickDeleteQueueTrack.bind(this)} 
+                    onTrackPlayNow={this.onTrackPlayNow.bind(this)} 
+                    tracks={this.props.playlistObject.tracks} 
+                />
+            )
         } 
         return <div></div>;
     }
     
     render() {
-        console.log('renderTracks queue', this.props.playlistObject)
         return <div>{this.unwrapTracks()}</div>;
     }
 
