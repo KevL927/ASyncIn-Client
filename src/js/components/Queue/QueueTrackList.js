@@ -1,11 +1,11 @@
 import React from 'react';
 import QueueTrack from './QueueTrack';
 
-export default ({ tracks, onTrackItemClick, onClickDeleteQueueTrack }) => (
+export default ({ tracks, onTrackItemClick, onClickDeleteQueueTrack, onTrackPlayNow }) => (
   
   <div>
     {tracks.map((track, index) => (
-      <QueueTrack onTrackItemClick={onTrackItemClick} onClickDeleteQueueTrack={onClickDeleteQueueTrack} track={track} trackIndex={index} />
+      <QueueTrack onTrackItemClick={onTrackItemClick} onClickDeleteQueueTrack={onClickDeleteQueueTrack} onTrackPlayNow={onTrackPlayNow} track={track} trackIndex={index} key={index} />
     ))}
   </div>
   
