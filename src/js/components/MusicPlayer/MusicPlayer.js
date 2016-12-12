@@ -158,7 +158,7 @@ class MusicPlayer extends Component {
 	            <div id="video-seek">
 	            <span id="seek">Seek</span>
 	            	<input
-	                  type='range' min={0} max={1} step='any'
+	                  type="range" min={0} max={1} step='any'
 	                  value={played}
 	                  onMouseDown={this.onSeekMouseDown}
 	                  onChange={this.onSeekChange}

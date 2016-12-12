@@ -58,13 +58,14 @@ a:hover, .nav-li:hover {
     color: white;
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+    text-decoration: none;
 }
 
 #songSearch-page, #UserPlaylist-page, #DashboardPage {
   padding: 14px 0px;
   margin-top:30px;
   background-color: cyan;
-  height:2300px;
+  height:5000px;
   color: white;
 }
 /*********************************************************************
@@ -172,6 +173,7 @@ input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    color: black;
 }
 input[type=password], select {
     width: 100%;
@@ -223,8 +225,8 @@ button[type=submit]:hover {
 
 #registerlink:hover {
   color: gold;
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 
@@ -326,8 +328,8 @@ h4 {
 }
 
 .user-playlist-buttons:hover {
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 #react-player {
     position: fixed;
@@ -357,7 +359,7 @@ background:linear-gradient(
 //*********************************************************************/
 #Q-list {
   float:right;
-  bottom:0;
+  
   background-color:orange;
 }
 
@@ -374,13 +376,15 @@ background:linear-gradient(
 
 }
 #video-controller-1, #video-controller-2 {
-  float:left;
+  float:right;
   padding: 1em;
 }
 
 #video-seek, #video-volume {
   color: white;
   padding: 1em;
+  width: 25%;
+  float: left;
 }
 
 

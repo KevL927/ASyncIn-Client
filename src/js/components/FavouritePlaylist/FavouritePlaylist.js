@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
+import FaStar from 'react-icons/lib/fa/star';
+
 
 class FavouritePlaylist extends Component {
     onClickRedirect(playlist, event){
@@ -16,9 +18,13 @@ class FavouritePlaylist extends Component {
             playlist = this.props.favouritePlaylists.map((playlist, index) => {
                 return (
                     <div key={index}>
-                      <h3> My Favourite Playlists</h3>
+                      <h3> <FaStar/> My Favourite Playlists</h3>
                       <li key={index}>
-	                    <div><button onClick={this.onClickRedirect.bind(this, playlist)}>{playlist.name}</button></div>
+	                    <div>
+                            <button onClick={this.onClickRedirect.bind(this, playlist)}>
+                                    {playlist.name}
+                            </button>
+                        </div>
 	                </li>
                 </div>
                 );
