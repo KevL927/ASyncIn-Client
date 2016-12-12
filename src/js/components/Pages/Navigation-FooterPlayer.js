@@ -54,9 +54,19 @@ class NavigationFooterPlayer extends Component {
         {this.props.children}
         {this.playMusicOrNot()}
         {this.updateServerQueue()}
-
         </div>
-      </div>
+
+        <div id="Q-list">
+        <ButtonToolbar>
+          <SplitButton bsStyle="primary" title="Right dropup" dropup pullRight id="split-button-dropup-pull-right">
+          <MenuItem>
+            <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} />
+            </MenuItem>
+          </SplitButton>
+        </ButtonToolbar>
+        <div>
+        <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} queue={this.props.queue} />
+        </div>
     );
   }
 }
