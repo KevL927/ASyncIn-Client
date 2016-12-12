@@ -38,6 +38,23 @@ class NavigationFooterPlayer extends Component {
     return this.props.shuffledQueue;
   }
   
+  state={
+    menuOpen: false
+  }
+
+  dropdownToggle(newValue){
+      if (this._forceOpen){
+          this.setState({ menuOpen: true });
+          this._forceOpen = false;
+      } else {
+          this.setState({ menuOpen: newValue });
+      }
+  }
+  menuItemClickedThatShouldntCloseDropdown(){
+      this._forceOpen = true;
+  }
+
+
   render() {
     return (
       <div>
@@ -60,8 +77,8 @@ class NavigationFooterPlayer extends Component {
         <div id="Q-list">
 
         <ButtonToolbar>
-          <SplitButton bsStyle="primary" title="Right dropup" dropup pullRight id="split-button-dropup-pull-right">
-          <MenuItem>
+          <SplitButton open={this.state.menuOpen} onToggle={val => this.dropdownToggle(val)} bsStyle="primary" title="Right dropup" dropup pullRight id="split-button-dropup-pull-right">
+          <MenuItem onClick={() => this.menuItemClickedThatShouldntCloseDropdown()}>
             <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} error={this.props.error} feedback={this.props.feedback}/>
             </MenuItem>
           </SplitButton>
