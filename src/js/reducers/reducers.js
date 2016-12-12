@@ -2,6 +2,7 @@ import * as actions from '../actions/actions'
 import * as userActions from '../actions/user-actions'
 import * as playlistActions from '../actions/playlist-actions'
 import { handleActions } from 'redux-actions';
+import update from 'react-addons-update';
 
 const initialState = {
 	otherUserPlaylist: null,
@@ -46,6 +47,31 @@ export default handleActions (
 		[userActions.getCurrentUserError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
+		[userActions.getAllUsersSuccess]: (state, action) => {
+			return {...state, otherUsers: action.payload.data};
+		},
+		[userActions.getAllUsersError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[userActions.getUserSuccess]: (state, action) => {
+			return {...state, otherUserProfile: action.payload.data};
+		},
+		[userActions.getUserError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[userActions.updateUsernameSuccess]: (state, action) => {
+			let tempUserObject = update(state.currentUser, { username: { $set : action.payload.data.username } })
+			return {...state, currentUser: tempUserObject};
+		},
+		[userActions.updateUsernameError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
+		[userActions.updatePasswordSuccess]: (state, action) => {
+			return {...state};
+		},
+		[userActions.updatePasswordError]: (state, action) => {
+			return {...state, error: action.payload};
+		},
 		[actions.searchAllSuccess]: (state, action) => {
 			return {...state, youtubeSearchedSongs: action.payload.data.youtube, vimeoSearchedSongs: action.payload.data.vimeo, soundcloudSearchedSongs: action.payload.data.soundcloud}
 		},
@@ -61,6 +87,26 @@ export default handleActions (
 			} else {
 				return { ...state, queue: [ ...state.queue, action.payload ] };
 			}
+		},
+		[actions.deleteQueueTrack]: (state, action) => {
+			const index = action.payload			
+			let newQueue = update(state.queue, {$splice: [[index, 1]]});
+			return { ...state, queue: newQueue};
+		},
+		[actions.updateQueueSuccess]: (state, action) => {
+			return {...state};
+		},
+		[actions.updateQueueError]: (state, action) => {
+			return {...state};
+		},
+		[actions.shuffledQueue]: (state, action) => {
+			return {...state, shuffledQueue: action.payload};
+		},
+		[actions.clearError]: (state, action) => {
+			return {...state, error: null}
+		},
+		[actions.clearFeedback]: (state, action) => {
+			return {...state, feedback: null}
 		},
 		[playlistActions.getUserPlaylistsSuccess]: (state, action) => {
 			return {...state, userSavedPlaylists: action.payload.data};
@@ -93,30 +139,6 @@ export default handleActions (
 		[playlistActions.deletePlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
 		},
-		[userActions.getAllUsersSuccess]: (state, action) => {
-			return {...state, otherUsers: action.payload.data};
-		},
-		[userActions.getAllUsersError]: (state, action) => {
-			return {...state, error: action.payload};
-		},
-		[userActions.getUserSuccess]: (state, action) => {
-			return {...state, otherUserProfile: action.payload.data};
-		},
-		[userActions.getUserError]: (state, action) => {
-			return {...state, error: action.payload};
-		},
-		[userActions.updateUsernameSuccess]: (state, action) => {
-			return {...state, currentUser: action.payload.data};
-		},
-		[userActions.updateUsernameError]: (state, action) => {
-			return {...state, error: action.payload};
-		},
-		[userActions.updatePasswordSuccess]: (state, action) => {
-			return {...state};
-		},
-		[userActions.updatePasswordError]: (state, action) => {
-			return {...state, error: action.payload};
-		},
 		[playlistActions.updateFavPlaylistSuccess]: (state, action) => {
 			return {...state, currentUser: action.payload.data.user, favouritePlaylist: action.payload.data.user.favouritePlaylists};
 		},
@@ -128,21 +150,6 @@ export default handleActions (
 		},
 		[playlistActions.getTopPlaylistError]: (state, action) => {
 			return {...state, error: action.payload};
-		},
-		[actions.updateQueueSuccess]: (state, action) => {
-			return {...state};
-		},
-		[actions.updateQueueError]: (state, action) => {
-			return {...state};
-		},
-		[actions.shuffledQueue]: (state, action) => {
-			return {...state, shuffledQueue: action.payload};
-		},
-		[actions.clearError]: (state, action) => {
-			return {...state, error: null}
-		},
-		[actions.clearFeedback]: (state, action) => {
-			return {...state, feedback: null}
 		}
 	},
 	initialState

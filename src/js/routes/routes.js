@@ -20,13 +20,14 @@ const routes = (
 				<IndexRoute component={App} />
 					<Route path="login" component={LoginPage} />	
 					<Route path="register" component={RegisterPage} />
-					<Route path="contact" component={ContactsPage} />
-					<Route path="settings" component={AccountSettingsPage} />
+					
 			</Route>
 			<Route path="/dashboard" component={NavigationFooterPlayer}>
 				<IndexRoute component={DashboardPage} />
 				<Route path="top" component={TopPlaylists} />
 				<Route path="search" component={SongSearchPage} />
+				<Route path="contact" component={ContactsPage} />
+				<Route path="settings" component={AccountSettingsPage} />
 			</Route>
 		</Router>
 	</Provider>

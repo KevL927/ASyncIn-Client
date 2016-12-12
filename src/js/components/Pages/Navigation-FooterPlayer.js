@@ -46,22 +46,15 @@ class NavigationFooterPlayer extends Component {
             <li><Link to="/dashboard">Dashboard</Link></li>
             <li><Link to="/dashboard/search">Search</Link></li>
             <li><Link to="/dashboard/top">Explore Top Playlists</Link></li>
-            <li><Link to="/contact">Contact Us</Link></li>
-            <li><Link to="/settings">Account Settings</Link></li>
+            <li><Link to="/dashboard/contact">Contact Us</Link></li>
+            <li><Link to="/dashboard/settings">Account Settings</Link></li>
             <li onClick={this.logout.bind(this)} className="nav-li">Logout</li>
           </ul>
         </div>
         {this.props.children}
         {this.playMusicOrNot()}
         {this.updateServerQueue()}
-        <div id="Q-list">
-        <ButtonToolbar>
-          <SplitButton bsStyle="primary" title="Right dropup" dropup pullRight id="split-button-dropup-pull-right">
-          <MenuItem>
-            <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} />
-            </MenuItem>
-          </SplitButton>
-        </ButtonToolbar>
+
         </div>
       </div>
     );
