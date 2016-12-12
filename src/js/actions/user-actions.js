@@ -119,13 +119,14 @@ PUT /api/v1/users?access_token=gfhgfhghghghd
 */
 export const updateUsernameSuccess = createAction('UPDATE_USERNAME_SUCCESS');
 export const updateUsernameError = createAction('UPDATE_USERNAME_ERROR');
-export const updateUsername = (accessToken,newUsername) => dispatch => {
-    
+export const updateUsername = (newUsername) => (dispatch, getState) => {
+    let currentUsername = getState().currentUser.username;
+    let accessToken = getState().currentUser.accessToken;
     return axios.put('https://asyncin.herokuapp.com/api/v1/users?access_token=' + accessToken, 
-                {newUsername: newUsername})
+                {currentUsername: currentUsername, newUsername: newUsername})
         .then(response => {
+            console.log('actions', response)
             dispatch(updateUsernameSuccess(response));
-           // hashHistory.push('/dashboard');
         })
         .catch(err => {
             dispatch(updateUsernameError(err));

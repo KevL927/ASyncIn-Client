@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
 import validator from 'validator';
+import * as userActions from '../../actions/user-actions'
 
 
 class AccountSettings extends Component {
@@ -13,7 +15,7 @@ class AccountSettings extends Component {
             console.log('username no good')
             return <span>Please enter text and numbers only.</span>;
         }
-        //Make AJAX call
+        return this.props.dispatch(userActions.updateUsername(this.refs.displayNameText.value));
     }
     
     submitNewPasswordForm(event) {
@@ -59,4 +61,4 @@ class AccountSettings extends Component {
     }
 };
 
-export default AccountSettings;
+export default connect()(AccountSettings);

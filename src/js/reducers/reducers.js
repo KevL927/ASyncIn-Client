@@ -2,6 +2,7 @@ import * as actions from '../actions/actions'
 import * as userActions from '../actions/user-actions'
 import * as playlistActions from '../actions/playlist-actions'
 import { handleActions } from 'redux-actions';
+import update from 'react-addons-update';
 
 const initialState = {
 	otherUserPlaylist: null,
@@ -106,7 +107,8 @@ export default handleActions (
 			return {...state, error: action.payload};
 		},
 		[userActions.updateUsernameSuccess]: (state, action) => {
-			return {...state, currentUser: action.payload.data};
+			let tempUserObject = update(state.currentUser, { username: { $set : action.payload.data.username } })
+			return {...state, currentUser: tempUserObject};
 		},
 		[userActions.updateUsernameError]: (state, action) => {
 			return {...state, error: action.payload};
