@@ -64,7 +64,6 @@ class AddPlaylist extends Component {
                 {(this.props.feedback) ? this.renderFeedback(): ''}
                 <SavedPlaylistsDropdown userPlaylists={this.props.userSavedPlaylists} newPlaylist={this.props.newPlaylist} currentUser={this.props.currentUser}/>
             </div>
-            
 		);
 	}
 }

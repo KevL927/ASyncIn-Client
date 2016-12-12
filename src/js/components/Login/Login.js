@@ -5,6 +5,7 @@ import * as userActions from '../../actions/user-actions';
 import play from '../../../play.png';
 import { connect } from 'react-redux';
 import {Link} from 'react-router';
+import Feedback from '../Feedback';
 
 
 class Login extends Component {
@@ -13,10 +14,9 @@ class Login extends Component {
         event.preventDefault();
         let emailText = ReactDOM.findDOMNode(this.refs.emailText).value;
         let passwordText = ReactDOM.findDOMNode(this.refs.passwordText).value;
-        
         if(!validator.isEmail(emailText) || emailText.length <= 6) {
             console.log('Invalid email.')
-            return;
+            return ;
         }
         if(passwordText.length <= 5) {
             console.log('password too short.')
@@ -40,7 +40,6 @@ class Login extends Component {
                     <label className="password">Password:</label>
 
                     <input type="password" className="input" name="password" ref="passwordText" required />
-
 
                     <button id="login-button" value="Submit" type="submit" className="login-button">Submit</button>
                     <Link to="/register" id="registerlink"> Dont have an account? Let's hook you up, man. </Link>
