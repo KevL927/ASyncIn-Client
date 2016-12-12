@@ -10,10 +10,7 @@ import DashboardPage from '../components/Pages/DashboardPage';
 import TopPlaylists from '../components/Pages/TopPlaylistsPage';
 import SongSearchPage from '../components/Pages/SongSearchPage';
 import ContactsPage from '../components/Pages/ContactsPage';
-
-
-
-
+import AccountSettingsPage from '../components/Pages/AccountSettingsPage';
 
 
 const routes = (
@@ -24,17 +21,15 @@ const routes = (
 					<Route path="login" component={LoginPage} />	
 					<Route path="register" component={RegisterPage} />
 					<Route path="contact" component={ContactsPage} />
+					<Route path="settings" component={AccountSettingsPage} />
 			</Route>
-
 			<Route path="/dashboard" component={NavigationFooterPlayer}>
-				<IndexRoute component={DashboardPage}/>
+				<IndexRoute component={DashboardPage} />
 				<Route path="top" component={TopPlaylists} />
 				<Route path="search" component={SongSearchPage} />
-
 			</Route>
 		</Router>
 	</Provider>
 );
 
 export default routes;
-
