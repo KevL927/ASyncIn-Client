@@ -43,17 +43,17 @@ class NavigationFooterPlayer extends Component {
   }
 
   dropdownToggle(newValue){
-      if (this._forceOpen){
+    console.log(this);
+      if (this.forceOpen){
           this.setState({ menuOpen: true });
-          this._forceOpen = false;
+          this.forceOpen = false;
       } else {
           this.setState({ menuOpen: newValue });
       }
   }
   menuItemClickedThatShouldntCloseDropdown(){
-      this._forceOpen = true;
+      this.forceOpen = true;
   }
-
 
   render() {
     return (
