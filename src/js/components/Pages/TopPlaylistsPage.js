@@ -71,7 +71,7 @@ class TopPlaylistsPage extends Component {
 	render() {
 		return (
 
-            <div>
+            <div id="top_page">
                 <div>{this.renderToplists()}</div>
                 <div>
                     <AddPlaylist currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} error={this.props.error} feedback={this.props.feedback} />
