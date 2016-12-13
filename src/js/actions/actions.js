@@ -33,8 +33,8 @@ export const queue = createAction('QUEUE', queue => queue);
 
 export const deleteQueueTrack = createAction('DELETE_QUEUE_TRACK', track => track);
 
-export const updateQueueSuccess = createAction('UPDATE_FAVOURITE_PLAYLIST_SUCCESS');
-export const updateQueueError = createAction('UPDATE_FAVOURITE_PLAYLIST_ERROR');
+export const updateQueueSuccess = createAction('UPDATE_QUEUE_SUCCESS');
+export const updateQueueError = createAction('UPDATE_QUEUE_ERROR');
 export const updateQueue = (accessToken,token, queue) => dispatch => {
     
     return axios.put('https://asyncin.herokuapp.com/api/v1/users/queue/'+token+'?access_token=' + accessToken, 

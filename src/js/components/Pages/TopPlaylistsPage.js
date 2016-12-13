@@ -61,7 +61,7 @@ class TopPlaylistsPage extends Component {
             return (
                 <div>
                     <RenderPlaylist url={this.props.currentListeningUrl} playlistArray={this.props.topPlaylists.slice(0,3)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist} onCheckInsert={this.onCheckInsert.bind(this)} />
-                    <RenderPlaylist playlistArray={this.props.topPlaylists.slice(3,10)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist} onCheckInsert={this.onCheckInsert.bind(this)} />
+                    <RenderPlaylist playlistArray4To10={this.props.topPlaylists.slice(3,10)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist} onCheckInsert={this.onCheckInsert.bind(this)} />
                 </div>
             );
         } 
@@ -69,6 +69,7 @@ class TopPlaylistsPage extends Component {
     }
     
 	render() {
+	    console.log(this.props.favouritePlaylist)
 		return (
 
             <div>

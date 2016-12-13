@@ -23,11 +23,6 @@ class RenderPlaylist extends Component {
     }
     
     favouriteOrUnfavourite(playlistObject) {
-
-      if(this.props.favouritePlaylist.length === 0) {
-        return <button onClick={this.onClickUpdateFavouritePlaylist.bind(this, playlistObject)}>Favourite</button>;
-      }
-
       let favouritePlaylistIdArray = [];
 
       for(let i=0; i<this.props.favouritePlaylist.length; i++) {
@@ -68,7 +63,7 @@ class RenderPlaylist extends Component {
     }
 
   renderTop3And4To10Playlists() {
-    if(this.props.playlistArray.length < 4) {
+    if(this.props.playlistArray) {
       return (
         <div>
           <h2>Top 3 Playlists</h2>
@@ -79,19 +74,19 @@ class RenderPlaylist extends Component {
               <li>favourites: {playlist.rating}</li>
               {this.favouriteOrUnfavourite(playlist)}
               <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
-              <RenderTracks key={index} playlistObject={playlist} onCheckInsert={this.props.onCheckInsert} />
+              {this.viewTracks(playlist)}
             </div>
           ))}
           </ScrollArea>
         </div>
       );
     }
-    if(this.props.playlistArray.length > 3) {
+    if(this.props.playlistArray4To10) {
       return (
         <div>
           <h2>Top 4-10 Playlists</h2>
           <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
-          {this.props.playlistArray.map((playlist, index) => (
+          {this.props.playlistArray4To10.map((playlist, index) => (
             <div key={index}>
               <li onClick={this.expandCollapse.bind(this, index)} ref={index}>
                 #{index+4} - {playlist.name}
@@ -113,6 +108,7 @@ class RenderPlaylist extends Component {
   }
   
   render() {
+    console.log(this.props)
     return <div>{this.renderTop3And4To10Playlists()}</div> ; 
   }
   
