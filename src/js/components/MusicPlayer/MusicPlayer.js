@@ -37,6 +37,7 @@ class MusicPlayer extends Component {
 				this.setState({ currentPlayingIndexInQueue: -1 })
 				return this.setState({ playing: true })
 			}
+						this.props.dispatch(actions.currentListeningUrl(null));
 			this.setState({ currentPlayingIndexInQueue: ++this.state.currentPlayingIndexInQueue })
 			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue].link));
 		}
@@ -107,14 +108,14 @@ class MusicPlayer extends Component {
 		this.player.seekTo(parseFloat(e.target.value))
 	}
 	onProgress = state => {
-		// We only want to update time slider if we are not currently seeking
 		if (!this.state.seeking) {
 		this.setState(state)
-	}
+		}
 	}
 	onClickFullscreen = () => {
-		screenfull.request(findDOMNode(this.player))
+		screenfull.request(findDOMNode(this.player));
 	}
+
 
 	render() {
 		const {
@@ -129,16 +130,13 @@ class MusicPlayer extends Component {
 		    		<ReactPlayer 
 		    			ref={player => { this.player = player }}
 	            		className='react-player'
-	            		width={179}
-		            	height={114}
+	            		width={screenfull.isFullscreen ? window.screen.availWidth : 179}
+		            	height={screenfull.isFullscreen ? window.screen.availHeight : 114}
 		    			url={this.props.url} 
 		    			playing={playing}
 	            		volume={volume}
-	            		onReady={() => console.log('onReady')}
-	            		onStart={() => console.log('onStart')}
 	            		onPlay={() => this.setState({ playing: true })}
 	            		onPause={() => this.setState({ playing: false })}
-	            		onBuffer={() => console.log('onBuffer')}
 	            		onEnded={() => this.continuePlay()}
 	            		onError={e => console.log('onError', e)}
 	            		onProgress={this.onProgress}
