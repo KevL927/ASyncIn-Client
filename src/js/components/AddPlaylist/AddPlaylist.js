@@ -5,6 +5,9 @@ import * as actions from '../../actions/actions';
 import SavedPlaylistsDropdown from '../UserPlaylists/SavedPlaylistsDropdown';
 import Feedback from '../Feedback';
 import ToggleButton from 'react-toggle-button';
+import FaUnlock from 'react-icons/lib/fa/unlock'
+import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt'
+const borderRadiusStyle = { borderRadius: 2 };
 
 class AddPlaylist extends Component {
     state = {
@@ -63,8 +66,17 @@ class AddPlaylist extends Component {
                 <button className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</button>
                 {(this.state.showInput === true || this.props.error) ? this.renderInput(): ''}
                <ToggleButton
-                  inactiveLabel={"Private"}
-                  activeLabel={"Public"}
+                  inactiveLabel={<FaUnlockAlt/>}
+                  activeLabel={<FaUnlock/>}
+                  colors={{active: {
+                        base: 'rgb(0,207,0)'
+                      },
+                        inactive:{
+                        base: 'rgb(186,0,0)'
+                        }
+                    }}
+                   thumbStyle={ borderRadiusStyle }
+                   trackStyle={ borderRadiusStyle } 
                   value={this.state.isPublic}
                   onToggle={(isPublic) => {
                     this.setState({

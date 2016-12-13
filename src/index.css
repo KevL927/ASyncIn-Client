@@ -288,14 +288,20 @@ button[type=submit]:hover {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center left;
+  height: 867px;
 }
  .DashboardPage {
     height: 863px;
  }
 
  #three_platforms {
-  width: 87%;
-    float: right;
+  margin-left: 148px;
+    padding-bottom: 29px;
+    padding-left: 180px;
+    margin-bottom: 8px;
+    margin-right: 148px;
+    background-color: rgba(18, 2, 255, 0.2);
+    border-radius: 137px;
  }
 #search-songs {
   margin: 35px 0;
@@ -315,6 +321,9 @@ button[type=submit]:hover {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: #555;
+}
+.add-playlist-button {
+  margin-left:46%;
 }
 
 /*********************************************************************
@@ -412,8 +421,11 @@ h4 {
   float:right;
   
 }
+#Q_Track_List{
+  width:100%;
+}
 .UserPlaylist {
- 
+  margin-left: 46%;
 
 }
 /*********************************************************************
@@ -490,8 +502,10 @@ li.track {
 
 
 /*********************************************************************
-//----------------------USER'S SAVED PLAYLIST-------------------------
+//----------------------Top Playlists-------------------------
 //*********************************************************************/
 
-
+#top_page {
+  margin-top: 54px;
+}
 

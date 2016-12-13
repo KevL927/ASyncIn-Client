@@ -105,7 +105,7 @@ class MyPlaylistsDashboard extends Component {
 		console.log(this.props.error)
 		return (
 		
-			<div className="UserPlaylist">
+			<div id="UserPlaylist">
 				<span id="my-saved-playlists">My Saved Playlists</span>
 					<ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
 						<div className="UserPlaylist-container">
