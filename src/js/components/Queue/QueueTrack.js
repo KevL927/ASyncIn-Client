@@ -8,7 +8,6 @@ export default ({ currentUser, userSavedPlaylists, error, feedback, track,  onTr
     	<button onClick={(event) => onClickDeleteQueueTrack(event, trackIndex)}>Delete Track</button>
     	<button onClick={(event) => onTrackItemClick(event, track)}>Add To Queue</button>
     	<a onClick={(event) => onTrackPlayNow(event, track.link)} >{track.title}</a>
-		<AddPlaylist error={error} feedback={feedback} currentUser={currentUser} userSavedPlaylists={userSavedPlaylists} newPlaylist={[track]} />
     </li>
   );
         
