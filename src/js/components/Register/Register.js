@@ -23,20 +23,20 @@ class Register extends Component {
         }
         
         if(!validator.isAlphanumeric(displayNameText) || displayNameText.length <= 4) {
-            console.log('Please enter text and/or numbers only longer than length of 4.');
+            this.props.dispatch(userActions.registerError({message:'Please enter text and/or numbers only longer than length of 4.'}));
             this.refs.displayNameText.value = "";
-            return;
+            return ;
         }
         
         if(passwordText.length <= 5) {
-            console.log('Password length must be longer than 5');
+            this.props.dispatch(userActions.registerError({message:'Password length must be longer than 5'}));
             this.refs.passwordText.value = "";
             this.refs.confirmPasswordText.value = "";
             return;
         }
         
         if(passwordText !== confirmPasswordText) {
-            console.log('Password does not match. Please type again.');
+            this.props.dispatch(userActions.registerError({message:'Password does not match. Please type again.'}));
             this.refs.passwordText.value = "";
             this.refs.confirmPasswordText.value = "";
             return;
@@ -45,14 +45,7 @@ class Register extends Component {
         }
     }
     
-    renderFeedback() {
-        if(this.state.error) {
-            return  <Feedback feedback={'password does not match'} />
-        } else {
-            return <div></div>
-        }
-    }
-    
+
     render () {
         return (
             <div className="Register-page">
@@ -67,7 +60,7 @@ class Register extends Component {
                     <input type="password" className="input" name="password" ref="passwordText" required />
                     <label className="password">Verify Password:</label>
                     <input type="password" className="input" name="password" ref="confirmPasswordText" required />
-                    {this.renderFeedback()}
+                    {this.props.error?<div><Feedback feedback={this.props.error} /></div> : <div></div>}
                     <button id="register-button" type="submit"className="register-button">Submit</button>
                 </form>
             </div>

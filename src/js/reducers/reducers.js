@@ -30,7 +30,7 @@ export default handleActions (
 			return {...state, isAuthenicated:true};
 		},
 		[userActions.registerError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, error: action.payload.message};
 		},
 		[userActions.loginSuccess]: (state, action) => {
 			return {...state, isAuthenicated:true};
