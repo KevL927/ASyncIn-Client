@@ -22,7 +22,7 @@ class DashboardPage extends Component {
     if(this.props.currentUser) {
       return (
         <div className="DashboardPage">
-          <h3>Welcome, {this.props.currentUser.username}</h3>
+          <span id="welcome">Welcome, {this.props.currentUser.username} </span>
            <div className="songSearch-container">
           <form onSubmit={this.onSubmitSearch.bind(this)}>
             <input type="text" name="search" ref="searchInput" placeholder="Search.." required/>
