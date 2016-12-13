@@ -17,6 +17,10 @@ class AccountSettings extends Component {
             return;
         }
         this.props.dispatch(userActions.updateUsername(this.refs.displayNameText.value));
+          setTimeout(() => {
+            this.props.dispatch(actions.clearFeedback());
+        }, 5000);
+        this.refs.displayNameText.value = "";
         return this.props.dispatch(actions.clearError());
     }
     
@@ -43,6 +47,13 @@ class AccountSettings extends Component {
             return;
         }
         this.props.dispatch(userActions.updatePassword(currentPasswordText, newPasswordText));
+        setTimeout(() => {
+            this.props.dispatch(actions.clearFeedback());
+        }, 5000);
+        this.refs.currentPasswordText.value = "";
+        this.refs.newPasswordText.value = "";
+        this.refs.confirmNewPasswordText.value = "";
+        
         return this.props.dispatch(actions.clearError());
     }
 
@@ -64,6 +75,7 @@ class AccountSettings extends Component {
             return (
                 <div className="account-settings">
                 {this.props.error?<div><Feedback feedback={this.props.error} /></div> : <div></div>}
+                {this.props.feedback?<div><Feedback feedback={this.props.feedback} /></div> : <div></div>}
                     <div className="update-display-name">
                         <form className="update-display-name-form" onSubmit={this.submitDisplayNameForm.bind(this)}>
                             <label className="title">Update Display Name</label>
