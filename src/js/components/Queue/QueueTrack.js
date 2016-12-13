@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import React from 'react';
+
 import AddPlaylist from '../AddPlaylist/AddPlaylist';
 
 export default ({ currentUser, userSavedPlaylists, error, feedback, track,  onTrackItemClick, onClickDeleteQueueTrack, trackIndex, onTrackPlayNow }) => {

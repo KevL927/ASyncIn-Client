@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import validator from 'validator';
 import * as userActions from '../../actions/user-actions';
 import Feedback from '../Feedback';
-import play from '../../../play.png';
-
 
 class Register extends Component {
     

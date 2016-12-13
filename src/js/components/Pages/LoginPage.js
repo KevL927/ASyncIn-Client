@@ -4,7 +4,6 @@ import Login from '../Login/Login';
 
  class LoginPage extends Component {
    render(){
-     console.log(this.props.error)
     return (
       <div className="LoginPage">
         <div className="LoginPage-container">

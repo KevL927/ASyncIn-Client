@@ -36,11 +36,10 @@ export default handleActions (
 			return {...state, isAuthenicated:true};
 		},
 		[userActions.loginError]: (state, action) => {
-			if(action.payload.message == "Request failed with status code 401"){
+			if(action.payload.message === "Request failed with status code 401"){
 			return {...state, error: "Incorrect username or password"};
 			}
 			return {...state, error: action.payload.message};
-			
 		},
 		[userActions.logout]: (state, action) => {
 			return {...state, initialState};
@@ -132,7 +131,7 @@ export default handleActions (
 			return {...state, error: action.payload.response.data.message};
 		},
 		[playlistActions.updatePlaylistSuccess]: (state, action) => {
-			return {...state, userSavedPlaylists: action.payload.data};
+			return {...state, userSavedPlaylists: action.payload.data, feedback:"The tracks have been successfully added"};
 		},
 		[playlistActions.updatePlaylistError]: (state, action) => {
 			return {...state, error: action.payload.message};
