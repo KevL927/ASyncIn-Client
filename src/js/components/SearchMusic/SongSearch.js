@@ -73,18 +73,29 @@ class SongSearch extends Component {
           <div id="three_platforms">
               <Grid>
                 <Row>
+                
                   <Col md={4}>
                     <h1><FaYoutubePlay size={100} color='#bb0000'/></h1>
+                    <div className="ASDF">
                       {this.generateResult(this.props.youtubeResults)}
+                      </div>
                   </Col>
+                
+
                   <Col md={4}>
                     <h1><FaVimeo size={100} color='#4EBBFF'/></h1>
+                    <div className="ASDF">
                     {this.generateResult(this.props.vimeoResults)}
+                    </div>
                   </Col>
+                 
                   <Col md={4}>
                     <h1><FaSoundcloud size={100} color='#ff3a00'/></h1>
+                    <div className="ASDF">
                     {this.generateResult(this.props.soundcloudResults)}
+                    </div>
                   </Col>
+                  
                 </Row>
               </Grid>
             </div>
