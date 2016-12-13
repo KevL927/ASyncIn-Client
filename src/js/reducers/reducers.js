@@ -49,19 +49,19 @@ export default handleActions (
 			return {...state, currentUser:action.payload.data.user, favouritePlaylist:action.payload.data.user.favouritePlaylists, userSavedPlaylists:action.payload.data.playlist, isAuthenicated:true, queue: action.payload.data.user.queue};
 		},
 		[userActions.getCurrentUserError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, error: action.payload.message};
 		},
 		[userActions.getAllUsersSuccess]: (state, action) => {
 			return {...state, otherUsers: action.payload.data};
 		},
 		[userActions.getAllUsersError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, error: action.payload.message};
 		},
 		[userActions.getUserSuccess]: (state, action) => {
 			return {...state, otherUserProfile: action.payload.data};
 		},
 		[userActions.getUserError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, error: action.payload.message};
 		},
 		[userActions.updateUsernameSuccess]: (state, action) => {
 			let tempUserObject = update(state.currentUser, { username: { $set : action.payload.data.username } })
@@ -80,7 +80,7 @@ export default handleActions (
 			return {...state, youtubeSearchedSongs: action.payload.data.youtube, vimeoSearchedSongs: action.payload.data.vimeo, soundcloudSearchedSongs: action.payload.data.soundcloud}
 		},
 		[actions.searchAllError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, error: action.payload.message};
 		},
 		[actions.currentListeningUrl]: (state, action) => {
 			return {...state, currentListeningUrl: action.payload}
@@ -116,13 +116,13 @@ export default handleActions (
 			return {...state, userSavedPlaylists: action.payload.data};
 		},
 		[playlistActions.getUserPlaylistsError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, error: action.payload.message};
 		},
 		[playlistActions.getOtherUserPlaylistSuccess]: (state, action) => {
 			return {...state, otherUserPlaylist: action.payload.data};
 		},
 		[playlistActions.getOtherUserPlaylistError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, error: action.payload.message};
 		},
 		[playlistActions.createPlaylistSuccess]: (state, action) => {
 			let tempPlaylist = [ action.payload.data, ...state.userSavedPlaylists ];
@@ -141,19 +141,19 @@ export default handleActions (
 			return {...state, userSavedPlaylists: action.payload.data};
 		},
 		[playlistActions.deletePlaylistError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, error: action.payload.message};
 		},
 		[playlistActions.updateFavPlaylistSuccess]: (state, action) => {
 			return {...state, currentUser: action.payload.data.user, favouritePlaylist: action.payload.data.user.favouritePlaylists};
 		},
 		[playlistActions.updateFavPlaylistError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, error: action.payload.message};
 		},
 		[playlistActions.getTopPlaylistSuccess]: (state, action) => {
 			return {...state, topPlaylists: action.payload.data};
 		},
 		[playlistActions.getTopPlaylistError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, error: action.payload.message};
 		}
 	},
 	initialState
