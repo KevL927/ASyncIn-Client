@@ -135,7 +135,7 @@ export default handleActions (
 			return {...state, userSavedPlaylists: action.payload.data};
 		},
 		[playlistActions.updatePlaylistError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, error: action.payload.message};
 		},
 		[playlistActions.deletePlaylistSuccess]: (state, action) => {
 			return {...state, userSavedPlaylists: action.payload.data};
