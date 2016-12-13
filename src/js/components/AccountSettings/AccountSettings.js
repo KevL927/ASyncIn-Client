@@ -38,10 +38,11 @@ class AccountSettings extends Component {
     }
 
     localOrThirdPartySignInCheck() {
-        if(validator.isEmail(this.props.currentUser.token)) {
-            console.log('local sign-in user')
-        } else {
+        console.log(this.props.currentUser.token);
+        if(!validator.isEmail(this.props.currentUser.token)) {
             console.log('third party sign-in check')
+        } else {
+            console.log('local sign-in user')
         }
     }
   
