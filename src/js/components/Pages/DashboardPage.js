@@ -21,7 +21,7 @@ class DashboardPage extends Component {
   renderComponents() {
     if(this.props.currentUser) {
       return (
-        <div>
+        <div className="DashboardPage">
           <h3>Welcome, {this.props.currentUser.username}</h3>
            <div className="songSearch-container">
           <form onSubmit={this.onSubmitSearch.bind(this)}>
@@ -40,7 +40,7 @@ class DashboardPage extends Component {
   render() {
     return (
      <div>
-       <div id="DashboardPage">
+       <div className="DashboardPage">
            {this.renderComponents()}
        </div>
      </div>
