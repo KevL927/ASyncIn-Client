@@ -62,7 +62,7 @@ class SongSearch extends Component {
     return (
       <div id="songSearch-page">
         <form onSubmit={this.onSubmitSearch.bind(this)}>
-          <input type="text" id="search-songs" name="search" ref="searchInput" placeholder="Search.."/>
+          <input type="text" id="search-songs" name="search" ref="searchInput" placeholder="Search.." required/>
         </form>
         <div>
             <Grid>
