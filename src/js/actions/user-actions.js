@@ -45,8 +45,8 @@ export const loginRequest = (email, password) => dispatch => {
             hashHistory.push('/dashboard?access_token=' + response.data.access_token +'&token='+ response.data.token)
            return {response: '200'}
         })
-        .catch(err => {
-            dispatch(loginError(err));
+        .catch((error) => {
+            dispatch(loginError(error));
             return false;
         })
 };
