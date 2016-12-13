@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-
+import {connect} from 'react-redux';
 import Register from '../Register/Register';
-//import {Link} from 'react-router';
 
 class RegisterPage extends Component {
   render() {
     return (
       <div className="RegisterPage">
         <div className="RegisterPage-container">
-          <Register/>
+          <Register error={this.props.error}/>
         </div>
       </div>
     );
   }
 }
 
-export default RegisterPage;
+export default connect(({error})=>({error}))(RegisterPage)
