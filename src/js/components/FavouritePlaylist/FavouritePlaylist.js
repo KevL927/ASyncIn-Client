@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
+import * as playlistActions from '../../actions/playlist-actions';
 import FaStar from 'react-icons/lib/fa/star';
 
 
 class FavouritePlaylist extends Component {
-    onClickRedirect(playlist, event){
+    onClickAddToQueue(playlist, event){
 	    this.props.dispatch(actions.currentListeningPlaylist(playlist));
-	   
 	}
+	
+    onClickUpdateFavouritePlaylist(playlistObject,event) {
+	    event.preventDefault();
+	    this.props.dispatch(playlistActions.updateFavouritePlaylist(this.props.currentUser.accessToken, this.props.currentUser.token, playlistObject._id, playlistObject.rating));
+	}
+	
     renderFavouritePlaylist(){
         let playlist = [];
         if(!this.props.favouritePlaylists) {
@@ -21,8 +27,12 @@ class FavouritePlaylist extends Component {
                       <h3> <FaStar/> My Favourite Playlists</h3>
                       <li key={index}>
 	                    <div>
-                            <button onClick={this.onClickRedirect.bind(this, playlist)}>
-                                    {playlist.name}
+	                        <div>{playlist.name}</div>
+                            <button onClick={this.onClickAddToQueue.bind(this, playlist)}>
+                                Add To Queue
+                            </button>
+                            <button onClick={this.onClickUpdateFavouritePlaylist.bind(this, playlist)}>
+                                Unfavourite playlist
                             </button>
                         </div>
 	                </li>

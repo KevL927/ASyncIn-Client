@@ -68,13 +68,13 @@ export default handleActions (
 			return {...state, currentUser: tempUserObject};
 		},
 		[userActions.updateUsernameError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, error: action.payload.message};
 		},
 		[userActions.updatePasswordSuccess]: (state, action) => {
 			return {...state};
 		},
 		[userActions.updatePasswordError]: (state, action) => {
-			return {...state, error: action.payload};
+			return {...state, error: action.payload.message};
 		},
 		[actions.searchAllSuccess]: (state, action) => {
 			return {...state, youtubeSearchedSongs: action.payload.data.youtube, vimeoSearchedSongs: action.payload.data.vimeo, soundcloudSearchedSongs: action.payload.data.soundcloud}
