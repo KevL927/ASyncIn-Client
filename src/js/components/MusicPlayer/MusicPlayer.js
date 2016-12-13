@@ -124,7 +124,7 @@ class MusicPlayer extends Component {
 	    const SEPARATOR = ' · ';
 	    
 		return (
-	    	<footer id="react-player">
+	    	<div>
 	    		<div id="video-pic-viewer">
 		    		<ReactPlayer 
 		    			ref={player => { this.player = player }}
@@ -170,7 +170,9 @@ class MusicPlayer extends Component {
                 <span id="volume">Volume</span>
                 	<input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume} />
             	</div>
-	    	</footer>
+            	</div>
+
+
 	    );
 	}
 }
