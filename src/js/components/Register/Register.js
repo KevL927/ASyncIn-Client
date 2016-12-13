@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import validator from 'validator';
+import {Link} from 'react-router';
 import * as userActions from '../../actions/user-actions';
 import Feedback from '../Feedback';
 
@@ -60,7 +61,9 @@ class Register extends Component {
                     <input type="password" className="input" name="password" ref="confirmPasswordText" required />
                     {this.props.error?<div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div> : <div></div>}
                     <button id="register-button" type="submit"className="register-button">Submit</button>
+                    <Link to="/login" id="loginlink"> Already have an account? Log in here. </Link>
                 </form>
+
             </div>
         );
     }
