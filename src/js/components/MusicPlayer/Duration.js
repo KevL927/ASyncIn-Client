@@ -8,17 +8,19 @@ export default function Duration ({ className, seconds }) {
   )
 }
 
-function format (seconds) {
-  const date = new Date(seconds * 1000)
-  const hh = date.getHours()-19
-  const mm = date.getMinutes()
-  const ss = pad(date.getSeconds())
-  if (hh) {
-    return `${hh}:${pad(mm)}:${ss}`
-  }
-  return `${mm}:${ss}`
-}
 
-function pad (string) {
-  return ('0' + string).slice(-2)
+  Number.prototype.toHHMMSS = function () {
+    let seconds = Math.floor(this),
+        hours = Math.floor(seconds / 3600);
+    seconds -= hours*3600;
+    let minutes = Math.floor(seconds / 60);
+    seconds -= minutes*60;
+
+    if (hours   < 10) {hours   = "0"+hours;}
+    if (minutes < 10) {minutes = "0"+minutes;}
+    if (seconds < 10) {seconds = "0"+seconds;}
+    return hours+':'+minutes+':'+seconds;
 }
+  function format (seconds) {
+    return seconds.toHHMMSS()
+  }
