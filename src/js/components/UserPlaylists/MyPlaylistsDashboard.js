@@ -64,7 +64,7 @@ class MyPlaylistsDashboard extends Component {
 		event.preventDefault();
 		if(this.refs.input.value !== "") {
 			const updatedPlaylist = update(playlistObject, {name: {$set:this.refs.input.value}})
-			this.props.dispatch(playlistActions.updatePlaylist(updatedPlaylist, this.props.currentUser.accessToken));
+			this.props.dispatch(playlistActions.updatePlaylistName(updatedPlaylist, this.props.currentUser.accessToken));
 			this.props.dispatch(actions.clearError());
 		}
 		this.setState({
