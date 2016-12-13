@@ -35,7 +35,7 @@ class AddPlaylist extends Component {
             this.props.dispatch(actions.clearError());
             this.props.dispatch(playlistActions.createPlaylist(newPlaylist, this.props.currentUser.accessToken));
         }
-        
+        this.props.dispatch(actions.clearError());
         setTimeout(() => {
             this.props.dispatch(actions.clearFeedback());
         }, 5000);

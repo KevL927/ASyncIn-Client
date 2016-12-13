@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
 import validator from 'validator';
 import Feedback from '../Feedback';
-import * as userActions from '../../actions/user-actions'
-
+import * as userActions from '../../actions/user-actions';
+import * as actions from '../../actions/actions';
 
 class AccountSettings extends Component {
 
@@ -16,7 +16,8 @@ class AccountSettings extends Component {
             this.props.dispatch(userActions.updateUsernameError({message:'Please enter display name only longer than length of 4.'}));
             return;
         }
-        return this.props.dispatch(userActions.updateUsername(this.refs.displayNameText.value));
+        this.props.dispatch(userActions.updateUsername(this.refs.displayNameText.value));
+        return this.props.dispatch(actions.clearError());
     }
     
     submitNewPasswordForm(event) {
@@ -30,11 +31,19 @@ class AccountSettings extends Component {
             return;
         }
         
-        if(newPasswordText !== confirmNewPasswordText || newPasswordText.length <= 5) {
+         if(newPasswordText.length <= 5) {
+            this.props.dispatch(userActions.registerError({message:'Password length must be longer than 5'}));
+            this.refs.newPasswordText.value = "";
+            this.refs.confirmNewPasswordText.value = "";
+            return;
+        }
+        
+        if(newPasswordText !== confirmNewPasswordText) {
             this.props.dispatch(userActions.updatePasswordError({message:'New password and confirm password mismatch. Please check and type again.'}));
             return;
         }
-        return this.props.dispatch(userActions.updatePassword(currentPasswordText, newPasswordText));
+        this.props.dispatch(userActions.updatePassword(currentPasswordText, newPasswordText));
+        return this.props.dispatch(actions.clearError());
     }
 
     localOrThirdPartySignInCheckAndRender() {
