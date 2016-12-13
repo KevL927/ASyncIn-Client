@@ -62,8 +62,8 @@ class RenderPlaylist extends Component {
       return;
     }
 
-  renderTop3And4To10Playlists() {
-    if(this.props.playlistArray) {
+  renderTop3And4To10Playlists(topPlaylist) {
+    if(topPlaylist === this.props.playlistArray) {
       return (
         <div>
           <h2>Top 3 Playlists</h2>
@@ -108,8 +108,12 @@ class RenderPlaylist extends Component {
   }
   
   render() {
-    console.log(this.props)
-    return <div>{this.renderTop3And4To10Playlists()}</div> ; 
+    return (
+      <div>
+        <div>{this.renderTop3And4To10Playlists(this.props.playlistArray)}</div>
+        <div>{this.renderTop3And4To10Playlists(this.props.playlistArray4To10)}</div>
+      </div>
+    ); 
   }
   
 };
