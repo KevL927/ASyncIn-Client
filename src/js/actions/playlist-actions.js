@@ -67,7 +67,7 @@ export const createPlaylist = (playlistObject, accessToken) => dispatch => {
 
 export const updatePlaylistSuccess = createAction('UPDATE_PLAYLIST_SUCCESS');
 export const updatePlaylistError = createAction('UPDATE_PLAYLIST_ERROR');
-export const updatePlaylist = (playlistObject, accessToken) => dispatch => {
+export const updatePlaylist = (playlistObject, accessToken) => (dispatch) => {
     
     return axios.put('https://asyncin.herokuapp.com/api/v1/playlists/' + playlistObject.userId +'/'+ playlistObject._id + '?access_token=' + accessToken, playlistObject)
         .then(response => {
@@ -138,7 +138,9 @@ export const updateFavouritePlaylist = (accessToken,token, playlistId, rating) =
         .then(response => {
             console.log(response.data);
             dispatch(updateFavPlaylistSuccess(response));
-           // hashHistory.push('/dashboard');
+            return { response }
+        }).then(()=> {
+            return dispatch(getTopPlaylist(accessToken));
         })
         .catch(err => {
             dispatch(updateFavPlaylistError(err));
@@ -149,8 +151,7 @@ export const updateFavouritePlaylist = (accessToken,token, playlistId, rating) =
 //Top Playlist
 export const getTopPlaylistSuccess = createAction('GET_TOP_PLAYLIST_SUCCESS');
 export const getTopPlaylistError = createAction('GET_TOP_PLAYLIST_ERROR');
-export const getTopPlaylist = (accessToken) => dispatch => {
-    
+export const getTopPlaylist = (accessToken) => (dispatch) => {
     return axios.get('https://asyncin.herokuapp.com/api/v1/playlists?access_token=' + accessToken)
         .then(response => {
             dispatch(getTopPlaylistSuccess(response));

@@ -112,7 +112,6 @@ export const getUser = (accessToken, token) => dispatch => {
 export const updateUsernameSuccess = createAction('UPDATE_USERNAME_SUCCESS');
 export const updateUsernameError = createAction('UPDATE_USERNAME_ERROR');
 export const updateUsername = (newUsername) => (dispatch, getState) => {
-    console.log(getState());
     let currentUsername = getState().currentUser.username;
     let accessToken = getState().currentUser.accessToken;
     return axios.put('https://asyncin.herokuapp.com/api/v1/users?access_token=' + accessToken, 
