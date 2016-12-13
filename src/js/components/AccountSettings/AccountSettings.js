@@ -12,8 +12,8 @@ class AccountSettings extends Component {
         let displayNameText = ReactDOM.findDOMNode(this.refs.displayNameText).value;
 
         if(!validator.isAlphanumeric(displayNameText) || displayNameText.length <= 4) {
-            console.log('username no good')
-            return <span>Please enter text and numbers only.</span>;
+            this.props.dispatch(userActions.registerError({message:'Please enter text and/or numbers only longer than length of 4.'}));
+            return;
         }
         return this.props.dispatch(userActions.updateUsername(this.refs.displayNameText.value));
     }
@@ -25,12 +25,13 @@ class AccountSettings extends Component {
         let confirmNewPasswordText = ReactDOM.findDOMNode(this.refs.confirmNewPasswordText).value;
 
         if(currentPasswordText.length <= 5) {
-            console.log('type current password');
-            return <span>Incorrect current password. Please check and type again.</span>;
+            this.props.dispatch(userActions.registerError({message:'Incorrect current password. Please check and type again.'}));
+            return ;
         }
         
         if(newPasswordText !== confirmNewPasswordText || newPasswordText.length <= 5) {
-            return <span>New password and confirm password mismatch. Please check and type again.</span>;
+            this.props.dispatch(userActions.registerError({message:'New password and confirm password mismatch. Please check and type again.'}));
+            return ;
         }
         //Make AJAX call
     }
@@ -47,6 +48,7 @@ class AccountSettings extends Component {
                     <input type="text" id="display-name-input" className="input" ref="displayNameText" />
                     <button id="register-button" type="submit"className="register-button">Update display name</button>
                 </form>
+                {this.props.error?<div><Feedback feedback={this.props.error} /></div> : <div></div>}
                 <form className="update-password-form" onSubmit={this.submitNewPasswordForm.bind(this)}>
                     <label className="title">Update Password</label>
                     <label className="current-password">Current password:</label>

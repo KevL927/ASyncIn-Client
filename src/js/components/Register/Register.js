@@ -18,7 +18,7 @@ class Register extends Component {
         let confirmPasswordText = ReactDOM.findDOMNode(this.refs.confirmPasswordText).value;
 
         if(!validator.isEmail(emailText) || emailText.length <= 6) {
-            console.log('Invalid email.')
+            this.props.dispatch(userActions.registerError({message:'Invalid email'}));
             return;
         }
         
