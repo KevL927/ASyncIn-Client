@@ -15,7 +15,6 @@ export const getUserPlaylistsError = createAction('GET_USER_PLAYLISTS_ERROR');
 export const getUserPlaylists = (accessToken) => dispatch => {
     return axios.get('https://asyncin.herokuapp.com/api/v1/playlists?access_token=' + accessToken)
         .then((response) => {
-            console.log('actions');
             dispatch(getUserPlaylistsSuccess(response));
             return { response }
         })
@@ -50,7 +49,6 @@ export const createPlaylistError = createAction('CREATE_PLAYLIST_ERROR');
 export const createPlaylist = (playlistObject, accessToken) => dispatch => {
     return axios.post('https://asyncin.herokuapp.com/api/v1/playlists/' + playlistObject.userId + '?access_token=' + accessToken, playlistObject)
         .then(response => {
-            console.log(response)
             dispatch(createPlaylistSuccess(response));
            // hashHistory.push('/dashboard');
         })
@@ -136,7 +134,6 @@ export const updateFavouritePlaylist = (accessToken,token, playlistId, rating) =
                     rating:rating
                 })
         .then(response => {
-            console.log(response.data);
             dispatch(updateFavPlaylistSuccess(response));
             return { response }
         }).then(()=> {
