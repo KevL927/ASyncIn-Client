@@ -4,11 +4,13 @@ import * as playlistActions from '../../actions/playlist-actions';
 import * as actions from '../../actions/actions';
 import SavedPlaylistsDropdown from '../UserPlaylists/SavedPlaylistsDropdown';
 import Feedback from '../Feedback';
+import ToggleButton from 'react-toggle-button';
 
 class AddPlaylist extends Component {
     state = {
         showInput: false,
-        showError: false
+        showError: false,
+        isPublic: true
     }
     
     changeState() {
@@ -30,7 +32,7 @@ class AddPlaylist extends Component {
                 name: this.refs.playlistInputText.value,
                 tracks: [],
                 rating: 0,
-                isPublic: true
+                isPublic: this.state.isPublic
             }
             this.props.dispatch(actions.clearError());
             this.props.dispatch(playlistActions.createPlaylist(newPlaylist, this.props.currentUser.accessToken));
@@ -39,8 +41,11 @@ class AddPlaylist extends Component {
         setTimeout(() => {
             this.props.dispatch(actions.clearFeedback());
         }, 5000);
-        this.setState({showInput: false})
-        
+         setTimeout(() => {
+             this.setState({ isPublic:true})
+        }, 1000);
+       
+         this.setState({showInput: false})
 	}
     renderInput() {
         return (
@@ -57,6 +62,15 @@ class AddPlaylist extends Component {
             <div>
                 <button className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</button>
                 {(this.state.showInput === true || this.props.error) ? this.renderInput(): ''}
+               <ToggleButton
+  inactiveLabel={"Private"}
+  activeLabel={"Public"}
+  value={this.state.isPublic}
+  onToggle={(isPublic) => {
+    this.setState({
+      isPublic: !isPublic,
+    })
+  }} />
                 {(this.props.error) ? <div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div>: <div></div>}
                 {(this.props.feedback) ?<div><i className="fa fa-check-square-o" aria-hidden="true"></i><Feedback feedback={this.props.feedback}/></div>: <div></div>}
                 <SavedPlaylistsDropdown userPlaylists={this.props.userSavedPlaylists} newPlaylist={this.props.newPlaylist} currentUser={this.props.currentUser}/>
