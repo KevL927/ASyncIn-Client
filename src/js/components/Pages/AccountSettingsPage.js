@@ -7,11 +7,11 @@ class AccountSettingsPage extends Component {
     return (
       <div className="AccountSettingsPage">
         <div className="AccountSettingsPage-container">
-          <AccountSettings error={this.props.error}/>
+          <AccountSettings error={this.props.error} feedback={this.props.feedback}/>
         </div>
       </div>
     );
   }
 }
 
-export default connect(({error})=>({error}))(AccountSettingsPage);
+export default connect(({error, feedback})=>({error, feedback}))(AccountSettingsPage);

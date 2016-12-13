@@ -65,13 +65,13 @@ export default handleActions (
 		},
 		[userActions.updateUsernameSuccess]: (state, action) => {
 			let tempUserObject = update(state.currentUser, { username: { $set : action.payload.data.username } })
-			return {...state, currentUser: tempUserObject};
+			return {...state, currentUser: tempUserObject, feedback:"Your username has been updated"};
 		},
 		[userActions.updateUsernameError]: (state, action) => {
 			return {...state, error: action.payload.message};
 		},
 		[userActions.updatePasswordSuccess]: (state, action) => {
-			return {...state};
+			return {...state,feedback:"Your password has been successfully updated"};
 		},
 		[userActions.updatePasswordError]: (state, action) => {
 			return {...state, error: action.payload.message};
