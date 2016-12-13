@@ -6,6 +6,7 @@ import play from '../../../play.png';
 import { connect } from 'react-redux';
 import {Link} from 'react-router';
 import Feedback from '../Feedback';
+import * as actions from '../../actions/actions';
 
 
 class Login extends Component {
@@ -18,16 +19,16 @@ class Login extends Component {
             console.log('Invalid email.')
             return ;
         }
-        if(passwordText.length <= 5) {
-            console.log('password too short.')
-            return this.refs.passwordText.value = "";
-        }
+
         this.refs.emailText.value = "";
         this.refs.passwordText.value = "";
+        this.props.dispatch(actions.clearError())
         return this.props.dispatch(userActions.loginRequest(emailText, passwordText));   
+        
     }
     
     render() {
+        console.log(this.props.error)
         return (
             <div className="Login-page">
             
@@ -40,7 +41,7 @@ class Login extends Component {
                     <label className="password">Password:</label>
 
                     <input type="password" className="input" name="password" ref="passwordText" required />
-
+                        {this.props.error?<div className="error"><Feedback feedback={this.props.error} /></div>:<div></div>}
                     <button id="login-button" value="Submit" type="submit" className="login-button">Submit</button>
                     <Link to="/register" id="registerlink"> Dont have an account? Let's hook you up, man. </Link>
                     <a id="google-login" href="https://asyncin.herokuapp.com/auth/google" className="google-login">Log in with Google</a><br />

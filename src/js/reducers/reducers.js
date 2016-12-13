@@ -36,7 +36,11 @@ export default handleActions (
 			return {...state, isAuthenicated:true};
 		},
 		[userActions.loginError]: (state, action) => {
-			return {...state, error: action.payload};
+			if(action.payload.message == "Request failed with status code 401"){
+			return {...state, error: "Incorrect username or password"};
+			}
+			return {...state, error: action.payload.message};
+			
 		},
 		[userActions.logout]: (state, action) => {
 			return {...state, initialState};

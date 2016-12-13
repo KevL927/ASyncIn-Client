@@ -42,12 +42,10 @@ export const loginRequest = (email, password) => dispatch => {
         .then((response) => {
             dispatch(loginSuccess(response));
             hashHistory.push('/dashboard?access_token=' + response.data.access_token +'&token='+ response.data.token)
-           // hashHistory.push('/search')
-         
            return {response: '200'}
         })
-        .catch(err => {
-            dispatch(loginError(err));
+        .catch((error) => {
+            dispatch(loginError(error));
             return false;
         })
 };

@@ -1,13 +1,18 @@
-import React from 'react';
-
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import Login from '../Login/Login';
 
-export default () => {
+ class LoginPage extends Component {
+   render(){
+     console.log(this.props.error)
     return (
       <div className="LoginPage">
         <div className="LoginPage-container">
-          <Login/>
+          <Login error={this.props.error}/>
         </div>
       </div>
     );
+   }
 };
+
+export default connect(({error})=>({error}))(LoginPage)
