@@ -8,7 +8,6 @@ import {Link} from 'react-router';
 import Feedback from '../Feedback';
 import * as actions from '../../actions/actions';
 
-
 class Login extends Component {
     
    onSubmit(event) {
@@ -34,6 +33,7 @@ class Login extends Component {
             
             <span className="title">Sync-In</span>
                 <form className="login-container" onSubmit={this.onSubmit.bind(this)}>
+                    {this.props.error?<div className="error"><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div>:<div></div>}
                     <label className="username">Email:</label>
 
                     <input type="email" id="username" className="input" ref="emailText" required />
@@ -41,7 +41,6 @@ class Login extends Component {
                     <label className="password">Password:</label>
 
                     <input type="password" className="input" name="password" ref="passwordText" required />
-                        {this.props.error?<div className="error"><Feedback feedback={this.props.error} /></div>:<div></div>}
                     <button id="login-button" value="Submit" type="submit" className="login-button">Submit</button>
                     <Link to="/register" id="registerlink"> Dont have an account? Let's hook you up, man. </Link>
                     <a id="google-login" href="https://asyncin.herokuapp.com/auth/google" className="google-login">Log in with Google</a><br />
