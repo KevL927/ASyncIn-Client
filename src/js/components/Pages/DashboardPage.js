@@ -29,7 +29,7 @@ class DashboardPage extends Component {
           </form>
         </div>
           <MyPlaylistsDashboard userSavedPlaylists={this.props.userSavedPlaylists} currentUser={this.props.currentUser}  queue={this.props.queue}/>
-          <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} />
+          <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} currentUser={this.props.currentUser} />
         </div>
       );
     }else{
