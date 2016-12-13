@@ -83,14 +83,14 @@ class MyPlaylistsDashboard extends Component {
 	        <div>
 	        	<li key={index} id="user-playlist-buttons-li">
 		         
-		        	 {this.state.editable == playlist._id ? <form onSubmit={this.edit.bind(this, playlist)}>
+		        	 {this.state.editable === playlist._id ? <form onSubmit={this.edit.bind(this, playlist)}>
 		        	
 		        	 <input autoFocus contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" required/> 
 		        	 </form>:<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name} <FaAlignJustify/></h4> }
 		          	 
 			         <Collapse isOpened={this.checkOpenedOrNot(index)}>
-			         	{this.viewTracks(playlist)}
-			         	<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
+			         {this.viewTracks(playlist)}
+			         <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
 		        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
 		        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
 			         </Collapse>

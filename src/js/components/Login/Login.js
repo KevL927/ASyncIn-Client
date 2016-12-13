@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import validator from 'validator';
 import * as userActions from '../../actions/user-actions';
-import play from '../../../play.png';
 import { connect } from 'react-redux';
 import {Link} from 'react-router';
 import Feedback from '../Feedback';
@@ -27,7 +26,6 @@ class Login extends Component {
     }
     
     render() {
-        console.log(this.props.error)
         return (
             <div className="Login-page">
             
