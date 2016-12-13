@@ -80,14 +80,10 @@ class AccountSettings extends Component {
         }
     }
   
-  
     render () {
-        return (
-            <div>
-                {this.localOrThirdPartySignInCheckAndRender()}
-            </div>
-        );
+        return <div>{this.localOrThirdPartySignInCheckAndRender()}</div>
     }
+    
 };
 
 export default connect(
