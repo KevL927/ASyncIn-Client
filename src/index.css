@@ -5,6 +5,10 @@ body {
   font-family: sans-serif;
 }
 
+.dropdown-menu>li>a {
+    width: 100%;
+}
+
 li {
   list-style-type: none;
 }
@@ -240,15 +244,23 @@ button[type=submit]:hover {
 #registerlink {
   color:white;
   text-decoration: none;
+  background-color: transparent;
+  text-align: center;
+  display: block;
 }
 
 #registerlink:hover {
   color: gold;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+  background-color: transparent;
 }
 
+#google-login, #facebook-login{
+  background-color: transparent;
+  display: block;
 
+}
 
 .App-intro {
   font-size: large;
@@ -264,7 +276,9 @@ button[type=submit]:hover {
 }
 
 
-
+#displayName{
+  width:100%;
+}
 
 /*********************************************************************
 //------------------------------SONG SEARCH--------------------------
@@ -397,7 +411,6 @@ h4 {
 #Q-list {
   float:right;
   
-  background-color:orange;
 }
 .UserPlaylist {
  
@@ -439,6 +452,7 @@ h4 {
   width: 25%;
   float: left;
 }
+#video-volume{ width: 15%; }
 
 
 #seek, #volume {

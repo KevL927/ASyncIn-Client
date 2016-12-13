@@ -63,12 +63,12 @@ class AddPlaylist extends Component {
                 <button className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</button>
                 {(this.state.showInput === true || this.props.error) ? this.renderInput(): ''}
                <ToggleButton
-  inactiveLabel={"Private"}
-  activeLabel={"Public"}
-  value={this.state.isPublic}
-  onToggle={(isPublic) => {
-    this.setState({
-      isPublic: !isPublic,
+                  inactiveLabel={"Private"}
+                  activeLabel={"Public"}
+                  value={this.state.isPublic}
+                  onToggle={(isPublic) => {
+                    this.setState({
+                      isPublic: !isPublic,
     })
   }} />
                 {(this.props.error) ? <div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div>: <div></div>}

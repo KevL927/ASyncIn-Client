@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as playlistActions from '../../actions/playlist-actions';
 import * as actions from '../../actions/actions'
+import {ButtonToolbar, DropdownButton, MenuItem} from 'react-bootstrap';
 
 class SavedPlaylistsDropdown extends Component {
 	
@@ -26,9 +27,9 @@ class SavedPlaylistsDropdown extends Component {
 	  } else {
 	      arr = resultArr.map((playlist, index) => {
 	      return (
-	        <li key={index}>
-	          <div><button onClick={this.onClickAddNewPlaylist.bind(this, this.props.newPlaylist, playlist)}>{playlist.name}</button></div>
-	        </li>
+	          <MenuItem eventKey={index} key={index}>
+	          <div onClick={this.onClickAddNewPlaylist.bind(this, this.props.newPlaylist, playlist)}>{playlist.name}</div>
+	          </MenuItem>
 	      );
 	      })
 	  }
@@ -38,10 +39,12 @@ class SavedPlaylistsDropdown extends Component {
 	render() {
 		return (
 			<div className="UserPlaylist">
-				<h1>Saved Playlists</h1>
-				<div className="UserPlaylist-container">
-			     	<div id="content">{this.generateResult(this.props.userPlaylists)}</div>
-				</div>
+			<ButtonToolbar>
+				<DropdownButton bsSize="large" title="Saved Playlists" id="dropdown-size-large">
+					
+			     	{this.generateResult(this.props.userPlaylists)}
+				</DropdownButton>
+			</ButtonToolbar>
 			</div>
 		);
 	}
