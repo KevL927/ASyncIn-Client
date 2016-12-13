@@ -25,7 +25,7 @@ class DashboardPage extends Component {
           <h3>Welcome, {this.props.currentUser.username}</h3>
            <div className="songSearch-container">
           <form onSubmit={this.onSubmitSearch.bind(this)}>
-            <input type="text" name="search" ref="searchInput" placeholder="Search.."/>
+            <input type="text" name="search" ref="searchInput" placeholder="Search.." required/>
           </form>
         </div>
           <MyPlaylistsDashboard userSavedPlaylists={this.props.userSavedPlaylists} currentUser={this.props.currentUser}  queue={this.props.queue}/>
