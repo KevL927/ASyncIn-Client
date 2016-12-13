@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Login from '../Login/Login';
 
  class LoginPage extends Component {
+     
    render(){
     return (
       <div className="LoginPage">
@@ -12,6 +13,7 @@ import Login from '../Login/Login';
       </div>
     );
    }
-};
+   
+}
 
-export default connect(({error})=>({error}))(LoginPage)
+export default connect(({error})=>({error}))(LoginPage);

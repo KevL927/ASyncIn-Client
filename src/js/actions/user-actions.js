@@ -10,7 +10,6 @@ import { hashHistory } from 'react-router';
 export const registerSuccess = createAction('REGISTER_SUCCESS');
 export const registerError = createAction('REGISTER_ERROR');
 export const registerRequest = (email, username, password) => dispatch => {
-    console.log('in')
     return axios.post('https://asyncin.herokuapp.com/api/v1/users',{
     	"email": email,
     	"username": username,
@@ -19,7 +18,6 @@ export const registerRequest = (email, username, password) => dispatch => {
         .then(response => {
         
             dispatch(registerSuccess({response}));
-              console.log(response)
            hashHistory.push('/dashboard?access_token=' + response.data.user.accessToken +'&token='+ response.data.user.token);
            return {response: '200'}
          
@@ -42,6 +40,8 @@ export const loginRequest = (email, password) => dispatch => {
         },{headers: {'Content-Type': 'application/json'}})
         .then((response) => {
             dispatch(loginSuccess(response));
+            sessionStorage.setItem('token', response.data.token);
+            sessionStorage.setItem('access_token', response.data.access_token);
             hashHistory.push('/dashboard?access_token=' + response.data.access_token +'&token='+ response.data.token)
            return {response: '200'}
         })
@@ -59,7 +59,6 @@ export const getCurrentUserError = createAction('GET_CURRENT_USER_ERROR');
 export const getCurrentUser = (token, accessToken) => dispatch => {
     return axios.get('https://asyncin.herokuapp.com/api/v1/users/login_success/' + token + '?access_token=' + accessToken)
         .then((response) => {
-            console.log('in user actions')
             dispatch(getCurrentUserSuccess(response));
            return {response: '200'}
         })
@@ -129,7 +128,6 @@ export const updatePasswordSuccess = createAction('UPDATE_PASSWORD_SUCCESS');
 export const updatePasswordError = createAction('UPDATE_PASSWORD_ERROR');
 export const updatePassword = (currentPassword, newPassword) =>(dispatch, getState) => {
      let accessToken = getState().currentUser.accessToken;
-     console.log(getState());
     return axios.put('https://asyncin.herokuapp.com/api/v1/users?access_token=' + accessToken, 
                 {currentPassword, newPassword})
         .then(response => {
