@@ -5,6 +5,9 @@ import * as actions from '../../actions/actions';
 import SearchResult from './SearchResult';
 import AddPlaylist from '../AddPlaylist/AddPlaylist';
 import {Grid, Row, Col, thumbnail} from 'react-bootstrap';
+import FaVimeo from 'react-icons/lib/fa/vimeo'
+import FaSoundcloud from 'react-icons/lib/fa/soundcloud'
+import FaYoutubePlay from 'react-icons/lib/fa/youtube-play'
 
 class SongSearch extends Component {
   state = {
@@ -46,7 +49,9 @@ class SongSearch extends Component {
         arr = resultArr.map((track, index) => {
         return (
           <li key={index}>
-            <input type="checkbox" name="searchResult" ref={track.link} id={track.source} onClick={this.onCheckInsert.bind(this, track)}></input>
+            <input type="checkbox" name="searchResult" ref={track.link} id={track.source} onClick={this.onCheckInsert.bind(this, track)}>
+
+            </input>
             
             <SearchResult track={track}/>
             <button onClick={this.onClickAddToQueue.bind(this, track)}>Add to Queue</button>
@@ -64,26 +69,26 @@ class SongSearch extends Component {
         <form onSubmit={this.onSubmitSearch.bind(this)}>
           <input type="text" id="search-songs" name="search" ref="searchInput" placeholder="Search.." required/>
         </form>
-        <div>
-            <Grid>
-              <Row>
-                <Col md={4}>
-                  <h1>Youtube</h1>
-                    {this.generateResult(this.props.youtubeResults)}
-                </Col>
-                <Col md={4}>
-                  <h1>Vimeo</h1>
-                  {this.generateResult(this.props.vimeoResults)}
-                </Col>
-                <Col md={4}>
-                  <h1>SoundCloud</h1>
-                  {this.generateResult(this.props.soundcloudResults)}
-                </Col>
-              </Row>
-            </Grid>
-          </div>
-              <AddPlaylist error={this.props.error} feedback={this.props.feedback} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} thumbnail/>
-            
+        <AddPlaylist error={this.props.error} feedback={this.props.feedback} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} />
+          <div id="three_platforms">
+              <Grid>
+                <Row>
+                  <Col md={4}>
+                    <h1><FaYoutubePlay size={100} color='#bb0000'/></h1>
+                      {this.generateResult(this.props.youtubeResults)}
+                  </Col>
+                  <Col md={4}>
+                    <h1><FaVimeo size={100} color='#4EBBFF'/></h1>
+                    {this.generateResult(this.props.vimeoResults)}
+                  </Col>
+                  <Col md={4}>
+                    <h1><FaSoundcloud size={100} color='#ff3a00'/></h1>
+                    {this.generateResult(this.props.soundcloudResults)}
+                  </Col>
+                </Row>
+              </Grid>
+            </div>
+  
           </div>
     )
   }

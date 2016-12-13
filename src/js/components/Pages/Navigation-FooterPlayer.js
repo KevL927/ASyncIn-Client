@@ -74,10 +74,12 @@ class NavigationFooterPlayer extends Component {
           </ul>
         </div>
         {this.props.children}
-        {this.playMusicOrNot()}
+        
         {this.updateServerQueue()}
         </div>
-  
+        <footer id="react-player">
+        {this.playMusicOrNot()}
+
         <div id="Q-list">
 
         <ButtonToolbar>
@@ -88,7 +90,9 @@ class NavigationFooterPlayer extends Component {
           </SplitButton>
         </ButtonToolbar>
         </div>
+        </footer>
         </div>
+
 
     );
   }

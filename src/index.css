@@ -270,11 +270,16 @@ button[type=submit]:hover {
   background-repeat: no-repeat;
   background-position: center left;
 }
- #DashboardPage {
-    height: 870px;
+ .DashboardPage {
+    height: 863px;
  }
-.songSearch-container {
- 
+
+ #three_platforms {
+  width: 87%;
+    float: right;
+ }
+#search-songs {
+  margin: 35px 0;
 
 }
 #search-song-form {
@@ -450,6 +455,8 @@ li.track {
     font-family: 'Ubuntu', sans-serif;
     color: black;
 }
+
+
 
 
 

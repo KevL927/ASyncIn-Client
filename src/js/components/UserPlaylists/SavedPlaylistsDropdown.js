@@ -32,10 +32,10 @@ class SavedPlaylistsDropdown extends Component {
 	render() {
 		return (
 			<div className="UserPlaylist">
-			<h1>Saved Playlists Dropdown</h1>
-			<div className="UserPlaylist-container">
-		     	{this.generateResult(this.props.userPlaylists)}
-			</div>
+				<h1>Saved Playlists Dropdown</h1>
+				<div className="UserPlaylist-container">
+			     	{this.generateResult(this.props.userPlaylists)}
+				</div>
 			</div>
 		);
 	}
