@@ -32,7 +32,7 @@ class AccountSettings extends Component {
         if(newPasswordText !== confirmNewPasswordText || newPasswordText.length <= 5) {
             return <span>New password and confirm password mismatch. Please check and type again.</span>;
         }
-        //Make AJAX call
+        return this.props.dispatch(userActions.updatePassword(currentPasswordText, newPasswordText));
     }
 
   
