@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
 import validator from 'validator';
 import Feedback from '../Feedback';
-import * as userActions from '../../actions/user-actions'
-
+import * as userActions from '../../actions/user-actions';
+import * as actions from '../../actions/actions';
 
 class AccountSettings extends Component {
 
@@ -16,7 +16,12 @@ class AccountSettings extends Component {
             this.props.dispatch(userActions.updateUsernameError({message:'Please enter display name only longer than length of 4.'}));
             return;
         }
-        return this.props.dispatch(userActions.updateUsername(this.refs.displayNameText.value));
+        this.props.dispatch(userActions.updateUsername(this.refs.displayNameText.value));
+          setTimeout(() => {
+            this.props.dispatch(actions.clearFeedback());
+        }, 5000);
+        this.refs.displayNameText.value = "";
+        return this.props.dispatch(actions.clearError());
     }
     
     submitNewPasswordForm(event) {
@@ -27,53 +32,79 @@ class AccountSettings extends Component {
 
         if(currentPasswordText.length <= 5) {
             this.props.dispatch(userActions.updatePasswordError({message:'Incorrect current password. Please check and type again.'}));
-            return ;
+            return;
         }
         
-        if(newPasswordText !== confirmNewPasswordText || newPasswordText.length <= 5) {
-            this.props.dispatch(userActions.updatePasswordError({message:'New password and confirm password mismatch. Please check and type again.'}));
-            return ;
+         if(newPasswordText.length <= 5) {
+            this.props.dispatch(userActions.registerError({message:'Password length must be longer than 5'}));
+            this.refs.newPasswordText.value = "";
+            this.refs.confirmNewPasswordText.value = "";
+            return;
         }
-        return this.props.dispatch(userActions.updatePassword(currentPasswordText, newPasswordText));
+        
+        if(newPasswordText !== confirmNewPasswordText) {
+            this.props.dispatch(userActions.updatePasswordError({message:'New password and confirm password mismatch. Please check and type again.'}));
+            return;
+        }
+        this.props.dispatch(userActions.updatePassword(currentPasswordText, newPasswordText));
+        setTimeout(() => {
+            this.props.dispatch(actions.clearFeedback());
+        }, 5000);
+        this.refs.currentPasswordText.value = "";
+        this.refs.newPasswordText.value = "";
+        this.refs.confirmNewPasswordText.value = "";
+        
+        return this.props.dispatch(actions.clearError());
     }
 
-    localOrThirdPartySignInCheck() {
-        console.log(this.props.currentUser.token);
+    localOrThirdPartySignInCheckAndRender() {
         if(!validator.isEmail(this.props.currentUser.token)) {
-            console.log('third party sign-in check')
+            return (
+                <div className="account-settings">
+                    <div className="update-display-name">
+                        <form className="update-display-name-form" onSubmit={this.submitDisplayNameForm.bind(this)}>
+                            <label className="title">Update Display Name</label>
+                            <label className="display-name">New Display Name:</label>
+                            <input type="text" id="display-name-input" className="input" ref="displayNameText" />
+                            <button id="update-display-name-button" type="submit"className="update-display-name-button">Update display name</button>
+                        </form>
+                    </div>
+                </div>
+            )
         } else {
-            console.log('local sign-in user')
+            return (
+                <div className="account-settings">
+                {this.props.error?<div><Feedback feedback={this.props.error} /></div> : <div></div>}
+                {this.props.feedback?<div><Feedback feedback={this.props.feedback} /></div> : <div></div>}
+                    <div className="update-display-name">
+                        <form className="update-display-name-form" onSubmit={this.submitDisplayNameForm.bind(this)}>
+                            <label className="title">Update Display Name</label>
+                            <label className="display-name">New Display Name:</label>
+                            <input type="text" id="display-name-input" className="input" ref="displayNameText" />
+                            <button id="update-display-name-button" type="submit"className="update-display-name-button">Update display name</button>
+                        </form>
+                    </div>
+                    <div className="update-password">
+                        <form className="update-password-form" onSubmit={this.submitNewPasswordForm.bind(this)}>
+                            <label className="title">Update Password</label>
+                            <label className="current-password">Current password:</label>
+                            <input type="password" className="input" name="current-password" ref="currentPasswordText" />
+                            <label className="new-password">New Password:</label>
+                            <input type="password" className="input" name="new-password" ref="newPasswordText" />
+                            <label className="confirm-new-password">Confirm Password:</label>
+                            <input type="password" className="input" name="confirm-new-password" ref="confirmNewPasswordText" />
+                            <button id="update-display-name-button" type="submit"className="update-display-name-button">Set new password</button>
+                        </form>
+                    </div>
+                </div>
+            )
         }
     }
   
-  
     render () {
-        return (
-            <div className="account-settings">
-                <span className="title">Account Settings</span>
-                {this.localOrThirdPartySignInCheck()}
-                <div className="update-password-display-name">
-                <form className="update-display-name-form" onSubmit={this.submitDisplayNameForm.bind(this)}>
-                    <label className="title">Update Display Name</label>
-                    <label className="display-name">New Display Name:</label>
-                    <input type="text" id="display-name-input" className="input" ref="displayNameText" />
-                    <button id="update-display-name-button" type="submit"className="update-display-name-button">Update display name</button>
-                </form>
-                {this.props.error?<div><Feedback feedback={this.props.error} /></div> : <div></div>}
-                <form className="update-password-form" onSubmit={this.submitNewPasswordForm.bind(this)}>
-                    <label className="title">Update Password</label>
-                    <label className="current-password">Current password:</label>
-                    <input type="password" className="input" name="current-password" ref="currentPasswordText" />
-                    <label className="new-password">New Password:</label>
-                    <input type="password" className="input" name="new-password" ref="newPasswordText" />
-                    <label className="confirm-new-password">Confirm Password:</label>
-                    <input type="password" className="input" name="confirm-new-password" ref="confirmNewPasswordText" />
-                    <button id="update-display-name-button" type="submit"className="update-display-name-button">Set new password</button>
-                </form>
-                </div>
-            </div>
-        );
+        return <div>{this.localOrThirdPartySignInCheckAndRender()}</div>
     }
+    
 };
 
 export default connect(

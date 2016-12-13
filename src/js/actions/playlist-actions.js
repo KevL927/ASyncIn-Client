@@ -81,6 +81,22 @@ export const updatePlaylist = (playlistObject, accessToken) => dispatch => {
 };
 
 
+export const updatePlaylistNameSuccess = createAction('UPDATE_NAME_PLAYLIST_SUCCESS');
+export const updatePlaylistNameError = createAction('UPDATE_NAME_PLAYLIST_ERROR');
+export const updatePlaylistName = (playlistObject, accessToken) => dispatch => {
+    
+    return axios.put('https://asyncin.herokuapp.com/api/v1/playlists/updatename/' + playlistObject.userId +'/'+ playlistObject._id + '?access_token=' + accessToken, playlistObject)
+        .then(response => {
+            dispatch(updatePlaylistSuccess(response));
+           // hashHistory.push('/dashboard');
+        })
+        .catch(err => {
+            dispatch(updatePlaylistError(err));
+            return false;
+        });
+};
+
+
 //DELETE existing playlist
 //DELETE /api/v1/:userId/:playlistId
 

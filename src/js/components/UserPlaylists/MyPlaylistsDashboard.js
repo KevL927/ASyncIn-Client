@@ -5,6 +5,7 @@ import * as playlistActions from '../../actions/playlist-actions';
 import RenderSavedPlaylistTracks from '../PlaylistPlayer/RenderSavedPlaylistTracks';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
+import Feedback from '../Feedback';
 import ScrollArea from 'react-scrollbar';
 import FaAlignJustify from 'react-icons/lib/fa/align-justify'
 
@@ -58,11 +59,13 @@ class MyPlaylistsDashboard extends Component {
 		return <div>{this.state.editable?<input contentEditable autoFocus ref="input" required/>:null }</div>
 		
 	}
+	
 	edit(playlistObject, event){
 		event.preventDefault();
 		if(this.refs.input.value !== "") {
 			const updatedPlaylist = update(playlistObject, {name: {$set:this.refs.input.value}})
-			this.props.dispatch(playlistActions.updatePlaylist(updatedPlaylist, this.props.currentUser.accessToken));
+			this.props.dispatch(playlistActions.updatePlaylistName(updatedPlaylist, this.props.currentUser.accessToken));
+			this.props.dispatch(actions.clearError());
 		}
 		this.setState({
 			editable: null
@@ -77,6 +80,7 @@ class MyPlaylistsDashboard extends Component {
 	  } else {
 	      arr = resultArr.map((playlist, index) => {
 	      return (
+
 	      	
 	        <li key={index} id="user-playlist-buttons-li">
 	        	 {this.state.editable == playlist._id ? <form onSubmit={this.edit.bind(this, playlist)}>
@@ -90,6 +94,7 @@ class MyPlaylistsDashboard extends Component {
 	        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
 		         </Collapse>
 	        </li>
+	      
 	      );
 	      })
 	  }
@@ -97,12 +102,14 @@ class MyPlaylistsDashboard extends Component {
 	}
 
 	render() {
+		console.log(this.props.error)
 		return (
 		
 			<div className="UserPlaylist">
 				<span id="my-saved-playlists">My Saved Playlists</span>
 					<ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
 						<div className="UserPlaylist-container">
+							<div>{this.props.error ? <div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback="This playlist name already exists" /></div>:<div></div>}</div>
 				     		{this.generateResult(this.props.userSavedPlaylists)} 
 						</div>
 					</ScrollArea>
@@ -115,8 +122,8 @@ class MyPlaylistsDashboard extends Component {
 
 
 export default connect(
-    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl }) => 
-    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl })
+    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl, error }) => 
+    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl, error })
 )(MyPlaylistsDashboard);
 
 

@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import validator from 'validator';
 import * as userActions from '../../actions/user-actions';
 import Feedback from '../Feedback';
-import play from '../../../play.png';
-
 
 class Register extends Component {
     
@@ -60,7 +58,7 @@ class Register extends Component {
                     <input type="password" className="input" name="password" ref="passwordText" required />
                     <label className="password">Verify Password:</label>
                     <input type="password" className="input" name="password" ref="confirmPasswordText" required />
-                    {this.props.error?<div><Feedback feedback={this.props.error} /></div> : <div></div>}
+                    {this.props.error?<div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div> : <div></div>}
                     <button id="register-button" type="submit"className="register-button">Submit</button>
                 </form>
             </div>
