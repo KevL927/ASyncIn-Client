@@ -6,6 +6,11 @@ import RenderQueue from '../Queue/RenderQueue';
 import * as actions from '../../actions/actions';
 import * as userActions from '../../actions/user-actions';
 import {ButtonToolbar, SplitButton, MenuItem} from 'react-bootstrap';
+import FaHome from 'react-icons/lib/fa/home'
+import FaSearch from 'react-icons/lib/fa/search'
+import FaGlobe from 'react-icons/lib/fa/globe'
+import FaEnvelope from 'react-icons/lib/fa/envelope'
+import FaCog from 'react-icons/lib/fa/cog'
 
 
 class NavigationFooterPlayer extends Component {
@@ -60,11 +65,11 @@ class NavigationFooterPlayer extends Component {
       <div>
         <div className="NavigationBar">
           <ul className="NavUL">
-            <li><Link to="/dashboard">Dashboard</Link></li>
-            <li><Link to="/dashboard/search">Search</Link></li>
-            <li><Link to="/dashboard/top">Explore Top Playlists</Link></li>
-            <li><Link to="/dashboard/contact">Contact Us</Link></li>
-            <li><Link to="/dashboard/settings">Account Settings</Link></li>
+            <li><Link to="/dashboard"><FaHome size={30}/></Link></li>
+            <li><Link to="/dashboard/search"><FaSearch size={30}/></Link></li>
+            <li><Link to="/dashboard/top"><FaGlobe size={30}/></Link></li>
+            <li><Link to="/dashboard/settings"><FaCog size={30}/></Link></li>
+            <li><Link to="/dashboard/contact"><FaEnvelope size={30}/></Link></li>
             <li onClick={this.logout.bind(this)} className="nav-li">Logout</li>
           </ul>
         </div>
