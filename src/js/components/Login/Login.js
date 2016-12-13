@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router';
 import Feedback from '../Feedback';
 import * as actions from '../../actions/actions';
+import FaFacebookOffical from 'react-icons/lib/fa/facebook-official'
+import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square'
 
 class Login extends Component {
     
@@ -41,8 +43,8 @@ class Login extends Component {
                     <input type="password" className="input" name="password" ref="passwordText" required />
                     <button id="login-button" value="Submit" type="submit" className="login-button">Submit</button>
                     <Link to="/register" id="registerlink"> Dont have an account? Let's hook you up, man. </Link>
-                    <a id="google-login" href="https://asyncin.herokuapp.com/auth/google" className="google-login">Log in with Google</a><br />
-                    <a id="facebook-login" href="https://asyncin.herokuapp.com/auth/facebook" className="facebook-login">Log in with Facebook</a>
+                    <a id="google-login" href="https://asyncin.herokuapp.com/auth/google" className="google-login"><FaGooglePlusSquare size={50} color="#dd4b39"/></a>
+                    <a id="facebook-login" href="https://asyncin.herokuapp.com/auth/facebook" className="facebook-login"><FaFacebookOffical size={50} color="#3b5998"/></a>
                 </form>
 
             </div>
