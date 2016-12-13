@@ -37,11 +37,20 @@ class AccountSettings extends Component {
         return this.props.dispatch(userActions.updatePassword(currentPasswordText, newPasswordText));
     }
 
+    localOrThirdPartySignInCheck() {
+        if(validator.isEmail(this.props.currentUser.token)) {
+            console.log('local sign-in user')
+        } else {
+            console.log('third party sign-in check')
+        }
+    }
+  
   
     render () {
         return (
             <div className="account-settings">
                 <span className="title">Account Settings</span>
+                {this.localOrThirdPartySignInCheck()}
                 <div className="update-password-display-name">
                 <form className="update-display-name-form" onSubmit={this.submitDisplayNameForm.bind(this)}>
                     <label className="title">Update Display Name</label>
@@ -66,4 +75,6 @@ class AccountSettings extends Component {
     }
 };
 
-export default connect()(AccountSettings);
+export default connect(
+    ({ currentUser }) => ({ currentUser })
+)(AccountSettings);
