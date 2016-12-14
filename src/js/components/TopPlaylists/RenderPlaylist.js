@@ -111,7 +111,6 @@ class RenderPlaylist extends Component {
   }
   
   render() {
-    console.log(sessionStorage, this.props);
     return (
       <div>
         <div>{this.renderTop3And4To10Playlists(this.props.playlistArray)}</div>
