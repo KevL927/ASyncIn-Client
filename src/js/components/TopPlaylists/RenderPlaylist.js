@@ -23,6 +23,9 @@ class RenderPlaylist extends Component {
     }
     
     favouriteOrUnfavourite(playlistObject) {
+      if(this.props.currentUser.userId === playlistObject.userId) {
+        return <div><i className="fa fa-user" aria-hidden="true"></i></div>
+      }
       let favouritePlaylistIdArray = [];
 
       for(let i=0; i<this.props.favouritePlaylist.length; i++) {
@@ -108,6 +111,7 @@ class RenderPlaylist extends Component {
   }
   
   render() {
+    console.log(sessionStorage, this.props);
     return (
       <div>
         <div>{this.renderTop3And4To10Playlists(this.props.playlistArray)}</div>
