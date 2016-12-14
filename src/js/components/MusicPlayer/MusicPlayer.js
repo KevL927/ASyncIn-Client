@@ -9,9 +9,9 @@ import shuffle from './shuffleQueue'
 import FaPlay from 'react-icons/lib/fa/play';
 import FaStepForward from 'react-icons/lib/fa/step-forward';
 import FaStepBackward from 'react-icons/lib/fa/step-backward';
-import FaStop from 'react-icons/lib/fa/stop';
 import TiArrowShuffle from 'react-icons/lib/ti/arrow-shuffle';
 import FaPause from 'react-icons/lib/fa/pause';
+import FaExpand from 'react-icons/lib/fa/expand';
 
 
 class MusicPlayer extends Component {
@@ -149,7 +149,7 @@ class MusicPlayer extends Component {
 		    		/>
 		    	</div>
 		    	<div id="video-controller-1">
-	                <button onClick={this.onClickFullscreen}>Fullscreen</button>
+	                <button className="player-buttons" onClick={this.onClickFullscreen}><FaExpand /></button>
 	            </div>
 	            <div id="video-controller-2">
 	            	<button onClick={this.prev} className="player-buttons"><FaStepBackward size={22} /></button>
