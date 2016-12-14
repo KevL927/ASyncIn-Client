@@ -16,7 +16,7 @@ class SavedPlaylistsDropdown extends Component {
             this.props.dispatch(actions.clearFeedback());
         }, 5000);
 		this.props.dispatch(actions.clearError());
-		
+		this.props.onSubmitClearTemp();	
 	}
 	generateResult(resultArr) {
 	  let arr = [];
@@ -39,7 +39,6 @@ class SavedPlaylistsDropdown extends Component {
 			<div className="UserPlaylist">
 			<ButtonToolbar>
 				<DropdownButton bsSize="large" title="Saved Playlists" id="dropdown-size-large">
-					
 			     	{this.generateResult(this.props.userPlaylists)}
 				</DropdownButton>
 			</ButtonToolbar>
