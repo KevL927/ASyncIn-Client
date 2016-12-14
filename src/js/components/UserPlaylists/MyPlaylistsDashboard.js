@@ -7,12 +7,17 @@ import Collapse from 'react-collapse';
 import update from 'react-addons-update';
 import Feedback from '../Feedback';
 import ScrollArea from 'react-scrollbar';
-import FaAlignJustify from 'react-icons/lib/fa/align-justify'
+import FaAlignJustify from 'react-icons/lib/fa/align-justify';
+import ToggleButton from 'react-toggle-button';
+import FaUnlock from 'react-icons/lib/fa/unlock'
+import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt'
+const borderRadiusStyle = { borderRadius: 2 };
 
 class MyPlaylistsDashboard extends Component {
 	state = {
 		isOpenedArray: [],
-		editable:null
+		editable:null,
+		isPublic:true
 	}
 
 	onClickAddToQueue(playlist, event){
@@ -86,7 +91,24 @@ class MyPlaylistsDashboard extends Component {
 	        	 {this.state.editable == playlist._id ? <form onSubmit={this.edit.bind(this, playlist)}>
 	        	 <input type="text" autoFocus contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" required/> 
 	        	 </form>:<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name} <FaAlignJustify/></h4> }
-	          	 
+	          	 <ToggleButton
+                  inactiveLabel={<FaUnlockAlt/>}
+                  activeLabel={<FaUnlock/>}
+                  colors={{active: {
+                        base: 'rgb(0,207,0)'
+                      },
+                        inactive:{
+                        base: 'rgb(186,0,0)'
+                        }
+                    }}
+                   thumbStyle={ borderRadiusStyle }
+                   trackStyle={ borderRadiusStyle } 
+                  value={this.state.isPublic}
+                  onToggle={(isPublic) => {
+                    this.setState({
+                      isPublic: !isPublic,
+    })
+  }} />
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
 		         	<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
