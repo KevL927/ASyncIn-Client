@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
+import * as userActions from '../../actions/user-actions';
 import * as playlistActions from '../../actions/playlist-actions';
 import RenderPlaylist from '../TopPlaylists/RenderPlaylist';
 import update from 'react-addons-update';
@@ -9,7 +10,8 @@ import AddPlaylist from '../AddPlaylist/AddPlaylist';
 class TopPlaylistsPage extends Component {
  
     componentWillMount() {
-        this.props.dispatch(playlistActions.getTopPlaylist(this.props.currentUser.accessToken));
+        this.props.dispatch(userActions.getCurrentUser(sessionStorage.token, sessionStorage.access_token));
+        this.props.dispatch(playlistActions.getTopPlaylist(sessionStorage.access_token));
     }
  
     state = {
@@ -68,7 +70,8 @@ class TopPlaylistsPage extends Component {
     }
     
 	render() {
-	    console.log(this.props.favouritePlaylist)
+	    console.log('topplaylist from toplaylistpage', this.props.topPlaylists)
+	    console.log('favoritePlaylist from TopplaylistPage',this.props.favouritePlaylist)
 		return (
 
             <div id="top_page">

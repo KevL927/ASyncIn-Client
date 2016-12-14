@@ -13,7 +13,10 @@ class RenderTracks extends Component {
     
     unwrapTracks() {
         if(this.props.playlistObject) {
-            return <TrackList onTrackItemClick={this.onTrackItemClick.bind(this)} tracks={this.props.playlistObject.tracks} />;
+            return <TrackList 
+                    onTrackItemClick={this.onTrackItemClick.bind(this)} 
+                    tracks={this.props.playlistObject.tracks} 
+                    />;
         } 
         return <div></div>;
     }

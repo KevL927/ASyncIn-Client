@@ -20,17 +20,20 @@ class RenderTracks extends Component {
              tempTracksIdArray.push(this.props.playlistObject.tracks[i]._id);
          }
           let trackIndex = tempTracksIdArray.indexOf(track._id);
-          console.log(trackIndex);
           const trackArr = update(this.props.playlistObject.tracks, {$splice: [[trackIndex, 1]]});
           const newPlaylistObject = Object.assign({}, this.props.playlistObject, {tracks: trackArr})
-          console.log(newPlaylistObject);
-          this.props.dispatch(playlistActions.updatePlaylist(newPlaylistObject, this.props.currentUser.accessToken))
-        // this.props.dispatch(actions.updatePlaylist(playlistObject));
+          this.props.dispatch(playlistActions.updatePlaylist(newPlaylistObject, sessionStorage.access_token))
     }
     
     unwrapTracks() {
         if(this.props.playlistObject) {
-            return <TrackListWithDelete onTrackItemClick={this.onTrackItemClick.bind(this)} onClickDeleteTrack={this.onClickDeleteTrack.bind(this)} tracks={this.props.playlistObject.tracks} />;
+            return (
+                <TrackListWithDelete 
+                    onTrackItemClick={this.onTrackItemClick.bind(this)} 
+                    onClickDeleteTrack={this.onClickDeleteTrack.bind(this)} 
+                    tracks={this.props.playlistObject.tracks} 
+                />
+            );
         } 
         return <div></div>;
     }
