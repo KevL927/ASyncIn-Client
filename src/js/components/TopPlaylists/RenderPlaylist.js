@@ -38,13 +38,13 @@ class RenderPlaylist extends Component {
       )
     }
 
-    expandCollapse(index, event) {
+    expandCollapse(arrIndex, event) {
       event.preventDefault();
-      if (this.state.isOpenedArray.indexOf(index) === -1) {
-          const tempOpenedArr = update(this.state.isOpenedArray, {$push: [index]});
+      if (this.state.isOpenedArray.indexOf(arrIndex) === -1) {
+          const tempOpenedArr = update(this.state.isOpenedArray, {$push: [arrIndex]});
           this.setState({isOpenedArray: tempOpenedArr})
       } else {
-          const index = this.state.isOpenedArray.indexOf(index)
+          let index = this.state.isOpenedArray.indexOf(arrIndex);
           const tempOpenedArr = update(this.state.isOpenedArray, {$splice: [[index, 1]]});
           this.setState({isOpenedArray: tempOpenedArr});
       }
