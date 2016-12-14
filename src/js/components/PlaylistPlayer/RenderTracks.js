@@ -22,7 +22,6 @@ class RenderTracks extends Component {
     }
     
     render() {
-        console.log('renderTracks queue', this.props.playlistObject)
         return <div>{this.unwrapTracks()}</div>;
     }
 

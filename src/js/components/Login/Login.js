@@ -16,7 +16,6 @@ class Login extends Component {
         let emailText = ReactDOM.findDOMNode(this.refs.emailText).value;
         let passwordText = ReactDOM.findDOMNode(this.refs.passwordText).value;
         if(!validator.isEmail(emailText) || emailText.length <= 6) {
-            console.log('Invalid email.')
             return ;
         }
 
