@@ -23,7 +23,7 @@ class RenderPlaylist extends Component {
     }
     
     favouriteOrUnfavourite(playlistObject) {
-      if(this.props.currentUser.userId === playlistObject.userId) {
+      if(sessionStorage.userId === playlistObject.userId) {
         return <div><i className="fa fa-user" aria-hidden="true"></i></div>
       }
       let favouritePlaylistIdArray = [];

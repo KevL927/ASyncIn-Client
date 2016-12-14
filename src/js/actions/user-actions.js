@@ -60,6 +60,7 @@ export const getCurrentUser = (token, accessToken) => dispatch => {
     return axios.get('https://asyncin.herokuapp.com/api/v1/users/login_success/' + token + '?access_token=' + accessToken)
         .then((response) => {
             dispatch(getCurrentUserSuccess(response));
+            sessionStorage.setItem('userId', response.data.user.userId);
            return {response: '200'}
         })
         .catch(err => {
