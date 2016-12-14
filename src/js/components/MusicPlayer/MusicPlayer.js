@@ -6,6 +6,13 @@ import screenfull from 'screenfull';
 import Duration from './Duration';
 import * as actions from '../../actions/actions';
 import shuffle from './shuffleQueue'
+import FaPlay from 'react-icons/lib/fa/play';
+import FaStepForward from 'react-icons/lib/fa/step-forward';
+import FaStepBackward from 'react-icons/lib/fa/step-backward';
+import TiArrowShuffle from 'react-icons/lib/ti/arrow-shuffle';
+import FaPause from 'react-icons/lib/fa/pause';
+import FaExpand from 'react-icons/lib/fa/expand';
+import MdCached from 'react-icons/lib/md/cached';
 
 
 class MusicPlayer extends Component {
@@ -143,14 +150,14 @@ class MusicPlayer extends Component {
 		    		/>
 		    	</div>
 		    	<div id="video-controller-1">
-	                <button onClick={this.onClickFullscreen}>Fullscreen</button>
+	                <button className="player-buttons" onClick={this.onClickFullscreen}><FaExpand size={30} /></button>
 	            </div>
 	            <div id="video-controller-2">
-	            	<button onClick={this.prev} className="player-buttons">Prev</button>
-	            	<button onClick={this.playPause} className="player-buttons">{playing ? 'Pause' : 'Play'}</button>
-		    		<button onClick={this.next} className="player-buttons">Next</button>
-		    		<button onClick={this.shuffle} className="player-buttons">{this.state.shuffle ? 'Shuffle Off' : 'Shuffle On'}</button>
-		    		<button onClick={this.continueButton} className="player-buttons">{this.state.continueAll ? 'Continuous Play Off' : 'Continuous Play On'}</button>
+	            	<button onClick={this.prev} className="player-buttons"><FaStepBackward size={28} /></button>
+	            	<button onClick={this.playPause} className="player-buttons">{playing ? <FaPause size={28}/> : <FaPlay size={28}/>}</button>
+		    		<button onClick={this.next} className="player-buttons"><FaStepForward size={28} /></button>
+		    		<button onClick={this.shuffle} className="player-buttons">{this.state.shuffle ? <TiArrowShuffle className="off isBold" size={30}/> : <TiArrowShuffle classNmae="isBold" size={30}/>}</button>
+		    		<button onClick={this.continueButton} className="player-buttons">{this.state.continueAll ? <MdCached className="off isBold" size={30}/> : <MdCached className="isBold" size={30}/>}</button>
 	            </div>
 	            <div id="video-seek">
 	            <span id="seek">Seek</span>
@@ -168,8 +175,6 @@ class MusicPlayer extends Component {
                 	<input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume} />
             	</div>
             	</div>
-
-
 	    );
 	}
 }

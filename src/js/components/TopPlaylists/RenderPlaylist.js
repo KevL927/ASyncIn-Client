@@ -32,7 +32,7 @@ class RenderPlaylist extends Component {
         favouritePlaylistIdArray.push(this.props.favouritePlaylist[i]._id);
       }
       return (
-        <button onClick={this.onClickUpdateFavouritePlaylist.bind(this, playlistObject)}>
+        <button className="user-playlist-buttons" onClick={this.onClickUpdateFavouritePlaylist.bind(this, playlistObject)}>
           {favouritePlaylistIdArray.indexOf(playlistObject._id) >= 0 ? 'Unfavourite' : 'Favourite'}
         </button>
       )
@@ -76,7 +76,7 @@ class RenderPlaylist extends Component {
               <li>#{index+1} - {playlist.name}</li>
               <li>favourites: {playlist.rating}</li>
               {this.favouriteOrUnfavourite(playlist)}
-              <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
+              <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
               {this.viewTracks(playlist)}
             </div>
           ))}
@@ -98,7 +98,7 @@ class RenderPlaylist extends Component {
                 favourites: {playlist.rating}
               </li>
               {this.favouriteOrUnfavourite(playlist)}
-              <button onClick={this.onClickAddToQueue.bind(this, playlist )}>Add to Queue</button>
+              <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist )}>Add to Queue</button>
               <Collapse isOpened={this.checkOpenedOrNot(index)}>
               {this.viewTracks(playlist)}
              </Collapse>
