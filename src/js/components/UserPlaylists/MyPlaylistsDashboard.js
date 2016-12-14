@@ -48,7 +48,7 @@ class MyPlaylistsDashboard extends Component {
 
 	deletePlaylist(playlistObject, event){
 		event.preventDefault();
-		this.props.dispatch(playlistActions.deletePlaylist(playlistObject, this.props.currentUser.accessToken))
+		this.props.dispatch(playlistActions.deletePlaylist(playlistObject, sessionStorage.access_token))
 	}
 	
 	editPlaylistName(playlistObject, event){
@@ -64,7 +64,7 @@ class MyPlaylistsDashboard extends Component {
 		event.preventDefault();
 		if(this.refs.input.value !== "") {
 			const updatedPlaylist = update(playlistObject, {name: {$set:this.refs.input.value}})
-			this.props.dispatch(playlistActions.updatePlaylistName(updatedPlaylist, this.props.currentUser.accessToken));
+			this.props.dispatch(playlistActions.updatePlaylistName(updatedPlaylist, sessionStorage.access_token));
 			this.props.dispatch(actions.clearError());
 		}
 		this.setState({

@@ -38,7 +38,7 @@ class AddPlaylist extends Component {
                 isPublic: this.state.isPublic
             }
             this.props.dispatch(actions.clearError());
-            this.props.dispatch(playlistActions.createPlaylist(newPlaylist, this.props.currentUser.accessToken));
+            this.props.dispatch(playlistActions.createPlaylist(newPlaylist, sessionStorage.access_token));
         }
         this.props.dispatch(actions.clearError());
         setTimeout(() => {
