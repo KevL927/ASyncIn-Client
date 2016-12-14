@@ -20,18 +20,26 @@ class TopPlaylistsPage extends Component {
         tempTracksArr: []
     }
 
+    renderCheckedIndex(event, track) {
+        (this.state.tempTracksArr.indexOf(track._id) >= 0) ? true : false;
+    }
+
     onCheckInsert(event, track) {
-        if(event.target.checked === true) {
+        if (event.target.checked === true) {
             const newPlaylist = update(this.state.tempPlaylist, {$push: [track]});
-            const newTracksArr = update(this.state.tempTracksArr, {$push: [track.link]});
+            const newTracksArr = update(this.state.tempTracksArr, {$push: [track._id]});
             this.setState({tempPlaylist: newPlaylist, tempTracksArr: newTracksArr});
         }
-        if(event.target.checked === false) {
-            const index = this.state.tempTracksArr.indexOf(track.link);
+        if (event.target.checked === false) {
+            const index = this.state.tempTracksArr.indexOf(track._id);
             const newPlaylist = update(this.state.tempPlaylist, {$splice: [[index, 1]]});
             const newTracksArr = update(this.state.tempTracksArr, {$splice: [[index, 1]]});
             this.setState({tempPlaylist: newPlaylist, tempTracksArr: newTracksArr});
         }
+    }
+
+    onSubmitClearTemp() {
+      this.setState({tempTracksArr: [], tempPlaylist: []})
     }
 
     onClickAddToQueue(playlist, event){
@@ -62,7 +70,7 @@ class TopPlaylistsPage extends Component {
         if(this.props.topPlaylists) {
             return (
                 <div>
-                    <RenderPlaylist url={this.props.currentListeningUrl} playlistArray={this.props.topPlaylists.slice(0,3)} playlistArray4To10={this.props.topPlaylists.slice(3,10)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist} onCheckInsert={this.onCheckInsert.bind(this)} />
+                    <RenderPlaylist url={this.props.currentListeningUrl} playlistArray={this.props.topPlaylists.slice(0,3)} playlistArray4To10={this.props.topPlaylists.slice(3,10)} currentUser={this.props.currentUser} favouritePlaylist={this.props.favouritePlaylist} onCheckInsert={this.onCheckInsert.bind(this)} renderCheckedIndex={this.renderCheckedIndex.bind(this)} />
                 </div>
             );
         } 
@@ -70,12 +78,11 @@ class TopPlaylistsPage extends Component {
     }
     
 	render() {
-	    console.log('topplaylist from toplaylistpage', this.props.topPlaylists)
-	    console.log('favoritePlaylist from TopplaylistPage',this.props.favouritePlaylist)
 		return (
 
             <div id="top_page">
-            <AddPlaylist currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} error={this.props.error} feedback={this.props.feedback} />
+                <button onClick={this.onSubmitClearTemp.bind(this)}>clear</button>
+            <AddPlaylist onSubmitClearTemp={this.onSubmitClearTemp.bind(this)} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} error={this.props.error} feedback={this.props.feedback} />
                 
                 <div>
                     <div>{this.renderToplists()}</div>
