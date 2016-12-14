@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import * as playlistActions from '../../actions/playlist-actions';
-import FaStar from 'react-icons/lib/fa/star';
+
 
 
 class FavouritePlaylist extends Component {
@@ -24,7 +24,7 @@ class FavouritePlaylist extends Component {
             playlist = this.props.favouritePlaylists.map((playlist, index) => {
                 return (
                     <div key={index}>
-                      <h3> <FaStar/> My Favourite Playlists</h3>
+            
                       <li key={index}>
 	                    <div>
 	                        <div>{playlist.name}</div>
