@@ -21,7 +21,11 @@ class TopPlaylistsPage extends Component {
     }
 
     renderCheckedIndex(event, track) {
-        (this.state.tempTracksArr.indexOf(track._id) >= 0) ? true : false;
+        if(this.state.tempTracksArr.indexOf(track._id) >= 0) {
+            return true;
+        } else if(this.state.tempTracksArr.indexOf(track._id) === -1) {
+            return false;
+        }
     }
 
     onCheckInsert(event, track) {
