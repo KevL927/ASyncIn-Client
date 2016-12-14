@@ -376,7 +376,7 @@ h4 {
 .user-playlist-buttons {
   text-decoration: none;
   color: white;
-  background-color:#ff2e44;
+  background-color: transparent;
   padding: .50em;
   border: none;
   -webkit-transform: scale(1);
