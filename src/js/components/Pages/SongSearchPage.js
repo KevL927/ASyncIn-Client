@@ -10,11 +10,11 @@ class SongSearchContainer extends Component {
     this.props.dispatch(userActions.getCurrentUser(sessionStorage.token, sessionStorage.access_token));
   }
   
-  shouldComponentUpdate(nextProps, nextState){
-    if(nextProps.userSavedPlaylists){
-      return true
-    }
-  }
+  // shouldComponentUpdate(nextProps, nextState){
+  //   if(nextProps.userSavedPlaylists){
+  //     return true
+  //   }
+  // }
   
   render() {
     return (
