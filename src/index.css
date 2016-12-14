@@ -158,7 +158,7 @@ span {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
-  height: 66.9em;
+  height: 100vh;
   color: #fcf8e3;
 }
 .LoginPage label, .Register-page label, .update-password-display-name label {
