@@ -87,6 +87,12 @@ a:hover, .nav-li:hover {
   height:1000px;
   color: white;
 }
+
+.btn-primary {
+    color: #706b6b;
+    background-color: #ede8e3;
+    border-color: none;
+}
 /*********************************************************************
 //------------------------------MAIN PAGE CSS--------------------------
 //*********************************************************************/
@@ -495,7 +501,7 @@ div#Q_Track_List:hover {
 }
 
 .player-buttons {
-  background-color: #3d2221;
+  background-color: transparent;
   padding: 1em;
   color: white;
   margin: 3px;
@@ -539,4 +545,19 @@ li.track {
 
 .dropdown-menu>li>a {
   color: white;
+}
+
+#toggle-div {
+  margin-left: 25%;
+  }
+
+.add-playlist-button:hover {
+  color: burlywood;
+}
+
+#new-playlist-input {
+  width:100%;
+}
+#playlist_toggle_div{
+  margin-left: 47%;
 }
