@@ -50,7 +50,6 @@ export const createPlaylist = (playlistObject, accessToken) => dispatch => {
     return axios.post('https://asyncin.herokuapp.com/api/v1/playlists/' + playlistObject.userId + '?access_token=' + accessToken, playlistObject)
         .then(response => {
             dispatch(createPlaylistSuccess(response));
-           // hashHistory.push('/dashboard');
         })
         .catch(err => {
             dispatch(createPlaylistError(err));
@@ -70,7 +69,6 @@ export const updatePlaylist = (playlistObject, accessToken) => (dispatch) => {
     return axios.put('https://asyncin.herokuapp.com/api/v1/playlists/' + playlistObject.userId +'/'+ playlistObject._id + '?access_token=' + accessToken, playlistObject)
         .then(response => {
             dispatch(updatePlaylistSuccess(response));
-           // hashHistory.push('/dashboard');
         })
         .catch(err => {
             dispatch(updatePlaylistError(err));
@@ -86,7 +84,6 @@ export const updatePlaylistName = (playlistObject, accessToken) => dispatch => {
     return axios.put('https://asyncin.herokuapp.com/api/v1/playlists/updatename/' + playlistObject.userId +'/'+ playlistObject._id + '?access_token=' + accessToken, playlistObject)
         .then(response => {
             dispatch(updatePlaylistSuccess(response));
-           // hashHistory.push('/dashboard');
         })
         .catch(err => {
             dispatch(updatePlaylistError(err));
