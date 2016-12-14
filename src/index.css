@@ -577,48 +577,48 @@ li.track {
 @media (min-width: 660px) {
   #disc {
     text-align: center;
-    padding-left: 33%;
+    padding-left: 25%;
   }
 }
 
-@media (min-width: 961px) {
+@media (min-width: 960px) {
   #disc {
     text-align: center;
-    padding-left: 33%;
+    padding-left: 28%;
   }
 }
 
 @media (min-width: 1060px) {
   #disc {
     text-align: center;
-    padding-left: 33%;
+    padding-left: 29%;
   }
 }
 
 @media (min-width: 1170px) {
   #disc {
     text-align: center;
-    padding-left: 34%;
+    padding-left: 32%;
   }
 }
 
 @media (min-width: 1260px) {
   #disc {
     text-align: center;
-    padding-left: 37%;
+    padding-left: 34%;
   }
 }
 
 @media (min-width: 1480px) {
   #disc {
     text-align: center;
-    padding-left: 39%;
+    padding-left: 37%;
   }
 }
 
 @media (min-width: 1610px) {
   #disc {
     text-align: center;
-    padding-left: 40%;
+    padding-left: 39%;
   }
 }
