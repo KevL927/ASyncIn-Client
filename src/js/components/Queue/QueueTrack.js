@@ -1,7 +1,5 @@
 import React from 'react';
 
-import AddPlaylist from '../AddPlaylist/AddPlaylist';
-
 export default ({ currentUser, userSavedPlaylists, error, feedback, track,  onTrackItemClick, onClickDeleteQueueTrack, moveUpTrackInQueue, moveDownTrackInQueue, trackIndex, onTrackPlayNow }) => {
   return (
     <li className="track">
