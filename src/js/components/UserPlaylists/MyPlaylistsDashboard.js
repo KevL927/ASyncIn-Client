@@ -98,7 +98,7 @@ class MyPlaylistsDashboard extends Component {
 	        	 <input type="text" autoFocus contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" required/> 
 	        	 </form>: <div>
 	        	 
-					<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name} 
+					<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name}     
 					<FaAlignJustify/>
 					</h4>
 					</div> }
@@ -106,9 +106,7 @@ class MyPlaylistsDashboard extends Component {
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
 		         	<div>
-			         	<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
-			        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
-			        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
+		         	<div id="playlist_toggle_div">
 			        	 <ToggleButton
 		                  inactiveLabel={<FaUnlockAlt/>}
 		                  activeLabel={<FaUnlock/>}
@@ -125,6 +123,11 @@ class MyPlaylistsDashboard extends Component {
 		                   onToggle={(isPublic) => {
 		                   this.isPublicTrueOrFalse(this, playlist)
 						}} />
+						</div>
+			         	<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
+			        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
+			        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
+			        	 
 					</div>
 		         </Collapse>
 	        </li>

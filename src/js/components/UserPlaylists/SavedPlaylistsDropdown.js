@@ -38,13 +38,13 @@ class SavedPlaylistsDropdown extends Component {
 		return (
 			<div className="UserPlaylist">
 			<ButtonToolbar>
-				<DropdownButton bsSize="large" title="Saved Playlists" id="dropdown-size-large">
+				<DropdownButton bsSize="xsmall" title="Saved Playlists" id="dropdown-size-large">
 			     	{this.generateResult(this.props.userPlaylists)}
 				</DropdownButton>
 			</ButtonToolbar>
 			</div>
 		);
 	}
-}
+} 
 
 export default connect()(SavedPlaylistsDropdown) ;

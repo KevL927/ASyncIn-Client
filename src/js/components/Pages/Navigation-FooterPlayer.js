@@ -83,7 +83,7 @@ class NavigationFooterPlayer extends Component {
         <div id="Q-list">
 
         <ButtonToolbar>
-          <SplitButton open={this.state.menuOpen} onToggle={val => this.dropdownToggle(val)} bsStyle="primary" title="Right dropup" dropup pullRight id="split-button-dropup-pull-right">
+          <SplitButton open={this.state.menuOpen} onToggle={val => this.dropdownToggle(val)} bsStyle="primary" title="Song Queue" dropup pullRight id="split-button-dropup-pull-right">
           <MenuItem onClick={() => this.menuItemClickedThatShouldntCloseDropdown()}>
             <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} error={this.props.error} feedback={this.props.feedback}/>
             </MenuItem>
