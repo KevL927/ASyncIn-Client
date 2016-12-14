@@ -128,7 +128,6 @@ class MyPlaylistsDashboard extends Component {
 	}
 
 	render() {
-		console.log(this.props.error)
 		return (
 		
 			<div id="UserPlaylist">

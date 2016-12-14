@@ -31,4 +31,3 @@ class MainPage extends Component {
 
 export default MainPage;
 
-//<img src={logo} className="App-logo" alt="logo" />
