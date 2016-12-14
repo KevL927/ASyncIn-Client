@@ -5,15 +5,20 @@ body {
   font-family: sans-serif;
 }
 
+.dropdown-menu>li>a {
+    width: 100%;
+}
+
 li {
   list-style-type: none;
+  text-align: center;
 }
 
 .thumbnail{
   height:50px;
   width:50px;
 }
-h3 {
+h3,h2 {
   text-align: center;
 }
 form {
@@ -73,13 +78,12 @@ a:hover, .nav-li:hover {
 }
 
 #songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page {
-  padding: 14px 0px;
-  margin-top:30px;
+  margin-top:57px;
   margin-bottom:40px;
-  background: url("http://i.imgur.com/KaBbQw6.jpg");
+  background: url("http://i.imgur.com/VDqXOZV.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center left;
   height:1000px;
   color: white;
 }
@@ -89,13 +93,10 @@ a:hover, .nav-li:hover {
 
 .MainPage {
   text-align: center;
-  background:linear-gradient(
-      rgba(138,91,16, .85), 
-      rgba(255,197,103, 0.10)
-    ), url("http://i.imgur.com/3dI9j4c.jpg");
+  background: url("http://i.imgur.com/BWMCDuH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: bottom left;
   height: 66.9em;
 }
 
@@ -129,7 +130,7 @@ span {
 .image {
     position: absolute;
     top: 48%;
-    left: 46%;
+    left: 323%;
     width: 380px;
     height: 380px;
     margin:-60px 0 0 40.625em;
@@ -148,13 +149,10 @@ span {
 .LoginPage, .Register-page, .account-settings{
   text-align: center;
     text-align: center;
-  background:linear-gradient(
-      rgba(138,91,16, .85), 
-      rgba(255,197,103, 0.10)
-    ), url("http://i.imgur.com/3dI9j4c.jpg");
+  background: url("http://i.imgur.com/BWMCDuH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: bottom;
   height: 66.9em;
   color: #fcf8e3;
 }
@@ -168,17 +166,23 @@ span {
     font-family: 'Ubuntu', sans-serif;
 }
 .Register-page label, .account-settings label{
-  font-size: 3em;
+  font-size: 2em;
 }
 .login-container, .Register-form, .update-password-display-name {
     border-radius: 5px;
     background-color: rgba(40,10,9, .70);
     padding: 20px;
     position: fixed;
-    top: 50%;
+    top: 59%;
     left: 50%;
     transform: translate(-50%, -50%);
 
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -webkit-transform: scale(2);
+  padding: 10px;
 }
 input[type=text], select {
     left:20%;
@@ -240,15 +244,27 @@ button[type=submit]:hover {
 #registerlink {
   color:white;
   text-decoration: none;
+  background-color: transparent;
+  text-align: center;
+  display: block;
+  float: none;
+
 }
 
 #registerlink:hover {
   color: gold;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+  background-color: transparent;
 }
-
-
+#login-icons {
+  text-align: center;
+}
+#google-login, #facebook-login{
+  background-color: transparent;
+  display: block;
+  width: 50%;
+}
 
 .App-intro {
   font-size: large;
@@ -263,25 +279,36 @@ button[type=submit]:hover {
   top: 61%;
 }
 
-
-
+a#loginlink {
+  float: none;
+}
+#displayName{
+  width:100%;
+}
 
 /*********************************************************************
 //------------------------------SONG SEARCH--------------------------
 //*********************************************************************/
 #songSearch-page {
-  background: url("http://i.imgur.com/KaBbQw6.jpg");
+  
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center left;
+  height: 867px;
 }
  .DashboardPage {
     height: 863px;
  }
 
  #three_platforms {
-  width: 87%;
-    float: right;
+  margin-left: 238px;
+    padding-bottom: 29px;
+    padding-left: 121px;
+    margin-bottom: 8px;
+    margin-right: 146px;
+    background-color: rgba(206, 200, 197, 0.63);
+    border-radius: 137px;
  }
 #search-songs {
   margin: 35px 0;
@@ -294,7 +321,7 @@ button[type=submit]:hover {
 .ASDF {
   overflow: auto;
   width:300px;
-  height:300px;
+  height:435px;
 
 }
 .ASDF::-webkit-scrollbar-thumb {
@@ -302,6 +329,7 @@ button[type=submit]:hover {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: #555;
 }
+
 
 /*********************************************************************
 //--------------------------USER PLAYLIST PAGE--------------------------
@@ -319,7 +347,7 @@ h4 {
   text-align: center;
 }
 .content{
-  background: #5db6a2;
+  background: rgba(40,10,9, 1);
    width: 800px;
   height: auto;
   margin: 10px;
@@ -349,7 +377,7 @@ h4 {
   text-decoration: none;
   color: white;
   background-color:#ff2e44;
-  padding: 1em;
+  padding: .50em;
   border: none;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -397,12 +425,38 @@ h4 {
 #Q-list {
   float:right;
   
-  background-color:orange;
 }
+#Q_Track_List{
+  width:100%;
+}
+
+div#Q_Track_List {
+  text-decoration: none;
+  color: white;
+  background-color: rgba(40,10,9, 1);
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out; 
+}
+
+div#Q_Track_List:hover {
+    background-color: #3d2221;
+    color: white;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
 .UserPlaylist {
  
-
 }
+
 /*********************************************************************
 //---------------------------ACCOUNT SETTINGS--------------------------
 //*********************************************************************/
@@ -439,6 +493,7 @@ h4 {
   width: 25%;
   float: left;
 }
+#video-volume{ width: 15%; }
 
 
 #seek, #volume {
@@ -446,7 +501,7 @@ h4 {
 }
 
 .player-buttons {
-  background-color: #3d2221;
+  background-color: transparent;
   padding: 1em;
   color: white;
   margin: 3px;
@@ -471,20 +526,38 @@ li.track {
     color: black;
 }
 
-.off{
-  color: #808080;
-}
-
-.isBold{
-  font-weight: bold;
-}
 
 
 
 
 /*********************************************************************
-//----------------------USER'S SAVED PLAYLIST-------------------------
+//----------------------Top Playlists-------------------------
 //*********************************************************************/
 
+#top_page {
+  margin-top: 54px;
+}
 
+#lock_new_saved_playlists {
+  float:right;
+  position: fixed;
+}
 
+.dropdown-menu>li>a {
+  color: white;
+}
+
+#toggle-div {
+  margin-left: 25%;
+  }
+
+.add-playlist-button:hover {
+  color: burlywood;
+}
+
+#new-playlist-input {
+  width:100%;
+}
+#playlist_toggle_div{
+  margin-left: 47%;
+}
