@@ -11,6 +11,7 @@ body {
 
 li {
   list-style-type: none;
+  text-align: center;
 }
 
 .thumbnail{
@@ -151,7 +152,7 @@ span {
   background: url("http://i.imgur.com/BWMCDuH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center right;
+  background-position: bottom;
   height: 66.9em;
   color: #fcf8e3;
 }
@@ -340,7 +341,7 @@ h4 {
   text-align: center;
 }
 .content{
-  background: #5db6a2;
+  background: rgba(40,10,9, 1);
    width: 800px;
   height: auto;
   margin: 10px;
@@ -370,7 +371,7 @@ h4 {
   text-decoration: none;
   color: white;
   background-color:#ff2e44;
-  padding: 1em;
+  padding: .50em;
   border: none;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -447,7 +448,7 @@ div#Q_Track_List:hover {
 }
 
 .UserPlaylist {
-  margin-left: 46%;
+ 
 }
 
 /*********************************************************************
