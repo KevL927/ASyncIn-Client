@@ -20,13 +20,31 @@ class SongSearch extends Component {
 
   renderCheckedIndex(source, index) {
     if(source === "YouTube") {
-      (this.state.checkedYouTubeArr[index] === true) ? true : false;
+      if (this.state.checkedYouTubeArr[index] === true) {
+        return true;
+      } else if(this.state.checkedYouTubeArr[index] === false) {
+        return false;
+      } else {
+        return false;
+      }
     }
     if(source === "Vimeo") {
-      (this.state.checkedVimeoArr[index] === true) ? true : false;
+      if (this.state.checkedVimeoArr[index] === true) {
+        return true;
+      } else if(this.state.checkedVimeoArr[index] === false) {
+        return false;
+      } else {
+        return false;
+      }
     }
     if(source === "SoundCloud") {
-      (this.state.checkedSoundCloudArr[index] === true) ? true : false;
+      if (this.state.checkedSoundCloudArr[index] === true) {
+        return true;
+      } else if(this.state.checkedSoundCloudArr[index] === false) {
+        return false;
+      } else {
+        return false;
+      }
     }
   }
 
@@ -44,7 +62,6 @@ class SongSearch extends Component {
     event.preventDefault();
     this.onSubmitClearTemp();
     this.props.dispatch(actions.searchAll(this.refs.searchInput.value));
-
   }
   onCheckInsert(track, index, event) {
     if(track.source === "YouTube") {
@@ -111,7 +128,6 @@ class SongSearch extends Component {
           <li key={index}>
             <input type="checkbox" name="searchResult" ref={track.link} id={track.source} onChange={this.onCheckInsert.bind(this, track, index)} checked={this.renderCheckedIndex(track.source, index)}>
             </input>
-            
             <SearchResult track={track}/>
             <button onClick={this.onClickAddToQueue.bind(this, track)}>Add to Queue</button>
             <button onClick={this.playTrackOnClick.bind(this, track.link)}>Play Preview</button>
@@ -136,7 +152,7 @@ class SongSearch extends Component {
                   <Col md={4}>
                     <h1><FaYoutubePlay size={100} color='#bb0000'/></h1>
                     <div className="ASDF">
-                      {this.generateResult(this.props.youtubeResults)}
+                      {this.generateResult(this.props.youtubeSearchedSongs)}
                       </div>
                   </Col>
                 
@@ -144,14 +160,14 @@ class SongSearch extends Component {
                   <Col md={4}>
                     <h1><FaVimeo size={100} color='#4EBBFF'/></h1>
                     <div className="ASDF">
-                    {this.generateResult(this.props.vimeoResults)}
+                    {this.generateResult(this.props.vimeoSearchedSongs)}
                     </div>
                   </Col>
                  
                   <Col md={4}>
                     <h1><FaSoundcloud size={100} color='#ff3a00'/></h1>
                     <div className="ASDF">
-                    {this.generateResult(this.props.soundcloudResults)}
+                    {this.generateResult(this.props.soundcloudSearchedSongs)}
                     </div>
                   </Col>
                   
@@ -164,5 +180,4 @@ class SongSearch extends Component {
   }
 }
 
-
-export default connect(({ youtubeResults, soundcloudResults, vimeoResults, currentListeningUrl, error, feedback })=>({ youtubeResults, soundcloudResults, vimeoResults, currentListeningUrl, error, feedback }))(SongSearch)
+export default connect(({ youtubeSearchedSongs, soundcloudSearchedSongs, vimeoSearchedSongs, currentListeningUrl, error, feedback })=>({ youtubeSearchedSongs, soundcloudSearchedSongs, vimeoSearchedSongs, currentListeningUrl, error, feedback }))(SongSearch)
