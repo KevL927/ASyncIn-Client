@@ -11,5 +11,3 @@ export default (props) => {
       </div>
     );
 };
-//<div>{props.track.link}</div>
-//

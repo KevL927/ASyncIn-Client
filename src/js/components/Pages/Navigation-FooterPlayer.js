@@ -17,7 +17,7 @@ class NavigationFooterPlayer extends Component {
   
   updateServerQueue() {
 		if(this.props.currentUser && this.props.queue.length !== 0) {
-			this.props.dispatch(actions.updateQueue(this.props.currentUser.accessToken, this.props.currentUser.token, this.props.queue));
+			this.props.dispatch(actions.updateQueue(sessionStorage.access_token, sessionStorage.token, this.props.queue));
 		}
 	}
 
@@ -98,11 +98,8 @@ class NavigationFooterPlayer extends Component {
   }
 }
 
-//export default NavigationBar;
 
 export default connect(
     ({ userSavedPlaylists, error, feedback, currentListeningUrl, queue, currentUser, shuffledQueue }) =>
     ({ userSavedPlaylists, error, feedback, currentListeningUrl, queue, currentUser, shuffledQueue })
 )(NavigationFooterPlayer);
-
-//<RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} queue={this.props.queue} />

@@ -112,7 +112,7 @@ export const updateUsernameSuccess = createAction('UPDATE_USERNAME_SUCCESS');
 export const updateUsernameError = createAction('UPDATE_USERNAME_ERROR');
 export const updateUsername = (newUsername) => (dispatch, getState) => {
     let currentUsername = getState().currentUser.username;
-    let accessToken = getState().currentUser.accessToken;
+    let accessToken = sessionStorage.access_token;
     return axios.put('https://asyncin.herokuapp.com/api/v1/users?access_token=' + accessToken, 
                 {currentUsername, newUsername})
         .then(response => {
@@ -127,7 +127,7 @@ export const updateUsername = (newUsername) => (dispatch, getState) => {
 export const updatePasswordSuccess = createAction('UPDATE_PASSWORD_SUCCESS');
 export const updatePasswordError = createAction('UPDATE_PASSWORD_ERROR');
 export const updatePassword = (currentPassword, newPassword) =>(dispatch, getState) => {
-     let accessToken = getState().currentUser.accessToken;
+     let accessToken = sessionStorage.access_token;
     return axios.put('https://asyncin.herokuapp.com/api/v1/users?access_token=' + accessToken, 
                 {currentPassword, newPassword})
         .then(response => {

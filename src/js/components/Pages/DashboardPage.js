@@ -10,9 +10,10 @@ class DashboardPage extends Component {
   
   componentWillMount(){
     if (!this.props.currentUser) {
-      this.props.dispatch(userActions.getCurrentUser(this.props.location.query.token, this.props.location.query.access_token));
+      this.props.dispatch(userActions.getCurrentUser(sessionStorage.token, sessionStorage.access_token));
     }
   }
+  
    onSubmitSearch(event) {
     event.preventDefault();
     this.props.dispatch(actions.searchAll(this.refs.searchInput.value));
