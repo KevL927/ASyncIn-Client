@@ -9,15 +9,16 @@ import Feedback from '../Feedback';
 import ScrollArea from 'react-scrollbar';
 import FaAlignJustify from 'react-icons/lib/fa/align-justify';
 import ToggleButton from 'react-toggle-button';
-import FaUnlock from 'react-icons/lib/fa/unlock'
-import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt'
+import FaUnlock from 'react-icons/lib/fa/unlock';
+import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt';
+
+
 const borderRadiusStyle = { borderRadius: 2 };
 
 class MyPlaylistsDashboard extends Component {
 	state = {
 		isOpenedArray: [],
-		editable:null,
-		isPublic:true
+		editable:null
 	}
 
 	onClickAddToQueue(playlist, event){
@@ -78,6 +79,11 @@ class MyPlaylistsDashboard extends Component {
 
 	}
 
+	isPublicTrueOrFalse(event, playlistObject) {
+		let tempPlaylistObject = update(playlistObject, {isPublic: {$set: !playlistObject.isPublic}})
+    	this.props.dispatch(playlistActions.updatePlaylist(tempPlaylistObject, sessionStorage.access_token));
+	}
+
 	generateResult(resultArr) {
 	  let arr = [];
 	  if(!resultArr) {
@@ -103,12 +109,10 @@ class MyPlaylistsDashboard extends Component {
                     }}
                    thumbStyle={ borderRadiusStyle }
                    trackStyle={ borderRadiusStyle } 
-                  value={this.state.isPublic}
-                  onToggle={(isPublic) => {
-                    this.setState({
-                      isPublic: !isPublic,
-    })
-  }} />
+                   value={playlist.isPublic}
+                   onToggle={(isPublic) => {
+                   this.isPublicTrueOrFalse(this, playlist)
+					}} />
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
 		         	<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
