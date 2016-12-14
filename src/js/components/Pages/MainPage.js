@@ -21,9 +21,11 @@ class MainPage extends Component {
             <span className="n">n</span>
             <span id="about"> The Ultimate Music Platform</span>
           </div>
-              <Link to="/login">
-                <img src={play} className='image' alt="play"/> 
-              </Link>
+          <div id="disc">
+            <Link to="/login">
+              <img src={play} className='image' alt="play"/> 
+            </Link>
+          </div>
       </div>
     );
   }
