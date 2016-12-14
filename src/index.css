@@ -17,7 +17,7 @@ li {
   height:50px;
   width:50px;
 }
-h3 {
+h3,h2 {
   text-align: center;
 }
 form {
@@ -295,11 +295,11 @@ button[type=submit]:hover {
  }
 
  #three_platforms {
-  margin-left: 148px;
+  margin-left: 238px;
     padding-bottom: 29px;
-    padding-left: 180px;
+    padding-left: 121px;
     margin-bottom: 8px;
-    margin-right: 148px;
+    margin-right: 146px;
     background-color: rgba(18, 2, 255, 0.2);
     border-radius: 137px;
  }
@@ -314,7 +314,7 @@ button[type=submit]:hover {
 .ASDF {
   overflow: auto;
   width:300px;
-  height:300px;
+  height:435px;
 
 }
 .ASDF::-webkit-scrollbar-thumb {
@@ -322,9 +322,7 @@ button[type=submit]:hover {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: #555;
 }
-.add-playlist-button {
-  margin-left:46%;
-}
+
 
 /*********************************************************************
 //--------------------------USER PLAYLIST PAGE--------------------------
@@ -451,7 +449,7 @@ div#Q_Track_List:hover {
 .UserPlaylist {
   margin-left: 46%;
 
-}
+
 /*********************************************************************
 //---------------------------ACCOUNT SETTINGS--------------------------
 //*********************************************************************/
@@ -533,3 +531,11 @@ li.track {
   margin-top: 54px;
 }
 
+#lock_new_saved_playlists {
+  float:right;
+  position: fixed;
+}
+
+.dropdown-menu>li>a {
+  color: white;
+}
