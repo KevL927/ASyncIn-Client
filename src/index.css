@@ -77,13 +77,12 @@ a:hover, .nav-li:hover {
 }
 
 #songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page {
-  padding: 14px 0px;
-  margin-top:30px;
+  margin-top:57px;
   margin-bottom:40px;
-  background: url("http://i.imgur.com/KaBbQw6.jpg");
+  background: url("http://i.imgur.com/VDqXOZV.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center left;
   height:1000px;
   color: white;
 }
@@ -93,13 +92,10 @@ a:hover, .nav-li:hover {
 
 .MainPage {
   text-align: center;
-  background:linear-gradient(
-      rgba(138,91,16, .85), 
-      rgba(255,197,103, 0.10)
-    ), url("http://i.imgur.com/3dI9j4c.jpg");
+  background: url("http://i.imgur.com/BWMCDuH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: bottom left;
   height: 66.9em;
 }
 
@@ -133,7 +129,7 @@ span {
 .image {
     position: absolute;
     top: 48%;
-    left: 46%;
+    left: 323%;
     width: 380px;
     height: 380px;
     margin:-60px 0 0 40.625em;
@@ -152,13 +148,10 @@ span {
 .LoginPage, .Register-page, .account-settings{
   text-align: center;
     text-align: center;
-  background:linear-gradient(
-      rgba(138,91,16, .85), 
-      rgba(255,197,103, 0.10)
-    ), url("http://i.imgur.com/3dI9j4c.jpg");
+  background: url("http://i.imgur.com/BWMCDuH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center right;
   height: 66.9em;
   color: #fcf8e3;
 }
@@ -172,14 +165,14 @@ span {
     font-family: 'Ubuntu', sans-serif;
 }
 .Register-page label, .account-settings label{
-  font-size: 3em;
+  font-size: 2em;
 }
 .login-container, .Register-form, .update-password-display-name {
     border-radius: 5px;
     background-color: rgba(40,10,9, .70);
     padding: 20px;
     position: fixed;
-    top: 50%;
+    top: 59%;
     left: 50%;
     transform: translate(-50%, -50%);
 
@@ -247,6 +240,8 @@ button[type=submit]:hover {
   background-color: transparent;
   text-align: center;
   display: block;
+  float: none;
+
 }
 
 #registerlink:hover {
@@ -255,11 +250,13 @@ button[type=submit]:hover {
   transform: scale(1.1);
   background-color: transparent;
 }
-
+#login-icons {
+  text-align: center;
+}
 #google-login, #facebook-login{
   background-color: transparent;
   display: block;
-
+  width: 50%;
 }
 
 .App-intro {
@@ -275,7 +272,9 @@ button[type=submit]:hover {
   top: 61%;
 }
 
-
+a#loginlink {
+  float: none;
+}
 #displayName{
   width:100%;
 }
@@ -284,7 +283,8 @@ button[type=submit]:hover {
 //------------------------------SONG SEARCH--------------------------
 //*********************************************************************/
 #songSearch-page {
-  background: url("http://i.imgur.com/KaBbQw6.jpg");
+  
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center left;
@@ -300,7 +300,7 @@ button[type=submit]:hover {
     padding-left: 121px;
     margin-bottom: 8px;
     margin-right: 146px;
-    background-color: rgba(18, 2, 255, 0.2);
+    background-color: rgba(206, 200, 197, 0.63);
     border-radius: 137px;
  }
 #search-songs {

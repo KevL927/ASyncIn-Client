@@ -96,28 +96,36 @@ class MyPlaylistsDashboard extends Component {
 	        <li key={index} id="user-playlist-buttons-li">
 	        	 {this.state.editable == playlist._id ? <form onSubmit={this.edit.bind(this, playlist)}>
 	        	 <input type="text" autoFocus contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" required/> 
-	        	 </form>:<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name} <FaAlignJustify/></h4> }
-	          	 <ToggleButton
-                  inactiveLabel={<FaUnlockAlt/>}
-                  activeLabel={<FaUnlock/>}
-                  colors={{active: {
-                        base: 'rgb(0,207,0)'
-                      },
-                        inactive:{
-                        base: 'rgb(186,0,0)'
-                        }
-                    }}
-                   thumbStyle={ borderRadiusStyle }
-                   trackStyle={ borderRadiusStyle } 
-                   value={playlist.isPublic}
-                   onToggle={(isPublic) => {
-                   this.isPublicTrueOrFalse(this, playlist)
-					}} />
+	        	 </form>: <div>
+	        	 
+					<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name} 
+					<FaAlignJustify/>
+					</h4>
+					</div> }
+	          	 
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
-		         	<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
-	        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
-	        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
+		         	<div>
+			         	<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
+			        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
+			        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
+			        	 <ToggleButton
+		                  inactiveLabel={<FaUnlockAlt/>}
+		                  activeLabel={<FaUnlock/>}
+		                  colors={{active: {
+		                        base: 'rgb(0,207,0)'
+		                      },
+		                        inactive:{
+		                        base: 'rgb(186,0,0)'
+		                        }
+		                    }}
+		                   thumbStyle={ borderRadiusStyle }
+		                   trackStyle={ borderRadiusStyle } 
+		                   value={playlist.isPublic}
+		                   onToggle={(isPublic) => {
+		                   this.isPublicTrueOrFalse(this, playlist)
+						}} />
+					</div>
 		         </Collapse>
 	        </li>
 	      
