@@ -1,6 +1,5 @@
 import { createAction } from 'redux-actions';
 import axios from 'axios';
-import { hashHistory } from 'react-router';
 
 
 //*********************************************************************
@@ -112,7 +111,20 @@ export const deletePlaylist = (playlistObject, accessToken) => dispatch => {
 
 
 
-
+//Top Playlist
+export const getTopPlaylistSuccess = createAction('GET_TOP_PLAYLIST_SUCCESS');
+export const getTopPlaylistError = createAction('GET_TOP_PLAYLIST_ERROR');
+export const getTopPlaylist = (accessToken) => (dispatch) => {
+    return axios.get('https://asyncin.herokuapp.com/api/v1/playlists?access_token=' + accessToken)
+        .then(response => {
+            dispatch(getTopPlaylistSuccess(response));
+           // hashHistory.push('/dashboard');
+        })
+        .catch(err => {
+            dispatch(getTopPlaylistError(err));
+            return false;
+        });
+};
 
 //PUT favorite playlist
 // /api/v1/users/:token?access_token=dslfkjsalkfjslajf
@@ -138,21 +150,6 @@ export const updateFavouritePlaylist = (accessToken,token, playlistId, rating) =
         })
         .catch(err => {
             dispatch(updateFavPlaylistError(err));
-            return false;
-        });
-};
-
-//Top Playlist
-export const getTopPlaylistSuccess = createAction('GET_TOP_PLAYLIST_SUCCESS');
-export const getTopPlaylistError = createAction('GET_TOP_PLAYLIST_ERROR');
-export const getTopPlaylist = (accessToken) => (dispatch) => {
-    return axios.get('https://asyncin.herokuapp.com/api/v1/playlists?access_token=' + accessToken)
-        .then(response => {
-            dispatch(getTopPlaylistSuccess(response));
-           // hashHistory.push('/dashboard');
-        })
-        .catch(err => {
-            dispatch(getTopPlaylistError(err));
             return false;
         });
 };

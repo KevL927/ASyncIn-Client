@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
 import SearchResult from './SearchResult';
 import AddPlaylist from '../AddPlaylist/AddPlaylist';
-import {Grid, Row, Col, thumbnail} from 'react-bootstrap';
+import {Grid, Row, Col} from 'react-bootstrap';
 import FaVimeo from 'react-icons/lib/fa/vimeo'
 import FaSoundcloud from 'react-icons/lib/fa/soundcloud'
 import FaYoutubePlay from 'react-icons/lib/fa/youtube-play'

@@ -3,10 +3,10 @@ import QueueTrack from './QueueTrack';
 
 export default ({ currentUser, userSavedPlaylists, error, feedback, tracks, onTrackItemClick, onClickDeleteQueueTrack, onTrackPlayNow, moveUpTrackInQueue, moveDownTrackInQueue }) => (
   
-  <div>
+  <ul>
     {tracks.map((track, index) => (
       <QueueTrack currentUser={currentUser} userSavedPlaylists={userSavedPlaylists} error={error} feedback={feedback} onTrackItemClick={onTrackItemClick} onClickDeleteQueueTrack={onClickDeleteQueueTrack} onTrackPlayNow={onTrackPlayNow} moveUpTrackInQueue={moveUpTrackInQueue} moveDownTrackInQueue={moveDownTrackInQueue} track={track} trackIndex={index} key={index} />
     ))}
-  </div>
+  </ul>
   
 )
