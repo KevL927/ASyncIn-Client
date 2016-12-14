@@ -57,7 +57,7 @@ class RenderPlaylist extends Component {
 
     viewTracks(playlist) {
       if(playlist) {
-        return <ul><RenderTracks playlistObject={playlist} onCheckInsert={this.props.onCheckInsert} /></ul>
+        return <ul><RenderTracks playlistObject={playlist} onCheckInsert={this.props.onCheckInsert} renderCheckedIndex={this.props.renderCheckedIndex} /></ul>
       }
       return;
     }
