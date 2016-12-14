@@ -92,7 +92,36 @@ export default handleActions (
 			}
 		},
 		[actions.moveTrackInQueue]: (state, action) => {
-			return { ...state, queue: [...action.payload] };
+			let direction = action.payload.direction,
+				trackIndex = action.payload.trackIndex,
+				queue = state.queue
+				
+			if(direction === 'up') {
+				if(trackIndex === 0) {
+            		return { ...state };
+        		}
+    			let newQueueOrder = [
+    								...queue.slice(0, trackIndex-1),
+		                            queue[trackIndex],
+		                            queue[trackIndex-1],
+		                            ...queue.slice(trackIndex+1)
+		                            ]
+			                            
+				return { ...state, queue: newQueueOrder };
+			}
+			if(direction === 'down') {
+				if(trackIndex >= queue.length-1) {
+    				return { ...state };
+				}
+				let newQueueOrder = [ 
+									...queue.slice(0, trackIndex),
+                    				queue[trackIndex+1],
+                    				queue[trackIndex],
+                    				...queue.slice(trackIndex+2)
+                    				]
+                      
+				return { ...state, queue: newQueueOrder };
+			}
 		},
 		[actions.deleteQueueTrack]: (state, action) => {
 			const index = action.payload			
