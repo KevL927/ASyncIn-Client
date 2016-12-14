@@ -9,7 +9,7 @@ export default ({ currentUser, userSavedPlaylists, error, feedback, track,  onTr
     	<button onClick={(event) => onTrackItemClick(event, track)}>Add To Queue</button>
     	<button onClick={(event) => moveUpTrackInQueue(event, trackIndex)}>Move up</button>
     	<button onClick={(event) => moveDownTrackInQueue(event, trackIndex)}>Move down</button>
-    	<a onClick={(event) => onTrackPlayNow(event, track.link)} id="Q_Track_List">{track.title}</a>
+    	<div onClick={(event) => onTrackPlayNow(event, track.link)} id="Q_Track_List">{track.title}</div>
     </li>
   );
         
