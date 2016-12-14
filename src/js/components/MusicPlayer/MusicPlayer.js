@@ -6,6 +6,12 @@ import screenfull from 'screenfull';
 import Duration from './Duration';
 import * as actions from '../../actions/actions';
 import shuffle from './shuffleQueue'
+import FaPlay from 'react-icons/lib/fa/play';
+import FaStepForward from 'react-icons/lib/fa/step-forward';
+import FaStepBackward from 'react-icons/lib/fa/step-backward';
+import FaStop from 'react-icons/lib/fa/stop';
+import TiArrowShuffle from 'react-icons/lib/ti/arrow-shuffle';
+import FaPause from 'react-icons/lib/fa/pause';
 
 
 class MusicPlayer extends Component {
@@ -146,10 +152,10 @@ class MusicPlayer extends Component {
 	                <button onClick={this.onClickFullscreen}>Fullscreen</button>
 	            </div>
 	            <div id="video-controller-2">
-	            	<button onClick={this.prev} className="player-buttons">Prev</button>
-	            	<button onClick={this.playPause} className="player-buttons">{playing ? 'Pause' : 'Play'}</button>
-		    		<button onClick={this.next} className="player-buttons">Next</button>
-		    		<button onClick={this.shuffle} className="player-buttons">{this.state.shuffle ? 'Shuffle Off' : 'Shuffle On'}</button>
+	            	<button onClick={this.prev} className="player-buttons"><FaStepBackward size={22} /></button>
+	            	<button onClick={this.playPause} className="player-buttons">{playing ? <FaPause size={22}/> : <FaPlay size={22}/>}</button>
+		    		<button onClick={this.next} className="player-buttons"><FaStepForward size={22} /></button>
+		    		<button onClick={this.shuffle} className="player-buttons">{this.state.shuffle ? 'Shuffle Off' : <TiArrowShuffle size={25}/>}</button>
 		    		<button onClick={this.continueButton} className="player-buttons">{this.state.continueAll ? 'Continuous Play Off' : 'Continuous Play On'}</button>
 	            </div>
 	            <div id="video-seek">
