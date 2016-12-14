@@ -11,6 +11,9 @@ import FaAlignJustify from 'react-icons/lib/fa/align-justify';
 import ToggleButton from 'react-toggle-button';
 import FaUnlock from 'react-icons/lib/fa/unlock';
 import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt';
+import FaTrash from 'react-icons/lib/fa/trash';
+import FaEdit from 'react-icons/lib/fa/edit';
+import TiPlus from 'react-icons/lib/ti/plus';
 
 
 const borderRadiusStyle = { borderRadius: 2 };
@@ -106,9 +109,9 @@ class MyPlaylistsDashboard extends Component {
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
 		         	<div>
-			         	<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
-			        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
-			        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
+			         	<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus class="isBold" size={18} /></button>
+			        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}><FaTrash class="isBold" size={18} /></button>
+			        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}><FaEdit class="isBold" size={18} /></button>
 			        	 <ToggleButton
 		                  inactiveLabel={<FaUnlockAlt/>}
 		                  activeLabel={<FaUnlock/>}
