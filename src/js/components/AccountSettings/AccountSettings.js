@@ -7,7 +7,11 @@ import * as userActions from '../../actions/user-actions';
 import * as actions from '../../actions/actions';
 
 class AccountSettings extends Component {
-
+    
+    componentWillMount() {
+        this.props.dispatch(userActions.getCurrentUser(sessionStorage.token, sessionStorage.access_token));
+    }
+    
     submitDisplayNameForm(event) {
         event.preventDefault();
         let displayNameText = ReactDOM.findDOMNode(this.refs.displayNameText).value;
@@ -58,7 +62,7 @@ class AccountSettings extends Component {
     }
 
     localOrThirdPartySignInCheckAndRender() {
-        if(!validator.isEmail(this.props.currentUser.token)) {
+        if(!validator.isEmail(sessionStorage.token)) {
             return (
                 <div className="account-settings">
                     <div className="update-display-name">

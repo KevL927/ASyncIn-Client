@@ -7,7 +7,13 @@ import Collapse from 'react-collapse';
 import update from 'react-addons-update';
 import Feedback from '../Feedback';
 import ScrollArea from 'react-scrollbar';
-import FaAlignJustify from 'react-icons/lib/fa/align-justify'
+import FaAlignJustify from 'react-icons/lib/fa/align-justify';
+import ToggleButton from 'react-toggle-button';
+import FaUnlock from 'react-icons/lib/fa/unlock';
+import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt';
+
+
+const borderRadiusStyle = { borderRadius: 2 };
 
 class MyPlaylistsDashboard extends Component {
 	state = {
@@ -19,13 +25,13 @@ class MyPlaylistsDashboard extends Component {
 	    this.props.dispatch(actions.queue(playlist.tracks));  
 	}
 
-	expandCollapse(index, event) {
+	expandCollapse(arrIndex, event) {
 		event.preventDefault();
-		if (this.state.isOpenedArray.indexOf(index) === -1) {
-			const tempOpenedArr = update(this.state.isOpenedArray, {$push: [index]});
+		if (this.state.isOpenedArray.indexOf(arrIndex) === -1) {
+			const tempOpenedArr = update(this.state.isOpenedArray, {$push: [arrIndex]});
       		this.setState({isOpenedArray: tempOpenedArr})
 		} else {
-			const index = this.state.isOpenedArray.indexOf(index)
+			const index = this.state.isOpenedArray.indexOf(arrIndex)
 			const tempOpenedArr = update(this.state.isOpenedArray, {$splice: [[index, 1]]});
 			this.setState({isOpenedArray: tempOpenedArr});
 		}
@@ -48,7 +54,7 @@ class MyPlaylistsDashboard extends Component {
 
 	deletePlaylist(playlistObject, event){
 		event.preventDefault();
-		this.props.dispatch(playlistActions.deletePlaylist(playlistObject, this.props.currentUser.accessToken))
+		this.props.dispatch(playlistActions.deletePlaylist(playlistObject, sessionStorage.access_token))
 	}
 	
 	editPlaylistName(playlistObject, event){
@@ -64,13 +70,18 @@ class MyPlaylistsDashboard extends Component {
 		event.preventDefault();
 		if(this.refs.input.value !== "") {
 			const updatedPlaylist = update(playlistObject, {name: {$set:this.refs.input.value}})
-			this.props.dispatch(playlistActions.updatePlaylistName(updatedPlaylist, this.props.currentUser.accessToken));
+			this.props.dispatch(playlistActions.updatePlaylistName(updatedPlaylist, sessionStorage.access_token));
 			this.props.dispatch(actions.clearError());
 		}
 		this.setState({
 			editable: null
 		})
 
+	}
+
+	isPublicTrueOrFalse(event, playlistObject) {
+		let tempPlaylistObject = update(playlistObject, {isPublic: {$set: !playlistObject.isPublic}})
+    	this.props.dispatch(playlistActions.updatePlaylist(tempPlaylistObject, sessionStorage.access_token));
 	}
 
 	generateResult(resultArr) {
@@ -86,7 +97,22 @@ class MyPlaylistsDashboard extends Component {
 	        	 {this.state.editable == playlist._id ? <form onSubmit={this.edit.bind(this, playlist)}>
 	        	 <input type="text" autoFocus contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" required/> 
 	        	 </form>:<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name} <FaAlignJustify/></h4> }
-	          	 
+	          	 <ToggleButton
+                  inactiveLabel={<FaUnlockAlt/>}
+                  activeLabel={<FaUnlock/>}
+                  colors={{active: {
+                        base: 'rgb(0,207,0)'
+                      },
+                        inactive:{
+                        base: 'rgb(186,0,0)'
+                        }
+                    }}
+                   thumbStyle={ borderRadiusStyle }
+                   trackStyle={ borderRadiusStyle } 
+                   value={playlist.isPublic}
+                   onToggle={(isPublic) => {
+                   this.isPublicTrueOrFalse(this, playlist)
+					}} />
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
 		         	<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>

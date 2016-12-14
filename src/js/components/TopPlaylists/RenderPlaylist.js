@@ -15,7 +15,7 @@ class RenderPlaylist extends Component {
     
   	onClickUpdateFavouritePlaylist(playlistObject,event){
 	    event.preventDefault();
-	    this.props.dispatch(playlistActions.updateFavouritePlaylist(this.props.currentUser.accessToken, this.props.currentUser.token, playlistObject._id, playlistObject.rating));
+	    this.props.dispatch(playlistActions.updateFavouritePlaylist(sessionStorage.access_token, sessionStorage.token, playlistObject._id, playlistObject.rating));
 	  }
 	
     onClickAddToQueue(playlist, event){
@@ -23,6 +23,9 @@ class RenderPlaylist extends Component {
     }
     
     favouriteOrUnfavourite(playlistObject) {
+      if(this.props.currentUser.userId === playlistObject.userId) {
+        return <div><i className="fa fa-user" aria-hidden="true"></i></div>
+      }
       let favouritePlaylistIdArray = [];
 
       for(let i=0; i<this.props.favouritePlaylist.length; i++) {
@@ -35,13 +38,13 @@ class RenderPlaylist extends Component {
       )
     }
 
-    expandCollapse(index, event) {
+    expandCollapse(arrIndex, event) {
       event.preventDefault();
-      if (this.state.isOpenedArray.indexOf(index) === -1) {
-          const tempOpenedArr = update(this.state.isOpenedArray, {$push: [index]});
+      if (this.state.isOpenedArray.indexOf(arrIndex) === -1) {
+          const tempOpenedArr = update(this.state.isOpenedArray, {$push: [arrIndex]});
           this.setState({isOpenedArray: tempOpenedArr})
       } else {
-          const index = this.state.isOpenedArray.indexOf(index)
+          let index = this.state.isOpenedArray.indexOf(arrIndex);
           const tempOpenedArr = update(this.state.isOpenedArray, {$splice: [[index, 1]]});
           this.setState({isOpenedArray: tempOpenedArr});
       }
@@ -57,7 +60,7 @@ class RenderPlaylist extends Component {
 
     viewTracks(playlist) {
       if(playlist) {
-        return <ul><RenderTracks playlistObject={playlist} onCheckInsert={this.props.onCheckInsert} /></ul>
+        return <ul><RenderTracks playlistObject={playlist} onCheckInsert={this.props.onCheckInsert} renderCheckedIndex={this.props.renderCheckedIndex} /></ul>
       }
       return;
     }
@@ -108,6 +111,7 @@ class RenderPlaylist extends Component {
   }
   
   render() {
+    console.log(sessionStorage, this.props);
     return (
       <div>
         <div>{this.renderTop3And4To10Playlists(this.props.playlistArray)}</div>

@@ -4,15 +4,16 @@ import * as userActions from '../../actions/user-actions';
 import * as actions from '../../actions/actions';
 import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
 import MyPlaylistsDashboard from '../UserPlaylists/MyPlaylistsDashboard';
-
+import FaStar from 'react-icons/lib/fa/star';
 
 class DashboardPage extends Component {
   
   componentWillMount(){
     if (!this.props.currentUser) {
-      this.props.dispatch(userActions.getCurrentUser(this.props.location.query.token, this.props.location.query.access_token));
+      this.props.dispatch(userActions.getCurrentUser(sessionStorage.token, sessionStorage.access_token));
     }
   }
+  
    onSubmitSearch(event) {
     event.preventDefault();
     this.props.dispatch(actions.searchAll(this.refs.searchInput.value));
@@ -32,6 +33,7 @@ class DashboardPage extends Component {
           </form>
         </div>
           <MyPlaylistsDashboard userSavedPlaylists={this.props.userSavedPlaylists} currentUser={this.props.currentUser}  queue={this.props.queue}/>
+          <h3> <FaStar/> My Favourite Playlists</h3>
           <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} currentUser={this.props.currentUser} />
         </div>
       );

@@ -38,7 +38,7 @@ class AddPlaylist extends Component {
                 isPublic: this.state.isPublic
             }
             this.props.dispatch(actions.clearError());
-            this.props.dispatch(playlistActions.createPlaylist(newPlaylist, this.props.currentUser.accessToken));
+            this.props.dispatch(playlistActions.createPlaylist(newPlaylist, sessionStorage.access_token));
         }
         this.props.dispatch(actions.clearError());
         setTimeout(() => {
@@ -85,7 +85,7 @@ class AddPlaylist extends Component {
   }} />
                 {(this.props.error) ? <div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div>: <div></div>}
                 {(this.props.feedback) ?<div><i className="fa fa-check-square-o" aria-hidden="true"></i><Feedback feedback={this.props.feedback}/></div>: <div></div>}
-                <SavedPlaylistsDropdown userPlaylists={this.props.userSavedPlaylists} newPlaylist={this.props.newPlaylist} currentUser={this.props.currentUser}/>
+                <SavedPlaylistsDropdown onSubmitClearTemp={this.props.onSubmitClearTemp} userPlaylists={this.props.userSavedPlaylists} newPlaylist={this.props.newPlaylist} currentUser={this.props.currentUser}/>
             </div>
 		);
 	}

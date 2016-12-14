@@ -13,7 +13,10 @@ class RenderTracks extends Component {
 
     unwrapTracks() {
         if(this.props.playlistObject) {
-            return <TrackListWithCheckBox onCheckInsert={this.props.onCheckInsert} onTrackItemClick={this.onTrackItemClick.bind(this)} tracks={this.props.playlistObject.tracks} />;
+            return <TrackListWithCheckBox renderCheckedIndex={this.props.renderCheckedIndex} onCheckInsert={this.props.onCheckInsert} 
+                    onTrackItemClick={this.onTrackItemClick.bind(this)} 
+                    tracks={this.props.playlistObject.tracks} 
+                    />;
         } 
         return <div></div>;
     }

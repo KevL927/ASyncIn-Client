@@ -33,9 +33,11 @@ export const queue = createAction('QUEUE', queue => queue);
 
 export const deleteQueueTrack = createAction('DELETE_QUEUE_TRACK', track => track);
 
+export const moveTrackInQueue = createAction('moveTrackInQueue');
+
 export const updateQueueSuccess = createAction('UPDATE_QUEUE_SUCCESS');
 export const updateQueueError = createAction('UPDATE_QUEUE_ERROR');
-export const updateQueue = (accessToken,token, queue) => dispatch => {
+export const updateQueue = (accessToken, token, queue) => dispatch => {
     
     return axios.put('https://asyncin.herokuapp.com/api/v1/users/queue/'+token+'?access_token=' + accessToken, 
                 {queue:queue})

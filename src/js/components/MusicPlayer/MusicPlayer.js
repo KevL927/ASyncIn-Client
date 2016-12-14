@@ -122,7 +122,6 @@ class MusicPlayer extends Component {
 	      playing, volume,
 	      played, duration,
 	    } = this.state
-	    const SEPARATOR = ' · ';
 	    
 		return (
 	    	<div>
