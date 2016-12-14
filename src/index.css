@@ -96,13 +96,8 @@ a:hover, .nav-li:hover {
   background: url("http://i.imgur.com/BWMCDuH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-<<<<<<< HEAD
   background-position: center center;
   height: 100vh;
-=======
-  background-position: bottom left;
-  height: 66.9em;
->>>>>>> 8f3fdf52dcb6f12a53c41b32119becb9084a0dfd
 }
 
 .MainPage-Header {
