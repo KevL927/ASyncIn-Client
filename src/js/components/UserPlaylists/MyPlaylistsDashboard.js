@@ -14,9 +14,19 @@ import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt';
 import FaTrash from 'react-icons/lib/fa/trash';
 import FaEdit from 'react-icons/lib/fa/edit';
 import TiPlus from 'react-icons/lib/ti/plus';
+import {Tooltip, OverlayTrigger} from 'react-bootstrap'
 
 
 const borderRadiusStyle = { borderRadius: 2 };
+const tooltip_delete = (
+  <Tooltip id="tooltip_delete"><strong>Delete</strong> playlist</Tooltip>
+);
+const tooltip_add = (
+  <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
+);
+const tooltip_edit = (
+  <Tooltip id="tooltip_edit"><strong>Edit</strong> playlist name</Tooltip>
+);
 
 class MyPlaylistsDashboard extends Component {
 	state = {
@@ -98,32 +108,28 @@ class MyPlaylistsDashboard extends Component {
 	      	
 	        <li key={index} id="user-playlist-buttons-li">
 	        	 {this.state.editable == playlist._id ? <form onSubmit={this.edit.bind(this, playlist)}>
-	        	 <input type="text" autoFocus contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" required/> 
+	        	 	<input type="text" autoFocus contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" required/> 
 	        	 </form>: <div>
-	        	 
 					<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name}     
 					<FaAlignJustify/>
 					</h4>
 					</div> }
-	          	 
+
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
 		         	<div>
+		         		<div id="playlist_toggle_div">
 
-			         	
-
-		         	<div id="playlist_toggle_div">
-
-			        	 <ToggleButton
-		                  inactiveLabel={<FaUnlockAlt/>}
-		                  activeLabel={<FaUnlock/>}
-		                  colors={{active: {
-		                        base: 'rgb(0,207,0)'
-		                      },
-		                        inactive:{
-		                        base: 'rgb(186,0,0)'
-		                        }
-		                    }}
+				        	<ToggleButton
+			                  inactiveLabel={<FaUnlockAlt/>}
+			                  activeLabel={<FaUnlock/>}
+			                  colors={{active: {
+			                        base: 'rgb(0,207,0)'
+			                      },
+			                        inactive:{
+			                        base: 'rgb(186,0,0)'
+			                        }
+			                    }}
 		                   thumbStyle={ borderRadiusStyle }
 		                   trackStyle={ borderRadiusStyle } 
 		                   value={playlist.isPublic}
@@ -131,9 +137,15 @@ class MyPlaylistsDashboard extends Component {
 		                   this.isPublicTrueOrFalse(this, playlist)
 						}} />
 						</div>
-						<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus class="isBold" size={18} /></button>
+						<OverlayTrigger placement="bottom" overlay={tooltip_add}>
+							<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus class="isBold" size={18} /></button>
+						</OverlayTrigger>
+						<OverlayTrigger placement="bottom" overlay={tooltip_delete}>
 			        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}><FaTrash class="isBold" size={18} /></button>
+			        	 </OverlayTrigger>
+			        	 <OverlayTrigger placement="bottom" overlay={tooltip_edit}>
 			        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}><FaEdit class="isBold" size={18} /></button>
+			        	 </OverlayTrigger>
 			        	 
 					</div>
 		         </Collapse>

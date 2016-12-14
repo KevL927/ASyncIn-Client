@@ -96,8 +96,13 @@ a:hover, .nav-li:hover {
   background: url("http://i.imgur.com/BWMCDuH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+<<<<<<< HEAD
+  background-position: center center;
+  height: 100vh;
+=======
   background-position: bottom left;
   height: 66.9em;
+>>>>>>> 8f3fdf52dcb6f12a53c41b32119becb9084a0dfd
 }
 
 .MainPage-Header {
@@ -115,25 +120,30 @@ span {
     font-family: 'Ubuntu', sans-serif;
   }
 
-  #about {
-    font-size: 20px;
-    margin: 10px;
-    text-shadow: 0px 2px 0px #8e4600,
-                 0px 10px 8px rgba(0,0,0,1),
-                 0px 20px 2px rgba(0,0,0,0.1),
-                 0px 30px 20px rgba(0,0,0,0.1);
-    font-family: 'Ubuntu', sans-serif;
-    display: block;
-  }
+#about {
+  font-size: 20px;
+  margin: 10px;
+  text-shadow: 0px 2px 0px #8e4600,
+               0px 10px 8px rgba(0,0,0,1),
+               0px 20px 2px rgba(0,0,0,0.1),
+               0px 30px 20px rgba(0,0,0,0.1);
+  font-family: 'Ubuntu', sans-serif;
+  display: block;
+}
 
+#disc {
+  text-align: center;
+  padding-left: 42%;
+}
+
+#disc a {
+  background-color: transparent;
+}
 
 .image {
     position: absolute;
-    top: 48%;
-    left: 323%;
-    width: 380px;
     height: 380px;
-    margin:-60px 0 0 40.625em;
+    margin: 0 auto;
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
@@ -376,7 +386,7 @@ h4 {
 .user-playlist-buttons {
   text-decoration: none;
   color: white;
-  background-color:#ff2e44;
+  background-color: transparent;
   padding: .50em;
   border: none;
   -webkit-transform: scale(1);
@@ -560,4 +570,60 @@ li.track {
 }
 #playlist_toggle_div{
   margin-left: 47%;
+}
+
+
+
+/*********************************************************************
+//----------------------Media query-------------------------
+//*********************************************************************/
+
+
+@media (min-width: 660px) {
+  #disc {
+    text-align: center;
+    padding-left: 33%;
+  }
+}
+
+@media (min-width: 961px) {
+  #disc {
+    text-align: center;
+    padding-left: 33%;
+  }
+}
+
+@media (min-width: 1060px) {
+  #disc {
+    text-align: center;
+    padding-left: 33%;
+  }
+}
+
+@media (min-width: 1170px) {
+  #disc {
+    text-align: center;
+    padding-left: 34%;
+  }
+}
+
+@media (min-width: 1260px) {
+  #disc {
+    text-align: center;
+    padding-left: 37%;
+  }
+}
+
+@media (min-width: 1480px) {
+  #disc {
+    text-align: center;
+    padding-left: 39%;
+  }
+}
+
+@media (min-width: 1610px) {
+  #disc {
+    text-align: center;
+    padding-left: 41%;
+  }
 }
