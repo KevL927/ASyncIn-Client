@@ -110,9 +110,7 @@ class MyPlaylistsDashboard extends Component {
 		         	{this.viewTracks(playlist)}
 		         	<div>
 
-			         	<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus class="isBold" size={18} /></button>
-			        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}><FaTrash class="isBold" size={18} /></button>
-			        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}><FaEdit class="isBold" size={18} /></button>
+			         	
 
 		         	<div id="playlist_toggle_div">
 
@@ -133,9 +131,9 @@ class MyPlaylistsDashboard extends Component {
 		                   this.isPublicTrueOrFalse(this, playlist)
 						}} />
 						</div>
-			         	<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
-			        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
-			        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
+						<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus class="isBold" size={18} /></button>
+			        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}><FaTrash class="isBold" size={18} /></button>
+			        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}><FaEdit class="isBold" size={18} /></button>
 			        	 
 					</div>
 		         </Collapse>
