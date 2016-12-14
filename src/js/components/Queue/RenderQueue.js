@@ -22,12 +22,27 @@ class RenderQueue extends Component {
         this.props.dispatch(actions.deleteQueueTrack(trackIndex));
     }
     
+    moveUpTrackInQueue(event, trackIndex) {
+        event.preventDefault();
+        let queueList = this.props.playlistObject.tracks;
+        
+        if(trackIndex === 0) {
+            return;
+        }
+        let newQueueOrder = queueList.slice(0, trackIndex-1)
+                           .concat(queueList.slice(trackIndex, trackIndex + 1))
+                           .concat(queueList.slice(trackIndex-1, trackIndex))
+                           .concat(queueList.slice(trackIndex + 1))
+        return this.props.dispatch(actions.moveTrackInQueue(newQueueOrder));
+    }
+    
     unwrapTracks() {
         if(this.props.playlistObject) {
             return (
                 <QueueTrackList 
                     onTrackItemClick={this.onTrackItemClick.bind(this)} 
-                    onClickDeleteQueueTrack={this.onClickDeleteQueueTrack.bind(this)} 
+                    onClickDeleteQueueTrack={this.onClickDeleteQueueTrack.bind(this)}
+                    moveUpTrackInQueue={this.moveUpTrackInQueue.bind(this)}
                     onTrackPlayNow={this.onTrackPlayNow.bind(this)} 
                     tracks={this.props.playlistObject.tracks}
                     currentUser={this.props.currentUser} 
