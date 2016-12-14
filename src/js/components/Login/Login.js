@@ -38,9 +38,14 @@ class Login extends Component {
                     <label className="password">Password:</label>
                     <input type="password" className="input" name="password" ref="passwordText" required />
                     <button id="login-button" value="Submit" type="submit" className="login-button">Submit</button>
-                    <Link to="/register" id="registerlink"> Dont have an account? Let's hook you up, man. </Link>
-                    <a id="google-login" href="https://asyncin.herokuapp.com/auth/google" className="google-login"><FaGooglePlusSquare size={50} color="#dd4b39"/></a>
-                    <a id="facebook-login" href="https://asyncin.herokuapp.com/auth/facebook" className="facebook-login"><FaFacebookOffical size={50} color="#3b5998"/></a>
+                    <div>
+                        
+                             <p><Link to="/register" id="registerlink">Dont have an account? Let's hook you up, man. </Link></p>
+                        <div id="login-icons">
+                            <a id="google-login" href="https://asyncin.herokuapp.com/auth/google" className="google-login"><FaGooglePlusSquare size={50} color="#dd4b39"/></a>
+                            <a id="facebook-login" href="https://asyncin.herokuapp.com/auth/facebook" className="facebook-login"><FaFacebookOffical size={50} color="#3b5998"/></a>
+                        </div>
+                    </div>
                 </form>
 
             </div>

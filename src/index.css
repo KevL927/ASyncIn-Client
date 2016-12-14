@@ -11,6 +11,7 @@ body {
 
 li {
   list-style-type: none;
+  text-align: center;
 }
 
 .thumbnail{
@@ -77,13 +78,12 @@ a:hover, .nav-li:hover {
 }
 
 #songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page {
-  padding: 14px 0px;
-  margin-top:30px;
+  margin-top:57px;
   margin-bottom:40px;
-  background: url("http://i.imgur.com/KaBbQw6.jpg");
+  background: url("http://i.imgur.com/VDqXOZV.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center left;
   height:1000px;
   color: white;
 }
@@ -93,14 +93,16 @@ a:hover, .nav-li:hover {
 
 .MainPage {
   text-align: center;
-  background:linear-gradient(
-      rgba(138,91,16, .85), 
-      rgba(255,197,103, 0.10)
-    ), url("http://i.imgur.com/3dI9j4c.jpg");
+  background: url("http://i.imgur.com/BWMCDuH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+<<<<<<< HEAD
   background-position: center center;
   height: 100vh;
+=======
+  background-position: bottom left;
+  height: 66.9em;
+>>>>>>> 8f3fdf52dcb6f12a53c41b32119becb9084a0dfd
 }
 
 .MainPage-Header {
@@ -157,13 +159,10 @@ span {
 .LoginPage, .Register-page, .account-settings{
   text-align: center;
     text-align: center;
-  background:linear-gradient(
-      rgba(138,91,16, .85), 
-      rgba(255,197,103, 0.10)
-    ), url("http://i.imgur.com/3dI9j4c.jpg");
+  background: url("http://i.imgur.com/BWMCDuH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: bottom;
   height: 66.9em;
   color: #fcf8e3;
 }
@@ -177,17 +176,23 @@ span {
     font-family: 'Ubuntu', sans-serif;
 }
 .Register-page label, .account-settings label{
-  font-size: 3em;
+  font-size: 2em;
 }
 .login-container, .Register-form, .update-password-display-name {
     border-radius: 5px;
     background-color: rgba(40,10,9, .70);
     padding: 20px;
     position: fixed;
-    top: 50%;
+    top: 59%;
     left: 50%;
     transform: translate(-50%, -50%);
 
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -webkit-transform: scale(2);
+  padding: 10px;
 }
 input[type=text], select {
     left:20%;
@@ -252,6 +257,8 @@ button[type=submit]:hover {
   background-color: transparent;
   text-align: center;
   display: block;
+  float: none;
+
 }
 
 #registerlink:hover {
@@ -260,11 +267,13 @@ button[type=submit]:hover {
   transform: scale(1.1);
   background-color: transparent;
 }
-
+#login-icons {
+  text-align: center;
+}
 #google-login, #facebook-login{
   background-color: transparent;
   display: block;
-
+  width: 50%;
 }
 
 .App-intro {
@@ -280,7 +289,9 @@ button[type=submit]:hover {
   top: 61%;
 }
 
-
+a#loginlink {
+  float: none;
+}
 #displayName{
   width:100%;
 }
@@ -289,7 +300,8 @@ button[type=submit]:hover {
 //------------------------------SONG SEARCH--------------------------
 //*********************************************************************/
 #songSearch-page {
-  background: url("http://i.imgur.com/KaBbQw6.jpg");
+  
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center left;
@@ -305,7 +317,7 @@ button[type=submit]:hover {
     padding-left: 121px;
     margin-bottom: 8px;
     margin-right: 146px;
-    background-color: rgba(18, 2, 255, 0.2);
+    background-color: rgba(206, 200, 197, 0.63);
     border-radius: 137px;
  }
 #search-songs {
@@ -345,7 +357,7 @@ h4 {
   text-align: center;
 }
 .content{
-  background: #5db6a2;
+  background: rgba(40,10,9, 1);
    width: 800px;
   height: auto;
   margin: 10px;
@@ -374,8 +386,8 @@ h4 {
 .user-playlist-buttons {
   text-decoration: none;
   color: white;
-  background-color:#ff2e44;
-  padding: 1em;
+  background-color: transparent;
+  padding: .50em;
   border: none;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -452,7 +464,7 @@ div#Q_Track_List:hover {
 }
 
 .UserPlaylist {
-  margin-left: 46%;
+ 
 }
 
 /*********************************************************************
@@ -499,7 +511,7 @@ div#Q_Track_List:hover {
 }
 
 .player-buttons {
-  background-color: #3d2221;
+  background-color: transparent;
   padding: 1em;
   color: white;
   margin: 3px;
@@ -544,6 +556,22 @@ li.track {
 .dropdown-menu>li>a {
   color: white;
 }
+
+#toggle-div {
+  margin-left: 25%;
+  }
+
+.add-playlist-button:hover {
+  color: burlywood;
+}
+
+#new-playlist-input {
+  width:100%;
+}
+#playlist_toggle_div{
+  margin-left: 47%;
+}
+
 
 
 /*********************************************************************
