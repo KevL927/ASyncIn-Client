@@ -18,6 +18,9 @@ const tooltip_add = (
 const tooltip_play = (
   <Tooltip id="tooltip_play"><strong>Play</strong></Tooltip>
 );
+const tooltip_playlist_add = (
+  <Tooltip id="tooltip_playlist_add"><strong>Check Off</strong> then click playlist</Tooltip>
+);
 
 class SongSearch extends Component {
   state = {
@@ -136,15 +139,17 @@ class SongSearch extends Component {
         arr = resultArr.map((track, index) => {
         return (
           <li key={index}>
-            <input type="checkbox" name="searchResult" ref={track.link} id={track.source} onChange={this.onCheckInsert.bind(this, track, index)} checked={this.renderCheckedIndex(track.source, index)}>
-            </input>
             <SearchResult track={track}/>
-            <OverlayTrigger placement="bottom" overlay={tooltip_add}>
-            <button className="blackColor" onClick={this.onClickAddToQueue.bind(this, track)}><TiPlus size={22}/></button>
-             </OverlayTrigger>
-             <OverlayTrigger placement="bottom" overlay={tooltip_play}>
-            <button className="blackColor" onClick={this.playTrackOnClick.bind(this, track)}><FaPlayCircle size={22} /></button>
-             </OverlayTrigger>
+              <OverlayTrigger placement="left" overlay={tooltip_playlist_add}>
+                <input type="checkbox" name="searchResult" ref={track.link} id={track.source} onChange={this.onCheckInsert.bind(this, track, index)} checked={this.renderCheckedIndex(track.source, index)}>
+                </input>
+              </OverlayTrigger>
+              <OverlayTrigger placement="bottom" overlay={tooltip_add}>
+                <button className="blackColor" onClick={this.onClickAddToQueue.bind(this, track)}><TiPlus size={22}/></button>
+              </OverlayTrigger>
+              <OverlayTrigger placement="bottom" overlay={tooltip_play}>
+                <button className="blackColor" onClick={this.playTrackOnClick.bind(this, track)}><FaPlayCircle size={22} /></button>
+              </OverlayTrigger>
           </li>
         );
         })
