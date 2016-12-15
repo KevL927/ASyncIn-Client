@@ -1,4 +1,22 @@
 
+.ASDF::-webkit-scrollbar {
+    width: 12px;
+}
+
+.ASDF::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+
+.ASDF::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+.ASDF::-webkit-scrollbar-corner {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+
 body { 
   margin: 0;
   padding: 0;
@@ -339,15 +357,10 @@ a#loginlink {
   width:50%;
 }
 .ASDF {
-  overflow: auto;
+  overflow: scroll;
   width:300px;
   height:435px;
 
-}
-.ASDF::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  background-color: #555;
 }
 .search-result {
   margin-top: 30px;
