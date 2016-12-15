@@ -286,7 +286,16 @@ button[type=submit]:hover {
 
 a#loginlink {
   float: none;
+  background-color: transparent;
 }
+#loginlink:hover {
+    color: gold;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    background-color: transparent;
+}
+
 #displayName{
   width:100%;
 }
@@ -615,8 +624,33 @@ li.track {
     padding: 2em;
     top: 55%;
   }
-  .LoginPage label, .Register-page label, .update-password-display-name label {
+  .LoginPage label, .update-password-display-name label {
     font-size: 3em;
+  }
+
+  /*Register*/
+  div#register {
+    padding: 0.5em;
+  }
+  a#loginlink {
+    padding: 0.75em;
+  }
+  a#google-login {
+    padding: 0;
+  }
+  a#facebook-login {
+    padding: 0;
+  }
+  .Register-page label, .account-settings label {
+      font-size: 1em;
+  }
+  .Register-form {
+    top: 55%;
+  }
+  .Register-form input {
+    padding: 4px;
+    margin: 0px;
+    width: 18em;
   }
 }
 
@@ -643,6 +677,11 @@ li.track {
     padding-left: 23%;
     padding-top: 20%;
   }
+  /*Register*/
+  div#register {
+    padding: 2em;
+  }
+
 }
 
 /*iphone 6s*/
@@ -673,6 +712,21 @@ li.track {
   .login-container {
     top: 55%;
   }
+  /*Register*/
+  div#register {
+    padding: 4em;
+  }
+  .Register-page label, .account-settings label {
+    font-size: 1em;
+  }
+  .Register-form {
+    top: 55%;
+  }
+  .Register-form input {
+    padding: 4px;
+    margin: 0px;
+    width: 20em;
+  }
 }
 /*iPad*/
 @media screen and (min-width: 660px) and (max-width: 959px) {
@@ -692,6 +746,10 @@ li.track {
   /*Login*/
   .login-container {
     top: 55%;
+  }
+  /*Register*/
+  div#register {
+    padding: 4em;
   }
 }
 
