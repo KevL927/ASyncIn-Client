@@ -44,7 +44,7 @@ export default handleActions (
 			return {...state, error: action.payload.message};
 		},
 		[userActions.logout]: (state, action) => {
-			return {...state, initialState};
+			return {initialState};
 		},
 		[userActions.getCurrentUserSuccess]: (state, action) => {
 			return {...state, currentUser:action.payload.data.user, favouritePlaylist:action.payload.data.user.favouritePlaylists, userSavedPlaylists:action.payload.data.playlist, isAuthenicated:true, queue: action.payload.data.user.queue};
