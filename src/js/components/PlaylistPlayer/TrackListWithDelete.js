@@ -10,4 +10,4 @@ export default ({ tracks, onTrackItemClick, onClickDeleteTrack, moveTrackInPlayl
     ))}
   </div>
   
-)  
+);

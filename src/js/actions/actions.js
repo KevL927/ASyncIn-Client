@@ -51,7 +51,7 @@ export const updateQueue = (accessToken, token, queue) => dispatch => {
             return false;
         });
 };
+  
 
 
-
-export const shuffledQueue = createAction('shuffledQueue');  
+export const shuffledQueue = createAction('shuffledQueue');

@@ -179,4 +179,4 @@ class MyPlaylistsDashboard extends Component {
 export default connect(
     ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl, error }) => 
     ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl, error })
-)(MyPlaylistsDashboard);
+)(MyPlaylistsDashboard);  
