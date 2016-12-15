@@ -64,7 +64,6 @@ export const createPlaylist = (playlistObject, accessToken) => dispatch => {
 export const updatePlaylistSuccess = createAction('UPDATE_PLAYLIST_SUCCESS');
 export const updatePlaylistError = createAction('UPDATE_PLAYLIST_ERROR');
 export const updatePlaylist = (playlistObject, accessToken) => (dispatch) => {
-    
     return axios.put('https://asyncin.herokuapp.com/api/v1/playlists/' + playlistObject.userId +'/'+ playlistObject._id + '?access_token=' + accessToken, playlistObject)
         .then(response => {
             dispatch(updatePlaylistSuccess(response));

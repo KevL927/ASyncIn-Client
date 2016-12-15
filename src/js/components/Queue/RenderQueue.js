@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import QueueTrackList from './QueueTrackList';
-
+import * as playlistActions from '../../actions/playlist-actions';
 
 class RenderQueue extends Component {
     
@@ -11,9 +11,9 @@ class RenderQueue extends Component {
         this.props.dispatch(actions.queue(track));
     }
 
-    onTrackPlayNow(event, trackLink) {
+    onTrackPlayNow(event, track) {
         event.preventDefault();
-        this.props.dispatch(actions.currentListeningUrl(trackLink));
+        this.props.dispatch(actions.currentListeningUrl(track));
 
     }
 

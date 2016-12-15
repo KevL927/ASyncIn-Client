@@ -21,11 +21,13 @@ export const searchAll = (search) => dispatch => {
         })
 };
 
+export const clearUpdatedPlaylistIndex = createAction('CLEAR_UPDATED_PLAYLIST_INDEX');
+
 export const clearError = createAction('CLEAR_ERROR');
 
 export const clearFeedback = createAction('CLEAR_FEEDBACK');
 
-export const currentListeningUrl = createAction('CURRENT_LISTENING_URL', url => url);
+export const currentListeningUrl = createAction('CURRENT_LISTENING_URL');
 
 export const currentListeningPlaylist = createAction('CURRENT_LISTENING_PLAYLIST', playlist => playlist);
 
@@ -51,7 +53,5 @@ export const updateQueue = (accessToken, token, queue) => dispatch => {
             return false;
         });
 };
-  
 
-
-export const shuffledQueue = createAction('shuffledQueue');
+export const shuffledQueue = createAction('shuffledQueue'); 

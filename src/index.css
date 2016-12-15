@@ -15,8 +15,9 @@ li {
 }
 
 .thumbnail{
-  height:50px;
-  width:50px;
+  height:120px;
+  width:120px;
+  border:black;
   float: left;
 }
 h3,h2 {
@@ -82,7 +83,7 @@ a:hover, .nav-li:hover {
     text-decoration: none;
 }
 
-#songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page {
+#songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page, .account-settings {
   margin-top:57px;
   margin-bottom:40px;
   background: url("http://i.imgur.com/VDqXOZV.jpg");
@@ -156,7 +157,7 @@ span {
 /*********************************************************************
 //------------------------------LOGIN PAGE CSS--------------------------
 //*********************************************************************/
-.LoginPage, .Register-page, .account-settings{
+.LoginPage, .Register-page{
   text-align: center;
     text-align: center;
   background: url("http://i.imgur.com/BWMCDuH.jpg");
@@ -489,6 +490,15 @@ div#Q_Track_List:hover {
 /*********************************************************************
 //---------------------------ACCOUNT SETTINGS--------------------------
 //*********************************************************************/
+.update-display-name-form, .update-password-form{
+  width: 30em;
+  text-align: center;
+}
+
+.current-password{
+  font-size: 10em;
+}
+
 .update-password-display-name {
   top: 62%;
   position: absolute;
@@ -498,6 +508,8 @@ div#Q_Track_List:hover {
   font-size: 2em;
 
 }
+
+
 
 /*********************************************************************
 //------------------------------FOOTER----------------------------
@@ -511,7 +523,7 @@ div#Q_Track_List:hover {
   float:left;
 
 }
-#video-controller-1, #video-controller-2 {
+#video-controller-1 {
   float:right;
   padding: 1em;
 }
@@ -697,12 +709,14 @@ li.track {
   }
   .area {
     width: 25em;
+    height: 10em;
+    margin: 0;
   }
   .track a {
     font-size: 0.85em;
   }
   .scrollarea.area>div.scrollarea-content.content {
-    width: 25em;
+    width: 100%;
     float: none;
   }
   .playlist-buttons {
@@ -711,9 +725,36 @@ li.track {
     display: inline-block;
   }
   #playlist_toggle_div {
-    margin: 0, auto;
+    margin: 0 auto;
     padding: 0;
     display: inline-block;
+  }
+  .saved-playlists-ul {
+    padding: 0;
+  }
+
+  .track-buttons {
+    display: inline-block;
+  }
+  .track-item {
+    display: inline-block;
+  }
+
+  .col-md-12.track {
+    padding: 0;
+    height: 4em;
+  }
+
+  .col-sm-6.track-item {
+    padding: 0 auto;
+    width: 13em;
+    height: 20px;
+  }
+
+  a#track-names {
+    width: initial;
+    padding: 0px;
+    text-align: left;
   }
 
   #songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page {
@@ -722,9 +763,46 @@ li.track {
     background: url("http://i.imgur.com/VDqXOZV.jpg");
     background-size: cover;
     background-position: center left;
-    height:100vh;
+    height:95vh;
     width: 63vh;
   }
+
+  /*Music Player*/
+  iframe {
+    display: none;
+  }
+  .player-buttons {
+    margin: 0;
+    padding: 0.6em;
+  }
+  .track-title {
+    color: white;
+    text-align: center;
+  }
+  #video-pic-viewer {
+    width: 0;
+    height: 0;
+    display: inline-block;
+  }
+  #video-controller-1 {
+    display: inline-block;
+  }
+
+  #video-seek {
+    display: none;
+  }
+  #video-volume {
+    display: none;
+  }
+
+  #queue-list {
+    color: white;
+    background-color: transparent;
+    font-size: 2.5em;
+    display: inline-block;
+    border-color: transparent;
+  }
+
 }
 
 /*iphone 6*/

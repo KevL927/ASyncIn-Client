@@ -5,12 +5,13 @@ import playMusicFunc from '../MusicPlayer/playMusicFunc';
 import RenderQueue from '../Queue/RenderQueue';
 import * as actions from '../../actions/actions';
 import * as userActions from '../../actions/user-actions';
-import {ButtonToolbar, SplitButton, MenuItem} from 'react-bootstrap';
+import {ButtonToolbar, DropdownButton, MenuItem} from 'react-bootstrap';
 import FaHome from 'react-icons/lib/fa/home'
 import FaSearch from 'react-icons/lib/fa/search'
 import FaGlobe from 'react-icons/lib/fa/globe'
 import FaEnvelope from 'react-icons/lib/fa/envelope'
 import FaCog from 'react-icons/lib/fa/cog'
+import MdLineWeight from 'react-icons/lib/md/line-weight';
 
 
 class NavigationFooterPlayer extends Component {
@@ -28,12 +29,35 @@ class NavigationFooterPlayer extends Component {
 
   playMusicOrNot() {
     if(!this.props.currentListeningUrl && this.props.queue.length !== 0 && !this.props.shuffledQueue) {
-      return playMusicFunc(this.props.queue[0].link);
+      return (
+        <div className="play-track">
+          <div className="track-title">{this.props.queue[0].title}</div> 
+          <div>{playMusicFunc(this.props.queue[0].link)}</div>
+        </div>
+      )
     }
     if(!this.props.currentListeningUrl && this.props.shuffledQueue) {
-      return playMusicFunc(this.props.shuffledQueue[0].link);
+      return (
+        <div className="play-track">
+          <div className="track-title">
+            {this.props.shuffledQueue[0].title}
+          </div>
+          <div>
+            {this.playMusicFunc(this.props.shuffledQueue[0].link)}
+          </div>
+        </div>
+      )
     }
-    return playMusicFunc(this.props.currentListeningUrl);
+    return (
+      <div className="play-track">
+        <div className="track-title">
+          {this.props.currentListeningTitle}
+        </div>
+        <div>
+          {playMusicFunc(this.props.currentListeningUrl)}
+        </div>
+      </div>
+    );
   }
   
   renderQueueOrShuffled() {
@@ -78,18 +102,16 @@ class NavigationFooterPlayer extends Component {
         {this.updateServerQueue()}
         </div>
         <footer id="react-player">
-        {this.playMusicOrNot()}
-
-        <div id="Q-list">
-
-        <ButtonToolbar>
-          <SplitButton open={this.state.menuOpen} onToggle={val => this.dropdownToggle(val)} bsStyle="primary" title="Song Queue" dropup pullRight id="split-button-dropup-pull-right">
-          <MenuItem onClick={() => this.menuItemClickedThatShouldntCloseDropdown()}>
-            <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} error={this.props.error} feedback={this.props.feedback}/>
-            </MenuItem>
-          </SplitButton>
-        </ButtonToolbar>
-        </div>
+          <div id="Q-list">
+            <ButtonToolbar>
+              <DropdownButton open={this.state.menuOpen} onToggle={val => this.dropdownToggle(val)} bsStyle="default" title={<MdLineWeight/>} noCaret dropup pullRight id="queue-list">
+              <MenuItem onClick={() => this.menuItemClickedThatShouldntCloseDropdown()}>
+                <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} error={this.props.error} feedback={this.props.feedback}/>
+                </MenuItem>
+              </DropdownButton>
+            </ButtonToolbar>
+          </div>
+          {this.playMusicOrNot()}
         </footer>
         </div>
 
@@ -100,6 +122,6 @@ class NavigationFooterPlayer extends Component {
 
 
 export default connect(
-    ({ userSavedPlaylists, error, feedback, currentListeningUrl, queue, currentUser, shuffledQueue }) =>
-    ({ userSavedPlaylists, error, feedback, currentListeningUrl, queue, currentUser, shuffledQueue })
+    ({ userSavedPlaylists, error, feedback, currentListeningUrl, currentListeningTitle, queue, currentUser, shuffledQueue }) =>
+    ({ userSavedPlaylists, error, feedback, currentListeningUrl, currentListeningTitle, queue, currentUser, shuffledQueue })
 )(NavigationFooterPlayer);
