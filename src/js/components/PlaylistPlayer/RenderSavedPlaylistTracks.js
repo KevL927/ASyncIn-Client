@@ -27,7 +27,7 @@ class RenderTracks extends Component {
     
     moveTrackInPlaylist(event, playlistIndex, trackIndex, direction) {
         event.preventDefault();
-        this.props.dispatch(actions.moveTrackInPlaylist({ direction, playlistIndex, trackIndex }))
+        this.props.dispatch(actions.moveAndUpdateTrackInPlaylist( direction, playlistIndex, trackIndex ))
     }
     
     unwrapTracks() {
@@ -51,4 +51,4 @@ class RenderTracks extends Component {
 
 }
 
-export default connect()(RenderTracks);
+export default connect()(RenderTracks);  

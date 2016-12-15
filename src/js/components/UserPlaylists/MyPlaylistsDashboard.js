@@ -29,18 +29,12 @@ const tooltip_edit = (
 );
 
 class MyPlaylistsDashboard extends Component {
+	
 	state = {
 		isOpenedArray: [],
 		editable:null
 	}
 	
-	updateServerPlaylist() {
-		if(this.props.updatedPlaylistIndex !== null) {
-			this.props.dispatch(actions.clearUpdatedPlaylistIndex());
-			return this.props.dispatch(playlistActions.updatePlaylist(this.props.userSavedPlaylists[0], sessionStorage.access_token));
-		}
-	}
-
 	onClickAddToQueue(playlist, event) {
 	    this.props.dispatch(actions.queue(playlist.tracks));  
 	}
@@ -58,7 +52,6 @@ class MyPlaylistsDashboard extends Component {
 	}
 
 	viewTracks(playlists, playlistIndex) {
-		this.updateServerPlaylist()
 		if(playlists) {
 		 	return <ul className="saved-playlists-ul">
 					 	<RenderSavedPlaylistTracks 
@@ -119,8 +112,6 @@ class MyPlaylistsDashboard extends Component {
 	  } else {
 	      arr = resultArr.map((playlist, index) => {
 	      return (
-
-	      	
 	        <li key={index} id="user-playlist-buttons-li">
 	        	 {this.state.editable == playlist._id ? <form onSubmit={this.edit.bind(this, playlist)}>
 	        	 	<input type="text" autoFocus contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" required/> 
@@ -195,4 +186,4 @@ class MyPlaylistsDashboard extends Component {
 export default connect(
     ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl, updatedPlaylistIndex, error }) => 
     ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl, updatedPlaylistIndex, error })
-)(MyPlaylistsDashboard);  
+)(MyPlaylistsDashboard);
