@@ -432,6 +432,17 @@ h4 {
   0px 18px 16px rgba(0,0,0,0.1);
 }
 
+.trackButtons{
+  color: white ;
+  background-color: black;
+  border: none;
+  font-weight: bolder;
+}
+
+.blackColor{
+  color:black;
+}
+
 
 /*********************************************************************
 //--------------------------USER PLAYLIST PAGE--------------------------
