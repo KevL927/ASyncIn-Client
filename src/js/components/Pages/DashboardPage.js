@@ -25,8 +25,6 @@ class DashboardPage extends Component {
         <div className="DashboardPage">
 
           <span id="welcome">Welcome, {this.props.currentUser.username} </span>
-        <p>Hey, there. Glad you could make it. Welcome to "Sync-In", where all the music platforms you enjoy are all in one place.</p>
-        <p>Enter a song in the search bar, and you will be directed to a page where you can start building your playlist</p>
            <div className="songSearch-container">
           <form onSubmit={this.onSubmitSearch.bind(this)}>
             <input type="text" name="search" ref="searchInput" placeholder="Search.." required/>

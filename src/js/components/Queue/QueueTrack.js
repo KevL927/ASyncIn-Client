@@ -21,10 +21,10 @@ const tooltip_down = (
 export default ({ currentUser, userSavedPlaylists, error, feedback, track,  onTrackItemClick, onClickDeleteQueueTrack, moveTrackInQueue, trackIndex, onTrackPlayNow }) => {
   return (
     <li className="track">
-    <OverlayTrigger placement="top" overlay={tooltip_add}>
+    <OverlayTrigger placement="top" overlay={tooltip_delete}>
     	<button onClick={(event) => onClickDeleteQueueTrack(event, trackIndex)}><FaTrash size={22} /></button>
     </OverlayTrigger>
-    <OverlayTrigger placement="top" overlay={tooltip_delete}>
+     <OverlayTrigger placement="top" overlay={tooltip_add}>
     	<button onClick={(event) => onTrackItemClick(event, track)}><TiPlus size={22} /></button>
     </OverlayTrigger>
     <OverlayTrigger placement="top" overlay={tooltip_up}>
@@ -33,7 +33,7 @@ export default ({ currentUser, userSavedPlaylists, error, feedback, track,  onTr
     <OverlayTrigger placement="top" overlay={tooltip_down}>
     	<button onClick={(event) => moveTrackInQueue(event, trackIndex, 'down')}><FaArrowCircleDown size={22} /></button>
     </OverlayTrigger>
-    	<div onClick={(event) => onTrackPlayNow(event, track.link)} id="Q_Track_List">{track.title}</div>
+    	<div onClick={(event) => onTrackPlayNow(event, track)} id="Q_Track_List">{track.title}</div>
 
     </li>
   );

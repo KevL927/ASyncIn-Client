@@ -46,7 +46,7 @@ class RenderTracks extends Component {
     }
     
     render() {
-        return <div>{this.unwrapTracks()}</div>;
+        return <div class="tracks-list">{this.unwrapTracks()}</div>;
     }
 
 }

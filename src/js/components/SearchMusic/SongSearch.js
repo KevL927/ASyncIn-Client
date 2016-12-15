@@ -115,9 +115,9 @@ class SongSearch extends Component {
       this.props.dispatch(actions.queue(track));
   }
 
-  playTrackOnClick(url, event) {
+  playTrackOnClick(track, event) {
     event.preventDefault();
-    this.props.dispatch(actions.currentListeningUrl(url));
+    this.props.dispatch(actions.currentListeningUrl(track));
   }
 
   generateResult(resultArr) {
@@ -132,7 +132,7 @@ class SongSearch extends Component {
             </input>
             <SearchResult track={track}/>
             <button onClick={this.onClickAddToQueue.bind(this, track)}><TiPlus size={22}/></button>
-            <button onClick={this.playTrackOnClick.bind(this, track.link)}><FaPlayCircle size={22} /></button>
+            <button onClick={this.playTrackOnClick.bind(this, track)}><FaPlayCircle size={22} /></button>
           </li>
         );
         })
