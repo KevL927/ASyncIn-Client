@@ -19,7 +19,7 @@ export default ({ track, trackIndex, playlistIndex, moveTrackInPlaylist, onTrack
 
   return (
     <li className="track">
-    <div>
+    <div class="track-buttons">
       <OverlayTrigger placement="bottom" overlay={tooltip_up}>
         <button className="trackButtons" onClick={(event) => moveTrackInPlaylist(event, playlistIndex, trackIndex, 'up')}><FaArrowCircleUp size={22} /></button>
       </OverlayTrigger>

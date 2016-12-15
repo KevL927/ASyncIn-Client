@@ -84,7 +84,7 @@ a:hover, .nav-li:hover {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center left;
-  height:1000px;
+  height:100vh;
   color: white;
 }
 /*********************************************************************
@@ -375,7 +375,7 @@ h4 {
   margin: 10px auto;
   width: 800px;
   height: 300px;
-  background: #353530;
+  background: transparent;
   text-decoration: none;
 }
 
@@ -672,7 +672,7 @@ li.track {
 
 /*Navigation bar*/
   .NavigationBar a {
-    padding: 14px 12px;
+    padding: 14px 14px;
   }
 /*Dashboard*/
   #welcome {
@@ -693,6 +693,30 @@ li.track {
   }
   .track a {
     font-size: 0.85em;
+  }
+  .scrollarea.area>div.scrollarea-content.content {
+    width: 25em;
+    float: none;
+  }
+  .playlist-buttons {
+    margin: 0 auto;
+    padding: 0;
+    display: inline-block;
+  }
+  #playlist_toggle_div {
+    margin: 0, auto;
+    padding: 0;
+    display: inline-block;
+  }
+
+  #songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page {
+    margin-top:57px;
+    margin-bottom:40px;
+    background: url("http://i.imgur.com/VDqXOZV.jpg");
+    background-size: cover;
+    background-position: center left;
+    height:100vh;
+    width: 63vh;
   }
 }
 
