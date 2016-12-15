@@ -83,7 +83,7 @@ class RenderPlaylist extends Component {
           {this.props.playlistArray.map((playlist, index) => (
             <div key={index} className="playlist_favourites">
               <li>#{index+1} - {playlist.name}</li>
-              <li>favourites: {playlist.rating}</li>
+              <li>favourites: {playlist.rating-1}</li>
               {this.favouriteOrUnfavourite(playlist)}
                   <OverlayTrigger placement="bottom" overlay={tooltip_add}>
                     <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus size={22}/></button>
