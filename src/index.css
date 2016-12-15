@@ -652,6 +652,32 @@ li.track {
     margin: 0px;
     width: 18em;
   }
+
+
+/*Navigation bar*/
+  .NavigationBar a {
+    padding: 14px 12px;
+  }
+/*Dashboard*/
+  #welcome {
+    font-size: 2em;
+  }
+  p.DashboardPage {
+    font-size: 0.5em;
+  }
+  .songSearch-container input {
+    width: 80%;    
+  }
+/*My Saved Playlists*/
+  #my-saved-playlists {
+    font-size: 2em;
+  }
+  .area {
+    width: 25em;
+  }
+  .track a {
+    font-size: 0.85em;
+  }
 }
 
 /*iphone 6*/
@@ -677,11 +703,20 @@ li.track {
     padding-left: 23%;
     padding-top: 20%;
   }
+  /*Login*/
+  div#login {
+    padding: 2em;
+  }
   /*Register*/
   div#register {
     padding: 2em;
   }
 
+  /*Dashboard*/
+  /*Navigation bar*/
+  .NavigationBar a {
+    padding: 14px 52px;
+  }
 }
 
 /*iphone 6s*/
