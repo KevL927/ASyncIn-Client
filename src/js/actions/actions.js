@@ -35,6 +35,8 @@ export const deleteQueueTrack = createAction('DELETE_QUEUE_TRACK', track => trac
 
 export const moveTrackInQueue = createAction('moveTrackInQueue');
 
+export const moveTrackInPlaylist = createAction('moveTrackInPlaylist');
+
 export const updateQueueSuccess = createAction('UPDATE_QUEUE_SUCCESS');
 export const updateQueueError = createAction('UPDATE_QUEUE_ERROR');
 export const updateQueue = (accessToken, token, queue) => dispatch => {
@@ -49,7 +51,7 @@ export const updateQueue = (accessToken, token, queue) => dispatch => {
             return false;
         });
 };
-
+  
 
 
 export const shuffledQueue = createAction('shuffledQueue');

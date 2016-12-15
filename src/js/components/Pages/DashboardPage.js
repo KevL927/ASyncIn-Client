@@ -8,7 +8,7 @@ import FaStar from 'react-icons/lib/fa/star';
 
 class DashboardPage extends Component {
   
-  componentWillMount(){
+  componentWillMount() {
     if (!this.props.currentUser) {
       this.props.dispatch(userActions.getCurrentUser(sessionStorage.token, sessionStorage.access_token));
     }
