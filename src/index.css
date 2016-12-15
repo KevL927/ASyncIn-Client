@@ -82,7 +82,7 @@ a:hover, .nav-li:hover {
     text-decoration: none;
 }
 
-#songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page {
+#songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page, .account-settings {
   margin-top:57px;
   margin-bottom:40px;
   background: url("http://i.imgur.com/VDqXOZV.jpg");
@@ -156,7 +156,7 @@ span {
 /*********************************************************************
 //------------------------------LOGIN PAGE CSS--------------------------
 //*********************************************************************/
-.LoginPage, .Register-page, .account-settings{
+.LoginPage, .Register-page{
   text-align: center;
     text-align: center;
   background: url("http://i.imgur.com/BWMCDuH.jpg");
@@ -489,6 +489,15 @@ div#Q_Track_List:hover {
 /*********************************************************************
 //---------------------------ACCOUNT SETTINGS--------------------------
 //*********************************************************************/
+.update-display-name-form, .update-password-form{
+  width: 30em;
+  text-align: center;
+}
+
+.current-password{
+  font-size: 10em;
+}
+
 .update-password-display-name {
   top: 62%;
   position: absolute;
@@ -498,6 +507,8 @@ div#Q_Track_List:hover {
   font-size: 2em;
 
 }
+
+
 
 /*********************************************************************
 //------------------------------FOOTER----------------------------
