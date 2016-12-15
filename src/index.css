@@ -11,13 +11,14 @@ body {
 
 li {
   list-style-type: none;
+  text-align: center;
 }
 
 .thumbnail{
   height:50px;
   width:50px;
 }
-h3 {
+h3,h2 {
   text-align: center;
 }
 form {
@@ -77,13 +78,12 @@ a:hover, .nav-li:hover {
 }
 
 #songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page {
-  padding: 14px 0px;
-  margin-top:30px;
+  margin-top:57px;
   margin-bottom:40px;
-  background: url("http://i.imgur.com/KaBbQw6.jpg");
+  background: url("http://i.imgur.com/VDqXOZV.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center left;
   height:1000px;
   color: white;
 }
@@ -93,14 +93,11 @@ a:hover, .nav-li:hover {
 
 .MainPage {
   text-align: center;
-  background:linear-gradient(
-      rgba(138,91,16, .85), 
-      rgba(255,197,103, 0.10)
-    ), url("http://i.imgur.com/3dI9j4c.jpg");
+  background: url("http://i.imgur.com/BWMCDuH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 66.9em;
+  height: 100vh;
 }
 
 .MainPage-Header {
@@ -118,25 +115,30 @@ span {
     font-family: 'Ubuntu', sans-serif;
   }
 
-  #about {
-    font-size: 20px;
-    margin: 10px;
-    text-shadow: 0px 2px 0px #8e4600,
-                 0px 10px 8px rgba(0,0,0,1),
-                 0px 20px 2px rgba(0,0,0,0.1),
-                 0px 30px 20px rgba(0,0,0,0.1);
-    font-family: 'Ubuntu', sans-serif;
-    display: block;
-  }
+#about {
+  font-size: 20px;
+  margin: 10px;
+  text-shadow: 0px 2px 0px #8e4600,
+               0px 10px 8px rgba(0,0,0,1),
+               0px 20px 2px rgba(0,0,0,0.1),
+               0px 30px 20px rgba(0,0,0,0.1);
+  font-family: 'Ubuntu', sans-serif;
+  display: block;
+}
 
+#disc {
+  text-align: center;
+  padding-left: 42%;
+}
+
+#disc a {
+  background-color: transparent;
+}
 
 .image {
     position: absolute;
-    top: 48%;
-    left: 46%;
-    width: 380px;
     height: 380px;
-    margin:-60px 0 0 40.625em;
+    margin: 0 auto;
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
@@ -152,14 +154,11 @@ span {
 .LoginPage, .Register-page, .account-settings{
   text-align: center;
     text-align: center;
-  background:linear-gradient(
-      rgba(138,91,16, .85), 
-      rgba(255,197,103, 0.10)
-    ), url("http://i.imgur.com/3dI9j4c.jpg");
+  background: url("http://i.imgur.com/BWMCDuH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
-  height: 66.9em;
+  background-position: bottom;
+  height: 100vh;
   color: #fcf8e3;
 }
 .LoginPage label, .Register-page label, .update-password-display-name label {
@@ -172,17 +171,23 @@ span {
     font-family: 'Ubuntu', sans-serif;
 }
 .Register-page label, .account-settings label{
-  font-size: 3em;
+  font-size: 2em;
 }
 .login-container, .Register-form, .update-password-display-name {
     border-radius: 5px;
     background-color: rgba(40,10,9, .70);
     padding: 20px;
     position: fixed;
-    top: 50%;
+    top: 59%;
     left: 50%;
     transform: translate(-50%, -50%);
 
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -webkit-transform: scale(2);
+  padding: 10px;
 }
 input[type=text], select {
     left:20%;
@@ -247,6 +252,8 @@ button[type=submit]:hover {
   background-color: transparent;
   text-align: center;
   display: block;
+  float: none;
+
 }
 
 #registerlink:hover {
@@ -255,11 +262,13 @@ button[type=submit]:hover {
   transform: scale(1.1);
   background-color: transparent;
 }
-
+#login-icons {
+  text-align: center;
+}
 #google-login, #facebook-login{
   background-color: transparent;
   display: block;
-
+  width: 50%;
 }
 
 .App-intro {
@@ -275,7 +284,9 @@ button[type=submit]:hover {
   top: 61%;
 }
 
-
+a#loginlink {
+  float: none;
+}
 #displayName{
   width:100%;
 }
@@ -284,7 +295,8 @@ button[type=submit]:hover {
 //------------------------------SONG SEARCH--------------------------
 //*********************************************************************/
 #songSearch-page {
-  background: url("http://i.imgur.com/KaBbQw6.jpg");
+  
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center left;
@@ -295,12 +307,12 @@ button[type=submit]:hover {
  }
 
  #three_platforms {
-  margin-left: 148px;
+  margin-left: 238px;
     padding-bottom: 29px;
-    padding-left: 180px;
+    padding-left: 121px;
     margin-bottom: 8px;
-    margin-right: 148px;
-    background-color: rgba(18, 2, 255, 0.2);
+    margin-right: 146px;
+    background-color: rgba(206, 200, 197, 0.63);
     border-radius: 137px;
  }
 #search-songs {
@@ -314,7 +326,7 @@ button[type=submit]:hover {
 .ASDF {
   overflow: auto;
   width:300px;
-  height:300px;
+  height:435px;
 
 }
 .ASDF::-webkit-scrollbar-thumb {
@@ -322,9 +334,7 @@ button[type=submit]:hover {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: #555;
 }
-.add-playlist-button {
-  margin-left:46%;
-}
+
 
 /*********************************************************************
 //--------------------------USER PLAYLIST PAGE--------------------------
@@ -342,7 +352,7 @@ h4 {
   text-align: center;
 }
 .content{
-  background: #5db6a2;
+  background: rgba(40,10,9, 1);
    width: 800px;
   height: auto;
   margin: 10px;
@@ -371,8 +381,8 @@ h4 {
 .user-playlist-buttons {
   text-decoration: none;
   color: white;
-  background-color:#ff2e44;
-  padding: 1em;
+  background-color: transparent;
+  padding: .50em;
   border: none;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -424,10 +434,34 @@ h4 {
 #Q_Track_List{
   width:100%;
 }
-.UserPlaylist {
-  margin-left: 46%;
 
+div#Q_Track_List {
+  text-decoration: none;
+  color: white;
+  background-color: rgba(40,10,9, 1);
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out; 
 }
+
+div#Q_Track_List:hover {
+    background-color: #3d2221;
+    color: white;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+.UserPlaylist {
+ 
+}
+
 /*********************************************************************
 //---------------------------ACCOUNT SETTINGS--------------------------
 //*********************************************************************/
@@ -472,7 +506,7 @@ h4 {
 }
 
 .player-buttons {
-  background-color: #3d2221;
+  background-color: transparent;
   padding: 1em;
   color: white;
   margin: 3px;
@@ -509,3 +543,163 @@ li.track {
   margin-top: 54px;
 }
 
+#lock_new_saved_playlists {
+  float:right;
+  position: fixed;
+}
+
+.dropdown-menu>li>a {
+  color: white;
+}
+
+#toggle-div {
+  margin-left: 25%;
+  }
+
+.add-playlist-button:hover {
+  color: burlywood;
+}
+
+#new-playlist-input {
+  width:100%;
+}
+#playlist_toggle_div{
+  margin-left: 47%;
+}
+
+
+
+/*********************************************************************
+//----------------------Media query-------------------------
+//*********************************************************************/
+/*iphone 5*/
+@media screen and (min-width: 320px) and (max-width: 376px) {
+  span {
+    font-size: 2em;
+  }
+  span#about {
+    font-size: 1em;
+  }
+  .MainPage {
+    height: 100vh;
+  }
+  .MainPage-Header {
+      padding-top: 7em;
+      padding-left: 2em;
+      padding-right: 2em;
+  }
+  .image {
+    width: 200px;
+    height: 200px;
+  }
+  #disc {
+    text-align: center;
+    padding-left: 15%;
+  }
+}
+
+/*iphone 6*/
+@media screen and (min-width: 375px) and (max-width: 413px) {
+  span {
+    font-size: 3em;
+  }
+  span#about {
+    font-size: 1em;
+  }
+  .MainPage {
+    height: 100vh;
+  }
+  .MainPage-Header {
+      padding-top: 7em;
+  }
+  .image {
+    width: 200px;
+    height: 200px;
+  }
+  #disc {
+    text-align: center;
+    padding-left: 23%;
+    padding-top: 20%;
+  }
+}
+
+/*iphone 6s*/
+@media screen and (min-width: 414px) and (max-width: 659px) {
+  span {
+    font-size: 3em;
+  }
+  span#about {
+    font-size: 1em;
+  }
+  .MainPage {
+    height: 100vh;
+  }
+  .MainPage-Header {
+      padding-top: 7em;
+  }
+  .image {
+    width: 200px;
+    height: 200px;
+  }
+  #disc {
+    text-align: center;
+    padding-left: 23%;
+    padding-top: 20%;
+  }
+}
+
+@media screen and (min-width: 660px) and (max-width: 959px) {
+  span {
+    font-size: 8em;
+  }
+
+  .MainPage {
+    height: 100vh;
+  }
+  #disc {
+    text-align: center;
+    padding-left: 23%;
+  }
+}
+
+@media (min-width: 960px) {
+  #disc {
+    text-align: center;
+    padding-left: 28%;
+  }
+}
+
+@media (min-width: 1060px) {
+  #disc {
+    text-align: center;
+    padding-left: 29%;
+  }
+}
+
+@media (min-width: 1170px) {
+  #disc {
+    text-align: center;
+    padding-left: 32%;
+  }
+}
+
+@media (min-width: 1260px) {
+  #disc {
+    text-align: center;
+    padding-left: 34%;
+  }
+}
+
+@media (min-width: 1480px) {
+  #disc {
+    text-align: center;
+    padding-left: 37%;
+  }
+}
+
+@media (min-width: 1610px) {
+  #disc {
+    text-align: center;
+    padding-left: 39%;
+  }
+}

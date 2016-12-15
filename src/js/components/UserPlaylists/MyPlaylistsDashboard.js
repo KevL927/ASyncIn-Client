@@ -11,9 +11,22 @@ import FaAlignJustify from 'react-icons/lib/fa/align-justify';
 import ToggleButton from 'react-toggle-button';
 import FaUnlock from 'react-icons/lib/fa/unlock';
 import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt';
+import FaTrash from 'react-icons/lib/fa/trash';
+import FaEdit from 'react-icons/lib/fa/edit';
+import TiPlus from 'react-icons/lib/ti/plus';
+import {Tooltip, OverlayTrigger} from 'react-bootstrap';
 
 
 const borderRadiusStyle = { borderRadius: 2 };
+const tooltip_delete = (
+  <Tooltip id="tooltip_delete"><strong>Delete</strong> playlist</Tooltip>
+);
+const tooltip_add = (
+  <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
+);
+const tooltip_edit = (
+  <Tooltip id="tooltip_edit"><strong>Edit</strong> playlist name</Tooltip>
+);
 
 class MyPlaylistsDashboard extends Component {
 	state = {
@@ -25,13 +38,13 @@ class MyPlaylistsDashboard extends Component {
 	    this.props.dispatch(actions.queue(playlist.tracks));  
 	}
 
-	expandCollapse(index, event) {
+	expandCollapse(arrIndex, event) {
 		event.preventDefault();
-		if (this.state.isOpenedArray.indexOf(index) === -1) {
-			const tempOpenedArr = update(this.state.isOpenedArray, {$push: [index]});
+		if (this.state.isOpenedArray.indexOf(arrIndex) === -1) {
+			const tempOpenedArr = update(this.state.isOpenedArray, {$push: [arrIndex]});
       		this.setState({isOpenedArray: tempOpenedArr})
 		} else {
-			const index = this.state.isOpenedArray.indexOf(index)
+			const index = this.state.isOpenedArray.indexOf(arrIndex)
 			const tempOpenedArr = update(this.state.isOpenedArray, {$splice: [[index, 1]]});
 			this.setState({isOpenedArray: tempOpenedArr});
 		}
@@ -95,29 +108,46 @@ class MyPlaylistsDashboard extends Component {
 	      	
 	        <li key={index} id="user-playlist-buttons-li">
 	        	 {this.state.editable == playlist._id ? <form onSubmit={this.edit.bind(this, playlist)}>
-	        	 <input type="text" autoFocus contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" required/> 
-	        	 </form>:<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name} <FaAlignJustify/></h4> }
-	          	 <ToggleButton
-                  inactiveLabel={<FaUnlockAlt/>}
-                  activeLabel={<FaUnlock/>}
-                  colors={{active: {
-                        base: 'rgb(0,207,0)'
-                      },
-                        inactive:{
-                        base: 'rgb(186,0,0)'
-                        }
-                    }}
-                   thumbStyle={ borderRadiusStyle }
-                   trackStyle={ borderRadiusStyle } 
-                   value={playlist.isPublic}
-                   onToggle={(isPublic) => {
-                   this.isPublicTrueOrFalse(this, playlist)
-					}} />
+	        	 	<input type="text" autoFocus contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" required/> 
+	        	 </form>: <div>
+					<h4 onClick={this.expandCollapse.bind(this, index)} ref={index}>{playlist.name}     
+					<FaAlignJustify/>
+					</h4>
+					</div> }
+
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
 		         	{this.viewTracks(playlist)}
-		         	<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
-	        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}>Delete Playlist</button>
-	        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}>Edit</button>
+		         	<div>
+		         		<div id="playlist_toggle_div">
+
+				        	<ToggleButton
+			                  inactiveLabel={<FaUnlockAlt/>}
+			                  activeLabel={<FaUnlock/>}
+			                  colors={{active: {
+			                        base: 'rgb(0,207,0)'
+			                      },
+			                        inactive:{
+			                        base: 'rgb(186,0,0)'
+			                        }
+			                    }}
+		                   thumbStyle={ borderRadiusStyle }
+		                   trackStyle={ borderRadiusStyle } 
+		                   value={playlist.isPublic}
+		                   onToggle={(isPublic) => {
+		                   this.isPublicTrueOrFalse(this, playlist)
+						}} />
+						</div>
+						<OverlayTrigger placement="bottom" overlay={tooltip_add}>
+							<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus class="isBold" size={23} /></button>
+						</OverlayTrigger>
+						<OverlayTrigger placement="bottom" overlay={tooltip_delete}>
+			        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}><FaTrash class="isBold" size={23} /></button>
+			        	 </OverlayTrigger>
+			        	 <OverlayTrigger placement="bottom" overlay={tooltip_edit}>
+			        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}><FaEdit class="isBold" size={23} /></button>
+			        	 </OverlayTrigger>
+			        	 
+					</div>
 		         </Collapse>
 	        </li>
 	      
@@ -128,7 +158,6 @@ class MyPlaylistsDashboard extends Component {
 	}
 
 	render() {
-		console.log(this.props.error)
 		return (
 		
 			<div id="UserPlaylist">

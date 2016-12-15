@@ -7,6 +7,7 @@ import Feedback from '../Feedback';
 import ToggleButton from 'react-toggle-button';
 import FaUnlock from 'react-icons/lib/fa/unlock'
 import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt'
+import {ButtonGroup, Button, DropdownButton, MenuItem} from 'react-bootstrap'
 const borderRadiusStyle = { borderRadius: 2 };
 
 class AddPlaylist extends Component {
@@ -62,9 +63,12 @@ class AddPlaylist extends Component {
     }
 	render() {
 		return (
-            <div>
-                <button className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</button>
-                {(this.state.showInput === true || this.props.error) ? this.renderInput(): ''}
+            <div id="lock_new_saved_playlists">
+                <ButtonGroup vertical>
+                    <Button>
+                    <p className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</p>
+                    {(this.state.showInput === true || this.props.error) ? this.renderInput(): ''}
+                <div id="toggle-div">
                <ToggleButton
                   inactiveLabel={<FaUnlockAlt/>}
                   activeLabel={<FaUnlock/>}
@@ -81,12 +85,20 @@ class AddPlaylist extends Component {
                   onToggle={(isPublic) => {
                     this.setState({
                       isPublic: !isPublic,
-    })
-  }} />
+                    })
+
+                }} />
+                </div>
+               </Button>
+               
                 {(this.props.error) ? <div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div>: <div></div>}
                 {(this.props.feedback) ?<div><i className="fa fa-check-square-o" aria-hidden="true"></i><Feedback feedback={this.props.feedback}/></div>: <div></div>}
-                <SavedPlaylistsDropdown onSubmitClearTemp={this.props.onSubmitClearTemp} userPlaylists={this.props.userSavedPlaylists} newPlaylist={this.props.newPlaylist} currentUser={this.props.currentUser}/>
-            </div>
+                
+                <Button>
+                    <SavedPlaylistsDropdown onSubmitClearTemp={this.props.onSubmitClearTemp} userPlaylists={this.props.userSavedPlaylists} newPlaylist={this.props.newPlaylist} currentUser={this.props.currentUser}/>
+                </Button>
+                </ButtonGroup>
+            </div> 
 		);
 	}
 }

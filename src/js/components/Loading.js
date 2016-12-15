@@ -1,5 +1,4 @@
 import React from 'react';
-import { Component } from 'react';
 import Loading from 'react-loading';
  
 export default () => {

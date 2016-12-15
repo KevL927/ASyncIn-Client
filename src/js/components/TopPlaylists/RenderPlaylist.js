@@ -6,6 +6,9 @@ import RenderTracks from '../PlaylistPlayer/RenderTracksTopPlaylist';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
 import ScrollArea from 'react-scrollbar';
+import TiPlus from 'react-icons/lib/ti/plus';
+import FaThumbsUp from 'react-icons/lib/fa/thumbs-up';
+import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up';
 
 class RenderPlaylist extends Component {
   
@@ -23,7 +26,7 @@ class RenderPlaylist extends Component {
     }
     
     favouriteOrUnfavourite(playlistObject) {
-      if(this.props.currentUser.userId === playlistObject.userId) {
+      if(sessionStorage.userId === playlistObject.userId) {
         return <div><i className="fa fa-user" aria-hidden="true"></i></div>
       }
       let favouritePlaylistIdArray = [];
@@ -32,8 +35,8 @@ class RenderPlaylist extends Component {
         favouritePlaylistIdArray.push(this.props.favouritePlaylist[i]._id);
       }
       return (
-        <button onClick={this.onClickUpdateFavouritePlaylist.bind(this, playlistObject)}>
-          {favouritePlaylistIdArray.indexOf(playlistObject._id) >= 0 ? 'Unfavourite' : 'Favourite'}
+        <button className="user-playlist-buttons" onClick={this.onClickUpdateFavouritePlaylist.bind(this, playlistObject)}>
+          {favouritePlaylistIdArray.indexOf(playlistObject._id) >= 0 ?  <FaThumbsOUp size={22} />: <FaThumbsUp size={22} />}
         </button>
       )
     }
@@ -76,7 +79,7 @@ class RenderPlaylist extends Component {
               <li>#{index+1} - {playlist.name}</li>
               <li>favourites: {playlist.rating}</li>
               {this.favouriteOrUnfavourite(playlist)}
-              <button onClick={this.onClickAddToQueue.bind(this, playlist)}>Add to Queue</button>
+              <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus size={22}/></button>
               {this.viewTracks(playlist)}
             </div>
           ))}
@@ -98,7 +101,7 @@ class RenderPlaylist extends Component {
                 favourites: {playlist.rating}
               </li>
               {this.favouriteOrUnfavourite(playlist)}
-              <button onClick={this.onClickAddToQueue.bind(this, playlist )}>Add to Queue</button>
+              <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist )}><TiPlus size={22}/></button>
               <Collapse isOpened={this.checkOpenedOrNot(index)}>
               {this.viewTracks(playlist)}
              </Collapse>
@@ -111,7 +114,6 @@ class RenderPlaylist extends Component {
   }
   
   render() {
-    console.log(sessionStorage, this.props);
     return (
       <div>
         <div>{this.renderTop3And4To10Playlists(this.props.playlistArray)}</div>
