@@ -80,7 +80,7 @@ class RenderPlaylist extends Component {
           <h2>Top 3 Playlists</h2>
           <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
           {this.props.playlistArray.map((playlist, index) => (
-            <div key={index}>
+            <div key={index} className="playlist_favourites">
               <li>#{index+1} - {playlist.name}</li>
               <li>favourites: {playlist.rating}</li>
               {this.favouriteOrUnfavourite(playlist)}
@@ -101,7 +101,7 @@ class RenderPlaylist extends Component {
           <h2>Top 4-10 Playlists</h2>
           <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
           {this.props.playlistArray4To10.map((playlist, index) => (
-            <div key={index}>
+            <div key={index} className="playlist_favourites">
               <li onClick={this.expandCollapse.bind(this, index)} ref={index}>
                 #{index+4} - {playlist.name}
               </li>
