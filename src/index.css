@@ -18,6 +18,7 @@ li {
   height:120px;
   width:120px;
   border:black;
+  float: left;
 }
 h3,h2 {
   text-align: center;
