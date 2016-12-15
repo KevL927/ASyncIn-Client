@@ -153,14 +153,22 @@ export default handleActions (
 				if(trackIndex >= playlist.length-1) {
     				return { ...state };
 				}
-				let newQueueOrder = [ 
+				let newPlaylistOrder = [ 
 									...playlist.slice(0, trackIndex),
                     				playlist[trackIndex+1],
                     				playlist[trackIndex],
                     				...playlist.slice(trackIndex+2)
                     				]
                       
-				return { ...state, userSavedPlaylists: newQueueOrder };
+			    let newUserSavedPlaylist = update(state.userSavedPlaylists[action.payload.playlistIndex], { tracks: { $set: newPlaylistOrder } });
+			    let newUserSavedPlaylists = state.userSavedPlaylists.map((playlist, index) => {
+			    	if(index === action.payload.playlistIndex) {
+			    		return newUserSavedPlaylist
+			    	}
+			    	return playlist;
+			    })
+			    
+				return { ...state, userSavedPlaylists: newUserSavedPlaylists };
 			}
 		},
 		[actions.deleteQueueTrack]: (state, action) => {
