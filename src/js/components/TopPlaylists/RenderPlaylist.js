@@ -9,11 +9,7 @@ import ScrollArea from 'react-scrollbar';
 import TiPlus from 'react-icons/lib/ti/plus';
 import FaThumbsUp from 'react-icons/lib/fa/thumbs-up';
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up';
-import {Tooltip, OverlayTrigger} from 'react-bootstrap';
 
-const tooltip_add = (
-  <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
-);
 
 
 class RenderPlaylist extends Component {
@@ -85,10 +81,10 @@ class RenderPlaylist extends Component {
               <li>#{index+1} - {playlist.name}</li>
               <li>favourites: {playlist.rating}</li>
               {this.favouriteOrUnfavourite(playlist)}
-              <OverlayTrigger placement="bottom" overlay={tooltip_add}>
+
                   <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus size={22}/></button>
                   {this.viewTracks(playlist)}
-              </OverlayTrigger>
+      
             </div>
           ))}
           </ScrollArea>
@@ -109,9 +105,9 @@ class RenderPlaylist extends Component {
                 favourites: {playlist.rating}
               </li>
               {this.favouriteOrUnfavourite(playlist)}
-              <OverlayTrigger placement="bottom" overlay={tooltip_add}>
+         
                 <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist )}><TiPlus size={22}/></button>
-              </OverlayTrigger>
+            
               <Collapse isOpened={this.checkOpenedOrNot(index)}>
               {this.viewTracks(playlist)}
              </Collapse>
