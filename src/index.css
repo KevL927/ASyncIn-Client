@@ -423,6 +423,16 @@ h4 {
   0px 18px 16px rgba(0,0,0,0.1);
 }
 
+.deleteTrack{
+  padding:0px;
+  color:white;
+  background-color: black;
+  border:none;
+}
+
+.blackColor{
+  color:black;
+}
 
 /*********************************************************************
 //--------------------------USER PLAYLIST PAGE--------------------------

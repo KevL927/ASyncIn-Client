@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import * as playlistActions from '../../actions/playlist-actions';
-
+import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up';
+import TiPlus from 'react-icons/lib/ti/plus';
 
 
 class FavouritePlaylist extends Component {
@@ -29,10 +30,10 @@ class FavouritePlaylist extends Component {
 	                    <div>
 	                        <div>{playlist.name}</div>
                             <button onClick={this.onClickAddToQueue.bind(this, playlist)}>
-                                Add To Queue
+                                <TiPlus className="blackColor" size={22} />
                             </button>
                             <button onClick={this.onClickUpdateFavouritePlaylist.bind(this, playlist)}>
-                                Unfavourite playlist
+                                <FaThumbsOUp className="blackColor" size={22} />
                             </button>
                         </div>
 	                </li>
