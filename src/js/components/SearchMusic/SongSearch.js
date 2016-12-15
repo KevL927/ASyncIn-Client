@@ -5,9 +5,11 @@ import * as actions from '../../actions/actions';
 import SearchResult from './SearchResult';
 import AddPlaylist from '../AddPlaylist/AddPlaylist';
 import {Grid, Row, Col} from 'react-bootstrap';
-import FaVimeo from 'react-icons/lib/fa/vimeo'
-import FaSoundcloud from 'react-icons/lib/fa/soundcloud'
-import FaYoutubePlay from 'react-icons/lib/fa/youtube-play'
+import FaVimeo from 'react-icons/lib/fa/vimeo';
+import FaSoundcloud from 'react-icons/lib/fa/soundcloud';
+import FaYoutubePlay from 'react-icons/lib/fa/youtube-play';
+import FaPlayCircle from 'react-icons/lib/fa/play-circle';
+import TiPlus from 'react-icons/lib/ti/plus';
 
 class SongSearch extends Component {
   state = {
@@ -129,8 +131,8 @@ class SongSearch extends Component {
             <input type="checkbox" name="searchResult" ref={track.link} id={track.source} onChange={this.onCheckInsert.bind(this, track, index)} checked={this.renderCheckedIndex(track.source, index)}>
             </input>
             <SearchResult track={track}/>
-            <button onClick={this.onClickAddToQueue.bind(this, track)}>Add to Queue</button>
-            <button onClick={this.playTrackOnClick.bind(this, track.link)}>Play Preview</button>
+            <button onClick={this.onClickAddToQueue.bind(this, track)}><TiPlus size={22}/></button>
+            <button onClick={this.playTrackOnClick.bind(this, track.link)}><FaPlayCircle size={22} /></button>
           </li>
         );
         })

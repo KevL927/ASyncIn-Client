@@ -96,13 +96,8 @@ a:hover, .nav-li:hover {
   background: url("http://i.imgur.com/BWMCDuH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-<<<<<<< HEAD
   background-position: center center;
   height: 100vh;
-=======
-  background-position: bottom left;
-  height: 66.9em;
->>>>>>> 8f3fdf52dcb6f12a53c41b32119becb9084a0dfd
 }
 
 .MainPage-Header {
@@ -163,7 +158,7 @@ span {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
-  height: 66.9em;
+  height: 100vh;
   color: #fcf8e3;
 }
 .LoginPage label, .Register-page label, .update-password-display-name label {
@@ -291,7 +286,16 @@ button[type=submit]:hover {
 
 a#loginlink {
   float: none;
+  background-color: transparent;
 }
+#loginlink:hover {
+    color: gold;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    background-color: transparent;
+}
+
 #displayName{
   width:100%;
 }
@@ -578,52 +582,215 @@ li.track {
 //----------------------Media query-------------------------
 //*********************************************************************/
 
-
-@media (min-width: 660px) {
+/*iphone 5*/
+@media screen and (min-width: 320px) and (max-width: 376px) {
+  /*Main Page*/
+  span {
+    font-size: 2em;
+  }
+  span#about {
+    font-size: 1em;
+  }
+  .MainPage {
+    height: 100vh;
+  }
+  .MainPage-Header {
+      padding-top: 7em;
+      padding-left: 2em;
+      padding-right: 2em;
+  }
+  .image {
+    width: 200px;
+    height: 200px;
+  }
   #disc {
     text-align: center;
-    padding-left: 33%;
+    padding-left: 15%;
+  }
+  /*Login*/
+  a#registerlink {
+    padding: 0;
+  }
+  a#google-login {
+    padding: 0;
+  }
+  a#facebook-login {
+    padding: 0;
+  }
+  div#login {
+    padding: 2em;
+  }
+  .login-container {
+    padding: 2em;
+    top: 55%;
+  }
+  .LoginPage label, .update-password-display-name label {
+    font-size: 3em;
+  }
+
+  /*Register*/
+  div#register {
+    padding: 0.5em;
+  }
+  a#loginlink {
+    padding: 0.75em;
+  }
+  a#google-login {
+    padding: 0;
+  }
+  a#facebook-login {
+    padding: 0;
+  }
+  .Register-page label, .account-settings label {
+      font-size: 1em;
+  }
+  .Register-form {
+    top: 55%;
+  }
+  .Register-form input {
+    padding: 4px;
+    margin: 0px;
+    width: 18em;
   }
 }
 
-@media (min-width: 961px) {
+/*iphone 6*/
+@media screen and (min-width: 375px) and (max-width: 413px) {
+  span {
+    font-size: 3em;
+  }
+  span#about {
+    font-size: 1em;
+  }
+  .MainPage {
+    height: 100vh;
+  }
+  .MainPage-Header {
+      padding-top: 7em;
+  }
+  .image {
+    width: 200px;
+    height: 200px;
+  }
   #disc {
     text-align: center;
-    padding-left: 33%;
+    padding-left: 23%;
+    padding-top: 20%;
+  }
+  /*Register*/
+  div#register {
+    padding: 2em;
+  }
+
+}
+
+/*iphone 6s*/
+@media screen and (min-width: 414px) and (max-width: 659px) {
+  /*Main Page*/
+  span {
+    font-size: 3em;
+  }
+  span#about {
+    font-size: 1em;
+  }
+  .MainPage {
+    height: 100vh;
+  }
+  .MainPage-Header {
+      padding-top: 7em;
+  }
+  .image {
+    width: 200px;
+    height: 200px;
+  }
+  #disc {
+    text-align: center;
+    padding-left: 23%;
+    padding-top: 20%;
+  }
+  /*Login*/
+  .login-container {
+    top: 55%;
+  }
+  /*Register*/
+  div#register {
+    padding: 4em;
+  }
+  .Register-page label, .account-settings label {
+    font-size: 1em;
+  }
+  .Register-form {
+    top: 55%;
+  }
+  .Register-form input {
+    padding: 4px;
+    margin: 0px;
+    width: 20em;
+  }
+}
+/*iPad*/
+@media screen and (min-width: 660px) and (max-width: 959px) {
+  /*Main Page*/
+  span {
+    font-size: 8em;
+  }
+
+  .MainPage {
+    height: 100vh;
+  }
+  #disc {
+    text-align: center;
+    padding-left: 23%;
+  }
+
+  /*Login*/
+  .login-container {
+    top: 55%;
+  }
+  /*Register*/
+  div#register {
+    padding: 4em;
+  }
+}
+
+@media (min-width: 960px) {
+  #disc {
+    text-align: center;
+    padding-left: 28%;
   }
 }
 
 @media (min-width: 1060px) {
   #disc {
     text-align: center;
-    padding-left: 33%;
+    padding-left: 29%;
   }
 }
 
 @media (min-width: 1170px) {
   #disc {
     text-align: center;
-    padding-left: 34%;
+    padding-left: 32%;
   }
 }
 
 @media (min-width: 1260px) {
   #disc {
     text-align: center;
-    padding-left: 37%;
+    padding-left: 34%;
   }
 }
 
 @media (min-width: 1480px) {
   #disc {
     text-align: center;
-    padding-left: 39%;
+    padding-left: 37%;
   }
 }
 
 @media (min-width: 1610px) {
   #disc {
     text-align: center;
-    padding-left: 41%;
+    padding-left: 39%;
   }
 }

@@ -14,7 +14,7 @@ import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt';
 import FaTrash from 'react-icons/lib/fa/trash';
 import FaEdit from 'react-icons/lib/fa/edit';
 import TiPlus from 'react-icons/lib/ti/plus';
-import {Tooltip, OverlayTrigger} from 'react-bootstrap'
+import {Tooltip, OverlayTrigger} from 'react-bootstrap';
 
 
 const borderRadiusStyle = { borderRadius: 2 };
@@ -138,13 +138,13 @@ class MyPlaylistsDashboard extends Component {
 						}} />
 						</div>
 						<OverlayTrigger placement="bottom" overlay={tooltip_add}>
-							<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus class="isBold" size={18} /></button>
+							<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus class="isBold" size={23} /></button>
 						</OverlayTrigger>
 						<OverlayTrigger placement="bottom" overlay={tooltip_delete}>
-			        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}><FaTrash class="isBold" size={18} /></button>
+			        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}><FaTrash class="isBold" size={23} /></button>
 			        	 </OverlayTrigger>
 			        	 <OverlayTrigger placement="bottom" overlay={tooltip_edit}>
-			        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}><FaEdit class="isBold" size={18} /></button>
+			        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}><FaEdit class="isBold" size={23} /></button>
 			        	 </OverlayTrigger>
 			        	 
 					</div>
