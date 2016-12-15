@@ -16,9 +16,8 @@ export const registerRequest = (email, username, password) => dispatch => {
     	"password": password
 })
         .then(response => {
-        
-            dispatch(registerSuccess({response}));
-           hashHistory.push('/dashboard?access_token=' + response.data.user.accessToken +'&token='+ response.data.user.token);
+           dispatch(registerSuccess({response}));
+           hashHistory.push('/login');
            return {response: '200'}
          
         })
@@ -33,7 +32,6 @@ export const loginError = createAction('LOGIN_ERROR');
 export const loginRequest = (email, password) => dispatch => {
     return axios.get('https://asyncin.herokuapp.com/api/v1/users/login/'+email, {
             auth: {
-                //if email was username, then you can do auth: {username, password}
                 username: email, 
                 password
             }
@@ -61,6 +59,8 @@ export const getCurrentUser = (token, accessToken) => dispatch => {
         .then((response) => {
             dispatch(getCurrentUserSuccess(response));
             sessionStorage.setItem('userId', response.data.user.userId);
+            sessionStorage.setItem('token', response.data.token);
+            sessionStorage.setItem('access_token', response.data.access_token);
            return {response: '200'}
         })
         .catch(err => {
