@@ -31,6 +31,7 @@ class RenderPlaylist extends Component {
     }
     
     favouriteOrUnfavourite(playlistObject) {
+      console.log(playlistObject)
       if(sessionStorage.userId === playlistObject.userId) {
         return <div><i className="fa fa-user" aria-hidden="true"></i></div>
       }

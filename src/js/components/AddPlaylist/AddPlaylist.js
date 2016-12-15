@@ -35,7 +35,7 @@ class AddPlaylist extends Component {
                 userId: this.props.currentUser.userId,
                 name: this.refs.playlistInputText.value,
                 tracks: [],
-                rating: 0,
+                rating: "0",
                 isPublic: this.state.isPublic
             }
             this.props.dispatch(actions.clearError());
