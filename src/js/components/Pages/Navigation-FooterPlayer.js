@@ -70,7 +70,7 @@ class NavigationFooterPlayer extends Component {
             <li><Link to="/dashboard/top"><FaGlobe size={30}/></Link></li>
             <li><Link to="/dashboard/settings"><FaCog size={30}/></Link></li>
             <li><Link to="/dashboard/contact"><FaEnvelope size={30}/></Link></li>
-            <li><a onClick={this.logout.bind(this)}><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a></li>
+            <li><a><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a></li>
           </ul>
         </div>
         {this.props.children}
