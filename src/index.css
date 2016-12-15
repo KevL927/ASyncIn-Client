@@ -542,7 +542,7 @@ div#Q_Track_List:hover {
 }
 
 li.track {
-    float: left;
+    
     display: block;
     text-align: center;
     padding: 14px 16px;
@@ -593,6 +593,9 @@ li.track {
 }
 
 
+.playlist_favourites{
+  border: dashed;
+}
 
 /*********************************************************************
 //----------------------Media query-------------------------
