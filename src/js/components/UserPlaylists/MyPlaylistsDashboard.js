@@ -33,8 +33,15 @@ class MyPlaylistsDashboard extends Component {
 		isOpenedArray: [],
 		editable:null
 	}
+	
+	updateServerPlaylist() {
+		if(this.props.updatedPlaylistIndex !== null) {
+			this.props.dispatch(actions.clearUpdatedPlaylistIndex());
+			return this.props.dispatch(playlistActions.updatePlaylist(this.props.userSavedPlaylists[0], sessionStorage.access_token));
+		}
+	}
 
-	onClickAddToQueue(playlist, event){
+	onClickAddToQueue(playlist, event) {
 	    this.props.dispatch(actions.queue(playlist.tracks));  
 	}
 
@@ -42,17 +49,25 @@ class MyPlaylistsDashboard extends Component {
 		event.preventDefault();
 		if (this.state.isOpenedArray.indexOf(arrIndex) === -1) {
 			const tempOpenedArr = update(this.state.isOpenedArray, {$push: [arrIndex]});
-      		this.setState({isOpenedArray: tempOpenedArr})
+      		this.setState({isOpenedArray: tempOpenedArr});
 		} else {
-			const index = this.state.isOpenedArray.indexOf(arrIndex)
+			const index = this.state.isOpenedArray.indexOf(arrIndex);
 			const tempOpenedArr = update(this.state.isOpenedArray, {$splice: [[index, 1]]});
 			this.setState({isOpenedArray: tempOpenedArr});
 		}
 	}
 
-	viewTracks(playlist, playlistIndex) {
-		if(playlist) {
-		 	return <ul className="saved-playlists-ul"><RenderSavedPlaylistTracks currentUser={this.props.currentUser} playlistObject={playlist} playlistIndex={playlistIndex} /></ul>
+	viewTracks(playlists, playlistIndex) {
+		this.updateServerPlaylist()
+		if(playlists) {
+		 	return <ul className="saved-playlists-ul">
+					 	<RenderSavedPlaylistTracks 
+					 	currentUser={this.props.currentUser} 
+					 	playlistObject={playlists} 
+					 	playlistIndex={playlistIndex} 
+					 	/>
+				 	</ul>;
+
 		}
 		return;
 	}
@@ -161,13 +176,12 @@ class MyPlaylistsDashboard extends Component {
 
 	render() {
 		return (
-		
 			<div id="UserPlaylist">
 				<span id="my-saved-playlists">My Saved Playlists</span>
 					<ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
 						<div className="UserPlaylist-container">
 							<div>{this.props.error ? <div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback="This playlist name already exists" /></div>:<div></div>}</div>
-				     		{this.generateResult(this.props.userSavedPlaylists)} 
+				     		{this.generateResult(this.props.userSavedPlaylists)}
 						</div>
 					</ScrollArea>
 			</div>
@@ -179,6 +193,6 @@ class MyPlaylistsDashboard extends Component {
 
 
 export default connect(
-    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl, error }) => 
-    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl, error })
+    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl, updatedPlaylistIndex, error }) => 
+    ({ currentListeningPlaylist, userSavedPlaylists, currentListeningUrl, updatedPlaylistIndex, error })
 )(MyPlaylistsDashboard);  
