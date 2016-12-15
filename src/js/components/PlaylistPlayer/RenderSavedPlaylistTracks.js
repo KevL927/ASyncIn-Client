@@ -6,7 +6,6 @@ import TrackListWithDelete from './TrackListWithDelete';
 import update from 'react-addons-update';
 
 
-
 class RenderTracks extends Component {
     
     onTrackItemClick(event, track) {
@@ -26,13 +25,20 @@ class RenderTracks extends Component {
           this.props.dispatch(playlistActions.updatePlaylist(newPlaylistObject, sessionStorage.access_token))
     }
     
+    moveTrackInPlaylist(event, playlistIndex, trackIndex, direction) {
+        event.preventDefault();
+        this.props.dispatch(actions.moveTrackInPlaylist({ direction, playlistIndex, trackIndex }))
+    }
+    
     unwrapTracks() {
         if(this.props.playlistObject) {
             return (
-                <TrackListWithDelete 
+                <TrackListWithDelete
                     onTrackItemClick={this.onTrackItemClick.bind(this)} 
                     onClickDeleteTrack={this.onClickDeleteTrack.bind(this)} 
-                    tracks={this.props.playlistObject.tracks} 
+                    moveTrackInPlaylist={this.moveTrackInPlaylist.bind(this)}
+                    playlistIndex={this.props.playlistIndex}
+                    tracks={this.props.playlistObject.tracks}
                 />
             );
         } 

@@ -30,7 +30,7 @@ class Login extends Component {
         return (
             <div className="Login-page">
             
-            <span className="title">Sync-In</span>
+            <div id="login"><span className="title">Sync-In</span></div>
                 <form className="login-container" onSubmit={this.onSubmit.bind(this)}>
                     {this.props.error?<div className="error"><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div>:<div></div>}
                     <label className="username">Email:</label>
@@ -40,7 +40,8 @@ class Login extends Component {
                     <button id="login-button" value="Submit" type="submit" className="login-button">Submit</button>
                     <div>
                         
-                             <p><Link to="/register" id="registerlink">Dont have an account? Let's hook you up, man. </Link></p>
+                        <p><Link to="/register" id="registerlink">Dont have an account? Let's hook you up, man. </Link>
+                        </p>
                         <div id="login-icons">
                             <a id="google-login" href="https://asyncin.herokuapp.com/auth/google" className="google-login"><FaGooglePlusSquare size={50} color="#dd4b39"/></a>
                             <a id="facebook-login" href="https://asyncin.herokuapp.com/auth/facebook" className="facebook-login"><FaFacebookOffical size={50} color="#3b5998"/></a>

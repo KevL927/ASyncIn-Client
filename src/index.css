@@ -286,7 +286,16 @@ button[type=submit]:hover {
 
 a#loginlink {
   float: none;
+  background-color: transparent;
 }
+#loginlink:hover {
+    color: gold;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    background-color: transparent;
+}
+
 #displayName{
   width:100%;
 }
@@ -423,16 +432,6 @@ h4 {
   0px 18px 16px rgba(0,0,0,0.1);
 }
 
-.deleteTrack{
-  padding:0px;
-  color:white;
-  background-color: black;
-  border:none;
-}
-
-.blackColor{
-  color:black;
-}
 
 /*********************************************************************
 //--------------------------USER PLAYLIST PAGE--------------------------
@@ -583,9 +582,11 @@ li.track {
 //----------------------Media query-------------------------
 //*********************************************************************/
 
-@media screen and (min-width: 300px) and (max-width: 413px) {
+/*iphone 5*/
+@media screen and (min-width: 320px) and (max-width: 376px) {
+  /*Main Page*/
   span {
-    font-size: 3em;
+    font-size: 2em;
   }
   span#about {
     font-size: 1em;
@@ -595,6 +596,8 @@ li.track {
   }
   .MainPage-Header {
       padding-top: 7em;
+      padding-left: 2em;
+      padding-right: 2em;
   }
   .image {
     width: 200px;
@@ -602,13 +605,57 @@ li.track {
   }
   #disc {
     text-align: center;
-    padding-left: 23%;
-    padding-top: 15%;
+    padding-left: 15%;
+  }
+  /*Login*/
+  a#registerlink {
+    padding: 0;
+  }
+  a#google-login {
+    padding: 0;
+  }
+  a#facebook-login {
+    padding: 0;
+  }
+  div#login {
+    padding: 2em;
+  }
+  .login-container {
+    padding: 2em;
+    top: 55%;
+  }
+  .LoginPage label, .update-password-display-name label {
+    font-size: 3em;
+  }
+
+  /*Register*/
+  div#register {
+    padding: 0.5em;
+  }
+  a#loginlink {
+    padding: 0.75em;
+  }
+  a#google-login {
+    padding: 0;
+  }
+  a#facebook-login {
+    padding: 0;
+  }
+  .Register-page label, .account-settings label {
+      font-size: 1em;
+  }
+  .Register-form {
+    top: 55%;
+  }
+  .Register-form input {
+    padding: 4px;
+    margin: 0px;
+    width: 18em;
   }
 }
 
-/*iphone 6s*/
-@media screen and (min-width: 414px) and (max-width: 659px) {
+/*iphone 6*/
+@media screen and (min-width: 375px) and (max-width: 413px) {
   span {
     font-size: 3em;
   }
@@ -630,9 +677,60 @@ li.track {
     padding-left: 23%;
     padding-top: 20%;
   }
+  /*Register*/
+  div#register {
+    padding: 2em;
+  }
+
 }
 
+/*iphone 6s*/
+@media screen and (min-width: 414px) and (max-width: 659px) {
+  /*Main Page*/
+  span {
+    font-size: 3em;
+  }
+  span#about {
+    font-size: 1em;
+  }
+  .MainPage {
+    height: 100vh;
+  }
+  .MainPage-Header {
+      padding-top: 7em;
+  }
+  .image {
+    width: 200px;
+    height: 200px;
+  }
+  #disc {
+    text-align: center;
+    padding-left: 23%;
+    padding-top: 20%;
+  }
+  /*Login*/
+  .login-container {
+    top: 55%;
+  }
+  /*Register*/
+  div#register {
+    padding: 4em;
+  }
+  .Register-page label, .account-settings label {
+    font-size: 1em;
+  }
+  .Register-form {
+    top: 55%;
+  }
+  .Register-form input {
+    padding: 4px;
+    margin: 0px;
+    width: 20em;
+  }
+}
+/*iPad*/
 @media screen and (min-width: 660px) and (max-width: 959px) {
+  /*Main Page*/
   span {
     font-size: 8em;
   }
@@ -643,6 +741,15 @@ li.track {
   #disc {
     text-align: center;
     padding-left: 23%;
+  }
+
+  /*Login*/
+  .login-container {
+    top: 55%;
+  }
+  /*Register*/
+  div#register {
+    padding: 4em;
   }
 }
 

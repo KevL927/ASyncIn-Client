@@ -95,7 +95,7 @@ export default handleActions (
 			let direction = action.payload.direction,
 				trackIndex = action.payload.trackIndex,
 				queue = state.queue
-				
+				console.log('queue',state.queue)
 			if(direction === 'up') {
 				if(trackIndex === 0) {
             		return { ...state };
@@ -121,6 +121,54 @@ export default handleActions (
                     				]
                       
 				return { ...state, queue: newQueueOrder };
+			}
+		},
+		[actions.moveTrackInPlaylist]: (state, action) => {
+			let direction = action.payload.direction,
+				trackIndex = action.payload.trackIndex,
+				playlist = state.userSavedPlaylists[action.payload.playlistIndex].tracks;
+
+			if(direction === 'up') {
+				if(trackIndex === 0) {
+            		return { ...state };
+        		}
+    			let newPlaylistOrder = [
+    								...playlist.slice(0, trackIndex-1),
+		                            playlist[trackIndex],
+		                            playlist[trackIndex-1],
+		                            ...playlist.slice(trackIndex+1)
+		                            ]
+		                            
+			    let newUserSavedPlaylist = update(state.userSavedPlaylists[action.payload.playlistIndex], { tracks: { $set: newPlaylistOrder } });
+			    let newUserSavedPlaylists = state.userSavedPlaylists.map((playlist, index) => {
+			    	if(index === action.payload.playlistIndex) {
+			    		return newUserSavedPlaylist
+			    	}
+			    	return playlist;
+			    })
+			    
+				return { ...state, userSavedPlaylists: newUserSavedPlaylists };
+			}
+			if(direction === 'down') {
+				if(trackIndex >= playlist.length-1) {
+    				return { ...state };
+				}
+				let newPlaylistOrder = [ 
+									...playlist.slice(0, trackIndex),
+                    				playlist[trackIndex+1],
+                    				playlist[trackIndex],
+                    				...playlist.slice(trackIndex+2)
+                    				]
+                      
+			    let newUserSavedPlaylist = update(state.userSavedPlaylists[action.payload.playlistIndex], { tracks: { $set: newPlaylistOrder } });
+			    let newUserSavedPlaylists = state.userSavedPlaylists.map((playlist, index) => {
+			    	if(index === action.payload.playlistIndex) {
+			    		return newUserSavedPlaylist
+			    	}
+			    	return playlist;
+			    })
+			    
+				return { ...state, userSavedPlaylists: newUserSavedPlaylists };
 			}
 		},
 		[actions.deleteQueueTrack]: (state, action) => {

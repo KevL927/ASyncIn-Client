@@ -7,14 +7,15 @@ const tooltip_delete = (
   <Tooltip id="tooltip_delete"><strong>Delete</strong> playlist</Tooltip>
 );
 
-export default ({ onTrackItemClick, track, onClickDeleteTrack}) => {
-  
- 
+export default ({ track, trackIndex, playlistIndex, moveTrackInPlaylist, onTrackItemClick, onClickDeleteTrack}) => {
+
   return (
     <li className="track">
+      <button onClick={(event) => moveTrackInPlaylist(event, playlistIndex, trackIndex, 'up')}>Move up</button>
+      <button onClick={(event) => moveTrackInPlaylist(event, playlistIndex, trackIndex, 'down')}>Move down</button>
       <OverlayTrigger placement="bottom" overlay={tooltip_delete}>
     	  <button className="deleteTrack" onClick={(event) => onClickDeleteTrack(event, track)}><MdClear  size={15}/></button>
-    	 </OverlayTrigger>
+      </OverlayTrigger>
     	<a onClick={(event) => onTrackItemClick(event, track)} href="">{track.title}</a>
     </li>
   );
