@@ -25,7 +25,7 @@ export const clearError = createAction('CLEAR_ERROR');
 
 export const clearFeedback = createAction('CLEAR_FEEDBACK');
 
-export const currentListeningUrl = createAction('CURRENT_LISTENING_URL', url => url);
+export const currentListeningUrl = createAction('CURRENT_LISTENING_URL');
 
 export const currentListeningPlaylist = createAction('CURRENT_LISTENING_PLAYLIST', playlist => playlist);
 

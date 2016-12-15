@@ -18,6 +18,7 @@ const initialState = {
 	error: null,
 	feedback: null,
 	currentListeningUrl: null,
+	currentListeningTitle: null,
 	queue: [],
 	shuffledQueue: null,
 	otherUserProfile:null,
@@ -82,7 +83,7 @@ export default handleActions (
 			return {...state, error: action.payload.message};
 		},
 		[actions.currentListeningUrl]: (state, action) => {
-			return {...state, currentListeningUrl: action.payload}
+			return {...state, currentListeningUrl: action.payload.link, currentListeningTitle: action.payload.title}
 		},
 		[actions.queue]: (state, action) => {
 			if (Array.isArray(action.payload)) {
