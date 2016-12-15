@@ -19,6 +19,7 @@ export default ({ track, trackIndex, playlistIndex, moveTrackInPlaylist, onTrack
 
   return (
     <li className="track">
+    <div>
       <OverlayTrigger placement="bottom" overlay={tooltip_up}>
         <button className="trackButtons" onClick={(event) => moveTrackInPlaylist(event, playlistIndex, trackIndex, 'up')}><FaArrowCircleUp size={22} /></button>
       </OverlayTrigger>
@@ -28,7 +29,10 @@ export default ({ track, trackIndex, playlistIndex, moveTrackInPlaylist, onTrack
       <OverlayTrigger placement="bottom" overlay={tooltip_delete}>
       	 <button className="trackButtons" onClick={(event) => onClickDeleteTrack(event, track)}><MdClear  size={18}/></button>
       </OverlayTrigger>
-    	<a onClick={(event) => onTrackItemClick(event, track)} href="">{track.title}</a>
+      </div>
+      <div>
+    	 <a id="track-names" onClick={(event) => onTrackItemClick(event, track)} href="">{track.title}</a>
+      </div>
     </li>
   );
         
