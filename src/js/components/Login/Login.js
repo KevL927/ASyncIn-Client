@@ -30,7 +30,7 @@ class Login extends Component {
         return (
             <div className="Login-page">
             
-            <span className="title">Sync-In</span>
+            <div id="login"><span className="title">Sync-In</span></div>
                 <form className="login-container" onSubmit={this.onSubmit.bind(this)}>
                     {this.props.error?<div className="error"><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div>:<div></div>}
                     <label className="username">Email:</label>

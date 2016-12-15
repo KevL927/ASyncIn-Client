@@ -575,6 +575,7 @@ li.track {
 
 /*iphone 5*/
 @media screen and (min-width: 320px) and (max-width: 376px) {
+  /*Main Page*/
   span {
     font-size: 2em;
   }
@@ -596,6 +597,26 @@ li.track {
   #disc {
     text-align: center;
     padding-left: 15%;
+  }
+  /*Login*/
+  a#registerlink {
+    padding: 0;
+  }
+  a#google-login {
+    padding: 0;
+  }
+  a#facebook-login {
+    padding: 0;
+  }
+  div#login {
+    padding: 2em;
+  }
+  .login-container {
+    padding: 2em;
+    top: 55%;
+  }
+  .LoginPage label, .Register-page label, .update-password-display-name label {
+    font-size: 3em;
   }
 }
 
@@ -626,6 +647,7 @@ li.track {
 
 /*iphone 6s*/
 @media screen and (min-width: 414px) and (max-width: 659px) {
+  /*Main Page*/
   span {
     font-size: 3em;
   }
@@ -647,9 +669,14 @@ li.track {
     padding-left: 23%;
     padding-top: 20%;
   }
+  /*Login*/
+  .login-container {
+    top: 55%;
+  }
 }
-
+/*iPad*/
 @media screen and (min-width: 660px) and (max-width: 959px) {
+  /*Main Page*/
   span {
     font-size: 8em;
   }
@@ -660,6 +687,11 @@ li.track {
   #disc {
     text-align: center;
     padding-left: 23%;
+  }
+
+  /*Login*/
+  .login-container {
+    top: 55%;
   }
 }
 
