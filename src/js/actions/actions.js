@@ -1,7 +1,7 @@
 import { createAction } from 'redux-actions';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
-
+import * as playlistActions from './playlist-actions';
 
 //*********************************************************************
 //---------------------------SEARCH ACTION ----------------------------
@@ -27,7 +27,7 @@ export const clearError = createAction('CLEAR_ERROR');
 
 export const clearFeedback = createAction('CLEAR_FEEDBACK');
 
-export const currentListeningUrl = createAction('CURRENT_LISTENING_URL', url => url);
+export const currentListeningUrl = createAction('CURRENT_LISTENING_URL');
 
 export const currentListeningPlaylist = createAction('CURRENT_LISTENING_PLAYLIST', playlist => playlist);
 
@@ -37,7 +37,15 @@ export const deleteQueueTrack = createAction('DELETE_QUEUE_TRACK', track => trac
 
 export const moveTrackInQueue = createAction('moveTrackInQueue');
 
-export const moveTrackInPlaylist = createAction('moveTrackInPlaylist');
+export const moveTrackInPlaylist = createAction('moveTrackInPlaylist') ;
+
+export const moveAndUpdateTrackInPlaylist = (direction, playlistIndex, trackIndex) => {
+    return (dispatch, getState) => {
+            dispatch(moveTrackInPlaylist({ direction, playlistIndex, trackIndex} ))
+            dispatch(playlistActions.updatePlaylist(getState().userSavedPlaylists[playlistIndex], sessionStorage.access_token))
+            dispatch(clearUpdatedPlaylistIndex())
+    }
+}
 
 export const updateQueueSuccess = createAction('UPDATE_QUEUE_SUCCESS');
 export const updateQueueError = createAction('UPDATE_QUEUE_ERROR');
@@ -54,4 +62,4 @@ export const updateQueue = (accessToken, token, queue) => dispatch => {
         });
 };
 
-export const shuffledQueue = createAction('shuffledQueue');
+export const shuffledQueue = createAction('shuffledQueue'); 

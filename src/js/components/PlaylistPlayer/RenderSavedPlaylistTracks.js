@@ -27,7 +27,7 @@ class RenderTracks extends Component {
     
     moveTrackInPlaylist(event, playlistIndex, trackIndex, direction) {
         event.preventDefault();
-        this.props.dispatch(actions.moveTrackInPlaylist({ direction, playlistIndex, trackIndex }))
+        this.props.dispatch(actions.moveAndUpdateTrackInPlaylist( direction, playlistIndex, trackIndex ))
     }
     
     unwrapTracks() {
@@ -46,7 +46,7 @@ class RenderTracks extends Component {
     }
     
     render() {
-        return <div>{this.unwrapTracks()}</div>;
+        return <div class="tracks-list">{this.unwrapTracks()}</div>;
     }
 
 }
