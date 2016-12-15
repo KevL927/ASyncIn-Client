@@ -690,6 +690,7 @@ li.track {
   }
   .area {
     width: 25em;
+    height: 10em;
   }
   .track a {
     font-size: 0.85em;
@@ -704,9 +705,36 @@ li.track {
     display: inline-block;
   }
   #playlist_toggle_div {
-    margin: 0, auto;
+    margin: 0 auto;
     padding: 0;
     display: inline-block;
+  }
+  .saved-playlists-ul {
+    padding: 0;
+  }
+
+  .track-buttons {
+    display: inline-block;
+  }
+  .track-item {
+    display: inline-block;
+  }
+
+  .col-md-12.track {
+    padding: 0;
+    height: 4em;
+  }
+
+  .col-sm-6.track-item {
+    padding: 0 auto;
+    width: 13em;
+    height: 20px;
+  }
+
+  a#track-names {
+    width: initial;
+    padding: 0px;
+    text-align: left;
   }
 
   #songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page {
@@ -715,7 +743,7 @@ li.track {
     background: url("http://i.imgur.com/VDqXOZV.jpg");
     background-size: cover;
     background-position: center left;
-    height:100vh;
+    height:95vh;
     width: 63vh;
   }
 }
