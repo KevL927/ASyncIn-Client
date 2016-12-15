@@ -21,6 +21,8 @@ export const searchAll = (search) => dispatch => {
         })
 };
 
+export const clearUpdatedPlaylistIndex = createAction('CLEAR_UPDATED_PLAYLIST_INDEX');
+
 export const clearError = createAction('CLEAR_ERROR');
 
 export const clearFeedback = createAction('CLEAR_FEEDBACK');
@@ -51,7 +53,5 @@ export const updateQueue = (accessToken, token, queue) => dispatch => {
             return false;
         });
 };
-  
-
 
 export const shuffledQueue = createAction('shuffledQueue');
