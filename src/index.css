@@ -549,6 +549,11 @@ li.track {
     text-decoration: none;
     font-family: 'Ubuntu', sans-serif;
     color: black;
+    width: 94%;
+}
+
+#track-names {
+  width:100%;
 }
 
 

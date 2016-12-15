@@ -30,7 +30,9 @@ export default ({ track, trackIndex, playlistIndex, moveTrackInPlaylist, onTrack
       	 <button className="trackButtons" onClick={(event) => onClickDeleteTrack(event, track)}><MdClear  size={18}/></button>
       </OverlayTrigger>
       </div>
-    	<a onClick={(event) => onTrackItemClick(event, track)} href="">{track.title}</a>
+      <div>
+    	 <a id="track-names" onClick={(event) => onTrackItemClick(event, track)} href="">{track.title}</a>
+      </div>
     </li>
   );
         
