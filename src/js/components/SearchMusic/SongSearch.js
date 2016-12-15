@@ -10,6 +10,14 @@ import FaSoundcloud from 'react-icons/lib/fa/soundcloud';
 import FaYoutubePlay from 'react-icons/lib/fa/youtube-play';
 import FaPlayCircle from 'react-icons/lib/fa/play-circle';
 import TiPlus from 'react-icons/lib/ti/plus';
+import {Tooltip, OverlayTrigger} from 'react-bootstrap';
+
+const tooltip_add = (
+  <Tooltip id="tooltip_add"><strong>Add</strong> to the queue</Tooltip>
+);
+const tooltip_play = (
+  <Tooltip id="tooltip_play"><strong>Play</strong></Tooltip>
+);
 
 class SongSearch extends Component {
   state = {
@@ -131,8 +139,12 @@ class SongSearch extends Component {
             <input type="checkbox" name="searchResult" ref={track.link} id={track.source} onChange={this.onCheckInsert.bind(this, track, index)} checked={this.renderCheckedIndex(track.source, index)}>
             </input>
             <SearchResult track={track}/>
-            <button onClick={this.onClickAddToQueue.bind(this, track)}><TiPlus size={22}/></button>
-            <button onClick={this.playTrackOnClick.bind(this, track)}><FaPlayCircle size={22} /></button>
+            <OverlayTrigger placement="bottom" overlay={tooltip_add}>
+            <button className="blackColor" onClick={this.onClickAddToQueue.bind(this, track)}><TiPlus size={22}/></button>
+             </OverlayTrigger>
+             <OverlayTrigger placement="bottom" overlay={tooltip_play}>
+            <button className="blackColor" onClick={this.playTrackOnClick.bind(this, track)}><FaPlayCircle size={22} /></button>
+             </OverlayTrigger>
           </li>
         );
         })
@@ -150,33 +162,27 @@ class SongSearch extends Component {
           <div id="three_platforms">
               <Grid>
                 <Row>
-                
                   <Col md={4}>
                     <h1><FaYoutubePlay size={100} color='#bb0000'/></h1>
                     <div className="ASDF">
                       {this.generateResult(this.props.youtubeSearchedSongs)}
-                      </div>
+                    </div>
                   </Col>
-                
-
                   <Col md={4}>
                     <h1><FaVimeo size={100} color='#4EBBFF'/></h1>
                     <div className="ASDF">
                     {this.generateResult(this.props.vimeoSearchedSongs)}
                     </div>
                   </Col>
-                 
                   <Col md={4}>
                     <h1><FaSoundcloud size={100} color='#ff3a00'/></h1>
                     <div className="ASDF">
                     {this.generateResult(this.props.soundcloudSearchedSongs)}
                     </div>
                   </Col>
-                  
                 </Row>
               </Grid>
             </div>
-  
           </div>
     )
   }
