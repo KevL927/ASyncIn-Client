@@ -5,6 +5,7 @@ import * as playlistActions from '../../actions/playlist-actions';
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up';
 import TiPlus from 'react-icons/lib/ti/plus';
 import {Tooltip, OverlayTrigger} from 'react-bootstrap';
+
 const tooltip_add = (
   <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
 );
