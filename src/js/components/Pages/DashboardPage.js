@@ -14,10 +14,6 @@ class DashboardPage extends Component {
     }
   }
   
-  updateMySavedPlaylists() {
-    
-  }
-  
    onSubmitSearch(event) {
     event.preventDefault();
     this.props.dispatch(actions.searchAll(this.refs.searchInput.value));
