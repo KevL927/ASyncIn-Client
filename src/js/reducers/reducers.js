@@ -20,8 +20,9 @@ const initialState = {
 	currentListeningUrl: null,
 	queue: [],
 	shuffledQueue: null,
-	otherUserProfile:null,
-	favouritePlaylist:null,
+	otherUserProfile: null,
+	favouritePlaylist: null,
+	updatedPlaylistIndex: null,
 };
 
 export default handleActions (
@@ -95,7 +96,6 @@ export default handleActions (
 			let direction = action.payload.direction,
 				trackIndex = action.payload.trackIndex,
 				queue = state.queue
-				console.log('queue',state.queue)
 			if(direction === 'up') {
 				if(trackIndex === 0) {
             		return { ...state };
@@ -126,6 +126,7 @@ export default handleActions (
 		[actions.moveTrackInPlaylist]: (state, action) => {
 			let direction = action.payload.direction,
 				trackIndex = action.payload.trackIndex,
+				playlistIndex = action.payload.playlistIndex,
 				playlist = state.userSavedPlaylists[action.payload.playlistIndex].tracks;
 
 			if(direction === 'up') {
@@ -133,32 +134,31 @@ export default handleActions (
             		return { ...state };
         		}
     			let newPlaylistOrder = [
-    								...playlist.slice(0, trackIndex-1),
-		                            playlist[trackIndex],
-		                            playlist[trackIndex-1],
-		                            ...playlist.slice(trackIndex+1)
-		                            ]
+	    								...playlist.slice(0, trackIndex-1),
+			                            playlist[trackIndex],
+			                            playlist[trackIndex-1],
+			                            ...playlist.slice(trackIndex+1)
+			                            ]
 		                            
-			    let newUserSavedPlaylist = update(state.userSavedPlaylists[action.payload.playlistIndex], { tracks: { $set: newPlaylistOrder } });
+			    let newUserSavedPlaylist = update(state.userSavedPlaylists[playlistIndex], { tracks: { $set: newPlaylistOrder } });
 			    let newUserSavedPlaylists = state.userSavedPlaylists.map((playlist, index) => {
 			    	if(index === action.payload.playlistIndex) {
 			    		return newUserSavedPlaylist
 			    	}
 			    	return playlist;
 			    })
-			    
-				return { ...state, userSavedPlaylists: newUserSavedPlaylists };
+				return { ...state, userSavedPlaylists: newUserSavedPlaylists, updatedPlaylistIndex: playlistIndex };
 			}
 			if(direction === 'down') {
 				if(trackIndex >= playlist.length-1) {
     				return { ...state };
 				}
 				let newPlaylistOrder = [ 
-									...playlist.slice(0, trackIndex),
-                    				playlist[trackIndex+1],
-                    				playlist[trackIndex],
-                    				...playlist.slice(trackIndex+2)
-                    				]
+										...playlist.slice(0, trackIndex),
+	                    				playlist[trackIndex+1],
+	                    				playlist[trackIndex],
+	                    				...playlist.slice(trackIndex+2)
+	                    				]
                       
 			    let newUserSavedPlaylist = update(state.userSavedPlaylists[action.payload.playlistIndex], { tracks: { $set: newPlaylistOrder } });
 			    let newUserSavedPlaylists = state.userSavedPlaylists.map((playlist, index) => {
@@ -167,8 +167,7 @@ export default handleActions (
 			    	}
 			    	return playlist;
 			    })
-			    
-				return { ...state, userSavedPlaylists: newUserSavedPlaylists };
+				return { ...state, userSavedPlaylists: newUserSavedPlaylists, updatedPlaylistIndex: playlistIndex };
 			}
 		},
 		[actions.deleteQueueTrack]: (state, action) => {
@@ -184,6 +183,9 @@ export default handleActions (
 		},
 		[actions.shuffledQueue]: (state, action) => {
 			return {...state, shuffledQueue: action.payload};
+		},
+		[actions.clearUpdatedPlaylistIndex]: (state, action) => {
+			return { ...state, updatedPlaylistIndex: null};
 		},
 		[actions.clearError]: (state, action) => {
 			return {...state, error: null}
