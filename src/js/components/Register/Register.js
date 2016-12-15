@@ -5,6 +5,9 @@ import validator from 'validator';
 import {Link} from 'react-router';
 import * as userActions from '../../actions/user-actions';
 import Feedback from '../Feedback';
+import FaFacebookOffical from 'react-icons/lib/fa/facebook-official';
+import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square';
+
 
 class Register extends Component {
     
@@ -48,7 +51,7 @@ class Register extends Component {
     render () {
         return (
             <div className="Register-page">
-            <span className="title">Sync-In</span>
+            <div id="register"><span className="title">Sync-In</span></div>
                 <form className="Register-form" onSubmit={this.onSubmitRegister.bind(this)}>
                     <p className="stranger">Welcome, Stranger. :)</p>
                     <label className="email">Email Address:</label>
@@ -62,6 +65,10 @@ class Register extends Component {
                     {this.props.error?<div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div> : <div></div>}
                     <button id="register-button" type="submit"className="register-button">Submit</button>
                     <Link to="/login" id="loginlink"> Already have an account? Log in here. </Link>
+                    <div id="login-icons">
+                        <a id="google-login" href="https://asyncin.herokuapp.com/auth/google" className="google-login"><FaGooglePlusSquare size={50} color="#dd4b39"/></a>
+                        <a id="facebook-login" href="https://asyncin.herokuapp.com/auth/facebook" className="facebook-login"><FaFacebookOffical size={50} color="#3b5998"/></a>
+                    </div>
                 </form>
 
             </div>
