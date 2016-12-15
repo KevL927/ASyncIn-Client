@@ -50,9 +50,9 @@ class MyPlaylistsDashboard extends Component {
 		}
 	}
 
-	viewTracks(playlist) {
+	viewTracks(playlist, playlistIndex) {
 		if(playlist) {
-		 	return <ul><RenderSavedPlaylistTracks currentUser={this.props.currentUser} playlistObject={playlist} /></ul>
+		 	return <ul><RenderSavedPlaylistTracks currentUser={this.props.currentUser} playlistObject={playlist} playlistIndex={playlistIndex} /></ul>
 		}
 		return;
 	}
@@ -116,7 +116,7 @@ class MyPlaylistsDashboard extends Component {
 					</div> }
 
 		         <Collapse isOpened={this.checkOpenedOrNot(index)}>
-		         	{this.viewTracks(playlist)}
+		         	{this.viewTracks(playlist, index)}
 		         	<div>
 		         		<div id="playlist_toggle_div">
 
