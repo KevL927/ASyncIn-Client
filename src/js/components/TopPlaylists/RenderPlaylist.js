@@ -9,6 +9,11 @@ import ScrollArea from 'react-scrollbar';
 import TiPlus from 'react-icons/lib/ti/plus';
 import FaThumbsUp from 'react-icons/lib/fa/thumbs-up';
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up';
+import {Tooltip, OverlayTrigger} from 'react-bootstrap';
+
+const tooltip_add = (
+  <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
+);
 
 class RenderPlaylist extends Component {
   
@@ -75,12 +80,15 @@ class RenderPlaylist extends Component {
           <h2>Top 3 Playlists</h2>
           <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
           {this.props.playlistArray.map((playlist, index) => (
-            <div key={index}>
+            <div key={index} className="playlist_favourites">
               <li>#{index+1} - {playlist.name}</li>
               <li>favourites: {playlist.rating}</li>
               {this.favouriteOrUnfavourite(playlist)}
-              <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus size={22}/></button>
-              {this.viewTracks(playlist)}
+                  <OverlayTrigger placement="bottom" overlay={tooltip_add}>
+                    <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus size={22}/></button>
+                  </OverlayTrigger>
+                  {this.viewTracks(playlist)}
+      
             </div>
           ))}
           </ScrollArea>
@@ -93,7 +101,7 @@ class RenderPlaylist extends Component {
           <h2>Top 4-10 Playlists</h2>
           <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
           {this.props.playlistArray4To10.map((playlist, index) => (
-            <div key={index}>
+            <div key={index} className="playlist_favourites">
               <li onClick={this.expandCollapse.bind(this, index)} ref={index}>
                 #{index+4} - {playlist.name}
               </li>
@@ -101,7 +109,9 @@ class RenderPlaylist extends Component {
                 favourites: {playlist.rating}
               </li>
               {this.favouriteOrUnfavourite(playlist)}
-              <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist )}><TiPlus size={22}/></button>
+         
+                <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist )}><TiPlus size={22}/></button>
+            
               <Collapse isOpened={this.checkOpenedOrNot(index)}>
               {this.viewTracks(playlist)}
              </Collapse>
