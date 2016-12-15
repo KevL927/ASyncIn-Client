@@ -20,6 +20,10 @@ li {
 }
 h3,h2 {
   text-align: center;
+  text-shadow: 0px 3px 0px #8e4600, 
+  0px 5px 10px rgba(0,0,0,1), 
+  0px 7px 2px rgba(0,0,0,0.1), 
+  0px 18px 16px rgba(0,0,0,0.1);
 }
 form {
   text-align: center;
@@ -415,8 +419,7 @@ h4 {
   text-align: center;
 }
 #welcome {
-  text-align: center;
-  font-size: 5em;
+font-size: 5em;
   text-align: center;
   text-shadow: 0px 3px 0px #8e4600, 
   0px 5px 10px rgba(0,0,0,1), 
