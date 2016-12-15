@@ -62,7 +62,7 @@ export const getCurrentUser = (token, accessToken) => dispatch => {
             sessionStorage.setItem('userId', response.data.user.userId);
             if(!validator.isEmail(token)) {
                 sessionStorage.setItem('token', response.data.user.token);
-                sessionStorage.setItem('access_token', response.data.access_token);
+                sessionStorage.setItem('access_token', response.data.accessToken);
             }
            return {response: '200'}
         })
