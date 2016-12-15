@@ -150,14 +150,12 @@ class MusicPlayer extends Component {
 		    		/>
 		    	</div>
 		    	<div id="video-controller-1">
-	                <button className="player-buttons" onClick={this.onClickFullscreen}><FaExpand size={30} /></button>
-	            </div>
-	            <div id="video-controller-2">
 	            	<button onClick={this.prev} className="player-buttons"><FaStepBackward size={28} /></button>
 	            	<button onClick={this.playPause} className="player-buttons">{playing ? <FaPause size={28}/> : <FaPlay size={28}/>}</button>
 		    		<button onClick={this.next} className="player-buttons"><FaStepForward size={28} /></button>
 		    		<button onClick={this.shuffle} className="player-buttons">{this.state.shuffle ? <TiArrowShuffle className="off isBold" size={30}/> : <TiArrowShuffle classNmae="isBold" size={30}/>}</button>
 		    		<button onClick={this.continueButton} className="player-buttons">{this.state.continueAll ? <MdCached className="off isBold" size={30}/> : <MdCached className="isBold" size={30}/>}</button>
+		    		<button className="player-buttons" onClick={this.onClickFullscreen}><FaExpand size={30} /></button>
 	            </div>
 	            <div id="video-seek">
 	            <span id="seek">Seek</span>

@@ -11,9 +11,9 @@ class RenderQueue extends Component {
         this.props.dispatch(actions.queue(track));
     }
 
-    onTrackPlayNow(event, trackLink) {
+    onTrackPlayNow(event, track) {
         event.preventDefault();
-        this.props.dispatch(actions.currentListeningUrl(trackLink));
+        this.props.dispatch(actions.currentListeningUrl(track));
 
     }
 
