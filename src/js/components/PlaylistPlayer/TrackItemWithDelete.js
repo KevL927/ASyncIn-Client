@@ -8,10 +8,10 @@ const tooltip_delete = (
   <Tooltip id="tooltip_delete"><strong>Delete</strong> playlist</Tooltip>
 );
 const tooltip_up = (
-  <Tooltip id="tooltip_up"><strong>Move Up</strong></Tooltip>
+  <Tooltip id="tooltip_up"><strong>Move Up</strong>the playlist </Tooltip>
 );
 const tooltip_down = (
-  <Tooltip id="tooltip_down"><strong>Move Down</strong> playlist to queue</Tooltip>
+  <Tooltip id="tooltip_down"><strong>Move Down</strong> the playlist </Tooltip>
 );
 
 
