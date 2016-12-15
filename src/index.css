@@ -573,11 +573,66 @@ li.track {
 //----------------------Media query-------------------------
 //*********************************************************************/
 
-
-@media (min-width: 660px) {
+@media screen and (min-width: 300px) and (max-width: 413px) {
+  span {
+    font-size: 3em;
+  }
+  span#about {
+    font-size: 1em;
+  }
+  .MainPage {
+    height: 100vh;
+  }
+  .MainPage-Header {
+      padding-top: 7em;
+  }
+  .image {
+    width: 200px;
+    height: 200px;
+  }
   #disc {
     text-align: center;
-    padding-left: 25%;
+    padding-left: 23%;
+    padding-top: 15%;
+  }
+}
+
+/*iphone 6s*/
+@media screen and (min-width: 414px) and (max-width: 659px) {
+  span {
+    font-size: 3em;
+  }
+  span#about {
+    font-size: 1em;
+  }
+  .MainPage {
+    height: 100vh;
+  }
+  .MainPage-Header {
+      padding-top: 7em;
+  }
+  .image {
+    width: 200px;
+    height: 200px;
+  }
+  #disc {
+    text-align: center;
+    padding-left: 23%;
+    padding-top: 20%;
+  }
+}
+
+@media screen and (min-width: 660px) and (max-width: 959px) {
+  span {
+    font-size: 8em;
+  }
+
+  .MainPage {
+    height: 100vh;
+  }
+  #disc {
+    text-align: center;
+    padding-left: 23%;
   }
 }
 
