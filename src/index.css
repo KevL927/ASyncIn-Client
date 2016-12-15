@@ -17,6 +17,7 @@ li {
 .thumbnail{
   height:50px;
   width:50px;
+  float: left;
 }
 h3,h2 {
   text-align: center;
