@@ -141,10 +141,10 @@ class MyPlaylistsDashboard extends Component {
 							<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus class="isBold" size={23} /></button>
 						</OverlayTrigger>
 						<OverlayTrigger placement="bottom" overlay={tooltip_delete}>
-			        	 <button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}><FaTrash class="isBold" size={23} /></button>
+			        		<button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}><FaTrash class="isBold" size={23} /></button>
 			        	 </OverlayTrigger>
 			        	 <OverlayTrigger placement="bottom" overlay={tooltip_edit}>
-			        	 <button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}><FaEdit class="isBold" size={23} /></button>
+			        		<button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}><FaEdit class="isBold" size={23} /></button>
 			        	 </OverlayTrigger>
 			        	 
 					</div>
