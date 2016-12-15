@@ -1,6 +1,7 @@
 import { createAction } from 'redux-actions';
 import axios from 'axios';
 import { hashHistory } from 'react-router';
+import validator from 'validator';
 
 
 //*********************************************************************
@@ -59,8 +60,10 @@ export const getCurrentUser = (token, accessToken) => dispatch => {
         .then((response) => {
             dispatch(getCurrentUserSuccess(response));
             sessionStorage.setItem('userId', response.data.user.userId);
-            sessionStorage.setItem('token', response.data.token);
-            sessionStorage.setItem('access_token', response.data.access_token);
+            if(!validator.isEmail(token)) {
+                sessionStorage.setItem('token', response.data.user.token);
+                sessionStorage.setItem('access_token', response.data.access_token);
+            }
            return {response: '200'}
         })
         .catch(err => {
