@@ -582,7 +582,7 @@ li.track {
     text-decoration: none;
     font-family: 'Ubuntu', sans-serif;
     color: black;
-    width: 94%;
+    /*width: 94%;*/
 }
 
 #track-names {
@@ -628,6 +628,17 @@ li.track {
 
 .playlist_favourites{
   border: dashed;
+}
+
+.trackThumbnail{
+  float: left;
+  width: 45px;
+  height:45px;
+ 
+}
+
+.checkboxRight{
+  float: left;
 }
 
 /*********************************************************************
