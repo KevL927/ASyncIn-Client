@@ -32,7 +32,7 @@ class RenderPlaylist extends Component {
     
     favouriteOrUnfavourite(playlistObject) {
       if(sessionStorage.userId === playlistObject.userId) {
-        return <div><i className="fa fa-user" aria-hidden="true"></i></div>
+        return <div><i className="fa fa-user  fa-2x" aria-hidden="true"></i></div>
       }
       let favouritePlaylistIdArray = [];
 
@@ -68,7 +68,7 @@ class RenderPlaylist extends Component {
 
     viewTracks(playlist) {
       if(playlist) {
-        return <ul><RenderTracks playlistObject={playlist} onCheckInsert={this.props.onCheckInsert} renderCheckedIndex={this.props.renderCheckedIndex} /></ul>
+        return <ul className="top-playlist-tracks"><RenderTracks playlistObject={playlist} onCheckInsert={this.props.onCheckInsert} renderCheckedIndex={this.props.renderCheckedIndex} /></ul>
       }
       return;
     }
@@ -81,7 +81,7 @@ class RenderPlaylist extends Component {
           <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
           {this.props.playlistArray.map((playlist, index) => (
             <div key={index} className="playlist_favourites">
-              <li>#{index+1} - {playlist.name}</li>
+              <li className="topTitle"><h3>#{index+1} - {playlist.name}</h3></li>
               <li>favourites: {playlist.rating-1}</li>
               {this.favouriteOrUnfavourite(playlist)}
                   <OverlayTrigger placement="bottom" overlay={tooltip_add}>
@@ -103,7 +103,7 @@ class RenderPlaylist extends Component {
           {this.props.playlistArray4To10.map((playlist, index) => (
             <div key={index} className="playlist_favourites">
               <li onClick={this.expandCollapse.bind(this, index)} ref={index}>
-                #{index+4} - {playlist.name}
+                <h3>#{index+4} - {playlist.name}</h3>
               </li>
               <li>
                 favourites: {playlist.rating}

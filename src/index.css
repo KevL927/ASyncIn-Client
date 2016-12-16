@@ -177,7 +177,6 @@ span {
 //*********************************************************************/
 .LoginPage, .Register-page{
   text-align: center;
-    text-align: center;
   background: url("http://i.imgur.com/BWMCDuH.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -198,6 +197,7 @@ span {
   font-size: 2em;
 }
 .login-container, .Register-form, .update-password-display-name {
+    width: 25%;
     border-radius: 5px;
     background-color: rgba(40,10,9, .70);
     padding: 20px;
@@ -224,6 +224,7 @@ input[type=text], select {
     border-radius: 4px;
     box-sizing: border-box;
     color: black;
+    text-align: center;
 }
 input[type=password], select {
     width: 100%;
@@ -234,6 +235,7 @@ input[type=password], select {
     border-radius: 4px;
     box-sizing: border-box;
     color: black;
+    text-align: center;
 }
 input[type=email], select {
     width: 100%;
@@ -244,6 +246,7 @@ input[type=email], select {
     border-radius: 4px;
     box-sizing: border-box;
     color:black;
+    text-align: center;
 }
 button[type=submit] {
     width: 100%;
@@ -503,6 +506,10 @@ div#Q_Track_List:hover {
 .UserPlaylist {
  
 }
+/*********************************************************************
+//----------------------------MEET THE DEVS :)-------------------------
+//*********************************************************************/
+
 
 /*********************************************************************
 //---------------------------ACCOUNT SETTINGS--------------------------
@@ -625,9 +632,13 @@ li.track {
   margin-left: 47%;
 }
 
+.playlist_favourites {
+  border-bottom: solid;
+}
 
-.playlist_favourites{
-  border: dashed;
+.top-playlist-tracks a {
+    background-color: transparent;
+    width: 645px;
 }
 
 .trackThumbnail{
@@ -640,6 +651,7 @@ li.track {
 .checkboxRight{
   float: left;
 }
+
 
 /*********************************************************************
 //----------------------Media query-------------------------
@@ -807,15 +819,9 @@ li.track {
     color: white;
     text-align: center;
   }
-  #video-pic-viewer {
-    width: 0;
-    height: 0;
-    display: inline-block;
-  }
   #video-controller-1 {
     display: inline-block;
   }
-
   #video-seek {
     display: none;
   }

@@ -34,9 +34,9 @@ class Login extends Component {
                 <form className="login-container" onSubmit={this.onSubmit.bind(this)}>
                     {this.props.error?<div className="error"><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div>:<div></div>}
                     <label className="username">Email:</label>
-                    <input type="email" id="username" className="input" ref="emailText" required />
+                    <input type="email" id="username" className="input" ref="emailText" placeholder="Type your e-mail address" required />
                     <label className="password">Password:</label>
-                    <input type="password" className="input" name="password" ref="passwordText" required />
+                    <input type="password" className="input" name="password" ref="passwordText" placeholder="Type your password" required />
                     <button id="login-button" value="Submit" type="submit" className="login-button">Submit</button>
                     <div>
                         

@@ -55,13 +55,13 @@ class Register extends Component {
                 <form className="Register-form" onSubmit={this.onSubmitRegister.bind(this)}>
                     <p className="stranger">Welcome, Stranger. :)</p>
                     <label className="email">Email Address:</label>
-                    <input type="email" id="email-input" className="input" ref="emailText" required />
+                    <input type="email" id="email-input" className="input" ref="emailText" placeholder="Type your e-mail address" required />
                     <label className="username">Create Display Name:</label>
-                    <input type="text" id="displayName" className="input" ref="displayNameText" required />
+                    <input type="text" id="displayName" className="input" ref="displayNameText" placeholder="Set a display name" required />
                     <label className="password">Create Password:</label>
-                    <input type="password" className="input" name="password" ref="passwordText" required />
+                    <input type="password" className="input" name="password" ref="passwordText" placeholder="Password must be longer than 5 characters" required />
                     <label className="password">Verify Password:</label>
-                    <input type="password" className="input" name="password" ref="confirmPasswordText" required />
+                    <input type="password" className="input" name="password" ref="confirmPasswordText" placeholder="Please retype your password" required />
                     {this.props.error?<div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div> : <div></div>}
                     <button id="register-button" type="submit"className="register-button">Submit</button>
                     <Link to="/login" id="loginlink"> Already have an account? Log in here. </Link>
