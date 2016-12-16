@@ -36,7 +36,7 @@ class FavouritePlaylist extends Component {
             
                       <li key={index}>
 	                    <div>
-	                        <div>{playlist.name}</div>
+	                        <h4>{playlist.name}</h4>
 	                        	<OverlayTrigger placement="bottom" overlay={tooltip_add}>
                                     <button onClick={this.onClickAddToQueue.bind(this, playlist)}>
                                         <TiPlus className="blackColor" size={22} />
