@@ -327,9 +327,13 @@ a#loginlink {
 }
 
 /*********************************************************************
-//------------------------------Register Page--------------------------
+//------------------------------Account Settings Page--------------------------
 //*********************************************************************/
 #username {
+    width: 100%;
+}
+
+#display-name-input {
     width: 100%;
 }
 
@@ -339,7 +343,7 @@ a#loginlink {
     background-color: rgba(40,10,9, .70);
     padding: 20px;
     position: absolute;
-    top: 41%;
+    top: 40%;
     left: 35%;
     transform: translate(-50%, -50%);
 }
@@ -356,13 +360,13 @@ a#loginlink {
 }
 
 .update-third-party-display-name-form {
-    width: 25%;
+    width: 100%;
     border-radius: 5px;
     background-color: rgba(40,10,9, .70);
     padding: 20px;
     position: absolute;
-    top: 41%;
-    left: 35%;
+    top: 40%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
