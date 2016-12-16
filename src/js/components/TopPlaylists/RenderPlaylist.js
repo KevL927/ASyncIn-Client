@@ -113,7 +113,7 @@ class RenderPlaylist extends Component {
                 <h3 className="transition">#{index+4} - {playlist.name}</h3>
               </li>
               <li>
-                favourites: {playlist.rating}
+                favourites: {playlist.rating-1}
               </li>
            
               <div className="playlist-favourite">
