@@ -561,6 +561,10 @@ div#Q_Track_List:hover {
 /*********************************************************************
 //----------------------------MEET THE DEVS :)-------------------------
 //*********************************************************************/
+.name-Designation{
+  text-align:center;
+}
+
 .contactDev {
  margin-top: 30px;
  height: 863px;
@@ -575,14 +579,24 @@ div#Q_Track_List:hover {
 .project_roles {
   display:-webkit-inline-box;
 }
+
+.surbhi-contact{
+  text-align: start;
+}
+
+.kevin-contact{
+   text-align: start;
+}
 .Surbhi {
   float: right;
+ text-align: center
 }
 .Surbhi_container {
 /*margin-bottom: 174px;*/
 }
 .Lavie {
   float: left;
+  text-align: center
 }
 .Lavie_container {
 /*margin-bottom: 50px;*/
@@ -590,16 +604,19 @@ float: left;
 }
 .Kevin {
   float: right;
+  text-align: center
 }
 .Kevin_container {
 /*margin-bottom: 174px;*/
 }
 .Michelle {
   float: left;
+  text-align: center
 }
 .Michelle_container {
 /*margin-bottom: 174px;*/
 float: left;
+margin-bottom: 200px;
 }
 .paragraph_float_right{
   float: right;
