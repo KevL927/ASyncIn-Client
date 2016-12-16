@@ -184,7 +184,7 @@ span {
   height: 100vh;
   color: #fcf8e3;
 }
-.LoginPage label, .Register-page label, .update-password-display-name label {
+.LoginPage label, .Register-page label, .AccountSettingsPage label {
   font-size: 4em;
     margin: 10px;
     text-shadow: 0px 3px 0px #8e4600,
@@ -196,7 +196,7 @@ span {
 .Register-page label, .account-settings label{
   font-size: 2em;
 }
-.login-container, .Register-form, .update-password-display-name {
+.login-container, .Register-form {
     width: 25%;
     border-radius: 5px;
     background-color: rgba(40,10,9, .70);
@@ -208,6 +208,7 @@ span {
 
 }
 input[type=text], select {
+  background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/mouse_left_click-24.png) 0.2em 0.3em no-repeat, linear-gradient(to bottom, #f7f7f8 0%, #ffffff 100%);
     left:20%;
     top:25%;
     width:30%;
@@ -219,6 +220,9 @@ input[type=text], select {
     box-sizing: border-box;
     color: black;
     text-align: center;
+}
+input[type=text]:focus {
+  background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/enter-24.png) 33.5em 0.3em no-repeat, linear-gradient(to bottom, #f7f7f8 0%, #ffffff 100%);
 }
 input[type=password], select {
     width: 100%;
@@ -258,6 +262,7 @@ button[type=submit] {
 }
 
 button[type=submit]:hover {
+  
     background-color: #c4682b;
     -webkit-transform: scale(1.01);
   transform: scale(1.01);
@@ -322,6 +327,46 @@ a#loginlink {
 }
 
 /*********************************************************************
+//------------------------------Register Page--------------------------
+//*********************************************************************/
+#username {
+    width: 100%;
+}
+
+.update-display-name-form { 
+    width: 25%;
+    border-radius: 5px;
+    background-color: rgba(40,10,9, .70);
+    padding: 20px;
+    position: absolute;
+    top: 41%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+}
+
+.update-password-form {
+    width: 25%;
+    border-radius: 5px;
+    background-color: rgba(40,10,9, .70);
+    padding: 20px;
+    position: absolute;
+    top: 45%;
+    left: 66%;
+    transform: translate(-50%, -50%);
+}
+
+.update-third-party-display-name-form {
+    width: 25%;
+    border-radius: 5px;
+    background-color: rgba(40,10,9, .70);
+    padding: 20px;
+    position: absolute;
+    top: 41%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+}
+
+/*********************************************************************
 //------------------------------SONG SEARCH--------------------------
 //*********************************************************************/
 #songSearch-page {
@@ -365,6 +410,15 @@ a#loginlink {
   margin-bottom: 30px;
 }
 
+#songSearch-page .btn-group-vertical {
+  left: 66px;
+  top: 5px;
+}
+
+input[type=checkbox].result-checkbox {
+  margin-right: 15px;
+}
+
 /*********************************************************************
 //--------------------------USER PLAYLIST PAGE--------------------------
 //*********************************************************************/
@@ -399,9 +453,9 @@ h4 {
   text-decoration: none;
 }
 
-#my-saved-playlists {
+.my-saved-playlists {
   text-align: center;
-  font-size: 4em;
+  font-size: 3em;
   text-decoration: none;
 }
 #user-playlist-buttons-li{
@@ -504,39 +558,53 @@ div#Q_Track_List:hover {
 //----------------------------MEET THE DEVS :)-------------------------
 //*********************************************************************/
 .contactDev {
-  height: 95vh;
-  margin-top: 50px;
+ margin-top: 30px;
+ height: 863px;
+}
+.contact_info {
+    margin-top: 10px;
+    margin-left: 50%;
+}
+#meet_header {
+  font-size: 8em;
+}
+.project_roles {
+  display:-webkit-inline-box;
 }
 .Surbhi {
   float: right;
 }
 .Surbhi_container {
-margin-bottom: 174px;
+/*margin-bottom: 174px;*/
 }
 .Lavie {
   float: left;
 }
 .Lavie_container {
-margin-bottom: 174px;
+/*margin-bottom: 50px;*/
+float: left;
 }
 .Kevin {
   float: right;
 }
 .Kevin_container {
-margin-bottom: 174px;
+/*margin-bottom: 174px;*/
 }
 .Michelle {
   float: left;
 }
 .Michelle_container {
-margin-bottom: 174px;
+/*margin-bottom: 174px;*/
+float: left;
 }
 .paragraph_float_right{
   float: right;
   width: 41%;
+  margin-top:100px;
 }
 .paragraph_left {
   width: 60%;
+  margin-top: 94px;
 }
 /*********************************************************************
 //---------------------------ACCOUNT SETTINGS--------------------------
@@ -634,6 +702,63 @@ li.track {
      color: white; 
 }
 
+.queueTrackButton, #Q_Track_List, .queue-track-name {
+  display: inline-block;
+}
+
+.col-sm-6.queueTrackButton {
+  width: 28%;
+  width: 160px;
+  padding-right: 5px;
+}
+
+.col-sm-6.playlist-butt {
+    width: 50%;
+}
+
+.col-sm-6.queue-track-name#Q_Track_List {
+  padding-left: 15px;
+  padding-top: 5px;
+  text-align: left;
+  font-size: 1em;
+  height: 35px;
+  width: 548px;
+}
+
+ul {
+  padding: 14px, 0px;
+  -webkit-padding-start: 0px;
+}
+
+li.track {
+  width: 750px;
+}
+
+.btn-group-vertical {
+  top: 93px;
+  left: 1410px;
+}
+
+.btn-group-vertical .btn.btn-default {
+  color: white;
+  background-color: #280A09;
+  border-color: transparent;
+}
+
+ul.dropdown-menu {
+  margin: 9px 0 0;
+  background-color: #280A09;
+}
+
+
+button#queue-list.dropdown-toggle.btn.btn-default {
+    outline: 0;
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+    font-size: xx-large;
+    padding-top: 38px;
+}
 
 
 /*********************************************************************
@@ -690,6 +815,14 @@ li.track {
   -ms-transform: scale(1);
   transition: .3s ease-in-out;
   -webkit-transition: .3s ease-in-out;
+}
+
+#top-playlist-render .area {
+  height: 275px;
+}
+
+#top-playlist-render {
+  padding-top: 30px;
 }
 
 /*********************************************************************
@@ -986,6 +1119,7 @@ li.track {
   div#register {
     padding: 4em;
   }
+  
 }
 
 @media (min-width: 960px) {
