@@ -360,7 +360,7 @@ a#loginlink {
 }
 
 .update-third-party-display-name-form {
-    width: 100%;
+    width: 25%;
     border-radius: 5px;
     background-color: rgba(40,10,9, .70);
     padding: 20px;
