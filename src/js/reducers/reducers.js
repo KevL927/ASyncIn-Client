@@ -84,6 +84,7 @@ export default handleActions (
 			return {...state, error: action.payload.message};
 		},
 		[actions.currentListeningUrl]: (state, action) => {
+			console.log(action.payload)
 			return {...state, currentListeningUrl: action.payload.link, currentListeningTitle: action.payload.title}
 		},
 		[actions.queue]: (state, action) => {

@@ -9,7 +9,7 @@ import NavigationFooterPlayer from '../components/Pages/Navigation-FooterPlayer'
 import DashboardPage from '../components/Pages/DashboardPage';
 import TopPlaylists from '../components/Pages/TopPlaylistsPage';
 import SongSearchPage from '../components/Pages/SongSearchPage';
-import ContactsPage from '../components/Pages/ContactsPage';
+import ContactDev from '../components/Pages/ContactsPage';
 import AccountSettingsPage from '../components/Pages/AccountSettingsPage';
 
 
@@ -26,7 +26,7 @@ const routes = (
 				<IndexRoute component={DashboardPage} />
 				<Route path="top" component={TopPlaylists} />
 				<Route path="search" component={SongSearchPage} />
-				<Route path="contact" component={ContactsPage} />
+				<Route path="contact" component={ContactDev} />
 				<Route path="settings" component={AccountSettingsPage} />
 			</Route>
 		</Router>
