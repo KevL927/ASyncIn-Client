@@ -32,21 +32,24 @@ class MusicPlayer extends Component {
 		this.setState({ playing: !this.state.playing })
 	}
 	next = () => {
+		console.log(this.props);
+		console.log(this.state);
 		if(this.props.shuffledQueue) {
 			if(this.props.shuffledQueue.length - 1 <= this.state.currentPlayingIndexInQueue) {
 				this.setState({ currentPlayingIndexInQueue: -1 })
 				return this.setState({ playing: true })
 			}
 			this.setState({ currentPlayingIndexInQueue: ++this.state.currentPlayingIndexInQueue})
-			return this.props.dispatch(actions.currentListeningUrl(this.props.shuffledQueue[this.state.currentPlayingIndexInQueue].link));
+			console.log(this.props.queue[this.state.currentPlayingIndexInQueue]);
+			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue]));
 		} else {
 			if(this.props.queue.length - 1 <= this.state.currentPlayingIndexInQueue) {
 				this.setState({ currentPlayingIndexInQueue: -1 })
 				return this.setState({ playing: true })
 			}
-						this.props.dispatch(actions.currentListeningUrl(null));
 			this.setState({ currentPlayingIndexInQueue: ++this.state.currentPlayingIndexInQueue })
-			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue].link));
+			console.log(this.props.queue[this.state.currentPlayingIndexInQueue]);
+			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue]));
 		}
 	}
 	prev = () => {
@@ -56,14 +59,14 @@ class MusicPlayer extends Component {
 				return this.setState({ playing: true })
 			}
 			this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue - 1 })
-			return this.props.dispatch(actions.currentListeningUrl(this.props.shuffledQueue[this.state.currentPlayingIndexInQueue].link));
+			return this.props.dispatch(actions.currentListeningUrl(this.props.shuffledQueue[this.state.currentPlayingIndexInQueue]));
 		} else {
 			if(this.state.currentPlayingIndexInQueue <= 0) {
 				this.setState({ currentPlayingIndexInQueue: this.props.queue.length - 1 })
 				return this.setState({ playing: true })
 			}
 			this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue - 1 })
-			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue].link));
+			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue]));
 		}
 	}
 	shuffle = () => {
@@ -129,7 +132,7 @@ class MusicPlayer extends Component {
 	      playing, volume,
 	      played, duration,
 	    } = this.state
-	    
+	    console.log(this.state)
 		return (
 	    	<div>
 	    		<div id="video-pic-viewer">
@@ -153,8 +156,8 @@ class MusicPlayer extends Component {
 	            	<button onClick={this.prev} className="player-buttons"><FaStepBackward size={28} /></button>
 	            	<button onClick={this.playPause} className="player-buttons">{playing ? <FaPause size={28}/> : <FaPlay size={28}/>}</button>
 		    		<button onClick={this.next} className="player-buttons"><FaStepForward size={28} /></button>
-		    		<button onClick={this.shuffle} className="player-buttons">{this.state.shuffle ? <TiArrowShuffle className="off isBold" size={30}/> : <TiArrowShuffle classNmae="isBold" size={30}/>}</button>
-		    		<button onClick={this.continueButton} className="player-buttons">{this.state.continueAll ? <MdCached className="off isBold" size={30}/> : <MdCached className="isBold" size={30}/>}</button>
+		    		<button onClick={this.shuffle} className="player-buttons">{this.state.shuffle ? <TiArrowShuffle className="off isBold" size={30}/> : <TiArrowShuffle className="on isBold" size={30}/>}</button>
+		    		<button onClick={this.continueButton} className="player-buttons">{this.state.continueAll ? <MdCached className="off isBold" size={30}/> : <MdCached className="on isBold" size={30}/>}</button>
 		    		<button className="player-buttons" onClick={this.onClickFullscreen}><FaExpand size={30} /></button>
 	            </div>
 	            <div id="video-seek">

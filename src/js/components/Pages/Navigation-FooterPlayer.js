@@ -28,6 +28,7 @@ class NavigationFooterPlayer extends Component {
   }
 
   playMusicOrNot() {
+    console.log(this.props)
     if(!this.props.currentListeningUrl && this.props.queue.length !== 0 && !this.props.shuffledQueue) {
       return (
         <div className="play-track">

@@ -83,8 +83,8 @@ class AccountSettings extends Component {
                     <div className="update-display-name">
                         <form className="update-display-name-form" onSubmit={this.submitDisplayNameForm.bind(this)}>
                             <label className="title">Update Display Name</label>
-                            <label className="display-name">New Display Name:</label>
-                            <input type="text" id="display-name-input" className="input" ref="displayNameText" />
+                            <label className="new-display-name">New Display Name:</label>
+                            <input type="text" id="username" className="input" ref="displayNameText" />
                             <button id="update-display-name-button" type="submit"className="update-display-name-button">Update display name</button>
                         </form>
                     </div>
@@ -95,7 +95,7 @@ class AccountSettings extends Component {
                             <input type="password" className="input" name="current-password" ref="currentPasswordText" />
                             <label className="new-password">New Password:</label>
                             <input type="password" className="input" name="new-password" ref="newPasswordText" />
-                            <label className="confirm-new-password">Confirm Password:</label>
+                            <label className="confirm-new-password">Confirm New Password:</label>
                             <input type="password" className="input" name="confirm-new-password" ref="confirmNewPasswordText" />
                             <button id="update-display-name-button" type="submit"className="update-display-name-button">Set new password</button>
                         </form>

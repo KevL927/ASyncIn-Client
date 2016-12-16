@@ -207,12 +207,6 @@ span {
     transform: translate(-50%, -50%);
 
 }
-input[type=checkbox]
-{
-  /* Double-sized Checkboxes */
-  -webkit-transform: scale(2);
-  padding: 10px;
-}
 input[type=text], select {
     left:20%;
     top:25%;
@@ -509,8 +503,41 @@ div#Q_Track_List:hover {
 /*********************************************************************
 //----------------------------MEET THE DEVS :)-------------------------
 //*********************************************************************/
-
-
+.contactDev {
+  height: 95vh;
+  margin-top: 50px;
+}
+.Surbhi {
+  float: right;
+}
+.Surbhi_container {
+margin-bottom: 174px;
+}
+.Lavie {
+  float: left;
+}
+.Lavie_container {
+margin-bottom: 174px;
+}
+.Kevin {
+  float: right;
+}
+.Kevin_container {
+margin-bottom: 174px;
+}
+.Michelle {
+  float: left;
+}
+.Michelle_container {
+margin-bottom: 174px;
+}
+.paragraph_float_right{
+  float: right;
+  width: 41%;
+}
+.paragraph_left {
+  width: 60%;
+}
 /*********************************************************************
 //---------------------------ACCOUNT SETTINGS--------------------------
 //*********************************************************************/
@@ -565,6 +592,13 @@ div#Q_Track_List:hover {
   font-size: 1em;
 }
 
+.off{
+    color: #808080;
+}
+.on {
+    color: white;
+}
+  
 .player-buttons {
   background-color: transparent;
   padding: 1em;
@@ -596,7 +630,9 @@ li.track {
   width:100%;
 }
 
-
+.track-title {
+     color: white; 
+}
 
 
 
@@ -632,8 +668,8 @@ li.track {
   margin-left: 47%;
 }
 
-.playlist_favourites {
-  border-bottom: solid;
+.playlist-favourite {
+  text-align: center;
 }
 
 .top-playlist-tracks a {
@@ -648,10 +684,13 @@ li.track {
  
 }
 
-.checkboxRight{
-  float: left;
+.transition {
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transition: .3s ease-in-out;
+  -webkit-transition: .3s ease-in-out;
 }
-
 
 /*********************************************************************
 //----------------------Media query-------------------------
@@ -811,6 +850,7 @@ li.track {
   iframe {
     display: none;
   }
+
   .player-buttons {
     margin: 0;
     padding: 0.6em;
@@ -836,8 +876,9 @@ li.track {
     display: inline-block;
     border-color: transparent;
   }
-
+  
 }
+
 
 /*iphone 6*/
 @media screen and (min-width: 375px) and (max-width: 413px) {
