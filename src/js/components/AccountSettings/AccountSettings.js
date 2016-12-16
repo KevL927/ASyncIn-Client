@@ -68,7 +68,7 @@ class AccountSettings extends Component {
                     <div className="update-display-name">
                         <form className="update-third-party-display-name-form" onSubmit={this.submitDisplayNameForm.bind(this)}>
                             <label className="title">Update Display Name</label>
-                            <label className="display-name">New Display Name:</label>
+                            <label className="display-name">New Display Name:</label><br/>
                             <input type="text" id="display-name-input" className="input" ref="displayNameText" />
                             <button id="update-display-name-button" type="submit"className="update-display-name-button">Update display name</button>
                         </form>
