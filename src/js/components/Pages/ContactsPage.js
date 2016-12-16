@@ -13,9 +13,11 @@ class ContactDev extends Component {
           <h1>Surbhi Poswalia</h1>
           <h3 className="project_roles">Project Manager</h3>
         </div>
-              <p className="paragraph_float_right">Hey, there. I'm Surbhi. I'm a famous Bollywood star, but that life was really boring so I took on becoming a Web Developer. Contact me! Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-              <div><a href="https://github.com/surbhiposwalia" className="contact_info">Github<FaGithubSquare/></a></div> </p>
+              <div className="name-Designation surbhi-contact">
               
+              <p className="paragraph_float_right">Hey, there. I'm Surbhi. As a kid i was always amazed with computers. I was in 3rd grade when i learned my first programming language LOGO, i was so inspired with how just some set of characters and numbers can make circles or rectangles. I decided to pursue my career in Computer Science. I did my internship at Bharti Airtel Mumbai and worked on a project of SalesMan's guide using Java. After completing my bachelors, i joined Infosys as a system engineer. I really enjoyed working the project and thereby became passionate in developing a full stack application and become a software developer. To learn all about the full stack development, i joined coding bootcamp. Recently i have been learning and using various technologies such as JavaScript,Node.js, React , Redux and databases such as Mongo Db, postgr SQL, KNEX.js.
+              <div><a href="https://github.com/surbhiposwalia" className="contact_info">Github<FaGithubSquare/></a></div> </p>
+              </div>
         
         </div>
         <div className="Lavie_container">
@@ -34,9 +36,10 @@ class ContactDev extends Component {
           <h1>Kevin Lee</h1>
           <h3 className="project_roles">Product Manager</h3>
         </div>
-            
+            <div className="name-Designation kevin-contact">
               <p className="paragraph_float_right">Hey, there. I'm Kevin. I am a Korean pop star singing rap and joining hardcore Korean gangs, but I left that rigid life behind to do something more stable and safe. Contact me! Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
               <div><a href="https://github.com/KevL927" className="contact_info">Github<FaGithubSquare/></a></div> </p>
+            </div>
         </div>
         <div className="Michelle_container">
           <div className='Michelle'>
