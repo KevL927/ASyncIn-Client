@@ -66,7 +66,7 @@ class AccountSettings extends Component {
             return (
                 <div className="account-settings">
                     <div className="update-display-name">
-                        <form className="update-display-name-form" onSubmit={this.submitDisplayNameForm.bind(this)}>
+                        <form className="update-third-party-display-name-form" onSubmit={this.submitDisplayNameForm.bind(this)}>
                             <label className="title">Update Display Name</label>
                             <label className="display-name">New Display Name:</label>
                             <input type="text" id="display-name-input" className="input" ref="displayNameText" />
@@ -82,15 +82,15 @@ class AccountSettings extends Component {
                 {this.props.feedback?<div><Feedback feedback={this.props.feedback} /></div> : <div></div>}
                     <div className="update-display-name">
                         <form className="update-display-name-form" onSubmit={this.submitDisplayNameForm.bind(this)}>
-                            <label className="title">Update Display Name</label>
-                            <label className="new-display-name">New Display Name:</label>
+                            <label className="update-title">Update Display Name</label>
+                            <label className="new-display-name">New Display Name:</label><br/>
                             <input type="text" id="username" className="input" ref="displayNameText" />
                             <button id="update-display-name-button" type="submit"className="update-display-name-button">Update display name</button>
                         </form>
                     </div>
                     <div className="update-password">
                         <form className="update-password-form" onSubmit={this.submitNewPasswordForm.bind(this)}>
-                            <label className="title">Update Password</label>
+                            <label className="update-title">Update Password</label>
                             <label className="current-password">Current password:</label>
                             <input type="password" className="input" name="current-password" ref="currentPasswordText" />
                             <label className="new-password">New Password:</label>

@@ -32,15 +32,12 @@ class MusicPlayer extends Component {
 		this.setState({ playing: !this.state.playing })
 	}
 	next = () => {
-		console.log(this.props);
-		console.log(this.state);
 		if(this.props.shuffledQueue) {
 			if(this.props.shuffledQueue.length - 1 <= this.state.currentPlayingIndexInQueue) {
 				this.setState({ currentPlayingIndexInQueue: -1 })
 				return this.setState({ playing: true })
 			}
 			this.setState({ currentPlayingIndexInQueue: ++this.state.currentPlayingIndexInQueue})
-			console.log(this.props.queue[this.state.currentPlayingIndexInQueue]);
 			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue]));
 		} else {
 			if(this.props.queue.length - 1 <= this.state.currentPlayingIndexInQueue) {
@@ -48,7 +45,6 @@ class MusicPlayer extends Component {
 				return this.setState({ playing: true })
 			}
 			this.setState({ currentPlayingIndexInQueue: ++this.state.currentPlayingIndexInQueue })
-			console.log(this.props.queue[this.state.currentPlayingIndexInQueue]);
 			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue]));
 		}
 	}
@@ -132,7 +128,7 @@ class MusicPlayer extends Component {
 	      playing, volume,
 	      played, duration,
 	    } = this.state
-	    console.log(this.state)
+
 		return (
 	    	<div>
 	    		<div id="video-pic-viewer">

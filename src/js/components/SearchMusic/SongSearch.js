@@ -75,6 +75,7 @@ class SongSearch extends Component {
     event.preventDefault();
     this.onSubmitClearTemp();
     this.props.dispatch(actions.searchAll(this.refs.searchInput.value));
+    this.refs.searchInput.value = "";
   }
   onCheckInsert(track, index, event) {
     if(track.source === "YouTube") {
@@ -141,7 +142,7 @@ class SongSearch extends Component {
           <li key={index}>
             <SearchResult track={track}/>
               <OverlayTrigger placement="left" overlay={tooltip_playlist_add}>
-                <input type="checkbox" name="searchResult" ref={track.link} id={track.source} onChange={this.onCheckInsert.bind(this, track, index)} checked={this.renderCheckedIndex(track.source, index)}>
+                <input className="result-checkbox" type="checkbox" name="searchResult" ref={track.link} id={track.source} onChange={this.onCheckInsert.bind(this, track, index)} checked={this.renderCheckedIndex(track.source, index)}>
                 </input>
               </OverlayTrigger>
               <OverlayTrigger placement="bottom" overlay={tooltip_add}>

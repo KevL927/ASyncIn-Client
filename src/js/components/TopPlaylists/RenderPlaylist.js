@@ -76,7 +76,7 @@ class RenderPlaylist extends Component {
   renderTop3And4To10Playlists(topPlaylist) {
     if(topPlaylist === this.props.playlistArray) {
       return (
-        <div>
+        <div id="top-playlist-render">
           <h2>Top 3 Playlists</h2>
           <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
           {this.props.playlistArray.map((playlist, index) => (
