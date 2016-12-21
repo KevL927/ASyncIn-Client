@@ -14,10 +14,10 @@ const tooltip_unfavourite = (
 );
 
 class FavouritePlaylist extends Component {
-    
+
     onClickAddToQueue(playlist, event){
-	    this.props.dispatch(actions.currentListeningPlaylist(playlist));
-	}
+        this.props.dispatch(actions.queue(playlist.tracks));
+    }
 	
     onClickUpdateFavouritePlaylist(playlistObject,event) {
 	    event.preventDefault();
