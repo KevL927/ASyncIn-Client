@@ -19,23 +19,24 @@ const tooltip_down = (
 );
 
 export default ({ currentUser, userSavedPlaylists, error, feedback, track,  onTrackItemClick, onClickDeleteQueueTrack, moveTrackInQueue, trackIndex, onTrackPlayNow }) => {
+  
   return (
     <li className="track">
-  <div className="col-sm-6 queueTrackButton">
-    <OverlayTrigger placement="top" overlay={tooltip_delete}>
-    	<button onClick={(event) => onClickDeleteQueueTrack(event, trackIndex)}><FaTrash size={22} /></button>
-    </OverlayTrigger>
-     <OverlayTrigger placement="top" overlay={tooltip_add}>
-    	<button onClick={(event) => onTrackItemClick(event, track)}><TiPlus size={22} /></button>
-    </OverlayTrigger>
-    <OverlayTrigger placement="top" overlay={tooltip_up}>
-    	<button onClick={(event) => moveTrackInQueue(event, trackIndex, 'up')}><FaArrowCircleUp size={22} /></button>
-    </OverlayTrigger>
-    <OverlayTrigger placement="top" overlay={tooltip_down}>
-    <button onClick={(event) => moveTrackInQueue(event, trackIndex, 'down')}><FaArrowCircleDown size={22} /></button>
-    </OverlayTrigger>
-  </div>
     	<div className="col-sm-6 queue-track-name" onClick={(event) => onTrackPlayNow(event, track)} id="Q_Track_List">{track.title}</div>
+    	<div className="col-sm-6 queueTrackButton">
+        <OverlayTrigger placement="top" overlay={tooltip_delete}>
+        	<button onClick={(event) => onClickDeleteQueueTrack(event, trackIndex)}><FaTrash size={22} /></button>
+        </OverlayTrigger>
+         <OverlayTrigger placement="top" overlay={tooltip_add}>
+        	<button onClick={(event) => onTrackItemClick(event, track)}><TiPlus size={22} /></button>
+        </OverlayTrigger>
+        <OverlayTrigger placement="top" overlay={tooltip_up}>
+        	<button onClick={(event) => moveTrackInQueue(event, trackIndex, 'up')}><FaArrowCircleUp size={22} /></button>
+        </OverlayTrigger>
+        <OverlayTrigger placement="top" overlay={tooltip_down}>
+        <button onClick={(event) => moveTrackInQueue(event, trackIndex, 'down')}><FaArrowCircleDown size={22} /></button>
+        </OverlayTrigger>
+      </div>
     </li>
   );
         
