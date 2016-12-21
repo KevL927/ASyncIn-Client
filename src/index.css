@@ -20,7 +20,7 @@
 body { 
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Dosis', sans-serif;
 }
 
 .dropdown-menu>li>a {
@@ -40,7 +40,7 @@ li {
 }
 h3,h2 {
   text-align: center;
-  text-shadow: 0px 3px 0px #8e4600, 
+  text-shadow: 0px 3px 0px #656463, 
   0px 5px 10px rgba(0,0,0,1), 
   0px 7px 2px rgba(0,0,0,0.1), 
   0px 18px 16px rgba(0,0,0,0.1);
@@ -62,10 +62,11 @@ form {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgba(40,10,9, 1);
+    background-color: rgba(248,249,243, 1);
     position: fixed;
     top: 0;
     width: 100%;
+    border-bottom: solid;
 }
 
 .nav-li {
@@ -74,18 +75,18 @@ form {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-family: 'Ubuntu', sans-serif;
-    color: white;
+    font-family: 'Dosis', sans-serif;
+    color: #656463;
 }
 a {
   text-decoration: none;
-  color: white;
-  background-color: rgba(40,10,9, 1);
+  color: #656463;
+  background-color: rgba(248,249,243, 1);
   float: left;
   display: block;
   text-align: center;
   padding: 14px 16px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Dosis', sans-serif;
   -webkit-transform: scale(1);
   transform: scale(1);
   -webkit-transition: .3s ease-in-out;
@@ -94,7 +95,7 @@ a {
 
 
 a:hover, .nav-li:hover {
-    background-color: #3d2221;
+    background-color: #af3f43;
     color: white;
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
@@ -104,12 +105,12 @@ a:hover, .nav-li:hover {
 #songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page, .account-settings {
   margin-top:57px;
   margin-bottom:40px;
-  background: url("http://i.imgur.com/VDqXOZV.jpg");
+  background: url("http://store.suzieqquilts.com/stores_app/images/images_609/Bella%20Solids%20Feather%209900-127%20lg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center left;
   height:100vh;
-  color: white;
+  color: #af3f43;
 }
 /*********************************************************************
 //------------------------------MAIN PAGE CSS--------------------------
@@ -117,7 +118,7 @@ a:hover, .nav-li:hover {
 
 .MainPage {
   text-align: center;
-  background: url("http://i.imgur.com/BWMCDuH.jpg");
+  background: url("http://store.suzieqquilts.com/stores_app/images/images_609/Bella%20Solids%20Feather%209900-127%20lg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -125,28 +126,28 @@ a:hover, .nav-li:hover {
 }
 
 .MainPage-Header {
-  color: #fcf8e3;
+  color: #af3f43;
   padding:5em;
 }
 
 span {
     font-size: 12em;
     margin: 10px;
-    text-shadow: 0px 3px 0px #8e4600,
+    text-shadow: 0px 3px 0px #656463,
                  0px 14px 10px rgba(0,0,0,1),
                  0px 24px 2px rgba(0,0,0,0.1),
                  0px 34px 30px rgba(0,0,0,0.1);
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Dosis', sans-serif;
   }
 
 #about {
   font-size: 20px;
   margin: 10px;
-  text-shadow: 0px 2px 0px #8e4600,
+  text-shadow: 0px 2px 0px #656463,
                0px 10px 8px rgba(0,0,0,1),
                0px 20px 2px rgba(0,0,0,0.1),
                0px 30px 20px rgba(0,0,0,0.1);
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Dosis', sans-serif;
   display: block;
 }
 
@@ -177,28 +178,27 @@ span {
 //*********************************************************************/
 .LoginPage, .Register-page{
   text-align: center;
-  background: url("http://i.imgur.com/BWMCDuH.jpg");
+  background: url("http://store.suzieqquilts.com/stores_app/images/images_609/Bella%20Solids%20Feather%209900-127%20lg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
   height: 100vh;
-  color: #fcf8e3;
+  color: #af3f43;
 }
 .LoginPage label, .Register-page label, .AccountSettingsPage label {
   font-size: 4em;
     margin: 10px;
-    text-shadow: 0px 3px 0px #8e4600,
+    text-shadow: 0px 3px 0px #656463,
                  0px 14px 10px rgba(0,0,0,1),
                  0px 24px 2px rgba(0,0,0,0.1),
                  0px 34px 30px rgba(0,0,0,0.1);
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Dosis', sans-serif;
 }
 .Register-page label, .account-settings label{
   font-size: 2em;
 }
 .login-container, .Register-form {
     width: 25%;
-    border-radius: 5px;
     background-color: rgba(40,10,9, .70);
     padding: 20px;
     position: fixed;
@@ -273,7 +273,7 @@ button[type=submit]:hover {
   height: 80px;
 }
 #registerlink {
-  color:white;
+  color: white;
   text-decoration: none;
   background-color: transparent;
   text-align: center;
@@ -339,7 +339,6 @@ a#loginlink {
 
 .update-display-name-form { 
     width: 25%;
-    border-radius: 5px;
     background-color: rgba(40,10,9, .70);
     padding: 20px;
     position: absolute;
@@ -350,7 +349,6 @@ a#loginlink {
 
 .update-password-form {
     width: 25%;
-    border-radius: 5px;
     background-color: rgba(40,10,9, .70);
     padding: 20px;
     position: absolute;
@@ -391,8 +389,7 @@ a#loginlink {
     padding-left: 121px;
     margin-bottom: 8px;
     margin-right: 146px;
-    background-color: rgba(206, 200, 197, 0.63);
-    border-radius: 137px;
+    background-color: rgba(152, 148, 148, 0.3);
  }
 #search-songs {
   margin: 35px 0;
@@ -430,7 +427,7 @@ input[type=checkbox].result-checkbox {
   background:linear-gradient(
       rgba(138,91,16, .85), 
       rgba(255,197,103, 0.10)
-    ), url("http://i.imgur.com/wZLxya6.jpg");
+    ), url("http://store.suzieqquilts.com/stores_app/images/images_609/Bella%20Solids%20Feather%209900-127%20lg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center left;
@@ -461,13 +458,17 @@ h4 {
   text-align: center;
   font-size: 3em;
   text-decoration: none;
+  text-shadow: 0px 2px 0px #656463, 
+  0px 5px 10px rgba(0,0,0,1), 
+  0px 5px 2px rgba(0,0,0,0.1), 
+  0px 34px 30px rgba(0,0,0,0.1);
 }
 #user-playlist-buttons-li{
   text-decoration-line: none;
 }
 .user-playlist-buttons {
   text-decoration: none;
-  color: white;
+  color: #656463;
   background-color: transparent;
   padding: .50em;
   border: none;
@@ -485,6 +486,7 @@ h4 {
     position: fixed;
     bottom: 0;
     width: 100%;
+    border-top: solid;
 }
 /*********************************************************************
 //------------------------------DASHBOARD--------------------------
@@ -495,7 +497,7 @@ h4 {
 #welcome {
 font-size: 5em;
   text-align: center;
-  text-shadow: 0px 3px 0px #8e4600, 
+  text-shadow: 0px 3px 0px #656463, 
   0px 5px 10px rgba(0,0,0,1), 
   0px 7px 2px rgba(0,0,0,0.1), 
   0px 18px 16px rgba(0,0,0,0.1);
@@ -503,14 +505,14 @@ font-size: 5em;
 
 #my-saved-playlists {
   text-align: center;
-  text-shadow: 0px 3px 0px #8e4600, 
+  text-shadow: 0px 3px 0px #656463, 
   0px 5px 10px rgba(0,0,0,1), 
   0px 7px 2px rgba(0,0,0,0.1), 
   0px 18px 16px rgba(0,0,0,0.1);
 }
 
 .trackButtons{
-  color: white ;
+  color: #656463;
   background-color: black;
   border: none;
   font-weight: bolder;
@@ -534,13 +536,13 @@ font-size: 5em;
 
 div#Q_Track_List {
   text-decoration: none;
-  color: white;
+  color: #656463;
   background-color: rgba(40,10,9, 1);
   float: left;
   display: block;
   text-align: center;
   padding: 14px 16px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Dosis', sans-serif;
   -webkit-transform: scale(1);
   transform: scale(1);
   -webkit-transition: .3s ease-in-out;
@@ -549,7 +551,7 @@ div#Q_Track_List {
 
 div#Q_Track_List:hover {
     background-color: #3d2221;
-    color: white;
+    color: #656463;
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
     text-decoration: none;
@@ -657,7 +659,7 @@ margin-bottom: 200px;
 #react-player {
   width: 100%;
   bottom: 0;
-  background-color: rgba(40,10,9, 1);
+  background-color: rgba(248,249,243, 1);
 }
 #video-pic-viewer {
   float:left;
@@ -669,7 +671,7 @@ margin-bottom: 200px;
 }
 
 #video-seek, #video-volume {
-  color: white;
+  color: #656463;
   padding: 1em;
   width: 25%;
   float: left;
@@ -679,6 +681,7 @@ margin-bottom: 200px;
 
 #seek, #volume {
   font-size: 1em;
+  text-shadow: none;
 }
 
 .off{
@@ -691,7 +694,7 @@ margin-bottom: 200px;
 .player-buttons {
   background-color: transparent;
   padding: 1em;
-  color: white;
+  color: #656463;
   margin: 3px;
   border: none;
   -webkit-transform: scale(1);
@@ -710,7 +713,7 @@ li.track {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Dosis', sans-serif;
     color: black;
     /*width: 94%;*/
 }
@@ -720,7 +723,7 @@ li.track {
 }
 
 .track-title {
-     color: white; 
+     color: #656463; 
 }
 
 .queueTrackButton, #Q_Track_List, .queue-track-name {
@@ -761,7 +764,7 @@ li.track {
 }
 
 .btn-group-vertical .btn.btn-default {
-  color: white;
+  color: #656463;
   background-color: #280A09;
   border-color: transparent;
 }
@@ -775,7 +778,7 @@ ul.dropdown-menu {
 button#queue-list.dropdown-toggle.btn.btn-default {
     outline: 0;
     background-color: transparent;
-    color: white;
+    color: #656463;
     border-color: transparent;
     font-size: xx-large;
     padding-top: 38px;
@@ -796,7 +799,7 @@ button#queue-list.dropdown-toggle.btn.btn-default {
 }
 
 .dropdown-menu>li>a {
-  color: white;
+  color: #656463;
 }
 
 #toggle-div {
@@ -993,7 +996,7 @@ button#queue-list.dropdown-toggle.btn.btn-default {
   #songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page {
     margin-top:57px;
     margin-bottom:40px;
-    background: url("http://i.imgur.com/VDqXOZV.jpg");
+    background: url("http://store.suzieqquilts.com/stores_app/images/images_609/Bella%20Solids%20Feather%209900-127%20lg.jpg");
     background-size: cover;
     background-position: center left;
     height:95vh;
@@ -1010,7 +1013,7 @@ button#queue-list.dropdown-toggle.btn.btn-default {
     padding: 0.6em;
   }
   .track-title {
-    color: white;
+    color: #656463;
     text-align: center;
   }
   #video-controller-1 {
@@ -1024,7 +1027,7 @@ button#queue-list.dropdown-toggle.btn.btn-default {
   }
 
   #queue-list {
-    color: white;
+    color: #656463;
     background-color: transparent;
     font-size: 2.5em;
     display: inline-block;
