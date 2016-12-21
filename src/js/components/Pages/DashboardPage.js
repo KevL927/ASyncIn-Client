@@ -29,13 +29,13 @@ class DashboardPage extends Component {
         <div className="DashboardPage">
 
           <span id="welcome">Welcome, {this.props.currentUser.username} </span>
-           <div className="songSearch-container">
-          <form onSubmit={this.onSubmitSearch.bind(this)}>
-            <input type="text" name="search" ref="searchInput" placeholder="Search.." required/>
-          </form>
-        </div>
+            <div className="songSearch-container">
+              <form onSubmit={this.onSubmitSearch.bind(this)}>
+                <input type="text" name="search" ref="searchInput" placeholder="Search.." required/>
+              </form>
+            </div>
           <MyPlaylistsDashboard userSavedPlaylists={this.props.userSavedPlaylists} currentUser={this.props.currentUser}  queue={this.props.queue}/>
-          <span className="my-saved-playlists"> <FaStar/> My Favourite Playlists</span>
+            <span className="my-saved-playlists"> <FaStar/> Favourite Playlists</span>
           <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} currentUser={this.props.currentUser} />
         </div>
       );

@@ -13,12 +13,12 @@ class MainPage extends Component {
       <div className="MainPage">
           <div className="MainPage-Header">
             <span className="S">S</span>
-            <span className="y">y</span>
-            <span className="n">n</span>
-            <span className="c">c</span>
+            <span className="y">Y</span>
+            <span className="n">N</span>
+            <span className="c">C</span>
             <span className="-">-</span>
             <span className="I">I</span>
-            <span className="n">n</span>
+            <span className="n">N</span>
             <span id="about"> The Ultimate Music Platform</span>
           </div>
           <div id="disc">
