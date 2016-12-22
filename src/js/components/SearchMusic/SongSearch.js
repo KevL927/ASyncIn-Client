@@ -169,19 +169,19 @@ class SongSearch extends Component {
               <Grid>
                 <Row>
                   <Col md={4}>
-                    <h1><FaYoutubePlay size={100} color='#bb0000'/></h1>
+                    <h1 className="platform_icons"><FaYoutubePlay size={60} color='#bb0000'/></h1>
                     <div className="ASDF">
                       {this.generateResult(this.props.youtubeSearchedSongs)}
                     </div>
                   </Col>
                   <Col md={4}>
-                    <h1><FaVimeo size={100} color='#4EBBFF'/></h1>
+                    <h1 className="platform_icons"><FaVimeo size={60} color='#4EBBFF'/></h1>
                     <div className="ASDF">
                     {this.generateResult(this.props.vimeoSearchedSongs)}
                     </div>
                   </Col>
                   <Col md={4}>
-                    <h1><FaSoundcloud size={100} color='#ff3a00'/></h1>
+                    <h1 className="platform_icons"><FaSoundcloud size={60} color='#ff3a00'/></h1>
                     <div className="ASDF">
                     {this.generateResult(this.props.soundcloudSearchedSongs)}
                     </div>

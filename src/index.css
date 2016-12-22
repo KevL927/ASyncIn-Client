@@ -67,6 +67,8 @@ form {
     top: 0;
     width: 100%;
     border-bottom: solid;
+    border-color:gray;
+    box-shadow: 3px 3px 5px grey;
 }
 
 .nav-li {
@@ -420,6 +422,11 @@ input[type=checkbox].result-checkbox {
   margin-right: 15px;
 }
 
+.platform_icons {
+  margin-left: 106px;
+  border-bottom: solid;
+}
+
 /*********************************************************************
 //--------------------------USER PLAYLIST PAGE--------------------------
 //*********************************************************************/
@@ -487,6 +494,8 @@ h4 {
     bottom: 0;
     width: 100%;
     border-top: solid;
+    border-color: gray;
+    box-shadow: 0px -3px 7px grey;
 }
 /*********************************************************************
 //------------------------------DASHBOARD--------------------------
