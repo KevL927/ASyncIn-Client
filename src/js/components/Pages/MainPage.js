@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import play from '../../../play.png';
+import Beatles from '../../../pics/Beatles.jpg'
 import {Link} from 'react-router';
 
 
@@ -23,9 +24,11 @@ class MainPage extends Component {
           </div>
           <div id="disc">
             <Link to="/login">
-              <img src={play} className='image' alt="play"/> 
+               Login Page
             </Link>
           </div>
+            
+        
       </div>
     );
   }
@@ -33,3 +36,6 @@ class MainPage extends Component {
 
 export default MainPage;
 
+// <div id="artist_albums_container">
+//           <img src={Beatles} className='artist_albums' alt="1"/>
+//         </div>

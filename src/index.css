@@ -114,6 +114,37 @@ a:hover, .nav-li:hover {
   height:100vh;
   color: #af3f43;
 }
+
+.play-track {
+  overflow: hidden;
+}
+
+.track-title {
+  width: 100%;
+  /* Starting position */
+ -moz-transform:translateX(100%);
+ -webkit-transform:translateX(100%);	
+ transform:translateX(100%);
+ /* Apply animation to this element */	
+ -moz-animation: track-title 30s linear infinite;
+ -webkit-animation: track-title 30s linear infinite;
+ animation: track-title 30s linear infinite;
+}
+
+@-webkit-keyframes track-title {
+ 0%   { -webkit-transform: translateX(100%); }
+ 100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes track-title {
+ 0%   { 
+ -webkit-transform: translateX(100%); /* Firefox bug fix */
+ transform: translateX(100%); 		
+ }
+ 100% { 
+ -webkit-transform: translateX(-100%); /* Firefox bug fix */
+ transform: translateX(-100%); 
+ }
+}
 /*********************************************************************
 //------------------------------MAIN PAGE CSS--------------------------
 //*********************************************************************/
@@ -152,7 +183,15 @@ span {
   font-family: 'Dosis', sans-serif;
   display: block;
 }
-
+/*.artist_albums{*/
+/*  position: relative;*/
+/*    float: left;*/
+/*    width:  100px;*/
+/*    height: 100px;*/
+/*    background-position: 50% 50%;*/
+/*    background-repeat:   no-repeat;*/
+/*    background-size:     cover;*/
+/*}*/
 #disc {
   text-align: center;
   padding-left: 42%;
