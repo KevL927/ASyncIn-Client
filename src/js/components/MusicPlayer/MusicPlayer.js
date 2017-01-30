@@ -29,7 +29,11 @@ class MusicPlayer extends Component {
 	}
 	
 	playPause = () => {
-		this.setState({ playing: !this.state.playing })
+		if(this.props.playing === true) {
+			this.props.dispatch(actions.pauseSong());
+		} else {
+			this.props.dispatch(actions.playSong())
+		}
 	}
 	next = () => {
 		if(this.props.shuffledQueue) {
@@ -121,14 +125,11 @@ class MusicPlayer extends Component {
 	onClickFullscreen = () => {
 		screenfull.request(findDOMNode(this.player));
 	}
-
-
 	render() {
 		const {
-	      playing, volume,
+	      volume,
 	      played, duration,
 	    } = this.state
-
 		return (
 	    	<div>
 	    		<div id="video-pic-viewer">
@@ -138,10 +139,10 @@ class MusicPlayer extends Component {
 	            		width={screenfull.isFullscreen ? window.screen.availWidth : 179}
 		            	height={screenfull.isFullscreen ? window.screen.availHeight : 114}
 		    			url={this.props.url} 
-		    			playing={playing}
+		    			playing={this.props.playing}
 	            		volume={volume}
-	            		onPlay={() => this.setState({ playing: true })}
-	            		onPause={() => this.setState({ playing: false })}
+	            		onPlay={() => this.props.dispatch(actions.playSong())}
+	            		onPause={() => this.props.dispatch(actions.pauseSong())}
 	            		onEnded={() => this.continuePlay()}
 	            		onError={e => console.log('onError', e)}
 	            		onProgress={this.onProgress}
@@ -150,7 +151,7 @@ class MusicPlayer extends Component {
 		    	</div>
 		    	<div id="video-controller-1">
 	            	<button onClick={this.prev} className="player-buttons"><FaStepBackward size={28} /></button>
-	            	<button onClick={this.playPause} className="player-buttons">{playing ? <FaPause size={28}/> : <FaPlay size={28}/>}</button>
+	            	<button onClick={this.playPause} className="player-buttons">{this.props.playing === true ? <FaPause size={28}/> : <FaPlay size={28}/>}</button>
 		    		<button onClick={this.next} className="player-buttons"><FaStepForward size={28} /></button>
 		    		<button onClick={this.shuffle} className="player-buttons">{this.state.shuffle ? <TiArrowShuffle className="off isBold" size={30}/> : <TiArrowShuffle className="on isBold" size={30}/>}</button>
 		    		<button onClick={this.continueButton} className="player-buttons">{this.state.continueAll ? <MdCached className="off isBold" size={30}/> : <MdCached className="on isBold" size={30}/>}</button>
@@ -177,6 +178,6 @@ class MusicPlayer extends Component {
 }
 
 export default connect(
-  ({ queue, shuffledQueue }) => 
-  ({ queue, shuffledQueue })
+  ({ queue, shuffledQueue, playing }) => 
+  ({ queue, shuffledQueue, playing })
 )(MusicPlayer);
