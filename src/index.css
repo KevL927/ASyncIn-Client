@@ -53,7 +53,6 @@ h3 {
     font-size: 1em
 }
 
-
 /*********************************************************************
 //------------------------------NAVIGATION BAR--------------------------
 //*********************************************************************/
@@ -166,10 +165,18 @@ span {
     animation: spin 4s linear infinite
 }
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-webkit-keyframes spin {
+    to {
+        -webkit-transform: rotate(1turn)
+    }
+}
 
+@keyframes spin {
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
 
 /*********************************************************************
 //------------------------------LOGIN PAGE CSS--------------------------
@@ -573,7 +580,6 @@ div#Q_Track_List:hover {
     text-decoration: none
 }
 
-
 /*********************************************************************
 //----------------------------MEET THE DEVS :)-------------------------
 //*********************************************************************/
@@ -788,7 +794,6 @@ button#queue-list.dropdown-toggle.btn.btn-default {
     padding-top: 38px
 }
 
-
 /*********************************************************************
 //----------------------Top Playlists-------------------------
 //*********************************************************************/
@@ -857,289 +862,288 @@ button#queue-list.dropdown-toggle.btn.btn-default {
 //----------------------Media query-------------------------
 //*********************************************************************/
 
-/*iphone 5*/
-@media screen and (min-width: 320px) and (max-width: 376px) {
-  /*Main Page*/
-  span {
-    font-size: 2em;
-  }
-  span#about {
-    font-size: 1em;
-  }
-  .MainPage {
-    height: 100vh;
-  }
-  .MainPage-Header {
-      padding-top: 7em;
-      padding-left: 2em;
-      padding-right: 2em;
-  }
-  .image {
-    width: 200px;
-    height: 200px;
-  }
-  #disc {
-    text-align: center;
-    padding-left: 15%;
-  }
-  /*Login*/
-  a#registerlink {
-    padding: 0;
-  }
-  a#google-login {
-    padding: 0;
-  }
-  a#facebook-login {
-    padding: 0;
-  }
-  div#login {
-    padding: 2em;
-  }
-  .login-container {
-    padding: 2em;
-    top: 55%;
-  }
-  .LoginPage label, .update-password-display-name label {
-    font-size: 3em;
-  }
-
-  /*Register*/
-  div#register {
-    padding: 0.5em;
-  }
-  a#loginlink {
-    padding: 0.75em;
-  }
-  a#google-login {
-    padding: 0;
-  }
-  a#facebook-login {
-    padding: 0;
-  }
-  .Register-page label, .account-settings label {
-      font-size: 1em;
-  }
-  .Register-form {
-    top: 55%;
-  }
-  .Register-form input {
-    padding: 4px;
-    margin: 0px;
-    width: 18em;
-  }
-
-
-/*Navigation bar*/
-  .NavigationBar a {
-    padding: 14px 14px;
-  }
-/*Dashboard*/
-  #welcome {
-    font-size: 2em;
-  }
-  p.DashboardPage {
-    font-size: 0.5em;
-  }
-  .songSearch-container input {
-    width: 80%;    
-  }
-/*My Saved Playlists*/
-  #my-saved-playlists {
-    font-size: 2em;
-  }
-  .area {
-    width: 25em;
-    height: 10em;
-    margin: 0;
-  }
-  .track a {
-    font-size: 0.85em;
-  }
-  .scrollarea.area>div.scrollarea-content.content {
-    width: 100%;
-    float: none;
-  }
-
-  .playlist-buttons {
-    margin: 0 auto;
-    padding: 0;
-    display: inline-block;
-  }
-  #playlist_toggle_div {
-    margin: 0 auto;
-    padding: 0;
-    display: inline-block;
-  }
-  .saved-playlists-ul {
-    padding: 0;
-  }
-
-  .track-buttons {
-    display: inline-block;
-  }
-  .track-item {
-    display: inline-block;
-  }
-
-  .col-md-12.track {
-    padding: 0;
-    height: 4em;
-  }
-
-  .col-sm-6.track-item {
-    padding: 0 auto;
-    width: 13em;
-    height: 20px;
-  }
-
-  a#track-names {
-    width: initial;
-    padding: 0px;
-    text-align: left;
-  }
-
-  #songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page {
-    margin-top:57px;
-    margin-bottom:40px;
-    background: url("http://store.suzieqquilts.com/stores_app/images/images_609/Bella%20Solids%20Feather%209900-127%20lg.jpg");
-    background-size: cover;
-    background-position: center left;
-    height:95vh;
-    width: 63vh;
-  }
-
-  /*Music Player*/
-  iframe {
-    play: none;
-  }
-
-  .player-buttons {
-    margin: 0;
-    padding: 0.6em;
-  }
-  .track-title {
-    color: #656463;
-    text-align: center;
-  }
-  #video-controller-1 {
-    display: inline-block;
-  }
-  #video-seek {
-    display: none;
-  }
-  #video-volume {
-    display: none;
-  }
-
-  #queue-list {
-    color: #656463;
-    background-color: transparent;
-    font-size: 2.5em;
-    display: inline-block;
-    border-color: transparent;
-  }
-  
+@media screen and (min-width:320px) and (max-width:376px) {
+    span {
+        font-size: 2em
+    }
+    span#about {
+        font-size: 1em
+    }
+    .MainPage {
+        height: 100vh
+    }
+    .MainPage-Header {
+        padding-top: 7em;
+        padding-left: 2em;
+        padding-right: 2em
+    }
+    .image {
+        width: 200px;
+        height: 200px
+    }
+    #disc {
+        text-align: center;
+        padding-left: 15%
+    }
+    a#registerlink {
+        padding: 0
+    }
+    div#login {
+        padding: 2em
+    }
+    .login-container {
+        padding: 2em;
+        top: 55%
+    }
+    .LoginPage label,
+    .update-password-display-name label {
+        font-size: 3em
+    }
+    div#register {
+        padding: .5em
+    }
+    a#loginlink {
+        padding: .75em
+    }
+    a#facebook-login,
+    a#google-login {
+        padding: 0
+    }
+    .account-settings label,
+    .Register-page label {
+        font-size: 1em
+    }
+    .Register-form {
+        top: 55%
+    }
+    .Register-form input {
+        padding: 4px;
+        margin: 0;
+        width: 18em
+    }
+    .NavigationBar a {
+        padding: 14px
+    }
+    #welcome {
+        font-size: 2em
+    }
+    p.DashboardPage {
+        font-size: .5em
+    }
+    .songSearch-container input {
+        width: 80%
+    }
+    #my-saved-playlists {
+        font-size: 2em
+    }
+    .area {
+        width: 25em;
+        height: 10em;
+        margin: 0
+    }
+    .track a {
+        font-size: .85em
+    }
+    .scrollarea.area>div.scrollarea-content.content {
+        width: 100%;
+        float: none
+    }
+    #playlist_toggle_div,
+    .playlist-buttons {
+        margin: 0 auto;
+        padding: 0;
+        display: inline-block
+    }
+    .saved-playlists-ul {
+        padding: 0
+    }
+    .track-buttons,
+    .track-item {
+        display: inline-block
+    }
+    .col-md-12.track {
+        padding: 0;
+        height: 4em
+    }
+    .col-sm-6.track-item {
+        padding: 0 auto;
+        width: 13em;
+        height: 20px
+    }
+    a#track-names {
+        width: auto;
+        padding: 0;
+        text-align: left
+    }
+    #songSearch-page,
+    #top_page,
+    #UserPlaylist-page,
+    .DashboardPage {
+        margin-top: 57px;
+        margin-bottom: 40px;
+        background: url("http://i.imgur.com/VDqXOZV.jpg");
+        background-size: cover;
+        background-position: 0;
+        height: 95vh;
+        width: 63vh
+    }
+    iframe {
+        display: none
+    }
+    .player-buttons {
+        margin: 0;
+        padding: .6em
+    }
+    .track-title {
+        color: #fff;
+        text-align: center
+    }
+    #video-controller-1 {
+        display: inline-block
+    }
+    #video-seek,
+    #video-volume {
+        display: none
+    }
+    #queue-list {
+        color: #fff;
+        background-color: transparent;
+        font-size: 2.5em;
+        display: inline-block;
+        border-color: transparent
+    }
 }
 
-
-/*iphone 6*/
-@media screen and (min-width: 375px) and (max-width: 413px) {
-  span {
-    font-size: 3em;
-  }
-  span#about {
-    font-size: 1em;
-  }
-  .MainPage {
-    height: 100vh;
-  }
-  .MainPage-Header {
-      padding-top: 7em;
-  }
-  .image {
-    width: 200px;
-    height: 200px;
-  }
-  #disc {
-    text-align: center;
-    padding-left: 23%;
-    padding-top: 20%;
-  }
-  /*Login*/
-  div#login {
-    padding: 2em;
-  }
-  /*Register*/
-  div#register {
-    padding: 2em;
-  }
-
-  /*Dashboard*/
-  /*Navigation bar*/
-  .NavigationBar a {
-    padding: 14px 52px;
-  }
+@media screen and (min-width:375px) and (max-width:413px) {
+    span {
+        font-size: 3em
+    }
+    span#about {
+        font-size: 1em
+    }
+    .MainPage {
+        height: 100vh
+    }
+    .MainPage-Header {
+        padding-top: 7em
+    }
+    .image {
+        width: 200px;
+        height: 200px
+    }
+    #disc {
+        text-align: center;
+        padding-left: 23%;
+        padding-top: 20%
+    }
+    div#login,
+    div#register {
+        padding: 2em
+    }
+    .NavigationBar a {
+        padding: 14px 52px
+    }
 }
 
-/*iphone 6s*/
-@media screen and (min-width: 414px) and (max-width: 659px) {
-  /*Main Page*/
-  span {
-    font-size: 3em;
-  }
-  span#about {
-    font-size: 1em;
-  }
-  .MainPage {
-    height: 100vh;
-  }
-  .MainPage-Header {
-      padding-top: 7em;
-  }
-  .image {
-    width: 200px;
-    height: 200px;
-  }
-  .login-container {
-    top: 55%;
-  }
-  /*Register*/
-  div#register {
-    padding: 4em;
-  }
-  .Register-page label, .account-settings label {
-    font-size: 1em;
-  }
-  .Register-form {
-    top: 55%;
-  }
-  .Register-form input {
-    padding: 4px;
-    margin: 0px;
-    width: 20em;
-  }
+@media screen and (min-width:414px) and (max-width:659px) {
+    span {
+        font-size: 3em
+    }
+    span#about {
+        font-size: 1em
+    }
+    .MainPage {
+        height: 100vh
+    }
+    .MainPage-Header {
+        padding-top: 7em
+    }
+    .image {
+        width: 200px;
+        height: 200px
+    }
+    #disc {
+        text-align: center;
+        padding-left: 23%;
+        padding-top: 20%
+    }
+    .login-container {
+        top: 55%
+    }
+    div#register {
+        padding: 4em
+    }
+    .account-settings label,
+    .Register-page label {
+        font-size: 1em
+    }
+    .Register-form {
+        top: 55%
+    }
+    .Register-form input {
+        padding: 4px;
+        margin: 0;
+        width: 20em
+    }
 }
-/*iPad*/
-@media screen and (min-width: 660px) and (max-width: 959px) {
-  /*Main Page*/
-  span {
-    font-size: 8em;
-  }
 
-  .MainPage {
-    height: 100vh;
-  }
-  #disc {
-    text-align: center;
-    padding-left: 23%;
-  }
+@media screen and (min-width:660px) and (max-width:959px) {
+    span {
+        font-size: 8em
+    }
+    .MainPage {
+        height: 100vh
+    }
+    #disc {
+        text-align: center;
+        padding-left: 23%
+    }
+    .login-container {
+        top: 55%
+    }
+    div#register {
+        padding: 4em
+    }
+}
 
-  /*Login*/
-  .login-container {
-    top: 55%;
-  }
-  /*Register*/
-  div#register {
-    padding: 4em;
-  }
+@media (min-width:960px) {
+    #disc {
+        text-align: center;
+        padding-left: 28%
+    }
+}
+
+@media (min-width:1060px) {
+    #disc {
+        text-align: center;
+        padding-left: 29%
+    }
+}
+
+@media (min-width:1170px) {
+    #disc {
+        text-align: center;
+        padding-left: 32%
+    }
+}
+
+@media (min-width:1260px) {
+    #disc {
+        text-align: center;
+        padding-left: 34%
+    }
+}
+
+@media (min-width:1480px) {
+    #disc {
+        text-align: center;
+        padding-left: 37%
+    }
+}
+
+@media (min-width:1610px) {
+    #disc {
+        text-align: center;
+        padding-left: 39%
+    }
 }
