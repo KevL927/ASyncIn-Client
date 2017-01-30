@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import play from '../../../play.png';
 import {Link} from 'react-router';
 
-
-
 class MainPage extends Component {
   onSubmit (event) {
         event.preventDefault();
@@ -19,7 +17,7 @@ class MainPage extends Component {
             <span className="-">-</span>
             <span className="I">I</span>
             <span className="n">N</span>
-            <span id="about"> The Ultimate Music Platform</span>
+            <span id="about">Share Good Music™</span>
           </div>
           <div id="disc">
             <Link to="/login">
@@ -32,4 +30,3 @@ class MainPage extends Component {
 }
 
 export default MainPage;
-
