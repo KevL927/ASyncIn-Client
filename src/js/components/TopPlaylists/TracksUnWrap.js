@@ -1,11 +1,11 @@
 import React from 'react';
-import TrackItemWithCheckBox from './TrackItemWithCheckBox';
+import TrackItem from './TrackItem';
 
 export default ({ tracks, onCheckInsert, renderCheckedIndex, onClickAddToQueue, playTrackOnClick }) => (
   
   <div>
     {tracks.map((track, index) => (
-      <TrackItemWithCheckBox 
+      <TrackItem 
 	      	onCheckInsert={onCheckInsert}
 	      	renderCheckedIndex={renderCheckedIndex}
 	      	track={track} 
