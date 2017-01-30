@@ -24,6 +24,7 @@ const initialState = {
 	otherUserProfile: null,
 	favouritePlaylist: null,
 	updatedPlaylistIndex: null,
+	playing: false
 };
 
 export default handleActions (
@@ -84,7 +85,13 @@ export default handleActions (
 			return {...state, error: action.payload.message};
 		},
 		[actions.currentListeningUrl]: (state, action) => {
-			return {...state, currentListeningUrl: action.payload.link, currentListeningTitle: action.payload.title}
+			return {...state, currentListeningUrl: action.payload.link, currentListeningTitle: action.payload.title, playing: true}
+		},
+		[actions.playSong]: (state, action) => {
+			return {...state, playing: true}
+		},
+		[actions.pauseSong]: (state, action) => {
+			return {...state, playing: false}
 		},
 		[actions.queue]: (state, action) => {
 			if (Array.isArray(action.payload)) {
