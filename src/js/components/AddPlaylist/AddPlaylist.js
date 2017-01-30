@@ -63,7 +63,7 @@ class AddPlaylist extends Component {
     }
 	render() {
 		return (
-            <div id="lock_new_saved_playlists">
+            <div id="lock_new_saved_playlists" style={{display: this.props.show}}>
                 <ButtonGroup vertical>
                     <Button>
                     <p className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</p>
