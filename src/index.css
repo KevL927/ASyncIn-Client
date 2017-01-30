@@ -1,175 +1,171 @@
-
 .ASDF::-webkit-scrollbar {
-    width: 12px;
+    width: 12px
 }
 
 .ASDF::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    border-radius: 10px
 }
 
 .ASDF::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .5)
 }
+
 .ASDF::-webkit-scrollbar-corner {
-  -webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0.0); 
+    -webkit-box-shadow: inset 0 0 0 transparent
 }
 
-
-body { 
-  margin: 0;
-  padding: 0;
-  font-family: 'Open Sans', sans-serif;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif
 }
 
 .dropdown-menu>li>a {
-    width: 100%;
+    width: 100%
 }
 
 li {
-  list-style-type: none;
-  text-align: center;
+    list-style-type: none;
+    text-align: center
 }
 
-.thumbnail{
-  height:80px;
-  width:100px;
-  border:black;
-  float: left;
+.thumbnail {
+    height: 80px;
+    width: 100px;
+    border: #000;
+    float: left
 }
-h3,h2 {
-  text-align: center;
-  text-shadow: 0px 2px 0px #656463,
-  0px 3px 0px rgba(0,0,0,1), 
-  0px 1px 1px rgba(0,0,0,0.1), 
-  0px 18px 16px rgba(0,0,0,0.1);
+
+h2,
+h3 {
+    text-shadow: 0 3px 0 #8e4600, 0 5px 10px #000, 0 7px 2px rgba(0, 0, 0, .1), 0 18px 16px rgba(0, 0, 0, .1)
 }
-form {
-  text-align: center;
+
+form,
+h2,
+h3 {
+    text-align: center
 }
 
 .feedback {
-  font-size: 1em;
+    font-size: 1em
 }
 
 
 /*********************************************************************
 //------------------------------NAVIGATION BAR--------------------------
 //*********************************************************************/
+
 .NavUL {
-  list-style-type: none;
+    list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgba(248,249,243, 1);
+    background-color: #280a09;
     position: fixed;
     top: 0;
-    width: 100%;
-    border-bottom: solid;
-    border-color:gray;
-    box-shadow: 3px 3px 5px grey;
+    width: 100%
 }
 
-.nav-li {
+.nav-li,
+a {
     float: left;
     display: block;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-family: 'Dosis', sans-serif;
-    color: #656463;
+    font-family: Ubuntu, sans-serif;
+    color: #fff
 }
+
 a {
-  text-decoration: none;
-  color: #656463;
-  background-color: rgba(248,249,243, 1);
-  float: left;
-  display: block;
-  text-align: center;
-  padding: 14px 16px;
-  font-family: 'Dosis', sans-serif;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
-}   
+    background-color: #280a09;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out
+}
 
-
-a:hover, .nav-li:hover {
-    background-color: #af3f43;
-    color: white;
+.nav-li:hover,
+a:hover {
+    background-color: #3d2221;
+    color: #fff;
     -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
     transform: scale(1.1);
-    text-decoration: none;
+    text-decoration: none
 }
 
-#songSearch-page, #UserPlaylist-page, .DashboardPage, #top_page, .account-settings {
-  margin-top:57px;
-  margin-bottom:40px;
-  background: url("http://store.suzieqquilts.com/stores_app/images/images_609/Bella%20Solids%20Feather%209900-127%20lg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center left;
-  height:100vh;
-  color: #af3f43;
+#songSearch-page,
+#top_page,
+#UserPlaylist-page,
+.account-settings,
+.DashboardPage {
+    margin-top: 57px;
+    margin-bottom: 40px;
+    background: url("http://i.imgur.com/VDqXOZV.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0;
+    height: 100vh;
+    color: #fff
 }
+
 /*********************************************************************
 //------------------------------MAIN PAGE CSS--------------------------
 //*********************************************************************/
 
 .MainPage {
-  text-align: center;
-  background: url("http://store.suzieqquilts.com/stores_app/images/images_609/Bella%20Solids%20Feather%209900-127%20lg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 100vh;
+    text-align: center;
+    background: url("http://i.imgur.com/BWMCDuH.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 100vh
 }
 
 .MainPage-Header {
-  color: #af3f43;
-  padding:5em;
+    color: #fcf8e3;
+    padding: 5em
 }
 
 span {
     font-size: 12em;
+    text-shadow: 0 3px 0 #8e4600, 0 14px 10px #000, 0 24px 2px rgba(0, 0, 0, .1), 0 34px 30px rgba(0, 0, 0, .1)
+}
+
+#about,
+span {
     margin: 10px;
-    text-shadow: 0px 3px 0px #656463,
-                 0px 14px 10px rgba(0,0,0,1),
-                 0px 24px 2px rgba(0,0,0,0.1),
-                 0px 34px 30px rgba(0,0,0,0.1);
-    font-family: 'Open Sans', sans-serif;
-  }
+    font-family: Ubuntu, sans-serif
+}
 
 #about {
-  font-size: 20px;
-  margin: 10px;
-  text-shadow: 0px 2px 0px #656463,
-               0px 10px 8px rgba(0,0,0,1),
-               0px 20px 2px rgba(0,0,0,0.1),
-               0px 30px 20px rgba(0,0,0,0.1);
-  font-family: 'Dosis', sans-serif;
-  display: block;
+    font-size: 20px;
+    text-shadow: 0 2px 0 #8e4600, 0 10px 8px #000, 0 20px 2px rgba(0, 0, 0, .1), 0 30px 20px rgba(0, 0, 0, .1);
+    display: block
 }
 
 #disc {
-  text-align: center;
-  padding-left: 42%;
+    text-align: center;
+    padding-left: 42%
 }
 
 #disc a {
-  background-color: transparent;
+    background-color: transparent
 }
 
 .image {
     position: absolute;
     height: 380px;
     margin: 0 auto;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
+    -webkit-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite
 }
+
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
@@ -178,55 +174,71 @@ span {
 /*********************************************************************
 //------------------------------LOGIN PAGE CSS--------------------------
 //*********************************************************************/
-.LoginPage, .Register-page{
-  text-align: center;
-  background: url("http://store.suzieqquilts.com/stores_app/images/images_609/Bella%20Solids%20Feather%209900-127%20lg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  height: 100vh;
-  color: #af3f43;
+
+.LoginPage,
+.Register-page {
+    text-align: center;
+    background: url("http://i.imgur.com/BWMCDuH.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    height: 100vh;
+    color: #fcf8e3
 }
-.LoginPage label, .Register-page label, .AccountSettingsPage label {
-  font-size: 4em;
+
+.AccountSettingsPage label,
+.LoginPage label,
+.Register-page label {
+    font-size: 4em;
     margin: 10px;
-    text-shadow: 0px 3px 0px #656463,
-                 0px 14px 10px rgba(0,0,0,1),
-                 0px 24px 2px rgba(0,0,0,0.1),
-                 0px 34px 30px rgba(0,0,0,0.1);
-    font-family: 'Dosis', sans-serif;
+    text-shadow: 0 3px 0 #8e4600, 0 14px 10px #000, 0 24px 2px rgba(0, 0, 0, .1), 0 34px 30px rgba(0, 0, 0, .1);
+    font-family: Ubuntu, sans-serif
 }
-.Register-page label, .account-settings label{
-  font-size: 2em;
+
+.account-settings label,
+.Register-page label {
+    font-size: 2em
 }
-.login-container, .Register-form {
+
+.login-container,
+.Register-form {
     width: 25%;
-    background-color: rgba(40,10,9, .70);
+    border-radius: 5px;
+    background-color: rgba(40, 10, 9, .7);
     padding: 20px;
     position: fixed;
     top: 59%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
 
-}
-input[type=text], select {
-  background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/mouse_left_click-24.png) 0.2em 0.3em no-repeat, linear-gradient(to bottom, #f7f7f8 0%, #ffffff 100%);
-    left:20%;
-    top:25%;
-    width:30%;
+input[type=text],
+select {
+    background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/mouse_left_click-24.png) .2em .3em no-repeat, -webkit-linear-gradient(top, #f7f7f8, #fff);
+    background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/mouse_left_click-24.png) .2em .3em no-repeat, linear-gradient(180deg, #f7f7f8 0, #fff);
+    left: 20%;
+    top: 25%;
+    width: 30%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    color: black;
-    text-align: center;
+    color: #000;
+    text-align: center
 }
+
 input[type=text]:focus {
-  background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/enter-24.png) 33.5em 0.3em no-repeat, linear-gradient(to bottom, #f7f7f8 0%, #ffffff 100%);
+    background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/enter-24.png) 33.5em .3em no-repeat, -webkit-linear-gradient(top, #f7f7f8, #fff);
+    background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/enter-24.png) 33.5em .3em no-repeat, linear-gradient(180deg, #f7f7f8 0, #fff)
 }
-input[type=password], select {
+
+input[type=email],
+input[type=password],
+select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -234,563 +246,546 @@ input[type=password], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    color: black;
-    text-align: center;
+    color: #000;
+    text-align: center
 }
-input[type=email], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    color:black;
-    text-align: center;
-}
+
 button[type=submit] {
     width: 100%;
     background-color: #ff8a3c;
-    color: white;
+    color: #fff;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out
 }
 
 button[type=submit]:hover {
-  
     background-color: #c4682b;
     -webkit-transform: scale(1.01);
-  transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    transform: scale(1.01)
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    -webkit-animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px
 }
-#registerlink {
-  color: white;
-  text-decoration: none;
-  background-color: transparent;
-  text-align: center;
-  display: block;
-  float: none;
 
+#registerlink {
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent;
+    text-align: center;
+    display: block;
+    float: none
 }
 
 #registerlink:hover {
-  color: gold;
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-  background-color: transparent;
+    color: gold;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    background-color: transparent
 }
+
 #login-icons {
-  text-align: center;
+    text-align: center
 }
-#google-login, #facebook-login{
-  background-color: transparent;
-  display: block;
-  width: 50%;
+
+#facebook-login,
+#google-login {
+    background-color: transparent;
+    display: block;
+    width: 50%
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large
 }
-
-
 
 /*********************************************************************
 //------------------------------Register Page--------------------------
 //*********************************************************************/
+
 .Register-form {
-  top: 61%;
+    top: 61%
 }
 
 a#loginlink {
-  float: none;
-  background-color: transparent;
+    float: none;
+    background-color: transparent
 }
+
 #loginlink:hover {
     color: gold;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
-    background-color: transparent;
+    background-color: transparent
 }
 
-#displayName{
-  width:100%;
+#display-name-input,
+#displayName,
+#username {
+    width: 100%
 }
 
 /*********************************************************************
 //------------------------------Account Settings Page--------------------------
 //*********************************************************************/
-#username {
-    width: 100%;
+
+.update-display-name-form {
+    top: 40%;
+    left: 35%
 }
 
-#display-name-input {
-    width: 100%;
-}
-
-.update-display-name-form { 
+.update-display-name-form,
+.update-password-form {
     width: 25%;
-    background-color: rgba(40,10,9, .70);
+    border-radius: 5px;
+    background-color: rgba(40, 10, 9, .7);
     padding: 20px;
     position: absolute;
-    top: 40%;
-    left: 35%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
 }
 
 .update-password-form {
-    width: 25%;
-    background-color: rgba(40,10,9, .70);
-    padding: 20px;
-    position: absolute;
     top: 45%;
-    left: 66%;
-    transform: translate(-50%, -50%);
+    left: 66%
 }
 
 .update-third-party-display-name-form {
     width: 25%;
     border-radius: 5px;
-    background-color: rgba(40,10,9, .70);
+    background-color: rgba(40, 10, 9, .7);
     padding: 20px;
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
 }
 
 /*********************************************************************
 //------------------------------SONG SEARCH--------------------------
 //*********************************************************************/
+
 #songSearch-page {
-  
-
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center left;
-  height: 867px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0;
+    height: 867px
 }
- .DashboardPage {
-    height: 863px;
- }
 
- #three_platforms {
-  margin-left: 238px;
+.DashboardPage {
+    height: 863px
+}
+
+#three_platforms {
+    margin-left: 238px;
     padding-bottom: 29px;
     padding-left: 121px;
     margin-bottom: 8px;
     margin-right: 146px;
-    background-color: rgba(152, 148, 148, 0.3);
- }
+    background-color: hsla(20, 8%, 79%, .63);
+    border-radius: 137px
+}
+
 #search-songs {
-  margin: 35px 0;
-
+    margin: 35px 0
 }
+
 #search-song-form {
-  transform: translate(-50%, -50%);
-  width:50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50%
 }
-.ASDF {
-  overflow: scroll;
-  overflow-x: hidden;
-  width:300px;
-  height:435px;
 
+.ASDF {
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 300px;
+    height: 435px
 }
+
 .search-result {
-  margin-top: 30px;
-  margin-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px
 }
 
 #songSearch-page .btn-group-vertical {
-  left: 66px;
-  top: 5px;
+    left: 66px;
+    top: 5px
 }
 
 input[type=checkbox].result-checkbox {
-  margin-right: 15px;
-}
-
-.platform_icons {
-  margin-left: 106px;
-  border-bottom: solid;
+    margin-right: 15px
 }
 
 /*********************************************************************
 //--------------------------USER PLAYLIST PAGE--------------------------
 //*********************************************************************/
+
 #UserPlaylist-page {
-  background:linear-gradient(
-      rgba(138,91,16, .85), 
-      rgba(255,197,103, 0.10)
-    ), url("http://store.suzieqquilts.com/stores_app/images/images_609/Bella%20Solids%20Feather%209900-127%20lg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center left;
-}
-h4 {
-  text-align: center;
-}
-.content{
-  background-color: rgba(152, 148, 148, 0.3);
-   width: 800px;
-  height: auto;
-  margin: 10px;
-  float: left;
-  padding: 8px;
-  box-sizing: border-box;
-  text-decoration: none;
+    background: -webkit-linear-gradient(rgba(138, 91, 16, .85), rgba(255, 197, 103, .1)), url("http://i.imgur.com/wZLxya6.jpg");
+    background: linear-gradient(rgba(138, 91, 16, .85), rgba(255, 197, 103, .1)), url("http://i.imgur.com/wZLxya6.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0
 }
 
-.area{
-  margin: 10px auto;
-  width: 800px;
-  height: 300px;
-  background: transparent;
-  text-decoration: none;
+h4 {
+    text-align: center
+}
+
+.content {
+    background: #280a09;
+    height: auto;
+    margin: 10px;
+    float: left;
+    padding: 8px;
+    box-sizing: border-box
+}
+
+.area,
+.content {
+    width: 800px;
+    text-decoration: none
+}
+
+.area {
+    margin: 10px auto;
+    height: 300px;
+    background: transparent
 }
 
 .my-saved-playlists {
-  text-align: center;
-  font-size: 3em;
-  text-decoration: none;
-  text-shadow: 0px 2px 0px #656463, 
-  0px 3px 0px rgba(0,0,0,1), 
-  0px 1px 1px rgba(0,0,0,0.1), 
-  0px 18px 16px rgba(0,0,0,0.1);
+    text-align: center;
+    font-size: 3em;
+    text-decoration: none
 }
-#user-playlist-buttons-li{
-  text-decoration-line: none;
+
+#user-playlist-buttons-li {
+    -webkit-text-decoration-line: none;
+    text-decoration-line: none
 }
+
 .user-playlist-buttons {
-  text-decoration: none;
-  color: #656463;
-  background-color: transparent;
-  padding: .50em;
-  border: none;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
+    text-decoration: none;
+    color: #fff;
+    background-color: transparent;
+    padding: .5em;
+    border: none;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out
 }
 
 .user-playlist-buttons:hover {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1)
 }
+
 #react-player {
     position: fixed;
     bottom: 0;
-    width: 100%;
-    border-top: solid;
-    border-color: gray;
-    box-shadow: 0px -3px 7px grey;
+    width: 100%
 }
+
 /*********************************************************************
 //------------------------------DASHBOARD--------------------------
 //*********************************************************************/
+
 .DashboardPage {
-  text-align: center;
+    text-align: center
 }
+
 #welcome {
-font-size: 5em;
-  text-align: center;
-  text-shadow: 0px 2px 0px #656463, 
-  0px 3px 0px rgba(0,0,0,1), 
-  0px 1px 1px rgba(0,0,0,0.1), 
-  0px 18px 16px rgba(0,0,0,0.1);
+    font-size: 5em
 }
 
-#my-saved-playlists {
-  text-align: center;
-  text-shadow: 0px 3px 0px #656463, 
-  0px 5px 10px rgba(0,0,0,1), 
-  0px 7px 2px rgba(0,0,0,0.1), 
-  0px 18px 16px rgba(0,0,0,0.1);
+#my-saved-playlists,
+#welcome {
+    text-align: center;
+    text-shadow: 0 3px 0 #8e4600, 0 5px 10px #000, 0 7px 2px rgba(0, 0, 0, .1), 0 18px 16px rgba(0, 0, 0, .1)
 }
 
-.trackButtons{
-  color: #656463;
-  background-color: black;
-  border: none;
-  font-weight: bolder;
+.trackButtons {
+    color: #fff;
+    background-color: #000;
+    border: none;
+    font-weight: bolder
 }
 
-.blackColor{
-  color:black;
+.blackColor {
+    color: #000
 }
-
 
 /*********************************************************************
 //--------------------------USER PLAYLIST PAGE--------------------------
 //*********************************************************************/
+
 #Q-list {
-  float:right;
-  
+    float: right
 }
-#Q_Track_List{
-  width:100%;
+
+#Q_Track_List {
+    width: 100%
 }
 
 div#Q_Track_List {
-  text-decoration: none;
-  color: #656463;
-  background-color: rgba(40,10,9, 1);
-  float: left;
-  display: block;
-  text-align: center;
-  padding: 14px 16px;
-  font-family: 'Dosis', sans-serif;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out; 
+    text-decoration: none;
+    color: #fff;
+    background-color: #280a09;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    font-family: Ubuntu, sans-serif;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out
 }
 
 div#Q_Track_List:hover {
     background-color: #3d2221;
-    color: #656463;
+    color: #fff;
     -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
     transform: scale(1.1);
-    text-decoration: none;
+    text-decoration: none
 }
 
-.UserPlaylist {
- 
-}
+
 /*********************************************************************
 //----------------------------MEET THE DEVS :)-------------------------
 //*********************************************************************/
-.name-Designation{
-  text-align:center;
-}
 
 .contactDev {
- margin-top: 30px;
- height: 863px;
+    margin-top: 30px;
+    height: 863px
 }
+
 .contact_info {
     margin-top: 10px;
-    margin-left: 50%;
+    margin-left: 50%
 }
+
 #meet_header {
-  font-size: 8em;
+    font-size: 8em
 }
+
 .project_roles {
-  display:-webkit-inline-box;
+    display: -webkit-inline-box
 }
 
-.surbhi-contact{
-  text-align: start;
-}
-
-.kevin-contact{
-   text-align: start;
-}
 .Surbhi {
-  float: right;
- text-align: center
+    float: right
 }
-.Surbhi_container {
-/*margin-bottom: 174px;*/
-}
-.Lavie {
-  float: left;
-  text-align: center
-}
+
+.Lavie,
 .Lavie_container {
-/*margin-bottom: 50px;*/
-float: left;
+    float: left
 }
+
 .Kevin {
-  float: right;
-  text-align: center
+    float: right
 }
-.Kevin_container {
-/*margin-bottom: 174px;*/
-}
-.Michelle {
-  float: left;
-  text-align: center
-}
+
+.Michelle,
 .Michelle_container {
-/*margin-bottom: 174px;*/
-float: left;
-margin-bottom: 200px;
+    float: left
 }
-.paragraph_float_right{
-  float: right;
-  width: 41%;
-  margin-top:100px;
+
+.paragraph_float_right {
+    float: right;
+    width: 41%;
+    margin-top: 100px
 }
+
 .paragraph_left {
-  width: 60%;
-  margin-top: 94px;
+    width: 60%;
+    margin-top: 94px
 }
+
 /*********************************************************************
 //---------------------------ACCOUNT SETTINGS--------------------------
 //*********************************************************************/
-.update-display-name-form, .update-password-form{
-  width: 30em;
-  text-align: center;
+
+.update-display-name-form,
+.update-password-form {
+    width: 30em;
+    text-align: center
 }
 
-.current-password{
-  font-size: 10em;
+.current-password {
+    font-size: 10em
 }
 
 .update-password-display-name {
-  top: 62%;
-  position: absolute;
-  margin-bottom: 30px;
+    top: 62%;
+    position: absolute;
+    margin-bottom: 30px
 }
+
 .account-settings label {
-  font-size: 2em;
-
+    font-size: 2em
 }
-
-
 
 /*********************************************************************
 //------------------------------FOOTER----------------------------
 //*********************************************************************/
+
 #react-player {
-  width: 100%;
-  bottom: 0;
-  background-color: rgba(248,249,243, 1);
+    width: 100%;
+    bottom: 0;
+    background-color: #280a09
 }
+
 #video-pic-viewer {
-  float:left;
-
+    float: left
 }
+
 #video-controller-1 {
-  float:right;
-  padding: 1em;
+    float: right;
+    padding: 1em
 }
 
-#video-seek, #video-volume {
-  color: #656463;
-  padding: 1em;
-  width: 25%;
-  float: left;
-}
-#video-volume{ width: 15%; }
-
-
-#seek, #volume {
-  font-size: 1em;
-  text-shadow: none;
+#video-seek,
+#video-volume {
+    color: #fff;
+    padding: 1em;
+    width: 25%;
+    float: left
 }
 
-.off{
-    color: #808080;
+#video-volume {
+    width: 15%
 }
+
+#seek,
+#volume {
+    font-size: 1em
+}
+
+.off {
+    color: gray
+}
+
 .on {
-    color: red;
+    color: #fff
 }
-  
+
 .player-buttons {
-  background-color: transparent;
-  padding: 1em;
-  color: #656463;
-  margin: 3px;
-  border: none;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
+    background-color: transparent;
+    padding: 1em;
+    color: #fff;
+    margin: 3px;
+    border: none;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out
 }
-.player-buttons:hover{
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
+
+.player-buttons:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2)
 }
 
 li.track {
-    
     display: block;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-family: 'Dosis', sans-serif;
-    color: black;
-    /*width: 94%;*/
+    font-family: Ubuntu, sans-serif;
+    color: #000
 }
 
 #track-names {
-  width:100%;
+    width: 100%
 }
 
 .track-title {
-     color: #656463; 
+    color: #fff
 }
 
-.queueTrackButton, #Q_Track_List, .queue-track-name {
-  display: inline-block;
+#Q_Track_List,
+.queue-track-name,
+.queueTrackButton {
+    display: inline-block
 }
 
 .col-sm-6.queueTrackButton {
-  width: 28%;
-  width: 160px;
-  padding-right: 5px;
+    width: 28%;
+    width: 160px;
+    padding-right: 5px
 }
 
 .col-sm-6.playlist-butt {
-    width: 50%;
+    width: 50%
 }
 
 .col-sm-6.queue-track-name#Q_Track_List {
-  padding-left: 15px;
-  padding-top: 5px;
-  text-align: left;
-  font-size: 1em;
-  height: 35px;
-  width: 548px;
+    padding-left: 15px;
+    padding-top: 5px;
+    text-align: left;
+    font-size: 1em;
+    height: 35px;
+    width: 548px
 }
 
 ul {
-  padding: 14px, 0px;
-  -webkit-padding-start: 0px;
+    padding: 14px, 0;
+    -webkit-padding-start: 0
 }
 
 li.track {
-  width: 750px;
+    width: 750px
 }
 
 .btn-group-vertical {
-  top: 93px;
-  left: 1410px;
+    top: 93px;
+    left: 1410px
 }
 
 .btn-group-vertical .btn.btn-default {
-  color: #656463;
-  background-color: #280A09;
-  border-color: transparent;
+    color: #fff;
+    background-color: #280a09;
+    border-color: transparent
 }
 
 ul.dropdown-menu {
-  margin: 9px 0 0;
-  background-color: #280A09;
+    margin: 9px 0 0;
+    background-color: #280a09
 }
-
 
 button#queue-list.dropdown-toggle.btn.btn-default {
     outline: 0;
     background-color: transparent;
-    color: #656463;
+    color: #fff;
     border-color: transparent;
     font-size: xx-large;
-    padding-top: 38px;
+    padding-top: 38px
 }
 
 
@@ -799,63 +794,63 @@ button#queue-list.dropdown-toggle.btn.btn-default {
 //*********************************************************************/
 
 #top_page {
-  margin-top: 54px;
+    margin-top: 54px
 }
 
 #lock_new_saved_playlists {
-  float:right;
-  position: fixed;
+    float: right;
+    position: fixed
 }
 
 .dropdown-menu>li>a {
-  color: #656463;
+    color: #fff
 }
 
 #toggle-div {
-  margin-left: 25%;
-  }
+    margin-left: 25%
+}
 
 .add-playlist-button:hover {
-  color: burlywood;
+    color: #deb887
 }
 
 #new-playlist-input {
-  width:100%;
+    width: 100%
 }
-#playlist_toggle_div{
-  margin-left: 47%;
+
+#playlist_toggle_div {
+    margin-left: 47%
 }
 
 .playlist-favourite {
-  text-align: center;
+    text-align: center
 }
 
 .top-playlist-tracks a {
     background-color: transparent;
-    width: 645px;
+    width: 645px
 }
 
-.trackThumbnail{
-  float: left;
-  width: 45px;
-  height:45px;
- 
+.trackThumbnail {
+    float: left;
+    width: 45px;
+    height: 45px
 }
 
 .transition {
-  transform: scale(1);
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transition: .3s ease-in-out;
-  -webkit-transition: .3s ease-in-out;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transition: .3s ease-in-out;
+    -webkit-transition: .3s ease-in-out
 }
 
 #top-playlist-render .area {
-  height: 275px;
+    height: 275px
 }
 
 #top-playlist-render {
-  padding-top: 30px;
+    padding-top: 30px
 }
 
 /*********************************************************************
@@ -964,6 +959,7 @@ button#queue-list.dropdown-toggle.btn.btn-default {
     width: 100%;
     float: none;
   }
+
   .playlist-buttons {
     margin: 0 auto;
     padding: 0;
@@ -1014,7 +1010,7 @@ button#queue-list.dropdown-toggle.btn.btn-default {
 
   /*Music Player*/
   iframe {
-    display: none;
+    play: none;
   }
 
   .player-buttons {
@@ -1104,12 +1100,6 @@ button#queue-list.dropdown-toggle.btn.btn-default {
     width: 200px;
     height: 200px;
   }
-  #disc {
-    text-align: center;
-    padding-left: 23%;
-    padding-top: 20%;
-  }
-  /*Login*/
   .login-container {
     top: 55%;
   }
@@ -1151,48 +1141,5 @@ button#queue-list.dropdown-toggle.btn.btn-default {
   /*Register*/
   div#register {
     padding: 4em;
-  }
-  
-}
-
-@media (min-width: 960px) {
-  #disc {
-    text-align: center;
-    padding-left: 28%;
-  }
-}
-
-@media (min-width: 1060px) {
-  #disc {
-    text-align: center;
-    padding-left: 29%;
-  }
-}
-
-@media (min-width: 1170px) {
-  #disc {
-    text-align: center;
-    padding-left: 32%;
-  }
-}
-
-@media (min-width: 1260px) {
-  #disc {
-    text-align: center;
-    padding-left: 34%;
-  }
-}
-
-@media (min-width: 1480px) {
-  #disc {
-    text-align: center;
-    padding-left: 37%;
-  }
-}
-
-@media (min-width: 1610px) {
-  #disc {
-    text-align: center;
-    padding-left: 39%;
   }
 }
