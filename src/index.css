@@ -595,6 +595,11 @@ div#Q_Track_List:hover {
 //----------------------------MEET THE DEVS :)-------------------------
 //*********************************************************************/
 
+#project-demo {
+    text-align: center;
+    margin: 40px auto;
+}
+
 .contactDev {
     margin-top: 30px;
     height: 863px
