@@ -116,11 +116,12 @@ a:hover {
 
 .nav-label {
     font-size: 16px;
+    text-shadow: none
 }
 
 .right-side {
     float: right;
-    display: inline;
+    display: inline
 }
 
 /*********************************************************************
