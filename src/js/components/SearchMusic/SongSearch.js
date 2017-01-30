@@ -28,7 +28,7 @@ class SongSearch extends Component {
     defaultCheckStatus: null,
     checkedYouTubeArr: [],
     checkedSoundCloudArr: [],
-    checkedVimeoArr: [],
+    checkedVimeoArr: []
   }
 
   renderCheckedIndex(source, index) {
@@ -85,7 +85,7 @@ class SongSearch extends Component {
 
       if(this.state.checkedYouTubeArr[index] === true) {
         const newPlaylist = update(this.state.tempPlaylist, {$push: [track]});
-        this.setState({tempPlaylist: newPlaylist})
+        this.setState({tempPlaylist: newPlaylist});
       } else if (this.state.checkedYouTubeArr[index] === false) {
         const index = this.state.tempPlaylist.indexOf(track);
         const newPlaylist = update(this.state.tempPlaylist, {$splice: [[index, 1]]});
@@ -121,7 +121,14 @@ class SongSearch extends Component {
       }
     }
   }
-
+  //when search results are unchecked, the results are passed down as a prop to AddPlaylist Component as a prop to hide
+  showPlaylistBox() {
+    if(this.state.tempPlaylist.length !== 0) {
+      return 'block';
+    } else {
+      return 'none';
+    }
+  }
   onClickAddToQueue (track, event) {
       event.preventDefault();
       this.props.dispatch(actions.queue(track));
@@ -164,32 +171,32 @@ class SongSearch extends Component {
         <form onSubmit={this.onSubmitSearch.bind(this)}>
           <input type="text" id="search-songs" name="search" ref="searchInput" placeholder="Search.." required/>
         </form>
-        <AddPlaylist onSubmitClearTemp={this.onSubmitClearTemp.bind(this)} error={this.props.error} feedback={this.props.feedback} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} />
-          <div id="three_platforms">
-              <Grid>
-                <Row>
-                  <Col md={4}>
-                    <h1 className="platform_icons"><FaYoutubePlay size={60} color='#bb0000'/></h1>
-                    <div className="ASDF">
-                      {this.generateResult(this.props.youtubeSearchedSongs)}
-                    </div>
-                  </Col>
-                  <Col md={4}>
-                    <h1 className="platform_icons"><FaVimeo size={60} color='#4EBBFF'/></h1>
-                    <div className="ASDF">
-                    {this.generateResult(this.props.vimeoSearchedSongs)}
-                    </div>
-                  </Col>
-                  <Col md={4}>
-                    <h1 className="platform_icons"><FaSoundcloud size={60} color='#ff3a00'/></h1>
-                    <div className="ASDF">
-                    {this.generateResult(this.props.soundcloudSearchedSongs)}
-                    </div>
-                  </Col>
-                </Row>
-              </Grid>
-            </div>
-          </div>
+        <div id="three_platforms">
+          <Grid>
+            <Row>
+              <Col md={4}>
+                <h1 className="platform_icons"><FaYoutubePlay size={60} color='#bb0000'/></h1>
+                <div className="ASDF">
+                  {this.generateResult(this.props.youtubeSearchedSongs)}
+                </div>
+              </Col>
+              <Col md={4}>
+                <h1 className="platform_icons"><FaVimeo size={60} color='#4EBBFF'/></h1>
+                <div className="ASDF">
+                {this.generateResult(this.props.vimeoSearchedSongs)}
+                </div>
+              </Col>
+              <Col md={4}>
+                <h1 className="platform_icons"><FaSoundcloud size={60} color='#ff3a00'/></h1>
+                <div className="ASDF">
+                {this.generateResult(this.props.soundcloudSearchedSongs)}
+                </div>
+              </Col>
+            </Row>
+          </Grid>
+        </div>
+        <AddPlaylist onSubmitClearTemp={this.onSubmitClearTemp.bind(this)} error={this.props.error} feedback={this.props.feedback} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} show={this.showPlaylistBox()} />
+      </div>
     )
   }
 }
