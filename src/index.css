@@ -76,7 +76,8 @@ a {
     padding: 14px 16px;
     text-decoration: none;
     font-family: Ubuntu, sans-serif;
-    color: #fff
+    color: #fff;
+    cursor: pointer;
 }
 
 a {
@@ -111,6 +112,15 @@ a:hover {
     background-position: 0;
     height: 100vh;
     color: #fff
+}
+
+.nav-label {
+    font-size: 16px;
+}
+
+.right-side {
+    float: right;
+    display: inline;
 }
 
 /*********************************************************************
