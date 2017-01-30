@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import FaGithubSquare from 'react-icons/lib/fa/github-square'
+import FaGithubSquare from 'react-icons/lib/fa/github-square';
+import FaGlobe from 'react-icons/lib/fa/globe';
 //import {Link} from 'react-router';
 
 class ContactDev extends Component {
@@ -27,8 +28,10 @@ class ContactDev extends Component {
             <h3 className="project_roles">Scrum Master</h3>
           </div>
             
-              <p className="paragraph_left">Hey, there. I'm Lavie. I like to eat organic things, especailly when I dress up like a panda. Contact me! Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-              <div><a href="https://github.com/Lavioli" className="contact_info">Github<FaGithubSquare/></a></div> </p>
+              <p className="paragraph_left">Hello! My name is Lavie and I am the Scrum Master and the Full Stack Developer of this project. My responsibilities in this project include: implement the redux actions, set up the backend development environment, implement the search API in the backend and the frontend, and build the functionalities across all pages. My creativity becomes limitless whenever it comes to web developement. In the near future, I want to continuously create projects to inspire and change people's lives. I am always up for new project collaborations, coffee, or code talk. :)
+              <div><a target="_blank" href="https://github.com/Lavioli" className="contact_info">Github<FaGithubSquare/></a>
+                </div>
+              </p>
               </div>
         <div className="Kevin_container">
         <div className='Kevin'>
