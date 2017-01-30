@@ -734,15 +734,6 @@ div#Q_Track_List:hover {
     transform: scale(1.2)
 }
 
-li.track {
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-family: Ubuntu, sans-serif;
-    color: #000
-}
-
 #track-names {
     width: 100%
 }
@@ -845,11 +836,6 @@ button#queue-list.dropdown-toggle.btn.btn-default {
 
 .playlist-favourite {
     text-align: center
-}
-
-.top-playlist-tracks a {
-    background-color: transparent;
-    width: 645px
 }
 
 .trackThumbnail {
