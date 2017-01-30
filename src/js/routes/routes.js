@@ -2,15 +2,15 @@ import React from 'react';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import {Provider} from 'react-redux';
 import store from '../store/store';
-import App from '../components/Pages/MainPage';
-import LoginPage from '../components/Pages/LoginPage';
-import RegisterPage from '../components/Pages/RegisterPage';
-import NavigationFooterPlayer from '../components/Pages/Navigation-FooterPlayer';
-import DashboardPage from '../components/Pages/DashboardPage';
-import TopPlaylists from '../components/Pages/TopPlaylistsPage';
-import SongSearchPage from '../components/Pages/SongSearchPage';
-import ContactDev from '../components/Pages/ContactsPage';
-import AccountSettingsPage from '../components/Pages/AccountSettingsPage';
+import App from '../components/MainPage/MainPage';
+import LoginPage from '../components/Login/LoginPage';
+import RegisterPage from '../components/Register/RegisterPage';
+import NavigationFooterPlayer from '../components/Nav-FooterPlayer/Navigation-FooterPlayer';
+import DashboardPage from '../components/Dashboard/DashboardPage';
+import TopPlaylists from '../components/TopPlaylists/TopPlaylistsPage';
+import SongSearchPage from '../components/SearchMusic/SongSearchPage';
+import ContactDev from '../components/AboutUs/ContactsPage';
+import AccountSettingsPage from '../components/AccountSettings/AccountSettingsPage';
 
 
 const routes = (
