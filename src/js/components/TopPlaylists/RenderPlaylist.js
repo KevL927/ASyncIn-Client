@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import * as playlistActions from '../../actions/playlist-actions';
-import RenderTracks from '../PlaylistPlayer/RenderTracksTopPlaylist';
+import RenderTrackList from './RenderTrackList';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
 import ScrollArea from 'react-scrollbar';
@@ -68,7 +68,7 @@ class RenderPlaylist extends Component {
 
     viewTracks(playlist) {
       if(playlist) {
-        return <ul className="top-playlist-tracks"><RenderTracks playlistObject={playlist} onCheckInsert={this.props.onCheckInsert} renderCheckedIndex={this.props.renderCheckedIndex} /></ul>
+        return <ul className="top-playlist-tracks"><RenderTrackList playlistObject={playlist} onCheckInsert={this.props.onCheckInsert} renderCheckedIndex={this.props.renderCheckedIndex} /></ul>
       }
       return;
     }
