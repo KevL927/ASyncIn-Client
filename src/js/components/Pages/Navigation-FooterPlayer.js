@@ -93,7 +93,7 @@ class NavigationFooterPlayer extends Component {
               <li><Link to="/dashboard/search"><FaSearch size={30}/><span className="nav-label">Search</span></Link></li>
               <li><Link to="/dashboard/top"><FaGlobe size={30}/><span className="nav-label">Top Playlists</span></Link></li>
               <li><Link to="/dashboard/contact"><FaEnvelope size={30}/><span className="nav-label">About Us</span></Link></li>
-              <li className="right-side"><Link to="/" onClick={this.logout.bind(this)}><FaEnvelope size={30}/><span className="nav-label">Logout</span></Link></li>
+              <li className="right-side"><Link to="/" onClick={this.logout.bind(this)}><FaSignOut size={30}/><span className="nav-label">Logout</span></Link></li>
               <li className="right-side"><Link to="/dashboard/settings"><FaCog size={30}/><span className="nav-label">Settings</span></Link></li>
             </ul>
           </div>
