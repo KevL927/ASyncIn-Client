@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import * as playlistActions from '../../actions/playlist-actions';
-import RenderTracks from '../PlaylistPlayer/RenderTracksTopPlaylist';
+import RenderTracks from './RenderTracksTopPlaylist';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
 import ScrollArea from 'react-scrollbar';
