@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import * as actions from '../../actions/actions';
 import * as userActions from '../../actions/user-actions';
 import * as playlistActions from '../../actions/playlist-actions';
-import RenderPlaylist from '../TopPlaylists/RenderPlaylist';
+import RenderPlaylist from './RenderPlaylist';
 import update from 'react-addons-update';
 import AddPlaylist from '../AddPlaylist/AddPlaylist';
 
