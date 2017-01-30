@@ -5,17 +5,24 @@ import TrackListWithCheckBox from './TrackListWithCheckBox';
 
 
 class RenderTracks extends Component {
-    
-    onTrackItemClick(event, track) {
+    onClickAddToQueue (event, track) {
         event.preventDefault();
         this.props.dispatch(actions.queue(track));
     }
 
+    playTrackOnClick (event, track) {
+      event.preventDefault();
+      this.props.dispatch(actions.currentListeningUrl(track));
+    }
+
     unwrapTracks() {
         if(this.props.playlistObject) {
-            return <TrackListWithCheckBox renderCheckedIndex={this.props.renderCheckedIndex} onCheckInsert={this.props.onCheckInsert} 
-                    onTrackItemClick={this.onTrackItemClick.bind(this)} 
-                    tracks={this.props.playlistObject.tracks} 
+            return  <TrackListWithCheckBox 
+                        renderCheckedIndex={this.props.renderCheckedIndex} 
+                        onCheckInsert={this.props.onCheckInsert} 
+                        tracks={this.props.playlistObject.tracks}
+                        onClickAddToQueue={this.onClickAddToQueue.bind(this)}
+                        playTrackOnClick={this.playTrackOnClick.bind(this)} 
                     />;
         } 
         return <div></div>;
