@@ -11,6 +11,7 @@ import FaSearch from 'react-icons/lib/fa/search'
 import FaGlobe from 'react-icons/lib/fa/globe'
 import FaEnvelope from 'react-icons/lib/fa/envelope'
 import FaCog from 'react-icons/lib/fa/cog'
+import FaSignOut from 'react-icons/lib/fa/sign-out';
 import MdLineWeight from 'react-icons/lib/md/line-weight';
 
 
@@ -24,7 +25,6 @@ class NavigationFooterPlayer extends Component {
 
   logout(){
      this.props.dispatch(userActions.logout());
-     hashHistory.push('/');
   }
 
   playMusicOrNot() {
@@ -93,7 +93,7 @@ class NavigationFooterPlayer extends Component {
               <li><Link to="/dashboard/search"><FaSearch size={30}/><span className="nav-label">Search</span></Link></li>
               <li><Link to="/dashboard/top"><FaGlobe size={30}/><span className="nav-label">Top Playlists</span></Link></li>
               <li><Link to="/dashboard/contact"><FaEnvelope size={30}/><span className="nav-label">About Us</span></Link></li>
-              <li className="right-side"><a onClick={this.logout.bind(this)}><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a></li>
+              <li className="right-side"><Link to="/" onClick={this.logout.bind(this)}><FaEnvelope size={30}/><span className="nav-label">Logout</span></Link></li>
               <li className="right-side"><Link to="/dashboard/settings"><FaCog size={30}/><span className="nav-label">Settings</span></Link></li>
             </ul>
           </div>
