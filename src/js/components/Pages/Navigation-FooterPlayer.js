@@ -86,19 +86,18 @@ class NavigationFooterPlayer extends Component {
   render() {
     return (
       <div>
-      <div>
-        <div className="NavigationBar">
-          <ul className="NavUL">
-            <li><Link to="/dashboard"><FaHome size={30}/></Link></li>
-            <li><Link to="/dashboard/search"><FaSearch size={30}/></Link></li>
-            <li><Link to="/dashboard/top"><FaGlobe size={30}/></Link></li>
-            <li><Link to="/dashboard/settings"><FaCog size={30}/></Link></li>
-            <li><Link to="/dashboard/contact"><FaEnvelope size={30}/></Link></li>
-            <li><a onClick={this.logout.bind(this)}><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a></li>
-          </ul>
-        </div>
+        <div>
+          <div className="NavigationBar">
+            <ul className="NavUL">
+              <li><Link to="/dashboard"><FaHome size={30}/><span className="nav-label">Home</span></Link></li>
+              <li><Link to="/dashboard/search"><FaSearch size={30}/><span className="nav-label">Search</span></Link></li>
+              <li><Link to="/dashboard/top"><FaGlobe size={30}/><span className="nav-label">Top Playlists</span></Link></li>
+              <li><Link to="/dashboard/contact"><FaEnvelope size={30}/><span className="nav-label">About Us</span></Link></li>
+              <li className="right-side"><a onClick={this.logout.bind(this)}><i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></a></li>
+              <li className="right-side"><Link to="/dashboard/settings"><FaCog size={30}/><span className="nav-label">Settings</span></Link></li>
+            </ul>
+          </div>
         {this.props.children}
-        
         {this.updateServerQueue()}
         </div>
         <footer id="react-player">
