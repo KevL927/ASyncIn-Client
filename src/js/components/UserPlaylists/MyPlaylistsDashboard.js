@@ -168,7 +168,7 @@ class MyPlaylistsDashboard extends Component {
 	render() {
 		return (
 			<div id="UserPlaylist">
-				<span className="my-saved-playlists">Saved Playlists</span>
+				<span className="my-saved-playlists">My Saved Playlists</span>
 					<ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
 						<div className="UserPlaylist-container">
 							<div>{this.props.error ? <div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback="This playlist name already exists" /></div>:<div></div>}</div>

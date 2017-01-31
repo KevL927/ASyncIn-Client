@@ -1,22 +1,27 @@
 .Song_Checkbox {
 	float: left;
-	margin: 15px 15px !important;
+	margin: 22px 15px !important;
 }
 
 .track {
     display: inline-block;
-    padding: 14px 16px;
     text-decoration: none;
     font-family: Ubuntu, sans-serif;
-    color: #000
+    color: #000;
+    width: 95% !important;
+    margin: 10px 0;
 }
 
 .track_link {
 	background-color: transparent;
+    font-size: 12px;
+    word-break: break-word;
+    display: flex;
+    padding: 0 0 0 2%;
+    float: none;
 }
 
 .function_buttons {
-    float: right;
     margin-top: 1%;
 }
 
@@ -47,8 +52,8 @@
 
 .trackThumbnail {
     float: left;
-    width: 45px;
-    height: 45px
+    width: 55px;
+    height: 55px
 }
 
 .transition {
