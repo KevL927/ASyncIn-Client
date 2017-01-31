@@ -60,9 +60,23 @@
 }
 
 #top-playlist-render .area {
-    height: 275px
+    max-height: 30vh;
+    min-width: 30vh;
 }
 
 #top-playlist-render {
-    padding-top: 30px
+    padding-top: 30px;
+    display: inline-block;
+    padding-top: 30px;
+    text-align: center;
+}
+
+#top_page .scrollarea.area {
+    width: 25%;
+    margin-left: 1%;
+    display: inherit;
+}
+
+#top_page .scrollarea-content.content{
+    width: 100%;
 }
