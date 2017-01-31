@@ -1,43 +1,48 @@
 .Song_Checkbox {
 	float: left;
-	margin: 15px 15px !important;
+	margin: 22px 15px !important;
 }
 
-.track {
+.top3 .track {
     display: inline-block;
-    padding: 14px 16px;
     text-decoration: none;
     font-family: Ubuntu, sans-serif;
-    color: #000
+    color: #000;
+    width: 95% !important;
+    margin: 10px 0;
 }
 
-.track_link {
+.top3 .track_link {
 	background-color: transparent;
+    font-size: 12px;
+    word-break: break-word;
+    display: flex;
+    padding: 0 0 0 2%;
+    float: none;
 }
 
 .function_buttons {
-    float: right;
     margin-top: 1%;
 }
 
-#top_page {
+.top3 #top_page {
     margin-top: 54px
 }
 
 
-#toggle-div {
+.top3 #toggle-div {
     margin-left: 25%
 }
 
-.add-playlist-button:hover {
+..top3 add-playlist-button:hover {
     color: #deb887
 }
 
-#new-playlist-input {
+.top3 #new-playlist-input {
     width: 100%
 }
 
-#playlist_toggle_div {
+.top3 #playlist_toggle_div {
     margin-left: 47%
 }
 
@@ -45,13 +50,13 @@
     text-align: center
 }
 
-.trackThumbnail {
+.top3 .trackThumbnail {
     float: left;
-    width: 45px;
-    height: 45px
+    width: 55px;
+    height: 55px
 }
 
-.transition {
+.top3 .transition {
     transform: scale(1);
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
@@ -59,10 +64,79 @@
     -webkit-transition: .3s ease-in-out
 }
 
-#top-playlist-render .area {
-    height: 275px
+.top3#top-playlist-render .area {
+    max-height: 30vh;
+    min-width: 30vh;
 }
 
-#top-playlist-render {
+.top3#top-playlist-render {
+    padding-top: 30px;
+    display: inline-block;
+    padding-top: 30px;
+    text-align: center;
+}
+
+#top_page .top3  .scrollarea.area {
+    width: 25%;
+    margin-left: 1%;
+    display: inherit;
+}
+
+#top_page .top3 .scrollarea-content.content{
+    width: 100%;
+}
+
+.top4to10 .trackThumbnail {
+    float: left;
+    width: 45px;
+    height: 45px
+}
+
+.top4to10 .area {
+    height: 25vh;
+}
+
+.top4to10 #top-playlist-render {
     padding-top: 30px
+}
+
+.top4to10 #playlist_toggle_div {
+    margin-left: 47%
+}
+
+.top4to10 .track {
+    display: inline-block;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: Ubuntu, sans-serif;
+    color: #000
+}
+
+.top4to10 .track_link {
+    background-color: transparent;
+    max-width: 76%;
+    text-align: left;
+    padding: 1% 0 0 2%;
+}
+
+.top4to10 .function_buttons {
+    float: right;
+    margin-top: 1%;
+}
+
+.top4to10 #top_page {
+    margin-top: 54px
+}
+
+
+.top4to10 #toggle-div {
+    margin-left: 25%
+}
+
+.top4to10 .add-playlist-button:hover {
+    color: #deb887
+}
+
+.top4to10 #new-playlist-input {
+    width: 100%
 }

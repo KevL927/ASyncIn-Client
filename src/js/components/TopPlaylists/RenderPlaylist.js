@@ -76,10 +76,11 @@ class RenderPlaylist extends Component {
   renderTop3And4To10Playlists(topPlaylist) {
     if(topPlaylist === this.props.playlistArray) {
       return (
-        <div id="top-playlist-render">
+        <div className="top3 " id="top-playlist-render">
           <h2>Top 3 Playlists</h2>
-          <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
+          
           {this.props.playlistArray.map((playlist, index) => (
+            <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
             <div key={index} className="playlist_favourites">
               <div className="playlistControls">
                 <div className="playlist-rating">
@@ -95,14 +96,15 @@ class RenderPlaylist extends Component {
               </div>
                   {this.viewTracks(playlist)}
             </div>
+            </ScrollArea>
           ))}
-          </ScrollArea>
+
         </div>
       );
     }
     if(this.props.playlistArray4To10) {
       return (
-        <div>
+        <div className="top4to10">
           <h2>Other Playlists</h2>
           <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
           {this.props.playlistArray4To10.map((playlist, index) => (
