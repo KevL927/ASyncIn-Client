@@ -597,12 +597,7 @@ h4 {
         width: 100%;
         float: none
     }
-    #playlist_toggle_div,
-    .playlist-buttons {
-        margin: 0 auto;
-        padding: 0;
-        display: inline-block
-    }
+
     .saved-playlists-ul {
         padding: 0
     }
