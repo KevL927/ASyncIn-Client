@@ -152,11 +152,11 @@ class SongSearch extends Component {
                 <input className="result-checkbox" type="checkbox" name="searchResult" ref={track.link} id={track.source} onChange={this.onCheckInsert.bind(this, track, index)} checked={this.renderCheckedIndex(track.source, index)}>
                 </input>
               </OverlayTrigger>
-              <OverlayTrigger placement="bottom" overlay={tooltip_add}>
-                <button className="blackColor" onClick={this.onClickAddToQueue.bind(this, track)}><TiPlus size={22}/></button>
-              </OverlayTrigger>
               <OverlayTrigger placement="bottom" overlay={tooltip_play}>
                 <button className="blackColor" onClick={this.playTrackOnClick.bind(this, track)}><FaPlayCircle size={22} /></button>
+              </OverlayTrigger>
+              <OverlayTrigger placement="bottom" overlay={tooltip_add}>
+                <button className="blackColor" onClick={this.onClickAddToQueue.bind(this, track)}><TiPlus size={22}/></button>
               </OverlayTrigger>
           </li>
         );
