@@ -73,76 +73,82 @@ class RenderPlaylist extends Component {
       return;
     }
 
-  renderTop3And4To10Playlists(topPlaylist) {
-    if(topPlaylist === this.props.playlistArray) {
-      return (
-        <div className="top3 " id="top-playlist-render">
-          <h2>Top 3 Playlists</h2>
-          
-          {this.props.playlistArray.map((playlist, index) => (
+    renderTop3And4To10Playlists(topPlaylist) {
+      if(topPlaylist === this.props.playlistArray) {
+        //swap playlist position and assign rank
+        let temp = topPlaylist[1];
+            topPlaylist[1] = topPlaylist[0];
+            topPlaylist[0] = temp;
+            topPlaylist[1].rank = 1;
+            topPlaylist[0].rank = 2;
+            topPlaylist[2].rank = 3;
+        return (
+          <div className="top3 " id="top-playlist-render">
+            <h2>Top 3 Playlists</h2>
+            {topPlaylist.map((playlist, index) => (
+                  <ScrollArea key={index} speed={0.8} className="area" contentClassName="content" horizontal={false} >
+                  <div key={index} className="playlist_favourites">
+                    <div className="playlistControls">
+                      <div className="playlist-rating">
+                        <li className="topTitle"><h3>#{playlist.rank} - {playlist.name}</h3></li>
+                        
+                        <li>favourites: {playlist.rating-1}</li>
+                      </div>
+                      <div className="playlist-favourite">{this.favouriteOrUnfavourite(playlist)}
+                        <OverlayTrigger placement="bottom" overlay={tooltip_add}>
+                          <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus size={22}/></button>
+                        </OverlayTrigger>
+                      </div>
+                    </div>
+                        {this.viewTracks(playlist)}
+                  </div>
+                  </ScrollArea>
+                )
+            )}
+          </div>
+        );
+      }
+      if(this.props.playlistArray4To10) {
+        return (
+          <div className="top4to10">
+            <h2>Other Playlists</h2>
             <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
-            <div key={index} className="playlist_favourites">
+            {this.props.playlistArray4To10.map((playlist, index) => (
+              <div key={index} className="playlist_favourites">
               <div className="playlistControls">
-                <div className="playlist-rating">
-                  <li className="topTitle"><h3>#{index+1} - {playlist.name}</h3></li>
-                  
-                  <li>favourites: {playlist.rating-1}</li>
-                </div>
-                <div className="playlist-favourite">{this.favouriteOrUnfavourite(playlist)}
-                  <OverlayTrigger placement="bottom" overlay={tooltip_add}>
-                    <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus size={22}/></button>
-                  </OverlayTrigger>
-                </div>
-              </div>
-                  {this.viewTracks(playlist)}
-            </div>
-            </ScrollArea>
-          ))}
-
-        </div>
-      );
-    }
-    if(this.props.playlistArray4To10) {
-      return (
-        <div className="top4to10">
-          <h2>Other Playlists</h2>
-          <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
-          {this.props.playlistArray4To10.map((playlist, index) => (
-            <div key={index} className="playlist_favourites">
-            <div className="playlistControls">
-              <li onClick={this.expandCollapse.bind(this, index)} ref={index}>
-            
-                <h3 className="transition">#{index+4} - {playlist.name}</h3>
-              </li>
-              <li>
-                favourites: {playlist.rating-1}
-              </li>
-           
-              <div className="playlist-favourite">
-                {this.favouriteOrUnfavourite(playlist)}
-                <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist )}><TiPlus size={22}/></button>
-            </div>
-             </div>
-              <Collapse isOpened={this.checkOpenedOrNot(index)}>
+                <li onClick={this.expandCollapse.bind(this, index)} ref={index}>
               
-              {this.viewTracks(playlist)}
-             </Collapse>
-            </div>
-          ))}
-          </ScrollArea>
-        </div>
-      );
+                  <h3 className="transition">#{index+4} - {playlist.name}</h3>
+                </li>
+                <li>
+                  favourites: {playlist.rating-1}
+                </li>
+             
+                <div className="playlist-favourite">
+                  {this.favouriteOrUnfavourite(playlist)}
+                  <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist )}><TiPlus size={22}/></button>
+              </div>
+               </div>
+                <Collapse isOpened={this.checkOpenedOrNot(index)}>
+                
+                {this.viewTracks(playlist)}
+               </Collapse>
+              </div>
+            ))}
+            </ScrollArea>
+          </div>
+        );
+      }
     }
-  }
   
-  render() {
-    return (
-      <div>
-        <div>{this.renderTop3And4To10Playlists(this.props.playlistArray)}</div>
-        <div>{this.renderTop3And4To10Playlists(this.props.playlistArray4To10)}</div>
-      </div>
-    ); 
-  }
+    render() {
+      return (
+        <div>
+          <div>{this.renderTop3And4To10Playlists(this.props.playlistArray)}</div>
+          <div>{this.renderTop3And4To10Playlists(this.props.playlistArray4To10)}</div>
+        </div>
+      ); 
+    }
   
 };
 
