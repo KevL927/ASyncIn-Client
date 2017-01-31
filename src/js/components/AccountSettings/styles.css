@@ -14,7 +14,7 @@
 .update-display-name-form,
 .update-password-form {
     display: inline-block;
-    width: 25%;
+    width: 30%;
     border-radius: 5px;
     background-color: rgba(40, 10, 9, .7);
     padding: 20px;
@@ -32,4 +32,29 @@
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%)
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+    .update-display-name-form, .update-password-form {
+        min-width: 38%;
+        max-width: 40%;
+    }
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    .update-display-name-form, .update-password-form {
+        min-width: 45%;
+        max-width: 50%;
+    }
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .update-display-name-form, .update-password-form {
+        width: 50%;
+    }
+
+    .account-settings {
+        margin: 25% 0 30% 0;
+    }
 }
