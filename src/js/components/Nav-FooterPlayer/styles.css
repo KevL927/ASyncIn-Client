@@ -99,7 +99,8 @@ a:hover {
 
 #seek,
 #volume {
-    font-size: 1em
+    font-size: 1em;
+    margin: 0;
 }
 
 .off {
