@@ -283,44 +283,6 @@ a#loginlink {
 }
 
 
-/*********************************************************************
-//------------------------------Account Settings Page--------------------------
-//*********************************************************************/
-
-.update-display-name-form {
-    top: 40%;
-    left: 35%
-}
-
-.update-display-name-form,
-.update-password-form {
-    width: 25%;
-    border-radius: 5px;
-    background-color: rgba(40, 10, 9, .7);
-    padding: 20px;
-    position: absolute;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%)
-}
-
-.update-password-form {
-    top: 45%;
-    left: 66%
-}
-
-.update-third-party-display-name-form {
-    width: 25%;
-    border-radius: 5px;
-    background-color: rgba(40, 10, 9, .7);
-    padding: 20px;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%)
-}
 
 
 /*********************************************************************
@@ -476,31 +438,6 @@ h4 {
     width: 60%;
     margin-top: 94px
 }
-
-/*********************************************************************
-//---------------------------ACCOUNT SETTINGS--------------------------
-//*********************************************************************/
-
-.update-display-name-form,
-.update-password-form {
-    width: 30em;
-    text-align: center
-}
-
-.current-password {
-    font-size: 10em
-}
-
-.update-password-display-name {
-    top: 62%;
-    position: absolute;
-    margin-bottom: 30px
-}
-
-.account-settings label {
-    font-size: 2em
-}
-
 
 
 /*********************************************************************
