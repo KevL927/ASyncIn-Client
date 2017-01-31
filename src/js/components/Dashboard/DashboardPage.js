@@ -4,7 +4,6 @@ import * as userActions from '../../actions/user-actions';
 import * as actions from '../../actions/actions';
 import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
 import MyPlaylistsDashboard from '../UserPlaylists/MyPlaylistsDashboard';
-import FaStar from 'react-icons/lib/fa/star';
 
 class DashboardPage extends Component {
   
@@ -35,7 +34,7 @@ class DashboardPage extends Component {
               </form>
             </div>
           <MyPlaylistsDashboard userSavedPlaylists={this.props.userSavedPlaylists} currentUser={this.props.currentUser}  queue={this.props.queue}/>
-            <span className="my-saved-playlists"> <FaStar/> Favourite Playlists</span>
+            <span className="my-saved-playlists">Favourite Playlists</span>
           <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} currentUser={this.props.currentUser} />
         </div>
       );

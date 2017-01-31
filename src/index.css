@@ -39,9 +39,10 @@ li {
     float: left
 }
 
-h2,
-h3 {
-    text-shadow: 0 3px 0 #8e4600, 0 5px 10px #000, 0 7px 2px rgba(0, 0, 0, .1), 0 18px 16px rgba(0, 0, 0, .1)
+h2{
+    text-shadow: 0 3px 0 #8e4600, 0 5px 10px #000, 0 7px 2px rgba(0, 0, 0, .1), 0 18px 16px rgba(0, 0, 0, .1);
+    font-size: 3em;
+    
 }
 
 form,
@@ -51,7 +52,8 @@ h3 {
 }
 
 .feedback {
-    font-size: 1em
+    font-size: 1em;
+    text-shadow:none;
 }
 
 
@@ -344,7 +346,7 @@ h4 {
 }
 
 .content {
-    background: #ffc107;
+    background: rgba(255, 193, 7, 0.71);
     height: auto;
     margin: 10px;
     float: left;
