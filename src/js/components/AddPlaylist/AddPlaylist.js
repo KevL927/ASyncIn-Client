@@ -5,9 +5,11 @@ import * as actions from '../../actions/actions';
 import SavedPlaylistsDropdown from '../UserPlaylists/SavedPlaylistsDropdown';
 import Feedback from '../Feedback';
 import ToggleButton from 'react-toggle-button';
-import FaUnlock from 'react-icons/lib/fa/unlock'
-import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt'
-import {ButtonGroup, Button, DropdownButton, MenuItem} from 'react-bootstrap'
+import FaUnlock from 'react-icons/lib/fa/unlock';
+import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt';
+import {ButtonGroup, Button, DropdownButton, MenuItem} from 'react-bootstrap';
+import './styles.css';
+
 const borderRadiusStyle = { borderRadius: 2 };
 
 class AddPlaylist extends Component {

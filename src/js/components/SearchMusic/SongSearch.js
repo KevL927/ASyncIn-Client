@@ -171,6 +171,7 @@ class SongSearch extends Component {
         <form onSubmit={this.onSubmitSearch.bind(this)}>
           <input type="text" id="search-songs" name="search" ref="searchInput" placeholder="Search.." required/>
         </form>
+        <AddPlaylist onSubmitClearTemp={this.onSubmitClearTemp.bind(this)} error={this.props.error} feedback={this.props.feedback} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} show={this.showPlaylistBox()} />
         <div id="three_platforms">
           <Grid>
             <Row>
@@ -195,7 +196,6 @@ class SongSearch extends Component {
             </Row>
           </Grid>
         </div>
-        <AddPlaylist onSubmitClearTemp={this.onSubmitClearTemp.bind(this)} error={this.props.error} feedback={this.props.feedback} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} newPlaylist={this.state.tempPlaylist} show={this.showPlaylistBox()} />
       </div>
     )
   }

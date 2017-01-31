@@ -443,10 +443,6 @@ a#loginlink {
     margin-bottom: 30px
 }
 
-#songSearch-page .btn-group-vertical {
-    left: 66px;
-    top: 5px
-}
 
 input[type=checkbox].result-checkbox {
     margin-right: 15px
@@ -776,10 +772,6 @@ li.track {
     width: 750px
 }
 
-.btn-group-vertical {
-    top: 93px;
-    left: 1410px
-}
 
 .btn-group-vertical .btn.btn-default {
     color: #fff;
@@ -807,11 +799,6 @@ button#queue-list.dropdown-toggle.btn.btn-default {
 
 #top_page {
     margin-top: 54px
-}
-
-#lock_new_saved_playlists {
-    float: right;
-    position: fixed
 }
 
 .dropdown-menu>li>a {
