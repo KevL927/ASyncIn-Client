@@ -12,3 +12,9 @@
 #songSearch-page .btn-group-vertical {
     left: 30%;
 }
+
+#lock_new_saved_playlists .btn-group-vertical .btn.btn-default {
+    color: #fff;
+    border-color: transparent;
+    background-color: #FFC107;
+}
