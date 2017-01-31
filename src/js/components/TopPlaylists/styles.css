@@ -19,3 +19,50 @@
     float: right;
     margin-top: 1%;
 }
+
+#top_page {
+    margin-top: 54px
+}
+
+
+#toggle-div {
+    margin-left: 25%
+}
+
+.add-playlist-button:hover {
+    color: #deb887
+}
+
+#new-playlist-input {
+    width: 100%
+}
+
+#playlist_toggle_div {
+    margin-left: 47%
+}
+
+.playlist-favourite {
+    text-align: center
+}
+
+.trackThumbnail {
+    float: left;
+    width: 45px;
+    height: 45px
+}
+
+.transition {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transition: .3s ease-in-out;
+    -webkit-transition: .3s ease-in-out
+}
+
+#top-playlist-render .area {
+    height: 275px
+}
+
+#top-playlist-render {
+    padding-top: 30px
+}

@@ -14,6 +14,7 @@ import FaCog from 'react-icons/lib/fa/cog'
 import FaSignOut from 'react-icons/lib/fa/sign-out';
 import MdLineWeight from 'react-icons/lib/md/line-weight';
 import ScrollArea from 'react-scrollbar';
+import './styles.css';
 
 
 class NavigationFooterPlayer extends Component {

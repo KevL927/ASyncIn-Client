@@ -6,4 +6,34 @@
 	font-family: Ubuntu, sans-serif;
 	color: #000
 }
-  
+
+#Q-list {
+    float: right
+}
+
+#Q_Track_List {
+    width: 100%
+}
+
+div#Q_Track_List {
+    text-decoration: none;
+    color: #fff;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    font-family: Ubuntu, sans-serif;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out
+}
+
+div#Q_Track_List:hover {
+    color: #fff;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    text-decoration: none
+}

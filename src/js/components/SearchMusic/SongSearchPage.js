@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import SongSearch from '../SearchMusic/SongSearch';
 import * as userActions from '../../actions/user-actions';
-
+import './styles.css';
 
 class SongSearchContainer extends Component {
   

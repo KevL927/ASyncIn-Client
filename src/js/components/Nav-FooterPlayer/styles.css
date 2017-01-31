@@ -1,0 +1,194 @@
+/*********************************************************************
+//------------------------------NAVIGATION BAR--------------------------
+//*********************************************************************/
+
+.NavUL {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffc107;
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+.nav-li,
+a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: Ubuntu, sans-serif;
+    color: #fff;
+    cursor: pointer;
+}
+
+a {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out
+}
+
+.nav-li:hover,
+a:hover {
+    color: #fff;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    text-decoration: none
+}
+
+#songSearch-page,
+#top_page,
+#UserPlaylist-page,
+.account-settings,
+.DashboardPage {
+    margin-top: 57px;
+    margin-bottom: 40px;
+    background-color: white;
+    color: #000
+}
+
+.nav-label {
+    font-size: 16px;
+    text-shadow: none
+}
+
+.right-side {
+    float: right;
+    display: inline
+}
+
+
+/*********************************************************************
+//------------------------------FOOTER PLAYER BAR---------------------
+//*********************************************************************/
+
+
+#react-player {
+    width: 100%;
+    bottom: 0;
+    background-color: #FF9800;
+    position: fixed;
+}
+
+#video-pic-viewer {
+    float: left
+}
+
+#video-controller-1 {
+    float: right;
+    padding: 1em
+}
+
+#video-seek,
+#video-volume {
+    color: #fff;
+    padding: 1em;
+    width: 25%;
+    float: left
+}
+
+#video-volume {
+    width: 15%
+}
+
+#seek,
+#volume {
+    font-size: 1em
+}
+
+.off {
+    color: gray
+}
+
+.on {
+    color: #fff
+}
+
+.player-buttons {
+    background-color: transparent;
+    padding: 1em;
+    color: #fff;
+    margin: 3px;
+    border: none;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out
+}
+
+.player-buttons:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2)
+}
+
+#track-names {
+    width: 100%
+}
+
+.track-title {
+    color: #fff
+}
+
+#Q_Track_List,
+.queue-track-name,
+.queueTrackButton {
+    display: inline-block
+}
+
+.col-sm-6.queueTrackButton {
+    width: 28%;
+    width: 160px;
+    padding-right: 5px
+}
+
+.col-sm-6.playlist-butt {
+    width: 50%
+}
+
+.col-sm-6.queue-track-name#Q_Track_List {
+    padding-left: 15px;
+    padding-top: 5px;
+    text-align: left;
+    font-size: 1em;
+    height: 35px;
+    width: 548px
+}
+
+ul {
+    padding: 14px, 0;
+    -webkit-padding-start: 0
+}
+
+li.track {
+    width: 750px
+}
+
+
+.btn-group-vertical .btn.btn-default {
+    color: #fff;
+    border-color: transparent;
+}
+
+ul.dropdown-menu {
+    margin: 9px 0 0;
+
+}
+
+button#queue-list.dropdown-toggle.btn.btn-default {
+    outline: 0;
+    background-color: transparent;
+    color: #fff;
+    border-color: transparent;
+    font-size: xx-large;
+    padding-top: 38px
+}
+
+

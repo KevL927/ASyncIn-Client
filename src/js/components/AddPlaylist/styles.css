@@ -1,0 +1,20 @@
+#lock_new_saved_playlists {
+	float: right;
+	position: absolute;
+	left: 83%;
+}
+
+#top_page .btn-group-vertical {
+	top: 12vh;
+    right: 0%;
+}
+
+#songSearch-page .btn-group-vertical {
+    left: 30%;
+}
+
+#lock_new_saved_playlists .btn-group-vertical .btn.btn-default {
+    color: #fff;
+    border-color: transparent;
+    background-color: #FFC107;
+}
