@@ -35,3 +35,7 @@
 input[type=checkbox].result-checkbox {
     margin-right: 15px
 }
+
+.platform_icons {
+    text-align: center;
+}
