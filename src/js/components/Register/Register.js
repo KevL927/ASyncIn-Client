@@ -53,7 +53,6 @@ class Register extends Component {
             <div className="Register-page">
             <div id="register"><span className="title">Sync-In</span></div>
                 <form className="Register-form" onSubmit={this.onSubmitRegister.bind(this)}>
-                    <p className="stranger">Welcome, Stranger. :)</p>
                     <label className="email">Email Address:</label>
                     <input type="email" id="email-input" className="input" ref="emailText" placeholder="Type your e-mail address" required />
                     <label className="username">Create Display Name:</label>
