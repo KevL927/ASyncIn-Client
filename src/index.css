@@ -738,8 +738,12 @@ h4 {
         margin: 0;
         width: 20em
     }
+    .LoginPage label, .Register-page label {
+        font-size: 2em;
+    }
     .login-container, .Register-form {
         width: 75%;
+        height: 70%;
     }
 }
 
@@ -760,9 +764,15 @@ h4 {
     div#register {
         padding: 4em
     }
+    .LoginPage label, .Register-page label {
+        font-size: 2em;
+    }
     .login-container, .Register-form {
         width: 50%;
+        height: 75%;
+        top: 60%;
     }
+    
 }
 
 @media (min-width:960px) {
@@ -772,6 +782,9 @@ h4 {
     }
       .login-container, .Register-form {
         width: 40%;
+    }
+    span {
+        font-size: 9em;
     }
 }
 
@@ -794,6 +807,9 @@ h4 {
     #disc {
         text-align: center;
         padding-left: 34%
+    }
+    span {
+        font-size: 9em;
     }
 }
 
