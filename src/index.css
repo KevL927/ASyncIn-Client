@@ -75,7 +75,7 @@ h3 {
 
 span {
     font-size: 12em;
-    text-shadow: 0 3px 0 #8e4600, 0 14px 10px #000, 0 24px 2px rgba(0, 0, 0, .1), 0 34px 30px rgba(0, 0, 0, .1)
+    text-shadow: 0 3px 0 #8e4600, 0 5px 10px #000, 0 7px 2px rgba(0, 0, 0, .1), 0 18px 16px rgba(0, 0, 0, .1)
 }
 
 #about,
@@ -651,7 +651,8 @@ h4 {
     }
     #video-seek,
     #video-volume {
-        display: none
+        display: none;
+        text-shadow: none;
     }
     #queue-list {
         color: #fff;
