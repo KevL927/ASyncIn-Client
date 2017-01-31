@@ -65,7 +65,7 @@ h3 {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
-    height: 100vh
+    height: 150vh
 }
 
 .MainPage-Header {
@@ -708,7 +708,7 @@ h4 {
     }
     #disc {
         text-align: center;
-        padding-left: 23%;
+        padding-left: 30%;
         padding-top: 20%
     }
     .login-container {
@@ -736,7 +736,7 @@ h4 {
         font-size: 8em
     }
     .MainPage {
-        height: 100vh
+        height: 150vh
     }
     #disc {
         text-align: center;
