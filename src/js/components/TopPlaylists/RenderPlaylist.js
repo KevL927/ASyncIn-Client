@@ -74,18 +74,18 @@ class RenderPlaylist extends Component {
     }
 
     renderTop3And4To10Playlists(topPlaylist) {
+      //swap playlist position and assign rank
+      let temp = this.props.playlistArray[1];
+          this.props.playlistArray[1] = this.props.playlistArray[0];
+          this.props.playlistArray[0] = temp;
+          this.props.playlistArray[1].rank = 1;
+          this.props.playlistArray[0].rank = 2;
+          this.props.playlistArray[2].rank = 3;
       if(topPlaylist === this.props.playlistArray) {
-        //swap playlist position and assign rank
-        let temp = topPlaylist[1];
-            topPlaylist[1] = topPlaylist[0];
-            topPlaylist[0] = temp;
-            topPlaylist[1].rank = 1;
-            topPlaylist[0].rank = 2;
-            topPlaylist[2].rank = 3;
         return (
           <div className="top3 " id="top-playlist-render">
             <h2>Top 3 Playlists</h2>
-            {topPlaylist.map((playlist, index) => (
+            {this.props.playlistArray.map((playlist, index) => (
                   <ScrollArea key={index} speed={0.8} className="area" contentClassName="content" horizontal={false} >
                   <div key={index} className="playlist_favourites">
                     <div className="playlistControls">

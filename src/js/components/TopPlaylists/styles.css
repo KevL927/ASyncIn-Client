@@ -52,8 +52,8 @@
 
 .top3 .trackThumbnail {
     float: left;
-    width: 55px;
-    height: 55px
+    width: 65px;
+    height: 65px
 }
 
 .top3 .transition {
@@ -93,7 +93,7 @@
 }
 
 .top4to10 .area {
-    height: 25vh;
+    height: 35vh;
 }
 
 .top4to10 #top-playlist-render {
@@ -139,4 +139,8 @@
 
 .top4to10 #new-playlist-input {
     width: 100%
+}
+
+#top_page {
+    height: 110vh;
 }
