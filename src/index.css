@@ -140,7 +140,7 @@ span {
 .AccountSettingsPage label,
 .LoginPage label,
 .Register-page label {
-    font-size: 4em;
+    /*font-size: 4em;*/
     margin: 10px;
     text-shadow: 0 3px 0 #8e4600, 0 14px 10px #000, 0 24px 2px rgba(0, 0, 0, .1), 0 34px 30px rgba(0, 0, 0, .1);
     font-family: Ubuntu, sans-serif
@@ -153,7 +153,6 @@ span {
 
 .login-container,
 .Register-form {
-    width: 25%;
     border-radius: 5px;
     background-color: rgba(40, 10, 9, .7);
     padding: 20px;
@@ -515,7 +514,7 @@ h4 {
 
 @media screen and (min-width:320px) and (max-width:376px) {
     span {
-        font-size: 2em
+        font-size: 3em
     }
     span#about {
         font-size: 1em
@@ -544,11 +543,12 @@ h4 {
     }
     .login-container {
         padding: 2em;
-        top: 55%
+        top: 55%;
+        width: 75%;
     }
     .LoginPage label,
     .update-password-display-name label {
-        font-size: 3em
+        font-size: 2em
     }
     div#register {
         padding: .5em
@@ -568,7 +568,7 @@ h4 {
         top: 55%
     }
     .Register-form input {
-        padding: 4px;
+        padding: 9px;
         margin: 0;
         width: 18em
     }
@@ -658,11 +658,14 @@ h4 {
         display: inline-block;
         border-color: transparent
     }
+    .Register-form {
+        padding-top: 0em;
+    }
 }
 
 @media screen and (min-width:375px) and (max-width:413px) {
     span {
-        font-size: 3em
+        font-size: 2.5em
     }
     span#about {
         font-size: 1em
@@ -684,8 +687,8 @@ h4 {
     }
     div#login,
     div#register {
-        padding: 2em;
-        font-size: 1.5em;
+        padding: 1.5em;
+        
     }
     .NavigationBar a {
         padding: 14px 52px
@@ -693,6 +696,14 @@ h4 {
     .login-container, .Register-form {
         width: 85%;
     }
+    .Register-page label {
+        font-size: 1em;
+    }
+    .Register-form {
+        top:57%;
+        padding-top: 0em;
+    }
+  
 }
 
 @media screen and (min-width:414px) and (max-width:659px) {
@@ -715,7 +726,6 @@ h4 {
     #login,
     #register {
         padding: 2em;
-        font-size: 1.5em;
     }
     #disc {
         text-align: center;
@@ -723,7 +733,9 @@ h4 {
         padding-top: 20%
     }
     .login-container {
-        top: 55%
+        top: 55%;
+        height: auto;
+        
     }
     div#register {
         padding: 4em
@@ -736,22 +748,21 @@ h4 {
         top: 55%
     }
     .Register-form input {
-        padding: 4px;
+        padding: 10px;
         margin: 0;
         width: 20em
     }
     .LoginPage label, .Register-page label {
-        font-size: 2em;
+        font-size: 1.5em;
     }
     .login-container, .Register-form {
         width: 75%;
-        height: 70%;
     }
 }
 
 @media screen and (min-width:660px) and (max-width:959px) {
     span {
-        font-size: 8em
+        font-size: 5em
     }
     .MainPage {
         height: 150vh
@@ -761,7 +772,7 @@ h4 {
         padding-left: 23%
     }
     .login-container {
-        top: 55%
+        top: 45%
     }
     div#register {
         padding: 4em
@@ -771,7 +782,6 @@ h4 {
     }
     .login-container, .Register-form {
         width: 50%;
-        height: 75%;
         top: 60%;
     }
     
@@ -783,10 +793,18 @@ h4 {
         padding-left: 28%
     }
       .login-container, .Register-form {
-        width: 40%;
+        width: 45%;
+        max-width: 465px;
+        font-size: 1.5em;
+    }
+    .login-container {
+        font-size: 2em;
     }
     span {
-        font-size: 9em;
+        font-size: 7em;
+    }
+    .Register-page label {
+        font-size: 1em;
     }
 }
 
