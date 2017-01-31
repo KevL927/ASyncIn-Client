@@ -91,12 +91,12 @@ class NavigationFooterPlayer extends Component {
         <div>
           <div className="NavigationBar">
             <ul className="NavUL">
-              <li><Link to="/dashboard"><FaHome size={30}/><span className="nav-label">Home</span></Link></li>
-              <li><Link to="/dashboard/search"><FaSearch size={30}/><span className="nav-label">Search</span></Link></li>
-              <li><Link to="/dashboard/top"><FaGlobe size={30}/><span className="nav-label">Top Playlists</span></Link></li>
-              <li><Link to="/dashboard/contact"><FaEnvelope size={30}/><span className="nav-label">About Us</span></Link></li>
-              <li className="right-side"><Link to="/" onClick={this.logout.bind(this)}><FaSignOut size={30}/><span className="nav-label">Logout</span></Link></li>
-              <li className="right-side"><Link to="/dashboard/settings"><FaCog size={30}/><span className="nav-label">Settings</span></Link></li>
+              <li title="Home"><Link to="/dashboard"><FaHome size={30}/><span className="nav-label">Home</span></Link></li>
+              <li title="Search"><Link to="/dashboard/search"><FaSearch size={30}/><span className="nav-label">Search</span></Link></li>
+              <li title="Top Playlists"><Link to="/dashboard/top"><FaGlobe size={30}/><span className="nav-label">Top Playlists</span></Link></li>
+              <li title="About Us"><Link to="/dashboard/contact"><FaEnvelope size={30}/><span className="nav-label">About Us</span></Link></li>
+              <li className="right-side" title="Logout"><Link to="/" onClick={this.logout.bind(this)}><FaSignOut size={30}/><span className="nav-label">Logout</span></Link></li>
+              <li className="right-side" title="Settings"><Link to="/dashboard/settings"><FaCog size={30}/><span className="nav-label">Settings</span></Link></li>
             </ul>
           </div>
         {this.props.children}
