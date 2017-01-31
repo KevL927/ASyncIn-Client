@@ -682,10 +682,14 @@ h4 {
     }
     div#login,
     div#register {
-        padding: 2em
+        padding: 2em;
+        font-size: 1.5em;
     }
     .NavigationBar a {
         padding: 14px 52px
+    }
+    .login-container, .Register-form {
+        width: 85%;
     }
 }
 
@@ -705,6 +709,11 @@ h4 {
     .image {
         width: 200px;
         height: 200px
+    }
+    #login,
+    #register {
+        padding: 2em;
+        font-size: 1.5em;
     }
     #disc {
         text-align: center;
@@ -729,6 +738,9 @@ h4 {
         margin: 0;
         width: 20em
     }
+    .login-container, .Register-form {
+        width: 75%;
+    }
 }
 
 @media screen and (min-width:660px) and (max-width:959px) {
@@ -748,12 +760,18 @@ h4 {
     div#register {
         padding: 4em
     }
+    .login-container, .Register-form {
+        width: 50%;
+    }
 }
 
 @media (min-width:960px) {
     #disc {
         text-align: center;
         padding-left: 28%
+    }
+      .login-container, .Register-form {
+        width: 40%;
     }
 }
 
@@ -769,6 +787,7 @@ h4 {
         text-align: center;
         padding-left: 32%
     }
+  
 }
 
 @media (min-width:1260px) {
