@@ -13,6 +13,7 @@ import FaEnvelope from 'react-icons/lib/fa/envelope'
 import FaCog from 'react-icons/lib/fa/cog'
 import FaSignOut from 'react-icons/lib/fa/sign-out';
 import MdLineWeight from 'react-icons/lib/md/line-weight';
+import ScrollArea from 'react-scrollbar';
 
 
 class NavigationFooterPlayer extends Component {
@@ -105,7 +106,9 @@ class NavigationFooterPlayer extends Component {
             <ButtonToolbar>
               <DropdownButton open={this.state.menuOpen} onToggle={val => this.dropdownToggle(val)} bsStyle="default" title={<MdLineWeight/>} noCaret dropup pullRight id="queue-list">
               <MenuItem onClick={() => this.menuItemClickedThatShouldntCloseDropdown()}>
+                <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
                 <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} error={this.props.error} feedback={this.props.feedback}/>
+                </ScrollArea>
                 </MenuItem>
               </DropdownButton>
             </ButtonToolbar>

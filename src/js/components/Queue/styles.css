@@ -1,0 +1,9 @@
+.queue_track {
+	display: flex;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-family: Ubuntu, sans-serif;
+	color: #000
+}
+  
