@@ -282,11 +282,6 @@ a#loginlink {
     background-color: transparent
 }
 
-#display-name-input,
-#displayName,
-#username {
-    width: 100%
-}
 
 /*********************************************************************
 //------------------------------Account Settings Page--------------------------
@@ -703,6 +698,11 @@ h4 {
         top:57%;
         padding-top: 0em;
     }
+    #display-name-input,
+#displayName,
+#username {
+    width: 100%
+}
   
 }
 
@@ -758,6 +758,11 @@ h4 {
     .login-container, .Register-form {
         width: 75%;
     }
+    #display-name-input,
+#displayName,
+#username {
+    width: 20em;
+}
 }
 
 @media screen and (min-width:660px) and (max-width:959px) {
@@ -785,6 +790,12 @@ h4 {
         top: 60%;
     }
     
+#display-name-input,
+#displayName,
+#username {
+    width: 100%
+}
+    
 }
 
 @media (min-width:960px) {
@@ -806,6 +817,11 @@ h4 {
     .Register-page label {
         font-size: 1em;
     }
+    #display-name-input,
+#displayName,
+#username {
+    width: 100%
+}
 }
 
 @media (min-width:1060px) {
