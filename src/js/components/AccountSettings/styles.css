@@ -1,0 +1,35 @@
+.account-settings {
+    color: white;
+    height: 100%;
+    width: 100%;
+    margin: 8% 0 15% 0;
+    text-align: center;
+}
+
+.update-display-name, .update-password {
+    display: block;
+}
+
+
+.update-display-name-form,
+.update-password-form {
+    display: inline-block;
+    width: 25%;
+    border-radius: 5px;
+    background-color: rgba(40, 10, 9, .7);
+    padding: 20px;
+    margin-bottom: 2%;
+}
+
+.update-third-party-display-name-form {
+    width: 25%;
+    border-radius: 5px;
+    background-color: rgba(40, 10, 9, .7);
+    padding: 20px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
