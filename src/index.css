@@ -401,23 +401,27 @@ h4 {
 //----------------------------MEET THE DEVS :)-------------------------
 //*********************************************************************/
 
+#meet_header {
+   display: block;
+   width: 100%;
+   margin: 0 auto;
+   font-size: 4em;
+   text-align: center;
+}
+
 #project-demo {
     text-align: center;
     margin: 40px auto;
 }
 
 .contactDev {
-    margin-top: 30px;
-    height: 863px;
+    margin-top: 60px;
+    padding-bottom: 100px;
 }
 
 .contact_info {
     margin-top: 10px;
     margin-left: 50%
-}
-
-#meet_header {
-    font-size: 8em
 }
 
 .Surbhi {
@@ -426,6 +430,10 @@ h4 {
 
 .contactDev h1, .project_roles {
     text-align: center;
+}
+
+.contactDev h1 {
+    margin-top: 0;
 }
 
 .project_roles {
@@ -446,15 +454,17 @@ h4 {
     float: left
 }
 
-.paragraph_float_right {
-    float: right;
-    width: 41%;
+.paragraph_right, .paragraph_left {
+    width: 40%;
     margin-top: 100px
 }
 
+.paragraph_right {
+    float: right;
+}
+
 .paragraph_left {
-    width: 60%;
-    margin-top: 94px
+    float: left;
 }
 
 
