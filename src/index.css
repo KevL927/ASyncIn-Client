@@ -390,7 +390,7 @@ h4 {
 }
 
 #playlist_toggle_div {
-    position: absolute;
+    position: relative;
     left: 45%;
     
 }
