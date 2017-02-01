@@ -9,7 +9,7 @@ class ContactDev extends Component {
       <div className="contactDev">
         <span id="meet_header"> Meet the Web Developers</span>
         <div id="project-demo">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/A8AEijXbFms" frameborder="0" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/A8AEijXbFms" frameBorder="0" allowFullScreen></iframe>
         </div>
         <div className="Surbhi_container">
           <div className='Surbhi'>
