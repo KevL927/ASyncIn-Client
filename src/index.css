@@ -131,9 +131,9 @@ span {
     background: url("http://i.imgur.com/BWMCDuH.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: 50%;
     height: 100vh;
-    color: #fcf8e3
+    color: #fcf8e3;
 }
 
 .AccountSettingsPage label,
