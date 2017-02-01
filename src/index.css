@@ -67,12 +67,11 @@ h3 {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
-    height: 150vh
+    height: 100vh
 }
 
 .MainPage-Header {
     color: #fcf8e3;
-    padding: 5em
 }
 
 span {
