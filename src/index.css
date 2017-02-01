@@ -420,12 +420,20 @@ h4 {
     font-size: 8em
 }
 
-.project_roles {
-    display: -webkit-inline-box
-}
+/*.project_roles {*/
+/*    display: -webkit-inline-box*/
+/*}*/
 
 .Surbhi {
     float: right
+}
+
+.contactDev h1, .project_roles {
+    text-align: center;
+}
+
+.project_roles {
+    width: 100%;
 }
 
 .Lavie,
