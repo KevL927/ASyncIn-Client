@@ -119,20 +119,7 @@ class MyPlaylistsDashboard extends Component {
 					<h4 id="playlist-name" onClick={this.expandCollapse.bind(this, index)} ref={index}>
 						{playlist.name}     
 						<FaAlignJustify/>
-					</h4>
-					<div className="col-md-12 playlist-controls">
-     	        		<div className="playlist-buttons">
-     	        		 	<OverlayTrigger placement="bottom" overlay={tooltip_edit}>
- 				        		<button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}><FaEdit className="isBold" size={23} /></button>
- 				        	</OverlayTrigger>
- 							<OverlayTrigger placement="bottom" overlay={tooltip_add}>
- 								<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus className="isBold" size={23} /></button>
- 							</OverlayTrigger>
- 				        	  <OverlayTrigger placement="bottom" overlay={tooltip_delete}>
- 				        		<button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}><FaTrash className="isBold" size={23} /></button>
- 				        	</OverlayTrigger>
- 						</div>
-     	         		<div id="playlist_toggle_div">
+						<div id="playlist_toggle_div">
      			        	<ToggleButton
      		                  inactiveLabel={<FaUnlockAlt/>}
      		                  activeLabel={<FaUnlock/>}
@@ -151,6 +138,20 @@ class MyPlaylistsDashboard extends Component {
      							}} 
      						   />
      					</div>
+					</h4>
+					<div className="col-md-12 playlist-controls">
+     	        		<div className="playlist-buttons">
+     	        		 	<OverlayTrigger placement="bottom" overlay={tooltip_edit}>
+ 				        		<button className="user-playlist-buttons" onClick={this.editPlaylistName.bind(this, playlist)}><FaEdit className="isBold" size={23} /></button>
+ 				        	</OverlayTrigger>
+ 							<OverlayTrigger placement="bottom" overlay={tooltip_add}>
+ 								<button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus className="isBold" size={23} /></button>
+ 							</OverlayTrigger>
+ 				        	  <OverlayTrigger placement="bottom" overlay={tooltip_delete}>
+ 				        		<button className="user-playlist-buttons" onClick={this.deletePlaylist.bind(this, playlist)}><FaTrash className="isBold" size={23} /></button>
+ 				        	</OverlayTrigger>
+ 						</div>
+     	         
  						</div>
 					</div> }
 

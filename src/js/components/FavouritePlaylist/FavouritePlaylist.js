@@ -5,6 +5,7 @@ import * as playlistActions from '../../actions/playlist-actions';
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up';
 import TiPlus from 'react-icons/lib/ti/plus';
 import {Tooltip, OverlayTrigger} from 'react-bootstrap';
+import ScrollArea from 'react-scrollbar';
 
 const tooltip_add = (
   <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
@@ -62,7 +63,9 @@ class FavouritePlaylist extends Component {
 	render() {
 		return (
             <div>
+            <ScrollArea speed={0.8} className="area-fav" contentClassName="content" horizontal={false} >
                 <div>{this.renderFavouritePlaylist()}</div>
+            </ScrollArea>
             </div>
 		);
 	}
