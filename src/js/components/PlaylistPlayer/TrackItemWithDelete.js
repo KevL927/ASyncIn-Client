@@ -31,7 +31,7 @@ export default ({ track, trackIndex, playlistIndex, moveTrackInPlaylist, onTrack
             <button className="trackButtons" onClick={(event) => moveTrackInPlaylist(event, playlistIndex, trackIndex, 'down')}><FaArrowCircleDown size={22} /></button>
           </OverlayTrigger>
           <OverlayTrigger placement="bottom" overlay={tooltip_delete}>
-             <button className="trackButtons" onClick={(event) => onClickDeleteTrack(event, track)}><MdClear  size={18}/></button>
+             <button className="trackButtons" onClick={(event) => onClickDeleteTrack(event, track)}><MdClear  size={21}/></button>
           </OverlayTrigger>
         </div>
       </div>
