@@ -318,13 +318,20 @@ h4 {
 
 .area {
     margin: 10px auto;
-    height: 300px;
+    height: 250px;
+    background: transparent
+}
+.area-fav {
+    width: 800px;
+    text-decoration: none;
+    margin: 10px auto;
+    height: 150px;
     background: transparent
 }
 
 .my-saved-playlists {
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     text-decoration: none
 }
 
@@ -362,7 +369,7 @@ h4 {
 }
 
 #welcome {
-    font-size: 5em
+    font-size: 4em
 }
 
 #my-saved-playlists,
@@ -381,6 +388,7 @@ h4 {
 .blackColor {
     color: #000
 }
+
 
 
 /*********************************************************************
