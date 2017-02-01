@@ -20,10 +20,10 @@ export default ({ track, trackIndex, playlistIndex, moveTrackInPlaylist, onTrack
   return (
     <li>
       <div className="col-md-12 track">
-        <div className="col-sm-6 track-item">
+        <div className="col-sm-8 track-item">
           <a id="track-names" onClick={(event) => onTrackItemClick(event, track)} href="">{track.title}</a>
         </div>
-        <div className="col-sm-6 track-buttons">
+        <div className="col-sm-4 track-buttons">
           <OverlayTrigger placement="bottom" overlay={tooltip_up}>
             <button className="trackButtons" onClick={(event) => moveTrackInPlaylist(event, playlistIndex, trackIndex, 'up')}><FaArrowCircleUp size={22} /></button>
           </OverlayTrigger>
