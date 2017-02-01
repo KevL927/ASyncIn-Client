@@ -39,3 +39,10 @@ input[type=checkbox].result-checkbox {
 .platform_icons {
     text-align: center;
 }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 991px) {
+    .result_scroll_box {
+        margin: 0 auto;
+    }
+}
