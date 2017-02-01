@@ -34,7 +34,6 @@ class FavouritePlaylist extends Component {
             playlist = this.props.favouritePlaylists.map((playlist, index) => {
                 return (
                     <div key={index}>
-            
                       <li key={index}>
 	                    <div>
 	                        <h4>{playlist.name}</h4>

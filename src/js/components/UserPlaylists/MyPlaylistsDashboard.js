@@ -116,7 +116,7 @@ class MyPlaylistsDashboard extends Component {
 	        	 {this.state.editable == playlist._id ? <form onSubmit={this.edit.bind(this, playlist)}>
 	        	 	<input type="text" autoFocus contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" required/> 
 	        	 </form>: <div>
-					<h4 id="playlist-name" onClick={this.expandCollapse.bind(this, index)} ref={index}>
+					<h4 id="playlist-name" className="col-sm-12" onClick={this.expandCollapse.bind(this, index)} ref={index}>
 						{playlist.name}     
 						<FaAlignJustify/>
 					</h4>
