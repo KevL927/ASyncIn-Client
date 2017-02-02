@@ -200,3 +200,17 @@ button#queue-list.dropdown-toggle.btn.btn-default {
         display: none;
     }
 }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .NavUL {
+        margin-left:auto !important;
+        margin-right:auto !important;
+        width:768px !important;
+    }
+    footer {
+        margin-left:auto !important;
+        margin-right:auto !important;
+        width:768px !important;
+    }
+}

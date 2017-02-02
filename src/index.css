@@ -471,265 +471,7 @@ h4 {
 //----------------------Media query-------------------------
 //*********************************************************************/
 
-@media screen and (min-width:320px) and (max-width:376px) {
-    span {
-        font-size: 3em
-    }
-    span#about {
-        font-size: 1em
-    }
-    .MainPage {
-        height: 100vh
-    }
-    .MainPage-Header {
-        padding-top: 7em;
-        padding-left: 2em;
-        padding-right: 2em
-    }
-    .image {
-        width: 200px;
-        height: 200px
-    }
-    #disc {
-        text-align: center;
-        padding-left: 15%
-    }
-    a#registerlink {
-        padding: 0
-    }
-    div#login {
-        padding: 2em
-    }
-    .login-container {
-        padding: 2em;
-        top: 55%;
-        width: 75%;
-    }
-    .LoginPage label,
-    .update-password-display-name label {
-        font-size: 2em
-    }
-    div#register {
-        padding: .5em
-    }
-    a#loginlink {
-        padding: .75em
-    }
-    a#facebook-login,
-    a#google-login {
-        padding: 0
-    }
-    .account-settings label,
-    .Register-page label {
-        font-size: 1em
-    }
-    .Register-form {
-        top: 55%
-    }
-    .Register-form input {
-        padding: 9px;
-        margin: 0;
-        width: 18em
-    }
-    .NavigationBar a {
-        padding: 14px
-    }
-    #welcome {
-        font-size: 2em
-    }
-    p.DashboardPage {
-        font-size: .5em
-    }
-    .songSearch-container input {
-        width: 80%
-    }
-    #my-saved-playlists {
-        font-size: 2em
-    }
-    .area {
-        width: 25em;
-        height: 10em;
-        margin: 0
-    }
-    .track a {
-        font-size: .85em
-    }
-    .scrollarea.area>div.scrollarea-content.content {
-        width: 100%;
-        float: none
-    }
-
-    .saved-playlists-ul {
-        padding: 0
-    }
-    .track-buttons,
-    .track-item {
-        display: inline-block
-    }
-    .col-md-12.track {
-        padding: 0;
-        height: 4em
-    }
-    .col-sm-6.track-item {
-        padding: 0 auto;
-        width: 13em;
-        height: 20px
-    }
-    a#track-names {
-        width: auto;
-        padding: 0;
-        text-align: left
-    }
-    #songSearch-page,
-    #top_page,
-    #UserPlaylist-page,
-    .DashboardPage {
-        margin-top: 57px;
-        margin-bottom: 40px;
-        background-size: cover;
-        background-position: 0;
-        height: 95vh;
-        width: 63vh
-    }
-    iframe {
-        display: none
-    }
-    .player-buttons {
-        margin: 0;
-        padding: .6em
-    }
-    .track-title {
-        color: #fff;
-        text-align: center
-    }
-    #video-controller-1 {
-        display: inline-block
-    }
-    #video-seek,
-    #video-volume {
-        display: none;
-        text-shadow: none;
-    }
-    #queue-list {
-        color: #fff;
-        background-color: transparent;
-        font-size: 2.5em;
-        display: inline-block;
-        border-color: transparent
-    }
-    .Register-form {
-        padding-top: 0em;
-    }
-}
-
-@media screen and (min-width:375px) and (max-width:413px) {
-    span {
-        font-size: 2.5em
-    }
-    span#about {
-        font-size: 1em
-    }
-    .MainPage {
-        height: 100vh
-    }
-    .MainPage-Header {
-        padding-top: 7em
-    }
-    .image {
-        width: 200px;
-        height: 200px
-    }
-    #disc {
-        text-align: center;
-        padding-left: 23%;
-        padding-top: 20%
-    }
-    div#login,
-    div#register {
-        padding: 1.5em;
-        
-    }
-    .NavigationBar a {
-        padding: 14px 52px
-    }
-    .login-container, .Register-form {
-        width: 85%;
-    }
-    .Register-page label {
-        font-size: 1em;
-    }
-    .Register-form {
-        top:57%;
-        padding-top: 0em;
-    }
-    #display-name-input,
-#displayName,
-#username {
-    width: 100%
-}
-  
-}
-
-@media screen and (min-width:414px) and (max-width:659px) {
-    span {
-        font-size: 3em
-    }
-    span#about {
-        font-size: 1em
-    }
-    .MainPage {
-        height: 100vh
-    }
-    .MainPage-Header {
-        padding-top: 7em
-    }
-    .image {
-        width: 200px;
-        height: 200px
-    }
-    #login,
-    #register {
-        padding: 2em;
-    }
-    #disc {
-        text-align: center;
-        padding-left: 30%;
-        padding-top: 20%
-    }
-    .login-container {
-        top: 55%;
-        height: auto;
-        
-    }
-    div#register {
-        padding: 4em
-    }
-    .account-settings label,
-    .Register-page label {
-        font-size: 1em
-    }
-    .Register-form {
-        top: 55%
-    }
-    .Register-form input {
-        padding: 10px;
-        margin: 0;
-        width: 20em
-    }
-    .LoginPage label, .Register-page label {
-        font-size: 1.5em;
-    }
-    .login-container, .Register-form {
-        width: 75%;
-    }
-    #display-name-input,
-#displayName,
-#username {
-    width: 20em;
-}
-}
-
-@media screen and (min-width:660px) and (max-width:959px) {
+@media screen and (min-width: 768px) and (max-width:959px) {
     span {
         font-size: 5em
     }
@@ -754,11 +496,11 @@ h4 {
         top: 60%;
     }
     
-#display-name-input,
-#displayName,
-#username {
-    width: 100%
-}
+    #display-name-input,
+    #displayName,
+    #username {
+        width: 100%
+    }
     
 }
 
@@ -825,4 +567,13 @@ h4 {
         text-align: center;
         padding-left: 39%
     }
+}
+
+@media only screen and (max-width : 768px) {
+    body {
+        margin-left:auto;
+        margin-right:auto;
+        width:768px !important;
+    }
+
 }
