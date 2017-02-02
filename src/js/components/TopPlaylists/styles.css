@@ -3,6 +3,10 @@
 	margin: 22px 15px !important;
 }
 
+.scrollarea .scrollbar-container {
+    z-index: 1;
+}
+
 .top3 .track {
     display: inline-block;
     text-decoration: none;
