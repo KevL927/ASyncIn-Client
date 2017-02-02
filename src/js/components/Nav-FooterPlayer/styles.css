@@ -194,14 +194,6 @@ button#queue-list.dropdown-toggle.btn.btn-default {
     padding-top: 38px
 }
 
-/* Small Devices, Tablets */
-@media only screen and (max-width : 861px) {
-    .nav-label {
-        display: none;
-    }
-}
-
-/* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
     .NavUL {
         margin-left:auto !important;
@@ -212,5 +204,17 @@ button#queue-list.dropdown-toggle.btn.btn-default {
         margin-left:auto !important;
         margin-right:auto !important;
         width:768px !important;
+    }
+}
+
+@media only screen and (max-width : 861px) {
+    .nav-label {
+        display: none;
+    }
+}
+
+@media only screen and (max-width : 872px) {
+    #video-seek, #video-volume {
+        float: right;
     }
 }
