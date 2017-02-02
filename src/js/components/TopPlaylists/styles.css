@@ -3,6 +3,10 @@
 	margin: 22px 15px !important;
 }
 
+.scrollarea .scrollbar-container {
+    z-index: 1;
+}
+
 .top3 .track {
     display: inline-block;
     text-decoration: none;
@@ -50,12 +54,6 @@
     text-align: center
 }
 
-.top3 .trackThumbnail {
-    float: left;
-    width: 65px;
-    height: 65px
-}
-
 .top3 .transition {
     transform: scale(1);
     -webkit-transform: scale(1);
@@ -76,6 +74,13 @@
     text-align: center;
 }
 
+
+.top3 .trackThumbnail, .top4to10 .trackThumbnail  {
+    float: left;
+    width: 65px;
+    height: 65px
+}
+
 #top_page .top3  .scrollarea.area {
     width: 25%;
     margin-left: 1%;
@@ -85,12 +90,6 @@
 #top_page .top3 .scrollarea-content.content{
     width: 100%;
     height: 30vh;
-}
-
-.top4to10 .trackThumbnail {
-    float: left;
-    width: 45px;
-    height: 45px
 }
 
 .top4to10 .area {
@@ -115,7 +114,7 @@
 
 .top4to10 .track_link {
     background-color: transparent;
-    max-width: 76%;
+    max-width: 70%;
     text-align: left;
     padding: 1% 0 0 2%;
 }
@@ -144,5 +143,68 @@
 
 #top_page {
     height: 110vh;
-    margin-bottom: 15em;
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+    #top_page {
+        margin-bottom: 0;
+    }
+}
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    .top4to10 {
+        margin-bottom: 30vh;
+    }
+    .top4to10 .area {
+        width: 80%;
+    }
+    .top4to10 .content {
+        width: 100%;
+    }
+    .top4to10 .track {
+        display: inline-block;
+        text-decoration: none;
+        font-family: Ubuntu, sans-serif;
+        color: #000;
+        width: 100% !important;
+        margin: 10px 0;
+    }
+    #top_page {
+        margin-bottom: 0;
+    }
+}   
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    #top_page .top3  .scrollarea.area {
+        width: 65%;
+    }
+    .top4to10 {
+        margin-bottom: 40vh;
+    }
+    .top4to10 .area {
+        width: 65%;
+    }
+    .top4to10 .content {
+        width: 100%;
+    }
+    .top4to10 .track {
+        display: inline-block;
+        text-decoration: none;
+        font-family: Ubuntu, sans-serif;
+        color: #000;
+        width: 100% !important;
+        margin: 10px 0;
+    }
+    .top4to10 .track_link {
+        background-color: transparent;
+        font-size: 12px;
+        word-break: break-word;
+        display: flex;
+        padding: 0 0 0 2%;
+        float: none;
+    }
+    .top4to10 .function_buttons {
+        float: none;
+    }
 }

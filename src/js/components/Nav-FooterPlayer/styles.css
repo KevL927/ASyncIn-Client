@@ -10,7 +10,8 @@
     background-color: #ffc107;
     position: fixed;
     top: 0;
-    width: 100%
+    width: 100%;
+    z-index: 100;
 }
 
 .nav-li,
@@ -74,6 +75,7 @@ a:hover {
     bottom: 0;
     background-color: #FF9800;
     position: fixed;
+    z-index: 100;
 }
 
 #video-pic-viewer {
