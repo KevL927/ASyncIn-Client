@@ -1,5 +1,5 @@
 #lock_new_saved_playlists {
-	position: absolute;
+	position: fixed;
 	right: 4%;
 	z-index: 100;
 }
