@@ -1,6 +1,7 @@
 #lock_new_saved_playlists {
 	position: absolute;
 	right: 4%;
+	z-index: 100;
 }
 
 #top_page .btn-group-vertical {
