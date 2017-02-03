@@ -1,43 +1,9 @@
-.LoginPage,
-.Register-page {
-    text-align: center;
-    background: url("http://i.imgur.com/BWMCDuH.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    height: 100vh;
-    color: #fcf8e3;
-}
-
-.AccountSettingsPage label,
-.LoginPage label,
-.Register-page label {
-    font-size: 3vh;
-    margin: 10px;
-    text-shadow: 0 3px 0 #8e4600, 0 14px 10px #000, 0 24px 2px rgba(0, 0, 0, .1), 0 34px 30px rgba(0, 0, 0, .1);
-    font-family: Ubuntu, sans-serif
-}
-
-.login-container, .Register-form {
-    border-radius: 5px;
-    background-color: rgba(40, 10, 9, .7);
-    padding: 20px;
-    display: inline-block;
-    top: 45%;
-    width: 350px;
-}
-
-#login span {
-    font-size: 15vh;
-}
-
 input[type=text]:not(#displayName):not(.input), select {
     background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/mouse_left_click-24.png) .2em .3em no-repeat, -webkit-linear-gradient(top, #f7f7f8, #fff);
     background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/mouse_left_click-24.png) .2em .3em no-repeat, linear-gradient(180deg, #f7f7f8 0, #fff);
 }
 
 input[type=text]:not(.input), select {
-   
     left: 20%;
     top: 25%;
     width: 30%;
@@ -50,7 +16,6 @@ input[type=text]:not(.input), select {
     color: #000;
     text-align: center
 }
-
 
 input[type=text]:not(#displayName):focus {
     background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/enter-24.png) 33.5em .3em no-repeat, -webkit-linear-gradient(top, #f7f7f8, #fff);
@@ -93,10 +58,8 @@ button[type=submit]:hover {
     transform: scale(1.01)
 }
 
-.App-logo {
-    -webkit-animation: App-logo-spin infinite 20s linear;
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
+#login span {
+    font-size: 15vh;
 }
 
 #registerlink {
@@ -125,6 +88,41 @@ button[type=submit]:hover {
     background-color: transparent;
     display: block;
     width: 50%
+}
+
+.LoginPage,
+.Register-page {
+    text-align: center;
+    background: url("http://i.imgur.com/BWMCDuH.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 100vh;
+    color: #fcf8e3;
+}
+
+.AccountSettingsPage label,
+.LoginPage label,
+.Register-page label {
+    font-size: 3vh;
+    margin: 10px;
+    text-shadow: 0 3px 0 #8e4600, 0 14px 10px #000, 0 24px 2px rgba(0, 0, 0, .1), 0 34px 30px rgba(0, 0, 0, .1);
+    font-family: Ubuntu, sans-serif
+}
+
+.login-container, .Register-form {
+    border-radius: 5px;
+    background-color: rgba(40, 10, 9, .7);
+    padding: 20px;
+    display: inline-block;
+    top: 45%;
+    width: 350px;
+}
+
+.App-logo {
+    -webkit-animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
 }
 
 .App-intro {
