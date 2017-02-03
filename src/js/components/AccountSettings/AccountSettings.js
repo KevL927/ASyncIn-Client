@@ -14,6 +14,8 @@ class AccountSettings extends Component {
     
     submitDisplayNameForm(event) {
         event.preventDefault();
+        this.props.dispatch(actions.clearFeedback());
+        this.props.dispatch(actions.clearError());
         let displayNameText = ReactDOM.findDOMNode(this.refs.displayNameText).value;
 
         if(!validator.isAlphanumeric(displayNameText) || displayNameText.length <= 4) {
@@ -30,6 +32,8 @@ class AccountSettings extends Component {
     
     submitNewPasswordForm(event) {
         event.preventDefault();
+        this.props.dispatch(actions.clearFeedback());
+        this.props.dispatch(actions.clearError());
         let currentPasswordText = ReactDOM.findDOMNode(this.refs.currentPasswordText).value;
         let newPasswordText = ReactDOM.findDOMNode(this.refs.newPasswordText).value;
         let confirmNewPasswordText = ReactDOM.findDOMNode(this.refs.confirmNewPasswordText).value;
@@ -78,9 +82,9 @@ class AccountSettings extends Component {
         } else {
             return (
                 <div className="account-settings">
-                {this.props.error?<div><Feedback feedback={this.props.error} /></div> : <div></div>}
-                {this.props.feedback?<div><Feedback feedback={this.props.feedback} /></div> : <div></div>}
                     <div className="update-display-name">
+                        {this.props.error?<div className="error"><Feedback feedback={this.props.error} /></div> : <div></div>}
+                        {this.props.feedback?<div className="setting feedback"><Feedback feedback={this.props.feedback} /></div> : <div></div>}
                         <form className="update-display-name-form" onSubmit={this.submitDisplayNameForm.bind(this)}>
                             <label className="update-title">Update Display Name</label>
                             <label className="new-display-name">New Display Name:</label><br/>

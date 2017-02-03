@@ -33,6 +33,10 @@
     display: block;
 }
 
+.setting .feedback {
+    color: black;
+}
+
 @media only screen and (max-width : 768px) {
     .update-display-name-form, .update-password-form {
         width: 50%;
