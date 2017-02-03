@@ -1,22 +1,23 @@
 import React from 'react';
 import MdClear from 'react-icons/lib/md/clear';
-import {Tooltip, OverlayTrigger} from 'react-bootstrap';
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import FaArrowCircleUp from 'react-icons/lib/fa/arrow-circle-up';
 import FaArrowCircleDown from 'react-icons/lib/fa/arrow-circle-down';
 
 const tooltip_delete = (
   <Tooltip id="tooltip_delete"><strong>Delete</strong> playlist</Tooltip>
 );
+
 const tooltip_up = (
   <Tooltip id="tooltip_up"><strong>Move Up</strong>the playlist </Tooltip>
 );
+
 const tooltip_down = (
   <Tooltip id="tooltip_down"><strong>Move Down</strong> the playlist </Tooltip>
 );
 
 
 export default ({ track, trackIndex, playlistIndex, moveTrackInPlaylist, onTrackItemClick, onClickDeleteTrack}) => {
-
   return (
     <li>
       <div className="col-md-12 track">
@@ -37,5 +38,4 @@ export default ({ track, trackIndex, playlistIndex, moveTrackInPlaylist, onTrack
       </div>
     </li>
   );
-        
 };

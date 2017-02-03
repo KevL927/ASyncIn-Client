@@ -7,7 +7,6 @@ import update from 'react-addons-update';
 
 
 class RenderTracks extends Component {
-    
     onTrackItemClick(event, track) {
         event.preventDefault();
         this.props.dispatch(actions.queue(track));
@@ -19,15 +18,15 @@ class RenderTracks extends Component {
          for(let i=0; i < this.props.playlistObject.tracks.length; i++){
              tempTracksIdArray.push(this.props.playlistObject.tracks[i]._id);
          }
-          let trackIndex = tempTracksIdArray.indexOf(track._id);
-          const trackArr = update(this.props.playlistObject.tracks, {$splice: [[trackIndex, 1]]});
-          const newPlaylistObject = Object.assign({}, this.props.playlistObject, {tracks: trackArr})
-          this.props.dispatch(playlistActions.updatePlaylist(newPlaylistObject, sessionStorage.access_token))
+        let trackIndex = tempTracksIdArray.indexOf(track._id);
+        const trackArr = update(this.props.playlistObject.tracks, {$splice: [[trackIndex, 1]]});
+        const newPlaylistObject = Object.assign({}, this.props.playlistObject, {tracks: trackArr});
+        this.props.dispatch(playlistActions.updatePlaylist(newPlaylistObject, sessionStorage.access_token));
     }
     
     moveTrackInPlaylist(event, playlistIndex, trackIndex, direction) {
         event.preventDefault();
-        this.props.dispatch(actions.moveAndUpdateTrackInPlaylist( direction, playlistIndex, trackIndex ))
+        this.props.dispatch(actions.moveAndUpdateTrackInPlaylist(direction, playlistIndex, trackIndex));
     }
     
     unwrapTracks() {
@@ -48,7 +47,6 @@ class RenderTracks extends Component {
     render() {
         return <div className="tracks-list">{this.unwrapTracks()}</div>;
     }
-
 }
 
-export default connect()(RenderTracks);  
+export default connect()(RenderTracks);

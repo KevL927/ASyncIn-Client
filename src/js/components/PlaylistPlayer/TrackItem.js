@@ -6,5 +6,4 @@ export default ({ onTrackItemClick, track }) => {
       <a onClick={(event) => onTrackItemClick(event, track)} href="">{track.title}</a>
     </li>
   );
-        
 };
