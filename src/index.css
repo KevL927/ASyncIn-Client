@@ -56,66 +56,13 @@ h3 {
     text-shadow:none;
 }
 
-
-/*********************************************************************
-//----------------------Media query-------------------------
-//*********************************************************************/
-
-@media screen and (min-width: 768px) and (max-width:959px) {
-/*    span {
-        font-size: 5em
-    }
-    .MainPage {
-        height: 150vh
-    }
-    .login-container {
-        top: 45%
-    }
-    div#register {
-        padding: 4em
-    }
-    .LoginPage label, .Register-page label {
-        font-size: 2em;
-    }
-    .login-container, .Register-form {
-        width: 50%;
-        top: 60%;
-    }
-    
-    #display-name-input,
-    #displayName,
-    #username {
-        width: 100%
-    }*/
-    
+.error span {
+    color: red;
 }
 
-@media (min-width:960px) {
-/*      .login-container, .Register-form {
-        width: 45%;
-        max-width: 465px;
-        font-size: 1.5em;
-    }
-    .login-container {
-        font-size: 2em;
-    }*/
-/*    span {
-        font-size: 7em;
-    }*/
-/*    .Register-page label {
-        font-size: 1em;
-    }*/
-/*    #display-name-input, #displayName, #username {
-        width: 100%
-    }*/
+.fa-excalmation-triangle {
+    color: red;
 }
-
-/*@media (min-width:1260px) {
-    span {
-        font-size: 9em;
-    }
-}
-*/
 
 @media only screen and (max-width : 768px) {
     body {
