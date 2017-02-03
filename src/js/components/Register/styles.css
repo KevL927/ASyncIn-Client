@@ -1,0 +1,17 @@
+.Register-form {
+    top: 61%
+}
+
+a#loginlink {
+    float: none;
+    background-color: transparent
+}
+
+#loginlink:hover {
+    color: gold;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    background-color: transparent
+}
+

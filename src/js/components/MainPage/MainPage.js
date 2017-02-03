@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import play from '../../../play.png';
 import {Link} from 'react-router';
+import './styles.css';
 
 class MainPage extends Component {
   onSubmit (event) {

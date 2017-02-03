@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FaGithubSquare from 'react-icons/lib/fa/github-square';
 import FaGlobe from 'react-icons/lib/fa/globe';
+import './styles.css';
 
 class ContactDev extends Component {
   render() {

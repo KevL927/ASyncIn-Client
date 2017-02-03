@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Register from '../Register/Register';
+import './styles.css';
 
 class RegisterPage extends Component {
   render() {
