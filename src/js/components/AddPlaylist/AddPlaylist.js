@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import * as playlistActions from '../../actions/playlist-actions';
-import * as actions from '../../actions/actions';
-import SavedPlaylistsDropdown from '../UserPlaylists/SavedPlaylistsDropdown';
-import Feedback from '../Feedback';
 import ToggleButton from 'react-toggle-button';
 import FaUnlock from 'react-icons/lib/fa/unlock';
 import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt';
 import {ButtonGroup, Button, DropdownButton, MenuItem} from 'react-bootstrap';
+
+import * as playlistActions from '../../actions/playlist-actions';
+import * as actions from '../../actions/actions';
+import SavedPlaylistsDropdown from '../UserPlaylists/SavedPlaylistsDropdown';
+import Feedback from '../Feedback';
 import './styles.css';
 
 const borderRadiusStyle = { borderRadius: 2 };
@@ -40,18 +41,17 @@ class AddPlaylist extends Component {
                 rating: 1,
                 isPublic: this.state.isPublic
             }
-            this.props.dispatch(actions.clearError());
-            this.props.dispatch(playlistActions.createPlaylist(newPlaylist, sessionStorage.access_token));
+        this.props.dispatch(actions.clearError());
+        this.props.dispatch(playlistActions.createPlaylist(newPlaylist, sessionStorage.access_token));
         }
         this.props.dispatch(actions.clearError());
         setTimeout(() => {
             this.props.dispatch(actions.clearFeedback());
         }, 5000);
-         setTimeout(() => {
+        setTimeout(() => {
              this.setState({ isPublic:true})
         }, 1000);
-       
-         this.setState({showInput: false})
+        this.setState({showInput: false})
 	}
     renderInput() {
         return (
@@ -60,45 +60,48 @@ class AddPlaylist extends Component {
                     <input autoFocus onBlur={this.onSubmitAddPlaylist.bind(this)} type="text" id="new-playlist-input" className="input" ref="playlistInputText" required />
                 </form>
             </div>
-        )
-        
+        );
     }
 	render() {
 		return (
             <div id="lock_new_saved_playlists" style={{display: this.props.show}}>
                 <ButtonGroup vertical>
                     <Button>
-                    <p className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</p>
-                    {(this.state.showInput === true || this.props.error) ? this.renderInput(): ''}
-                <div id="toggle-div">
-               <ToggleButton
-                  inactiveLabel={<FaUnlockAlt/>}
-                  activeLabel={<FaUnlock/>}
-                  colors={{active: {
-                        base: 'rgb(0,207,0)'
-                      },
-                        inactive:{
-                        base: 'rgb(186,0,0)'
-                        }
-                    }}
-                   thumbStyle={ borderRadiusStyle }
-                   trackStyle={ borderRadiusStyle } 
-                  value={this.state.isPublic}
-                  onToggle={(isPublic) => {
-                    this.setState({
-                      isPublic: !isPublic,
-                    })
-
-                }} />
-                </div>
-               </Button>
-               
-                {(this.props.error) ? <div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div>: <div></div>}
-                {(this.props.feedback) ?<div><i className="fa fa-check-square-o" aria-hidden="true"></i><Feedback feedback={this.props.feedback}/></div>: <div></div>}
-                
-                <Button>
-                    <SavedPlaylistsDropdown onSubmitClearTemp={this.props.onSubmitClearTemp} userPlaylists={this.props.userSavedPlaylists} newPlaylist={this.props.newPlaylist} currentUser={this.props.currentUser}/>
-                </Button>
+                        <p className="add-playlist-button" onClick={this.onClickGenerateInput.bind(this)}>New Playlist</p>
+                        {(this.state.showInput === true || this.props.error) ? this.renderInput(): ''}
+                        <div id="toggle-div">
+                            <ToggleButton
+                                inactiveLabel={<FaUnlockAlt/>}
+                                activeLabel={<FaUnlock/>}
+                                colors={{
+                                    active: {
+                                    base: 'rgb(0,207,0)'
+                                    },
+                                    inactive:{
+                                        base: 'rgb(186,0,0)'
+                                    }
+                                }}
+                                thumbStyle={ borderRadiusStyle }
+                                trackStyle={ borderRadiusStyle } 
+                                value={this.state.isPublic}
+                                onToggle={(isPublic) => {
+                                    this.setState({
+                                        isPublic: !isPublic,
+                                    });
+                                }} 
+                            />
+                        </div>
+                    </Button>
+                    { (this.props.error) ? <div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div> : <div></div> }
+                    { (this.props.feedback) ? <div><i className="fa fa-check-square-o" aria-hidden="true"></i><Feedback feedback={this.props.feedback} /></div> : <div></div> }
+                    <Button>
+                        <SavedPlaylistsDropdown 
+                            onSubmitClearTemp={this.props.onSubmitClearTemp} 
+                            userPlaylists={this.props.userSavedPlaylists} 
+                            newPlaylist={this.props.newPlaylist} 
+                            currentUser={this.props.currentUser} 
+                        />
+                    </Button>
                 </ButtonGroup>
             </div> 
 		);
