@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+
 import AccountSettings from '../AccountSettings/AccountSettings';
 import './styles.css';
 
