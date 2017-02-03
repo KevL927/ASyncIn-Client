@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
-import {Link, hashHistory} from 'react-router';
-import {connect} from 'react-redux';
+import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import {ButtonToolbar, DropdownButton, MenuItem} from 'react-bootstrap';
+import FaHome from 'react-icons/lib/fa/home';
+import FaSearch from 'react-icons/lib/fa/search';
+import FaGlobe from 'react-icons/lib/fa/globe';
+import FaEnvelope from 'react-icons/lib/fa/envelope';
+import FaCog from 'react-icons/lib/fa/cog';
+import FaSignOut from 'react-icons/lib/fa/sign-out';
+import MdLineWeight from 'react-icons/lib/md/line-weight';
+import ScrollArea from 'react-scrollbar';
+
 import playMusicFunc from '../MusicPlayer/playMusicFunc';
 import RenderQueue from '../Queue/RenderQueue';
 import * as actions from '../../actions/actions';
 import * as userActions from '../../actions/user-actions';
-import {ButtonToolbar, DropdownButton, MenuItem} from 'react-bootstrap';
-import FaHome from 'react-icons/lib/fa/home'
-import FaSearch from 'react-icons/lib/fa/search'
-import FaGlobe from 'react-icons/lib/fa/globe'
-import FaEnvelope from 'react-icons/lib/fa/envelope'
-import FaCog from 'react-icons/lib/fa/cog'
-import FaSignOut from 'react-icons/lib/fa/sign-out';
-import MdLineWeight from 'react-icons/lib/md/line-weight';
-import ScrollArea from 'react-scrollbar';
 import './styles.css';
 
-
 class NavigationFooterPlayer extends Component {
-  
   updateServerQueue() {
 		if(this.props.currentUser && this.props.queue.length !== 0) {
 			this.props.dispatch(actions.updateQueue(sessionStorage.access_token, sessionStorage.token, this.props.queue));
@@ -36,7 +35,7 @@ class NavigationFooterPlayer extends Component {
           <div className="track-title">{this.props.queue[0].title}</div> 
           <div>{playMusicFunc(this.props.queue[0].link)}</div>
         </div>
-      )
+      );
     }
     if(!this.props.currentListeningUrl && this.props.shuffledQueue) {
       return (
@@ -48,7 +47,7 @@ class NavigationFooterPlayer extends Component {
             {this.playMusicFunc(this.props.shuffledQueue[0].link)}
           </div>
         </div>
-      )
+      );
     }
     return (
       <div className="play-track">
@@ -69,11 +68,11 @@ class NavigationFooterPlayer extends Component {
     return this.props.shuffledQueue;
   }
   
-  state={
+  state = {
     menuOpen: false
   }
 
-  dropdownToggle(newValue){
+  dropdownToggle(newValue) {
       if (this.forceOpen){
           this.setState({ menuOpen: true });
           this.forceOpen = false;
@@ -81,7 +80,8 @@ class NavigationFooterPlayer extends Component {
           this.setState({ menuOpen: newValue });
       }
   }
-  menuItemClickedThatShouldntCloseDropdown(){
+  
+  menuItemClickedThatShouldntCloseDropdown() {
       this.forceOpen = true;
   }
 
@@ -116,13 +116,10 @@ class NavigationFooterPlayer extends Component {
           </div>
           {this.playMusicOrNot()}
         </footer>
-        </div>
-
-
+      </div>
     );
   }
 }
-
 
 export default connect(
     ({ userSavedPlaylists, error, feedback, currentListeningUrl, currentListeningTitle, queue, currentUser, shuffledQueue }) =>
