@@ -1,12 +1,9 @@
 import React from 'react';
 
-export default (props) => {
+export default ({ track }) => {
   return (
-      <div className="search-result">
-
-      
-      	<div><img className="thumbnail" src={props.track.thumbnail} alt="thumbnail"/>{props.track.title}</div>
-      	
-      </div>
-    );
+    <div className="search-result">
+    	<div><img className="thumbnail" src={track.thumbnail} alt="thumbnail"/>{track.title}</div>
+    </div>
+  );
 };

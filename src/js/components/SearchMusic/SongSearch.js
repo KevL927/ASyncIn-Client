@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import update from 'react-addons-update';
 import { connect } from 'react-redux';
-import * as actions from '../../actions/actions';
-import SearchResult from './SearchResult';
-import AddPlaylist from '../AddPlaylist/AddPlaylist';
-import {Grid, Row, Col} from 'react-bootstrap';
+import update from 'react-addons-update';
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import FaVimeo from 'react-icons/lib/fa/vimeo';
 import FaSoundcloud from 'react-icons/lib/fa/soundcloud';
 import FaYoutubePlay from 'react-icons/lib/fa/youtube-play';
 import FaPlayCircle from 'react-icons/lib/fa/play-circle';
 import TiPlus from 'react-icons/lib/ti/plus';
-import {Tooltip, OverlayTrigger} from 'react-bootstrap';
+
+import * as actions from '../../actions/actions';
+import SearchResult from './SearchResult';
+import AddPlaylist from '../AddPlaylist/AddPlaylist';
 
 const tooltip_add = (
   <Tooltip id="tooltip_add"><strong>Add</strong> to the queue</Tooltip>
@@ -68,7 +69,7 @@ class SongSearch extends Component {
       return false;
     }), checkedSoundCloudArr: this.state.checkedSoundCloudArr.map(() => {
       return false;
-    }), tempPlaylist: []})
+    }), tempPlaylist: []});
   }
 
   onSubmitSearch(event) {
@@ -80,47 +81,48 @@ class SongSearch extends Component {
   onCheckInsert(track, index, event) {
     if(track.source === "YouTube") {
       let checked = this.state.checkedYouTubeArr;
-      checked[index] = event.target.checked
-      this.setState({checkedYouTubeArr: checked});
+      checked[index] = event.target.checked;
+      this.setState({ checkedYouTubeArr: checked });
 
       if(this.state.checkedYouTubeArr[index] === true) {
-        const newPlaylist = update(this.state.tempPlaylist, {$push: [track]});
+        const newPlaylist = update(this.state.tempPlaylist, { $push: [track] });
         this.setState({tempPlaylist: newPlaylist});
       } else if (this.state.checkedYouTubeArr[index] === false) {
         const index = this.state.tempPlaylist.indexOf(track);
-        const newPlaylist = update(this.state.tempPlaylist, {$splice: [[index, 1]]});
-        this.setState({tempPlaylist: newPlaylist});
+        const newPlaylist = update(this.state.tempPlaylist, { $splice: [[index, 1]] });
+        this.setState({ tempPlaylist: newPlaylist });
       }
     }
     if(track.source === "Vimeo") {
       let checked = this.state.checkedVimeoArr;
-      checked[index] = event.target.checked
-      this.setState({checkedVimeoArr: checked});
+      checked[index] = event.target.checked;
+      this.setState({ checkedVimeoArr: checked });
 
       if(this.state.checkedVimeoArr[index] === true) {
-        const newPlaylist = update(this.state.tempPlaylist, {$push: [track]});
-        this.setState({tempPlaylist: newPlaylist})
+        const newPlaylist = update(this.state.tempPlaylist, { $push: [track] });
+        this.setState({ tempPlaylist: newPlaylist });
       } else if(this.state.checkedVimeoArr[index] === false) {
         const index = this.state.tempPlaylist.indexOf(track);
-        const newPlaylist = update(this.state.tempPlaylist, {$splice: [[index, 1]]});
-        this.setState({tempPlaylist: newPlaylist});
+        const newPlaylist = update(this.state.tempPlaylist, { $splice: [[index, 1]] });
+        this.setState({ tempPlaylist: newPlaylist });
       }
     }
     if(track.source === "SoundCloud") {
       let checked = this.state.checkedSoundCloudArr;
-      checked[index] = event.target.checked
-      this.setState({checkedSoundCloudArr: checked});
+      checked[index] = event.target.checked;
+      this.setState({ checkedSoundCloudArr: checked });
 
       if(this.state.checkedSoundCloudArr[index] === true) {
-        const newPlaylist = update(this.state.tempPlaylist, {$push: [track]});
-        this.setState({tempPlaylist: newPlaylist})
+        const newPlaylist = update(this.state.tempPlaylist, { $push: [track] });
+        this.setState({ tempPlaylist: newPlaylist });
       } else if(this.state.checkedSoundCloudArr[index] === false) {
         const index = this.state.tempPlaylist.indexOf(track);
-        const newPlaylist = update(this.state.tempPlaylist, {$splice: [[index, 1]]});
+        const newPlaylist = update(this.state.tempPlaylist, { $splice: [[index, 1]] });
         this.setState({tempPlaylist: newPlaylist});
       }
     }
   }
+  
   //when search results are unchecked, the results are passed down as a prop to AddPlaylist Component as a prop to hide
   showPlaylistBox() {
     if(this.state.tempPlaylist.length !== 0) {
@@ -129,6 +131,7 @@ class SongSearch extends Component {
       return 'none';
     }
   }
+  
   onClickAddToQueue (track, event) {
       event.preventDefault();
       this.props.dispatch(actions.queue(track));
@@ -142,25 +145,25 @@ class SongSearch extends Component {
   generateResult(resultArr) {
     let arr = [];
     if(!resultArr) {
-      arr = <div></div>
+      arr = <div></div>;
     } else {
         arr = resultArr.map((track, index) => {
-        return (
-          <li key={index}>
-            <SearchResult track={track}/>
-              <OverlayTrigger placement="left" overlay={tooltip_playlist_add}>
-                <input className="result-checkbox" type="checkbox" name="searchResult" ref={track.link} id={track.source} onChange={this.onCheckInsert.bind(this, track, index)} checked={this.renderCheckedIndex(track.source, index)}>
-                </input>
-              </OverlayTrigger>
-              <OverlayTrigger placement="bottom" overlay={tooltip_play}>
-                <button className="blackColor" onClick={this.playTrackOnClick.bind(this, track)}><FaPlayCircle size={22} /></button>
-              </OverlayTrigger>
-              <OverlayTrigger placement="bottom" overlay={tooltip_add}>
-                <button className="blackColor" onClick={this.onClickAddToQueue.bind(this, track)}><TiPlus size={22}/></button>
-              </OverlayTrigger>
-          </li>
-        );
-        })
+          return (
+            <li key={index}>
+              <SearchResult track={track}/>
+                <OverlayTrigger placement="left" overlay={tooltip_playlist_add}>
+                  <input className="result-checkbox" type="checkbox" name="searchResult" ref={track.link} id={track.source} onChange={this.onCheckInsert.bind(this, track, index)} checked={this.renderCheckedIndex(track.source, index)}>
+                  </input>
+                </OverlayTrigger>
+                <OverlayTrigger placement="bottom" overlay={tooltip_play}>
+                  <button className="blackColor" onClick={this.playTrackOnClick.bind(this, track)}><FaPlayCircle size={22} /></button>
+                </OverlayTrigger>
+                <OverlayTrigger placement="bottom" overlay={tooltip_add}>
+                  <button className="blackColor" onClick={this.onClickAddToQueue.bind(this, track)}><TiPlus size={22}/></button>
+                </OverlayTrigger>
+            </li>
+          );
+        });
     }
     return arr;
   }
@@ -197,8 +200,11 @@ class SongSearch extends Component {
           </Grid>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default connect(({ youtubeSearchedSongs, soundcloudSearchedSongs, vimeoSearchedSongs, currentListeningUrl, error, feedback })=>({ youtubeSearchedSongs, soundcloudSearchedSongs, vimeoSearchedSongs, currentListeningUrl, error, feedback }))(SongSearch)
+export default connect(
+  ({ youtubeSearchedSongs, soundcloudSearchedSongs, vimeoSearchedSongs, currentListeningUrl, error, feedback }) =>
+  ({ youtubeSearchedSongs, soundcloudSearchedSongs, vimeoSearchedSongs, currentListeningUrl, error, feedback })
+)(SongSearch);
