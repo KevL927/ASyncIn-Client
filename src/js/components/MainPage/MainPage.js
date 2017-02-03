@@ -17,7 +17,7 @@ class MainPage extends Component {
           </div>
           <div id="disc">
             <Link to="/login">
-              <img src={play} className='image' alt="play"/> 
+              <img src={play} className='image' alt="play"/>
             </Link>
           </div>
       </div>

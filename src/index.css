@@ -68,10 +68,6 @@ h3 {
     .MainPage {
         height: 150vh
     }
-    #disc {
-        text-align: center;
-        padding-left: 23%
-    }
     .login-container {
         top: 45%
     }
@@ -95,10 +91,6 @@ h3 {
 }
 
 @media (min-width:960px) {
-    #disc {
-        text-align: center;
-        padding-left: 28%
-    }
       .login-container, .Register-form {
         width: 45%;
         max-width: 465px;
@@ -113,51 +105,17 @@ h3 {
     .Register-page label {
         font-size: 1em;
     }
-    #display-name-input,
-#displayName,
-#username {
-    width: 100%
-}
-}
-
-@media (min-width:1060px) {
-    #disc {
-        text-align: center;
-        padding-left: 29%
+    #display-name-input, #displayName, #username {
+        width: 100%
     }
-}
-
-@media (min-width:1170px) {
-    #disc {
-        text-align: center;
-        padding-left: 32%
-    }
-  
 }
 
 @media (min-width:1260px) {
-    #disc {
-        text-align: center;
-        padding-left: 34%
-    }
     span {
         font-size: 9em;
     }
 }
 
-@media (min-width:1480px) {
-    #disc {
-        text-align: center;
-        padding-left: 37%
-    }
-}
-
-@media (min-width:1610px) {
-    #disc {
-        text-align: center;
-        padding-left: 39%
-    }
-}
 
 @media only screen and (max-width : 768px) {
     body {
