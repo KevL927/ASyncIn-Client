@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+
 import * as userActions from '../../actions/user-actions';
 import * as actions from '../../actions/actions';
 import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
 import MyPlaylistsDashboard from '../UserPlaylists/MyPlaylistsDashboard';
 
 class DashboardPage extends Component {
-  
   componentWillMount() {
     if (!this.props.currentUser) {
       if(!sessionStorage.token) {
@@ -14,10 +14,10 @@ class DashboardPage extends Component {
       } else {
       this.props.dispatch(userActions.getCurrentUser(sessionStorage.token, sessionStorage.access_token));
       }
-    } 
+    }
   }
   
-   onSubmitSearch(event) {
+  onSubmitSearch(event) {
     event.preventDefault();
     this.props.dispatch(actions.searchAll(this.refs.searchInput.value));
   }
@@ -26,33 +26,31 @@ class DashboardPage extends Component {
     if(this.props.currentUser) {
       return (
         <div className="DashboardPage">
-
-          <span id="welcome">Welcome, {this.props.currentUser.username} </span>
-            <div className="songSearch-container">
-              <form onSubmit={this.onSubmitSearch.bind(this)}>
-                <input type="text" name="search" ref="searchInput" placeholder="Search.." required/>
-              </form>
-            </div>
+          <span id="welcome">Welcome, {this.props.currentUser.username}</span>
+          <div className="songSearch-container">
+            <form onSubmit={this.onSubmitSearch.bind(this)}>
+              <input type="text" name="search" ref="searchInput" placeholder="Search.." required/>
+            </form>
+          </div>
           <MyPlaylistsDashboard userSavedPlaylists={this.props.userSavedPlaylists} currentUser={this.props.currentUser}  queue={this.props.queue}/>
-            <span className="my-saved-playlists">Favourite Playlists</span>
+          <span className="my-saved-playlists">Favourite Playlists</span>
           <FavouritePlaylist favouritePlaylists={this.props.currentUser.favouritePlaylists} currentUser={this.props.currentUser} />
         </div>
       );
-    }else{
-      return <div>Loading</div>;
+    } else {
+        return <div>Loading</div>;
     }
   }
   
   render() {
     return (
-     <div>
-       <div className="DashboardPage">
-           {this.renderComponents()}
-       </div>
-     </div>
+      <div>
+        <div className="DashboardPage">
+          {this.renderComponents()}
+        </div>
+      </div>
     );
   }
-  
 }
 
 
