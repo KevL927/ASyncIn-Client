@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import ScrollArea from 'react-scrollbar';
-import {Tooltip, OverlayTrigger} from 'react-bootstrap';
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import TiPlus from 'react-icons/lib/ti/plus';
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up';
 
@@ -57,7 +57,6 @@ class FavouritePlaylist extends Component {
      return playlist;
     }
     
-
 	render() {
 		return (
             <div>
