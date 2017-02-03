@@ -53,6 +53,7 @@ class AddPlaylist extends Component {
         }, 1000);
         this.setState({showInput: false})
 	}
+	
     renderInput() {
         return (
             <div>
@@ -62,6 +63,7 @@ class AddPlaylist extends Component {
             </div>
         );
     }
+    
 	render() {
 		return (
             <div id="lock_new_saved_playlists" style={{display: this.props.show}}>
