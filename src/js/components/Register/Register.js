@@ -4,16 +4,22 @@ import { connect } from 'react-redux';
 import validator from 'validator';
 import {Link} from 'react-router';
 import * as userActions from '../../actions/user-actions';
+import * as actions from '../../actions/actions';
 import Feedback from '../Feedback';
 import FaFacebookOffical from 'react-icons/lib/fa/facebook-official';
 import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square';
 
 
 class Register extends Component {
-    
     state = {error: false}
+    componentWillMount() {
+        //clear out errors before loading
+        this.props.dispatch(actions.clearError());
+    }
     onSubmitRegister (event) {
         event.preventDefault();
+        this.props.dispatch(actions.clearFeedback());
+        this.props.dispatch(actions.clearError());
         let emailText = ReactDOM.findDOMNode(this.refs.emailText).value;
         let displayNameText = ReactDOM.findDOMNode(this.refs.displayNameText).value;
         let passwordText = ReactDOM.findDOMNode(this.refs.passwordText).value;
@@ -53,6 +59,7 @@ class Register extends Component {
             <div className="Register-page">
             <div id="register"><span className="title">Sync-In</span></div>
                 <form className="Register-form" onSubmit={this.onSubmitRegister.bind(this)}>
+                    {this.props.error?<div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div> : <div></div>}
                     <label className="email">Email Address:</label>
                     <input type="email" id="email-input" className="input" ref="emailText" placeholder="Type your e-mail address" required />
                     <label className="username">Create Display Name:</label>
@@ -61,7 +68,6 @@ class Register extends Component {
                     <input type="password" className="input" name="password" ref="passwordText" placeholder="Password must be longer than 5 characters" required />
                     <label className="password">Verify Password:</label>
                     <input type="password" className="input" name="password" ref="confirmPasswordText" placeholder="Please retype your password" required />
-                    {this.props.error?<div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div> : <div></div>}
                     <button id="register-button" type="submit"className="register-button">Submit</button>
                     <Link to="/login" id="loginlink"> Already have an account? Log in here. </Link>
                     <div id="login-icons">
