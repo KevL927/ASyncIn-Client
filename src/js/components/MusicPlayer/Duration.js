@@ -1,13 +1,5 @@
 import React from 'react';
 
-export default function Duration ({ className, seconds }) {
-  return (
-    <time dateTime={`P${Math.round(seconds)}S`} className={className}>
-      {format(seconds)}
-    </time>
-  );
-}
-
 Number.prototype.toHHMMSS = function () {
   let seconds = Math.floor(this),
       hours = Math.floor(seconds / 3600);
@@ -23,4 +15,12 @@ Number.prototype.toHHMMSS = function () {
 
 const format = seconds => {
   return seconds.toHHMMSS();
+};
+
+export default ({ className, seconds }) => {
+  return (
+    <time dateTime={`P${Math.round(seconds)}S`} className={className}>
+      {format(seconds)}
+    </time>
+  );
 };

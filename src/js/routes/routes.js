@@ -1,6 +1,7 @@
 import React from 'react';
-import {Router, Route, hashHistory, IndexRoute} from 'react-router';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+
 import store from '../store/store';
 import App from '../components/MainPage/MainPage';
 import LoginPage from '../components/Login/LoginPage';
@@ -13,14 +14,13 @@ import ContactDev from '../components/AboutUs/ContactsPage';
 import AccountSettingsPage from '../components/AccountSettings/AccountSettingsPage';
 
 
-const routes = (
+export default (
 	<Provider store={store}>
 		<Router history={hashHistory}>
 			<Route path="/">
 				<IndexRoute component={App} />
-					<Route path="login" component={LoginPage} />	
-					<Route path="register" component={RegisterPage} />
-					
+				<Route path="login" component={LoginPage} />	
+				<Route path="register" component={RegisterPage} />
 			</Route>
 			<Route path="/dashboard" component={NavigationFooterPlayer}>
 				<IndexRoute component={DashboardPage} />
@@ -32,5 +32,3 @@ const routes = (
 		</Router>
 	</Provider>
 );
-
-export default routes;

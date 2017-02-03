@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
-import './index.css';
 
 import routes from './js/routes/routes';
+import './index.css';
 
 document.addEventListener(
 	'DOMContentLoaded',

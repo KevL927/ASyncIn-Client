@@ -1,8 +1,9 @@
-import * as actions from '../actions/actions'
-import * as userActions from '../actions/user-actions'
-import * as playlistActions from '../actions/playlist-actions'
 import { handleActions } from 'redux-actions';
 import update from 'react-addons-update';
+
+import * as actions from '../actions/actions';
+import * as userActions from '../actions/user-actions';
+import * as playlistActions from '../actions/playlist-actions';
 
 const initialState = {
 	otherUserPlaylist: null,
