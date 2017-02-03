@@ -4,17 +4,21 @@
 	z-index: 100;
 }
 
-#top_page .btn-group-vertical {
+#top_page .btn-group-vertical, #songSearch-page .btn-group-vertical {
 	top: 12vh;
     right: 0%;
-}
-
-#songSearch-page .btn-group-vertical {
-    left: 30%;
 }
 
 #lock_new_saved_playlists .btn-group-vertical .btn.btn-default {
     color: #fff;
     border-color: transparent;
     background-color: #FFC107;
+}
+
+@media only screen and (max-width: 768px) {
+	#lock_new_saved_playlists {
+	    left: 3%;
+	    right: 0%;
+	    position: fixed;
+	}
 }
