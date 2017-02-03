@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+
 import * as actions from '../../actions/actions';
 import TracksUnWrap from './TracksUnWrap';
-
 
 class RenderTrackList extends Component {
     onClickAddToQueue (event, track) {
@@ -31,7 +31,6 @@ class RenderTrackList extends Component {
     render() {
         return <div>{this.unwrapTracks()}</div>;
     }
-
 }
 
 export default connect()(RenderTrackList);
