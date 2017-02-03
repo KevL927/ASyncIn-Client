@@ -1,7 +1,3 @@
-/*********************************************************************
-//------------------------------LOGIN PAGE CSS--------------------------
-//*********************************************************************/
-
 .LoginPage,
 .Register-page {
     text-align: center;
@@ -16,35 +12,19 @@
 .AccountSettingsPage label,
 .LoginPage label,
 .Register-page label {
-    /*font-size: 4em;*/
+    font-size: 3vh;
     margin: 10px;
     text-shadow: 0 3px 0 #8e4600, 0 14px 10px #000, 0 24px 2px rgba(0, 0, 0, .1), 0 34px 30px rgba(0, 0, 0, .1);
     font-family: Ubuntu, sans-serif
 }
-
-.account-settings label,
-.Register-page label {
-    font-size: 2em
-}
-
-/*.login-container,
-.Register-form {
-    border-radius: 5px;
-    background-color: rgba(40, 10, 9, .7);
-    padding: 20px;
-    position: fixed;
-    top: 59%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%)
-}*/
 
 .login-container, .Register-form {
     border-radius: 5px;
     background-color: rgba(40, 10, 9, .7);
     padding: 20px;
     display: inline-block;
+    top: 45%;
+    width: 350px;
 }
 
 #login span {
@@ -77,24 +57,9 @@ input[type=text]:not(#displayName):focus {
     background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/enter-24.png) 33.5em .3em no-repeat, linear-gradient(180deg, #f7f7f8 0, #fff)
 }
 
-/*input[type=email],
-input[type=password],
-.input,
-select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    color: #000;
-    text-align: center
-}*/
-
 input[type=email], input[type=password], .input, select {
     width: 100%;
-    padding: 4% 0vh;
+    padding: 1vh 0;
     margin: 1% 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -117,7 +82,8 @@ button[type=submit] {
     -ms-transform: scale(1);
     transform: scale(1);
     -webkit-transition: .3s ease-in-out;
-    transition: .3s ease-in-out
+    transition: .3s ease-in-out;
+    font-size: 1.5em;
 }
 
 button[type=submit]:hover {
@@ -130,7 +96,7 @@ button[type=submit]:hover {
 .App-logo {
     -webkit-animation: App-logo-spin infinite 20s linear;
     animation: App-logo-spin infinite 20s linear;
-    height: 80px
+    height: 80px;
 }
 
 #registerlink {
@@ -163,68 +129,4 @@ button[type=submit]:hover {
 
 .App-intro {
     font-size: large
-}
-
-
-
-@media screen and (max-width: 767px) {
-    span {
-        font-size: 5em
-    }
-    div#register {
-        padding: 4em;
-    }
-    .LoginPage label, .Register-page label {
-        font-size: 2em;
-    }
-    .login-container, .Register-form {
-        width: 45%;
-        top: 60%;
-    }
-    
-    #display-name-input,
-    #displayName,
-    #username {
-        width: 100%
-    }
-}
-
-@media screen and (max-width:959px) {
-    span {
-        font-size: 5em
-    }
-    .login-container {
-        top: 45%
-    }
-    div#register {
-        padding: 4em;
-    }
-    .LoginPage label, .Register-page label {
-        font-size: 2em;
-    }
-    .login-container, .Register-form {
-        width: 45%;
-        top: 60%;
-    }
-    
-    #display-name-input,
-    #displayName,
-    #username {
-        width: 100%
-    }
-    
-}
-
-@media (min-width:960px) {
-    .login-container, .Register-form {
-        font-size: 1em;
-        min-width: 35%;
-        max-width: 35%;
-    }
-    .Register-page label {
-        font-size: 1em;
-    }
-    #display-name-input, #displayName, #username {
-        width: 100%
-    }
 }
