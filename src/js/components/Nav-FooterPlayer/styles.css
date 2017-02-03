@@ -69,6 +69,10 @@ a:hover {
 //------------------------------FOOTER PLAYER BAR---------------------
 //*********************************************************************/
 
+.react-player {
+    width: 100%;
+    height: 100%;
+}
 
 #react-player {
     width: 100%;
@@ -76,6 +80,7 @@ a:hover {
     background-color: #FF9800;
     position: fixed;
     z-index: 100;
+    height: 21vh;
 }
 
 #video-pic-viewer {
@@ -96,7 +101,7 @@ a:hover {
 }
 
 #video-volume {
-    width: 15%
+    width: 15%;
 }
 
 #seek,
@@ -194,27 +199,21 @@ button#queue-list.dropdown-toggle.btn.btn-default {
     padding-top: 38px
 }
 
-@media only screen and (max-width : 768px) {
-    .NavUL {
-        margin-left:auto !important;
-        margin-right:auto !important;
-        width:768px !important;
-    }
-    footer {
-        margin-left:auto !important;
-        margin-right:auto !important;
-        width:768px !important;
-    }
+@media only screen and (max-width : 1087px) {
+   .NavUL {
+       margin-left:auto !important;
+       margin-right:auto !important;
+       width:1087px !important;
+   }
+   footer {
+       margin-left:auto !important;
+       margin-right:auto !important;
+       width:1087px !important;
+   }
 }
 
 @media only screen and (max-width : 861px) {
     .nav-label {
         display: none;
-    }
-}
-
-@media only screen and (max-width : 872px) {
-    #video-seek, #video-volume {
-        float: right;
     }
 }

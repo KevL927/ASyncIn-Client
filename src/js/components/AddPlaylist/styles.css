@@ -15,6 +15,10 @@
     background-color: #FFC107;
 }
 
+#toggle-div {
+    display: inline-block;
+}
+
 @media only screen and (max-width: 768px) {
 	#lock_new_saved_playlists {
 	    left: 3%;

@@ -95,6 +95,10 @@
     height: 35vh;
 }
 
+.top4to10 {
+    margin-bottom: 35vh;
+}
+
 .top4to10 #top-playlist-render {
     padding-top: 30px
 }
