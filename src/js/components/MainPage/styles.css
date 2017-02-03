@@ -1,28 +1,6 @@
-
-/*********************************************************************
-//------------------------------MAIN PAGE CSS--------------------------
-//*********************************************************************/
-
-.MainPage {
-    text-align: center;
-    background: url("http://i.imgur.com/BWMCDuH.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    height: 100vh
-}
-
-.MainPage-Header {
-    color: #fcf8e3;
-}
-
 span {
     font-size: 12em;
     text-shadow: 0 3px 0 #8e4600, 0 5px 10px #000, 0 7px 2px rgba(0, 0, 0, .1), 0 18px 16px rgba(0, 0, 0, .1)
-}
-
-.MainPage-Header span {
-    font-size: 22vh;
 }
 
 #about,
@@ -49,6 +27,23 @@ span {
     float: none;
     display: inline-block;
     padding: 0;
+}
+
+.MainPage {
+    text-align: center;
+    background: url("http://i.imgur.com/BWMCDuH.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 100vh
+}
+
+.MainPage-Header {
+    color: #fcf8e3;
+}
+
+.MainPage-Header span {
+    font-size: 22vh;
 }
 
 .image {
