@@ -1,20 +1,3 @@
-.queue_track {
-	display: flex;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-family: Ubuntu, sans-serif;
-	color: #000
-}
-
-#Q-list {
-    float: right
-}
-
-#Q_Track_List {
-    width: 100%
-}
-
 div#Q_Track_List {
     text-decoration: none;
     color: #fff;
@@ -38,6 +21,23 @@ div#Q_Track_List:hover {
     text-decoration: none
 }
 
+#Q_Track_List {
+    width: 100%
+}
+
+#Q-list {
+    float: right
+}
+
 .dropdown-menu {
     background-color: orange;
+}
+
+.queue_track {
+	display: flex;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-family: Ubuntu, sans-serif;
+	color: #000
 }
