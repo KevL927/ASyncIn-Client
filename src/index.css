@@ -163,10 +163,13 @@ span {
     transform: translate(-50%, -50%)
 }
 
-input[type=text],
-select {
+input[type=text]:not(#displayName), select {
     background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/mouse_left_click-24.png) .2em .3em no-repeat, -webkit-linear-gradient(top, #f7f7f8, #fff);
     background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/mouse_left_click-24.png) .2em .3em no-repeat, linear-gradient(180deg, #f7f7f8 0, #fff);
+}
+
+input[type=text], select {
+   
     left: 20%;
     top: 25%;
     width: 30%;
@@ -180,7 +183,8 @@ select {
     text-align: center
 }
 
-input[type=text]:focus {
+
+input[type=text]:not(#displayName):focus {
     background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/enter-24.png) 33.5em .3em no-repeat, -webkit-linear-gradient(top, #f7f7f8, #fff);
     background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/enter-24.png) 33.5em .3em no-repeat, linear-gradient(180deg, #f7f7f8 0, #fff)
 }
