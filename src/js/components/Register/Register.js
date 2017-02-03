@@ -59,7 +59,7 @@ class Register extends Component {
             <div className="Register-page">
             <div id="register"><span className="title">Sync-In</span></div>
                 <form className="Register-form" onSubmit={this.onSubmitRegister.bind(this)}>
-                    {this.props.error?<div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div> : <div></div>}
+                    {this.props.error?<div className="error"><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div> : <div></div>}
                     <label className="email">Email Address:</label>
                     <input type="email" id="email-input" className="input" ref="emailText" placeholder="Type your e-mail address" required />
                     <label className="username">Create Display Name:</label>
