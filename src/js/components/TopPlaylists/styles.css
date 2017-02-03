@@ -89,11 +89,14 @@
 
 #top_page .top3 .scrollarea-content.content{
     width: 100%;
-    height: 30vh;
 }
 
 .top4to10 .area {
     height: 35vh;
+}
+
+.top4to10 {
+    margin-bottom: 35vh;
 }
 
 .top4to10 #top-playlist-render {

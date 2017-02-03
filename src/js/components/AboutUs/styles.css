@@ -56,6 +56,10 @@
     float: left
 }
 
+.Michelle_container {
+    margin-bottom: 35vh;
+}
+
 .paragraph_right, .paragraph_left {
     width: 40%;
     margin-top: 100px

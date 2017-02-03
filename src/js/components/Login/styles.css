@@ -40,12 +40,12 @@
     transform: translate(-50%, -50%)
 }
 
-input[type=text]:not(#displayName), select {
+input[type=text]:not(#displayName):not(.input), select {
     background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/mouse_left_click-24.png) .2em .3em no-repeat, -webkit-linear-gradient(top, #f7f7f8, #fff);
     background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/mouse_left_click-24.png) .2em .3em no-repeat, linear-gradient(180deg, #f7f7f8 0, #fff);
 }
 
-input[type=text], select {
+input[type=text]:not(.input), select {
    
     left: 20%;
     top: 25%;
@@ -68,6 +68,7 @@ input[type=text]:not(#displayName):focus {
 
 input[type=email],
 input[type=password],
+.input,
 select {
     width: 100%;
     padding: 12px 20px;

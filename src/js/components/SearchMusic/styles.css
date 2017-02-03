@@ -19,6 +19,10 @@
     width: 50%
 }
 
+#three_platforms {
+    margin-bottom: 35vh;
+}
+
 .result_scroll_box {
     overflow: scroll;
     overflow-x: hidden;
