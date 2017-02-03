@@ -1,0 +1,111 @@
+
+/*********************************************************************
+//--------------------------USER PLAYLIST PAGE--------------------------
+//*********************************************************************/
+
+#UserPlaylist-page {
+    background: -webkit-linear-gradient(rgba(138, 91, 16, .85), rgba(255, 197, 103, .1)), url("http://i.imgur.com/wZLxya6.jpg");
+    background: linear-gradient(rgba(138, 91, 16, .85), rgba(255, 197, 103, .1)), url("http://i.imgur.com/wZLxya6.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0
+}
+
+h4 {
+    text-align: center
+}
+
+.content {
+    background: rgba(255, 193, 7, 0.71);
+    height: auto;
+    margin: 10px;
+    float: left;
+    padding: 8px;
+    box-sizing: border-box
+}
+
+.area,
+.content {
+    width: 800px;
+    text-decoration: none
+}
+
+.area {
+    margin: 10px auto;
+    height: 250px;
+    background: transparent
+}
+.area-fav {
+    width: 800px;
+    text-decoration: none;
+    margin: 10px auto;
+    height: 150px;
+    background: transparent
+}
+
+.my-saved-playlists {
+    text-align: center;
+    font-size: 2em;
+    text-decoration: none
+}
+
+#user-playlist-buttons-li {
+    -webkit-text-decoration-line: none;
+    text-decoration-line: none
+}
+
+.user-playlist-buttons {
+    text-decoration: none;
+    color: #fff;
+    background-color: transparent;
+    padding: .5em;
+    border: none;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out
+}
+
+.user-playlist-buttons:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1)
+}
+
+
+/*********************************************************************
+//------------------------------DASHBOARD--------------------------
+//*********************************************************************/
+
+.DashboardPage {
+    text-align: center
+}
+
+#welcome {
+    font-size: 4em
+}
+
+#my-saved-playlists,
+#welcome {
+    text-align: center;
+    text-shadow: 0 3px 0 #8e4600, 0 5px 10px #000, 0 7px 2px rgba(0, 0, 0, .1), 0 18px 16px rgba(0, 0, 0, .1)
+}
+
+.trackButtons {
+    color: #fff;
+    background-color: #000;
+    border: none;
+    font-weight: bolder
+}
+
+.blackColor {
+    color: #000
+}
+
+#playlist_toggle_div {
+    position: relative;
+    left: 48%;
+    
+}
+

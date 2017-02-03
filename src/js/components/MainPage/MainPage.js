@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import play from '../../../play.png';
 import {Link} from 'react-router';
+import './styles.css';
 
 class MainPage extends Component {
   onSubmit (event) {
@@ -16,7 +17,7 @@ class MainPage extends Component {
           </div>
           <div id="disc">
             <Link to="/login">
-              <img src={play} className='image' alt="play"/> 
+              <img src={play} className='image' alt="play"/>
             </Link>
           </div>
       </div>

@@ -15,6 +15,7 @@ import FaTrash from 'react-icons/lib/fa/trash';
 import FaEdit from 'react-icons/lib/fa/edit';
 import TiPlus from 'react-icons/lib/ti/plus';
 import {Tooltip, OverlayTrigger} from 'react-bootstrap';
+import './styles.css';
 
 
 const borderRadiusStyle = { borderRadius: 2 };
