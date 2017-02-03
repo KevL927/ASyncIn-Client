@@ -1,16 +1,8 @@
-.Register-form {
-    top: 61%;
-    margin-bottom: 10vh;
-}
-
-.Register-page {
-	height: 100%;
-}
-
 #register span {
 	font-size: 15vh;
 }
-a#loginlink {
+
+#loginlink {
     float: none;
     background-color: transparent;
 }
@@ -23,3 +15,11 @@ a#loginlink {
     background-color: transparent;
 }
 
+.Register-form {
+    top: 61%;
+    margin-bottom: 10vh;
+}
+
+.Register-page {
+	height: 100%;
+}

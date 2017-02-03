@@ -1,29 +1,31 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import validator from 'validator';
-import {Link} from 'react-router';
-import * as userActions from '../../actions/user-actions';
-import * as actions from '../../actions/actions';
-import Feedback from '../Feedback';
 import FaFacebookOffical from 'react-icons/lib/fa/facebook-official';
 import FaGooglePlusSquare from 'react-icons/lib/fa/google-plus-square';
 
+import * as userActions from '../../actions/user-actions';
+import * as actions from '../../actions/actions';
+import Feedback from '../Feedback';
 
 class Register extends Component {
-    state = {error: false}
+    state = { error: false }
+    
     componentWillMount() {
         //clear out errors before loading
         this.props.dispatch(actions.clearError());
     }
+    
     onSubmitRegister (event) {
         event.preventDefault();
         this.props.dispatch(actions.clearFeedback());
         this.props.dispatch(actions.clearError());
-        let emailText = ReactDOM.findDOMNode(this.refs.emailText).value;
-        let displayNameText = ReactDOM.findDOMNode(this.refs.displayNameText).value;
-        let passwordText = ReactDOM.findDOMNode(this.refs.passwordText).value;
-        let confirmPasswordText = ReactDOM.findDOMNode(this.refs.confirmPasswordText).value;
+        let emailText = ReactDOM.findDOMNode(this.refs.emailText).value,
+            displayNameText = ReactDOM.findDOMNode(this.refs.displayNameText).value,
+            passwordText = ReactDOM.findDOMNode(this.refs.passwordText).value,
+            confirmPasswordText = ReactDOM.findDOMNode(this.refs.confirmPasswordText).value;
 
         if(!validator.isEmail(emailText) || emailText.length <= 6) {
             this.props.dispatch(userActions.registerError({message:'Invalid email'}));
@@ -48,16 +50,16 @@ class Register extends Component {
             this.refs.passwordText.value = "";
             this.refs.confirmPasswordText.value = "";
             return;
+            
         } else {
-        return this.props.dispatch(userActions.registerRequest(emailText, displayNameText, passwordText));
+            return this.props.dispatch(userActions.registerRequest(emailText, displayNameText, passwordText));
         }
     }
-    
 
     render () {
         return (
             <div className="Register-page">
-            <div id="register"><span className="title">Sync-In</span></div>
+                <div id="register"><span className="title">Sync-In</span></div>
                 <form className="Register-form" onSubmit={this.onSubmitRegister.bind(this)}>
                     {this.props.error?<div className="error"><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div> : <div></div>}
                     <label className="email">Email Address:</label>
@@ -75,11 +77,9 @@ class Register extends Component {
                         <a id="facebook-login" href="https://asyncin.herokuapp.com/auth/facebook" className="facebook-login"><FaFacebookOffical size={50} color="#3b5998"/></a>
                     </div>
                 </form>
-
             </div>
         );
     }
-    
-};
+}
 
 export default connect()(Register);
