@@ -14,6 +14,8 @@ class AccountSettings extends Component {
     
     submitDisplayNameForm(event) {
         event.preventDefault();
+        this.props.dispatch(actions.clearFeedback());
+        this.props.dispatch(actions.clearError());
         let displayNameText = ReactDOM.findDOMNode(this.refs.displayNameText).value;
 
         if(!validator.isAlphanumeric(displayNameText) || displayNameText.length <= 4) {
@@ -30,6 +32,8 @@ class AccountSettings extends Component {
     
     submitNewPasswordForm(event) {
         event.preventDefault();
+        this.props.dispatch(actions.clearFeedback());
+        this.props.dispatch(actions.clearError());
         let currentPasswordText = ReactDOM.findDOMNode(this.refs.currentPasswordText).value,
             newPasswordText = ReactDOM.findDOMNode(this.refs.newPasswordText).value,
             confirmNewPasswordText = ReactDOM.findDOMNode(this.refs.confirmNewPasswordText).value;
