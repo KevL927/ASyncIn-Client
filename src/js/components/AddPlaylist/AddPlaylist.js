@@ -7,7 +7,7 @@ import { ButtonGroup, Button } from 'react-bootstrap';
 
 import * as playlistActions from '../../actions/playlist-actions';
 import * as actions from '../../actions/actions';
-import SavedPlaylistsDropdown from '../UserPlaylists/SavedPlaylistsDropdown';
+import SavedPlaylistsDropdown from '../Dashboard/SavedPlaylistsDropdown';
 import Feedback from '../Feedback';
 import './styles.css';
 

@@ -3,14 +3,14 @@ import {connect} from 'react-redux';
 
 import * as userActions from '../../actions/user-actions';
 import * as actions from '../../actions/actions';
-import FavouritePlaylist from '../FavouritePlaylist/FavouritePlaylist';
-import MyPlaylistsDashboard from '../UserPlaylists/MyPlaylistsDashboard';
+import FavouritePlaylist from './FavouritePlaylist';
+import MyPlaylistsDashboard from './MyPlaylistsDashboard';
 
 class DashboardPage extends Component {
   componentWillMount() {
     if (!this.props.currentUser) {
       if(!sessionStorage.token) {
-          this.props.dispatch(userActions.getCurrentUser(this.props.location.query.token, this.props.location.query.access_token));
+        this.props.dispatch(userActions.getCurrentUser(this.props.location.query.token, this.props.location.query.access_token));
       } else {
       this.props.dispatch(userActions.getCurrentUser(sessionStorage.token, sessionStorage.access_token));
       }
@@ -25,7 +25,7 @@ class DashboardPage extends Component {
   renderComponents() {
     if(this.props.currentUser) {
       return (
-        <div className="DashboardPage">
+        <div>
           <span id="welcome">Welcome, {this.props.currentUser.username}</span>
           <div className="songSearch-container">
             <form onSubmit={this.onSubmitSearch.bind(this)}>
@@ -55,6 +55,6 @@ class DashboardPage extends Component {
 
 
 export default connect(  
-  ({ currentUser, userSavedPlaylists,  queue }) => 
+  ({ currentUser, userSavedPlaylists, queue }) => 
   ({ currentUser, userSavedPlaylists, queue })
 )(DashboardPage);
