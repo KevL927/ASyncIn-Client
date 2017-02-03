@@ -1,8 +1,8 @@
 import React from 'react';
+
 import TrackItem from './TrackItem';
 
 export default ({ tracks, onCheckInsert, renderCheckedIndex, onClickAddToQueue, playTrackOnClick }) => (
-  
   <div>
     {tracks.map((track, index) => (
       <TrackItem 
@@ -16,5 +16,4 @@ export default ({ tracks, onCheckInsert, renderCheckedIndex, onClickAddToQueue, 
       />
     ))}
   </div>
-  
-)
+);

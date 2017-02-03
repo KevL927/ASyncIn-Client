@@ -1,3 +1,17 @@
+#top_page {
+    height: 110vh;
+}
+
+#top_page .top3  .scrollarea.area {
+    width: 25%;
+    margin-left: 1%;
+    display: inherit;
+}
+
+#top_page .top3 .scrollarea-content.content{
+    width: 100%;
+}
+
 .Song_Checkbox {
 	float: left;
 	margin: 22px 15px !important;
@@ -38,7 +52,7 @@
     margin-left: 25%
 }
 
-..top3 add-playlist-button:hover {
+.top3 add-playlist-button:hover {
     color: #deb887
 }
 
@@ -56,9 +70,9 @@
 
 .top3 .transition {
     transform: scale(1);
+    transition: .3s ease-in-out;
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
-    transition: .3s ease-in-out;
     -webkit-transition: .3s ease-in-out
 }
 
@@ -74,21 +88,10 @@
     text-align: center;
 }
 
-
 .top3 .trackThumbnail, .top4to10 .trackThumbnail  {
     float: left;
     width: 65px;
     height: 65px
-}
-
-#top_page .top3  .scrollarea.area {
-    width: 25%;
-    margin-left: 1%;
-    display: inherit;
-}
-
-#top_page .top3 .scrollarea-content.content{
-    width: 100%;
 }
 
 .top4to10 .area {
@@ -144,53 +147,23 @@
     width: 100%
 }
 
-#top_page {
-    height: 110vh;
-}
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px) {
-    #top_page {
-        margin-bottom: 0;
-    }
-}
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
-    .top4to10 {
-        margin-bottom: 30vh;
-    }
-    .top4to10 .area {
-        width: 80%;
-    }
-    .top4to10 .content {
-        width: 100%;
-    }
-    .top4to10 .track {
-        display: inline-block;
-        text-decoration: none;
-        font-family: Ubuntu, sans-serif;
-        color: #000;
-        width: 100% !important;
-        margin: 10px 0;
-    }
-    #top_page {
-        margin-bottom: 0;
-    }
-}   
-/* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
     #top_page .top3  .scrollarea.area {
         width: 65%;
     }
+    
     .top4to10 {
         margin-bottom: 40vh;
     }
+    
     .top4to10 .area {
         width: 65%;
     }
+    
     .top4to10 .content {
         width: 100%;
     }
+    
     .top4to10 .track {
         display: inline-block;
         text-decoration: none;
@@ -199,15 +172,50 @@
         width: 100% !important;
         margin: 10px 0;
     }
+    
     .top4to10 .track_link {
         background-color: transparent;
         font-size: 12px;
-        word-break: break-word;
+        word-break: normal;
         display: flex;
         padding: 0 0 0 2%;
         float: none;
     }
+    
     .top4to10 .function_buttons {
         float: none;
+    }
+}
+
+@media only screen and (max-width : 992px) {
+    #top_page {
+        margin-bottom: 0;
+    }
+    
+    .top4to10 {
+        margin-bottom: 30vh;
+    }
+    
+    .top4to10 .area {
+        width: 80%;
+    }
+    
+    .top4to10 .content {
+        width: 100%;
+    }
+    
+    .top4to10 .track {
+        display: inline-block;
+        text-decoration: none;
+        font-family: Ubuntu, sans-serif;
+        color: #000;
+        width: 100% !important;
+        margin: 10px 0;
+    }
+}
+
+@media only screen and (max-width : 1200px) {
+    #top_page {
+        margin-bottom: 0;
     }
 }

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import * as actions from '../../actions/actions';
-import * as playlistActions from '../../actions/playlist-actions';
-import RenderTrackList from './RenderTrackList';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
 import ScrollArea from 'react-scrollbar';
@@ -11,12 +8,15 @@ import FaThumbsUp from 'react-icons/lib/fa/thumbs-up';
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up';
 import {Tooltip, OverlayTrigger} from 'react-bootstrap';
 
+import * as actions from '../../actions/actions';
+import * as playlistActions from '../../actions/playlist-actions';
+import RenderTrackList from './RenderTrackList';
+
 const tooltip_add = (
   <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
 );
 
 class RenderPlaylist extends Component {
-  
     state = {
       isOpenedArray: []
     }
@@ -32,7 +32,7 @@ class RenderPlaylist extends Component {
     
     favouriteOrUnfavourite(playlistObject) {
       if(sessionStorage.userId === playlistObject.userId) {
-        return <i className="fa fa-user  fa-2x" aria-hidden="true"></i>
+        return <i className="fa fa-user  fa-2x" aria-hidden="true"></i>;
       }
       let favouritePlaylistIdArray = [];
 
@@ -43,14 +43,14 @@ class RenderPlaylist extends Component {
         <button className="user-playlist-buttons" onClick={this.onClickUpdateFavouritePlaylist.bind(this, playlistObject)}>
           {favouritePlaylistIdArray.indexOf(playlistObject._id) >= 0 ?  <FaThumbsOUp size={22} />: <FaThumbsUp size={22} />}
         </button>
-      )
+      );
     }
 
     expandCollapse(arrIndex, event) {
       event.preventDefault();
       if (this.state.isOpenedArray.indexOf(arrIndex) === -1) {
           const tempOpenedArr = update(this.state.isOpenedArray, {$push: [arrIndex]});
-          this.setState({isOpenedArray: tempOpenedArr})
+          this.setState({isOpenedArray: tempOpenedArr});
       } else {
           let index = this.state.isOpenedArray.indexOf(arrIndex);
           const tempOpenedArr = update(this.state.isOpenedArray, {$splice: [[index, 1]]});
@@ -68,7 +68,7 @@ class RenderPlaylist extends Component {
 
     viewTracks(playlist) {
       if(playlist) {
-        return <ul className="top-playlist-tracks"><RenderTrackList playlistObject={playlist} onCheckInsert={this.props.onCheckInsert} renderCheckedIndex={this.props.renderCheckedIndex} /></ul>
+        return <ul className="top-playlist-tracks"><RenderTrackList playlistObject={playlist} onCheckInsert={this.props.onCheckInsert} renderCheckedIndex={this.props.renderCheckedIndex} /></ul>;
       }
       return;
     }
@@ -149,7 +149,6 @@ class RenderPlaylist extends Component {
         </div>
       ); 
     }
-  
-};
+}
 
 export default connect()(RenderPlaylist);
