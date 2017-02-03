@@ -6,7 +6,6 @@ import * as playlistActions from '../../actions/playlist-actions';
 import * as actions from '../../actions/actions';
 
 class SavedPlaylistsDropdown extends Component {
-	
 	onClickAddNewPlaylist(newPlaylist, targetPlaylist, event){
 		event.preventDefault();
 		let newPlaylistArray = targetPlaylist.tracks.concat(newPlaylist),
@@ -29,7 +28,7 @@ class SavedPlaylistsDropdown extends Component {
 	    	arr = resultArr.map((playlist, index) => {
 		    	return (
 					<MenuItem eventKey={index} key={index}>
-					<div onClick={this.onClickAddNewPlaylist.bind(this, this.props.newPlaylist, playlist)}>{playlist.name}</div>
+						<div onClick={this.onClickAddNewPlaylist.bind(this, this.props.newPlaylist, playlist)}>{playlist.name}</div>
 					</MenuItem>
 		    	);
 	    	});

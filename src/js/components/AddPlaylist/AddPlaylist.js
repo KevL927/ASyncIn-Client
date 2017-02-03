@@ -110,4 +110,4 @@ class AddPlaylist extends Component {
 	}
 }
 
-export default connect()(AddPlaylist) ;
+export default connect()(AddPlaylist);

@@ -1,10 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 
 import play from '../../../play.png';
 import './styles.css';
 
-export default () =>{
+export default () => {
   return (
     <div className="MainPage">
       <div className="MainPage-Header">

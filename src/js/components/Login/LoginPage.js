@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import Login from '../Login/Login';
 import './styles.css';
 
 class LoginPage extends Component {
-    render(){
+    render() {
         return (
             <div className="LoginPage">
                 <div className="LoginPage-container">
@@ -16,4 +16,6 @@ class LoginPage extends Component {
     }
 }
 
-export default connect(({error})=>({error}))(LoginPage);
+export default connect(
+    ({error}) => ({error})
+)(LoginPage);
