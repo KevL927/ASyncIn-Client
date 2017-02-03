@@ -3,9 +3,6 @@ import { findDOMNode } from 'react-dom';
 import {connect} from 'react-redux';
 import ReactPlayer from 'react-player';
 import screenfull from 'screenfull';
-import Duration from './Duration';
-import * as actions from '../../actions/actions';
-import shuffle from './shuffleQueue'
 import FaPlay from 'react-icons/lib/fa/play';
 import FaStepForward from 'react-icons/lib/fa/step-forward';
 import FaStepBackward from 'react-icons/lib/fa/step-backward';
@@ -14,9 +11,11 @@ import FaPause from 'react-icons/lib/fa/pause';
 import FaExpand from 'react-icons/lib/fa/expand';
 import MdCached from 'react-icons/lib/md/cached';
 
+import * as actions from '../../actions/actions';
+import Duration from './Duration';
+import shuffle from './shuffleQueue';
 
 class MusicPlayer extends Component {
-	
 	state = {
 		playing: false,
 		shuffle: false,
@@ -35,101 +34,113 @@ class MusicPlayer extends Component {
 			this.props.dispatch(actions.playSong())
 		}
 	}
+	
 	next = () => {
 		if(this.props.shuffledQueue) {
 			if(this.props.shuffledQueue.length - 1 <= this.state.currentPlayingIndexInQueue) {
-				this.setState({ currentPlayingIndexInQueue: -1 })
-				return this.setState({ playing: true })
+				this.setState({ currentPlayingIndexInQueue: -1 });
+				return this.setState({ playing: true });
 			}
-			this.setState({ currentPlayingIndexInQueue: ++this.state.currentPlayingIndexInQueue})
+			this.setState({ currentPlayingIndexInQueue: ++this.state.currentPlayingIndexInQueue});
 			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue]));
 		} else {
 			if(this.props.queue.length - 1 <= this.state.currentPlayingIndexInQueue) {
-				this.setState({ currentPlayingIndexInQueue: -1 })
-				return this.setState({ playing: true })
+				this.setState({ currentPlayingIndexInQueue: -1 });
+				return this.setState({ playing: true });
 			}
-			this.setState({ currentPlayingIndexInQueue: ++this.state.currentPlayingIndexInQueue })
+			this.setState({ currentPlayingIndexInQueue: ++this.state.currentPlayingIndexInQueue });
 			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue]));
 		}
 	}
+	
 	prev = () => {
 		if(this.props.shuffledQueue) {
 			if(this.state.currentPlayingIndexInQueue <= 0) {
-				this.setState({ currentPlayingIndexInQueue: this.props.shuffledQueue.length - 1 })
-				return this.setState({ playing: true })
+				this.setState({ currentPlayingIndexInQueue: this.props.shuffledQueue.length - 1 });
+				return this.setState({ playing: true });
 			}
-			this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue - 1 })
+			this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue - 1 });
 			return this.props.dispatch(actions.currentListeningUrl(this.props.shuffledQueue[this.state.currentPlayingIndexInQueue]));
 		} else {
 			if(this.state.currentPlayingIndexInQueue <= 0) {
-				this.setState({ currentPlayingIndexInQueue: this.props.queue.length - 1 })
-				return this.setState({ playing: true })
+				this.setState({ currentPlayingIndexInQueue: this.props.queue.length - 1 });
+				return this.setState({ playing: true });
 			}
-			this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue - 1 })
+			this.setState({ currentPlayingIndexInQueue: this.state.currentPlayingIndexInQueue - 1 });
 			return this.props.dispatch(actions.currentListeningUrl(this.props.queue[this.state.currentPlayingIndexInQueue]));
 		}
 	}
+	
 	shuffle = () => {
 		if(this.state.shuffle) {
-			this.setState({ shuffle: false })
+			this.setState({ shuffle: false });
 			return this.props.dispatch(actions.shuffledQueue(null));
 		}
-		this.setState({ shuffle: true })
+		this.setState({ shuffle: true });
 		let shuffledQueue = this.props.queue.map((track, index) => {
 			return track;
-		})
-		return this.props.dispatch(actions.shuffledQueue(shuffle(shuffledQueue)))
+		});
+		return this.props.dispatch(actions.shuffledQueue(shuffle(shuffledQueue)));
 	}
+	
 	continueButton = () => {
 		if(this.state.continueAll) {
-			return this.setState({ continueAll: false })
+			return this.setState({ continueAll: false });
 	}
-	this.setState({ continueAll: true })
-	return this.continuePlay()
+	this.setState({ continueAll: true });
+	return this.continuePlay();
 	}
+	
 	continuePlay = () => {
 		if(this.state.continueAll && this.props.queue.length - 1 <= this.state.currentPlayingIndexInQueue) {
-			this.setState({ currentPlayingIndexInQueue: -1 })
-			this.setState({ playing: true })
-			return this.next()
+			this.setState({ currentPlayingIndexInQueue: -1 });
+			this.setState({ playing: true });
+			return this.next();
 		} else if (this.state.continueAll && this.props.shuffleQueue) {
 			if (this.props.shuffledQueue.length - 1 <= this.state.currentPlayingIndexInQueue) {
-				this.setState({ currentPlayingIndexInQueue: -1 })
-				this.setState({ playing: true })
-				return this.next()
+				this.setState({ currentPlayingIndexInQueue: -1 });
+				this.setState({ playing: true });
+				return this.next();
 			}
 		}
 		if(this.state.continueAll) {
-			this.setState({ playing: true })
-			return this.next()
+			this.setState({ playing: true });
+			return this.next();
 		}
 	}
+	
 	setVolume = e => {
-		this.setState({ volume: parseFloat(e.target.value) })
+		this.setState({ volume: parseFloat(e.target.value) });
 	}
+	
 	onSeekMouseDown = e => {
-		this.setState({ seeking: true })
+		this.setState({ seeking: true });
 	}
+	
 	onSeekChange = e => {
-		this.setState({ played: parseFloat(e.target.value) })
+		this.setState({ played: parseFloat(e.target.value) });
 	}
+	
 	onSeekMouseUp = e => {
-		this.setState({ seeking: false })
-		this.player.seekTo(parseFloat(e.target.value))
+		this.setState({ seeking: false });
+		this.player.seekTo(parseFloat(e.target.value));
 	}
+	
 	onProgress = state => {
 		if (!this.state.seeking) {
-		this.setState(state)
+		this.setState(state);
 		}
 	}
+	
 	onClickFullscreen = () => {
 		screenfull.request(findDOMNode(this.player));
 	}
+	
 	render() {
 		const {
 	      volume,
 	      played, duration,
-	    } = this.state
+	    } = this.state;
 		return (
 	    	<div>
 	    		<div id="video-pic-viewer">
@@ -158,7 +169,7 @@ class MusicPlayer extends Component {
 		    		<button className="player-buttons" onClick={this.onClickFullscreen}><FaExpand size={30} /></button>
 	            </div>
 	            <div id="video-seek">
-	            <span id="seek">Seek</span>
+	            	<span id="seek">Seek</span>
 	            	<input
 	                  type="range" min={0} max={1} step='any'
 	                  value={played}
@@ -169,10 +180,10 @@ class MusicPlayer extends Component {
                 	<Duration seconds={duration * played} /> / <Duration seconds={duration} />
                 </div>
                 <div id="video-volume">
-                <span id="volume">Volume</span>
+                	<span id="volume">Volume</span>
                 	<input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume} />
             	</div>
-            	</div>
+        	</div>
 	    );
 	}
 }

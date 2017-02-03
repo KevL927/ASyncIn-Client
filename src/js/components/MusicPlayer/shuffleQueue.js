@@ -1,7 +1,7 @@
 //The de-facto unbiased shuffle algorithm is the Fisher-Yates (aka Knuth) Shuffle.
 //See https://github.com/coolaj86/knuth-shuffle
 
-export default (array) => {
+export default array => {
   let currentIndex = array.length, temporaryValue, randomIndex;
 
   while (0 !== currentIndex) {
