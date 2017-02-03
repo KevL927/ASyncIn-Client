@@ -16,7 +16,7 @@ h4 {
 }
 
 .content {
-    background: rgba(255, 193, 7, 0.71);
+    background: #FFC107;
     height: auto;
     margin: 10px;
     float: left;
@@ -27,20 +27,18 @@ h4 {
 .area,
 .content {
     width: 800px;
-    text-decoration: none
+    text-decoration: none;
 }
+
 
 .area {
     margin: 10px auto;
-    height: 250px;
-    background: transparent
+    height: 30vh;
+    background: #FFC107;
 }
-.area-fav {
-    width: 800px;
-    text-decoration: none;
-    margin: 10px auto;
-    height: 150px;
-    background: transparent
+
+.DashboardPage .scrollarea.area {
+    display: inherit;
 }
 
 .my-saved-playlists {

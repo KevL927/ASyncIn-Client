@@ -62,7 +62,7 @@ class FavouritePlaylist extends Component {
 	render() {
 		return (
             <div>
-            <ScrollArea speed={0.8} className="area-fav" contentClassName="content" horizontal={false} >
+            <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
                 <div>{this.renderFavouritePlaylist()}</div>
             </ScrollArea>
             </div>
