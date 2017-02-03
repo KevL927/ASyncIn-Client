@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import ToggleButton from 'react-toggle-button';
 import FaUnlock from 'react-icons/lib/fa/unlock';
 import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt';
-import {ButtonGroup, Button, DropdownButton, MenuItem} from 'react-bootstrap';
+import { ButtonGroup, Button } from 'react-bootstrap';
 
 import * as playlistActions from '../../actions/playlist-actions';
 import * as actions from '../../actions/actions';
@@ -40,7 +40,7 @@ class AddPlaylist extends Component {
                 tracks: [],
                 rating: 1,
                 isPublic: this.state.isPublic
-            }
+            };
         this.props.dispatch(actions.clearError());
         this.props.dispatch(playlistActions.createPlaylist(newPlaylist, sessionStorage.access_token));
         }
@@ -49,9 +49,9 @@ class AddPlaylist extends Component {
             this.props.dispatch(actions.clearFeedback());
         }, 5000);
         setTimeout(() => {
-             this.setState({ isPublic:true})
+             this.setState({ isPublic:true});
         }, 1000);
-        this.setState({showInput: false})
+        this.setState({showInput: false});
 	}
 	
     renderInput() {
