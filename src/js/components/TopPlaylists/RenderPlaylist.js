@@ -81,6 +81,7 @@ class RenderPlaylist extends Component {
           this.props.playlistArray[1].rank = 1;
           this.props.playlistArray[0].rank = 2;
           this.props.playlistArray[2].rank = 3;
+          
       if(topPlaylist === this.props.playlistArray) {
         return (
           <div className="top3 " id="top-playlist-render">
@@ -91,7 +92,6 @@ class RenderPlaylist extends Component {
                     <div className="playlistControls">
                       <div className="playlist-rating">
                         <li className="topTitle"><h3>#{playlist.rank} - {playlist.name}</h3></li>
-                        
                         <li>favourites: {playlist.rating-1}</li>
                       </div>
                       <div className="playlist-favourite">{this.favouriteOrUnfavourite(playlist)}
@@ -117,20 +117,17 @@ class RenderPlaylist extends Component {
               <div key={index} className="playlist_favourites">
               <div className="playlistControls">
                 <li onClick={this.expandCollapse.bind(this, index)} ref={index}>
-              
                   <h3 className="transition">#{index+4} - {playlist.name}</h3>
                 </li>
                 <li>
                   favourites: {playlist.rating-1}
                 </li>
-             
                 <div className="playlist-favourite">
                   {this.favouriteOrUnfavourite(playlist)}
                   <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist )}><TiPlus size={22}/></button>
               </div>
                </div>
                 <Collapse isOpened={this.checkOpenedOrNot(index)}>
-                
                 {this.viewTracks(playlist)}
                </Collapse>
               </div>
