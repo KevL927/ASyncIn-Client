@@ -54,13 +54,14 @@ h3 {
 .feedback {
     font-size: 1em;
     text-shadow:none;
+    color: red;
 }
 
 .error span {
     color: red;
 }
 
-.fa-excalmation-triangle {
+.fa-exclamation-triangle {
     color: red;
 }
 
