@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+
 import * as actions from '../../actions/actions';
 import QueueTrackList from './QueueTrackList';
-import * as playlistActions from '../../actions/playlist-actions';
 
 class RenderQueue extends Component {
-    
     onTrackItemClick(event, track) {
         event.preventDefault();
         this.props.dispatch(actions.queue(track));
@@ -24,7 +23,7 @@ class RenderQueue extends Component {
     
     moveTrackInQueue(event, trackIndex, direction) {
         event.preventDefault();
-        this.props.dispatch(actions.moveTrackInQueue({ direction, trackIndex }))
+        this.props.dispatch(actions.moveTrackInQueue({ direction, trackIndex }));
     }
     
     unwrapTracks() {
@@ -41,7 +40,7 @@ class RenderQueue extends Component {
                     error={this.props.error} 
                     feedback={this.props.feedback}
                 />
-            )
+            );
         } 
         return <div></div>;
     }
@@ -49,7 +48,6 @@ class RenderQueue extends Component {
     render() {
         return <div>{this.unwrapTracks()}</div>;
     }
-
 }
 
 export default connect()(RenderQueue);
