@@ -6,10 +6,6 @@
     text-align: center;
 }
 
-.update-display-name, .update-password {
-    display: block;
-}
-
 .update-display-name-form,
 .update-password-form {
     display: inline-block;
@@ -33,6 +29,10 @@
     transform: translate(-50%, -50%)
 }
 
+.update-display-name, .update-password {
+    display: block;
+}
+
 @media only screen and (max-width : 768px) {
     .update-display-name-form, .update-password-form {
         width: 50%;
@@ -42,16 +42,16 @@
     }
 }
 
-@media only screen and (max-width : 1200px) {
-    .update-display-name-form, .update-password-form {
-        min-width: 38%;
-        max-width: 40%;
-    }
-}
-
 @media only screen and (max-width : 992px) {
     .update-display-name-form, .update-password-form {
         min-width: 45%;
         max-width: 50%;
+    }
+}
+
+@media only screen and (max-width : 1200px) {
+    .update-display-name-form, .update-password-form {
+        min-width: 38%;
+        max-width: 40%;
     }
 }
