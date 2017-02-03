@@ -27,7 +27,7 @@
     font-size: 2em
 }
 
-.login-container,
+/*.login-container,
 .Register-form {
     border-radius: 5px;
     background-color: rgba(40, 10, 9, .7);
@@ -38,6 +38,17 @@
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%)
+}*/
+
+.login-container, .Register-form {
+    border-radius: 5px;
+    background-color: rgba(40, 10, 9, .7);
+    padding: 20px;
+    display: inline-block;
+}
+
+#login span {
+    font-size: 15vh;
 }
 
 input[type=text]:not(#displayName):not(.input), select {
@@ -66,7 +77,7 @@ input[type=text]:not(#displayName):focus {
     background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/enter-24.png) 33.5em .3em no-repeat, linear-gradient(180deg, #f7f7f8 0, #fff)
 }
 
-input[type=email],
+/*input[type=email],
 input[type=password],
 .input,
 select {
@@ -79,6 +90,18 @@ select {
     box-sizing: border-box;
     color: #000;
     text-align: center
+}*/
+
+input[type=email], input[type=password], .input, select {
+    width: 100%;
+    padding: 4% 0vh;
+    margin: 1% 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #000;
+    text-align: center;
 }
 
 button[type=submit] {
@@ -140,4 +163,68 @@ button[type=submit]:hover {
 
 .App-intro {
     font-size: large
+}
+
+
+
+@media screen and (max-width: 767px) {
+    span {
+        font-size: 5em
+    }
+    div#register {
+        padding: 4em;
+    }
+    .LoginPage label, .Register-page label {
+        font-size: 2em;
+    }
+    .login-container, .Register-form {
+        width: 45%;
+        top: 60%;
+    }
+    
+    #display-name-input,
+    #displayName,
+    #username {
+        width: 100%
+    }
+}
+
+@media screen and (max-width:959px) {
+    span {
+        font-size: 5em
+    }
+    .login-container {
+        top: 45%
+    }
+    div#register {
+        padding: 4em;
+    }
+    .LoginPage label, .Register-page label {
+        font-size: 2em;
+    }
+    .login-container, .Register-form {
+        width: 45%;
+        top: 60%;
+    }
+    
+    #display-name-input,
+    #displayName,
+    #username {
+        width: 100%
+    }
+    
+}
+
+@media (min-width:960px) {
+    .login-container, .Register-form {
+        font-size: 1em;
+        min-width: 35%;
+        max-width: 35%;
+    }
+    .Register-page label {
+        font-size: 1em;
+    }
+    #display-name-input, #displayName, #username {
+        width: 100%
+    }
 }
