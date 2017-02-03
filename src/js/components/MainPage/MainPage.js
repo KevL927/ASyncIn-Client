@@ -1,28 +1,21 @@
-import React, { Component } from 'react';
-import play from '../../../play.png';
+import React from 'react';
 import {Link} from 'react-router';
+
+import play from '../../../play.png';
 import './styles.css';
 
-class MainPage extends Component {
-  onSubmit (event) {
-        event.preventDefault();
-  }
-  
-  render() {
-    return (
-      <div className="MainPage">
-          <div className="MainPage-Header">
-            <span className="title">Sync-In</span>
-            <span id="about">Share Good Music™</span>
-          </div>
-          <div id="disc">
-            <Link to="/login">
-              <img src={play} className='image' alt="play"/>
-            </Link>
-          </div>
+export default () =>{
+  return (
+    <div className="MainPage">
+      <div className="MainPage-Header">
+        <span className="title">Sync-In</span>
+        <span id="about">Share Good Music™</span>
       </div>
-    );
-  }
-}
-
-export default MainPage;
+      <div id="disc">
+        <Link to="/login">
+          <img src={play} className='image' alt="play"/>
+        </Link>
+      </div>
+    </div>
+  );
+};
