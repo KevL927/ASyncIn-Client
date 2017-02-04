@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import AccountSettings from '../AccountSettings/AccountSettings';
 import './styles.css';
@@ -16,4 +16,7 @@ class AccountSettingsPage extends Component {
   }
 }
 
-export default connect(({error, feedback})=>({error, feedback}))(AccountSettingsPage);
+export default connect(
+  ({error, feedback}) =>
+  ({error, feedback})
+)(AccountSettingsPage);

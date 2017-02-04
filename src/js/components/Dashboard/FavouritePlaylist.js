@@ -11,7 +11,6 @@ import * as playlistActions from '../../actions/playlist-actions';
 const tooltip_add = (
     <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
 );
-
 const tooltip_unfavourite = (
     <Tooltip id="tooltip_unfavourite"><strong>Unfavourite</strong> playlist </Tooltip>
 );

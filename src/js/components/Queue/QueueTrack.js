@@ -10,15 +10,12 @@ import './styles.css';
 const tooltip_delete = (
   <Tooltip id="tooltip_delete"><strong>Delete</strong> playlist</Tooltip>
 );
-
 const tooltip_add = (
   <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
 );
-
 const tooltip_up = (
   <Tooltip id="tooltip_up"><strong>Move Up</strong></Tooltip>
 );
-
 const tooltip_down = (
   <Tooltip id="tooltip_down"><strong>Move Down</strong> playlist to queue</Tooltip>
 );
