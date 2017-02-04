@@ -3,6 +3,7 @@ import FaGithubSquare from 'react-icons/lib/fa/github-square';
 
 import surbhiPic from './img/surbhi-pic.png';
 import laviePic from './img/lavie-pic.png';
+import tigerPic from './img/tiger-pic.png';
 import michellePic from './img/michelle-pic.png';
 import './styles.css';
 
@@ -37,7 +38,7 @@ export default () => {
       </div>
       <div className="Kevin_container">
         <div className='Kevin'>
-          <img src="http://i.imgur.com/Tl1XhwA.png"/>
+          <img src={tigerPic} />
           <h1>Kevin Lee</h1>
           <h3 className="project_roles">Product Manager</h3>
         </div>
