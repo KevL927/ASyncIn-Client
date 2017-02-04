@@ -1,26 +1,5 @@
-#songSearch-page {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0;
-}
-
 .DashboardPage {
     height: 863px;
-}
-
-#search-songs {
-    margin: 35px 0
-}
-
-#search-song-form {
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 50%
-}
-
-#three_platforms {
-    margin-bottom: 35vh;
 }
 
 .result_scroll_box {
@@ -42,6 +21,33 @@ input[type=checkbox].result-checkbox {
 
 .platform_icons {
     text-align: center;
+}
+
+.crop_track {
+    overflow: hidden;
+    height: 50px;
+    line-height: 40px;
+}
+
+#songSearch-page {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0;
+}
+
+#search-songs {
+    margin: 35px 0
+}
+
+#search-song-form {
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50%
+}
+
+#three_platforms {
+    margin-bottom: 35vh;
 }
 
 /* Small Devices, Tablets */
