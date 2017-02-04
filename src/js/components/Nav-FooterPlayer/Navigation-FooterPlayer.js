@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import {ButtonToolbar, DropdownButton, MenuItem} from 'react-bootstrap';
+import { Tooltip, OverlayTrigger, ButtonToolbar, DropdownButton, MenuItem } from 'react-bootstrap';
 import FaHome from 'react-icons/lib/fa/home';
 import FaSearch from 'react-icons/lib/fa/search';
 import FaGlobe from 'react-icons/lib/fa/globe';
@@ -16,6 +16,10 @@ import RenderQueue from '../Queue/RenderQueue';
 import * as actions from '../../actions/actions';
 import * as userActions from '../../actions/user-actions';
 import './styles.css';
+
+const tooltip_queue = (
+  <Tooltip id="tooltip_queue"><strong>Queue List</strong></Tooltip>
+);
 
 class NavigationFooterPlayer extends Component {
   updateServerQueue() {
@@ -104,14 +108,16 @@ class NavigationFooterPlayer extends Component {
         </div>
         <footer id="react-player">
           <div id="Q-list">
-            <ButtonToolbar title="Queue List">
-              <DropdownButton open={this.state.menuOpen} onToggle={val => this.dropdownToggle(val)} bsStyle="default" title={<MdLineWeight/>} noCaret dropup pullRight id="queue-list">
-                <MenuItem onClick={() => this.menuItemClickedThatShouldntCloseDropdown()}>
-                  <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
-                  <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} error={this.props.error} feedback={this.props.feedback}/>
-                  </ScrollArea>
-                </MenuItem>
-              </DropdownButton>
+            <ButtonToolbar>
+              <OverlayTrigger placement="bottom" overlay={tooltip_queue}>
+                <DropdownButton open={this.state.menuOpen} onToggle={val => this.dropdownToggle(val)} bsStyle="default" title={<MdLineWeight/>} noCaret dropup pullRight id="queue-list">
+                  <MenuItem onClick={() => this.menuItemClickedThatShouldntCloseDropdown()}>
+                    <ScrollArea speed={0.8} className="area" contentClassName="content" horizontal={false} >
+                      <RenderQueue playlistObject={{tracks: this.renderQueueOrShuffled()}} currentUser={this.props.currentUser} userSavedPlaylists={this.props.userSavedPlaylists} error={this.props.error} feedback={this.props.feedback}/>
+                    </ScrollArea>
+                  </MenuItem>
+                </DropdownButton>
+              </OverlayTrigger>
             </ButtonToolbar>
           </div>
           {this.playMusicOrNot()}
