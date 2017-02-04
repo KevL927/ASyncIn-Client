@@ -46,6 +46,11 @@
     float: right
 }
 
+.Kevin img {
+    padding-left: 40px;
+    padding-bottom: 40px;
+}
+
 .Michelle,
 .Michelle_container {
     float: left
