@@ -23,11 +23,9 @@ const borderRadiusStyle = { borderRadius: 2 };
 const tooltip_edit = (
   <Tooltip id="tooltip_edit"><strong>Edit</strong> playlist name</Tooltip>
 );
-
 const tooltip_add = (
   <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
 );
-
 const tooltip_delete = (
   <Tooltip id="tooltip_delete"><strong>Delete</strong> playlist</Tooltip>
 );

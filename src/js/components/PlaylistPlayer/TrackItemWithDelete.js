@@ -9,19 +9,15 @@ import FaArrowCircleDown from 'react-icons/lib/fa/arrow-circle-down';
 const tooltip_play = (
  	<Tooltip id="tooltip_play"><strong>Play</strong></Tooltip>
 );
-
 const tooltip_add = (
  	<Tooltip id="tooltip_add"><strong>Add</strong> to the queue</Tooltip>
 );
-
 const tooltip_up = (
   <Tooltip id="tooltip_up"><strong>Move Up</strong> the playlist</Tooltip>
 );
-
 const tooltip_down = (
   <Tooltip id="tooltip_down"><strong>Move Down</strong> the playlist</Tooltip>
 );
-
 const tooltip_delete = (
   <Tooltip id="tooltip_delete"><strong>Delete</strong> playlist</Tooltip>
 );

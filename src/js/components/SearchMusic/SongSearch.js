@@ -16,11 +16,9 @@ import AddPlaylist from '../AddPlaylist/AddPlaylist';
 const tooltip_add = (
   <Tooltip id="tooltip_add"><strong>Add</strong> to the queue</Tooltip>
 );
-
 const tooltip_play = (
   <Tooltip id="tooltip_play"><strong>Play</strong></Tooltip>
 );
-
 const tooltip_playlist_add = (
   <Tooltip id="tooltip_playlist_add"><strong>Check Off</strong> then click playlist</Tooltip>
 );
