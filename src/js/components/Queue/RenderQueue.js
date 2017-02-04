@@ -13,7 +13,6 @@ class RenderQueue extends Component {
     onTrackPlayNow(event, track) {
         event.preventDefault();
         this.props.dispatch(actions.currentListeningUrl(track));
-
     }
 
     onClickDeleteQueueTrack(event, trackIndex) {
