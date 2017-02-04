@@ -1,5 +1,5 @@
 import React from 'react';
-import {Tooltip, OverlayTrigger} from 'react-bootstrap';
+import { Tooltip, OverlayTrigger } from 'react-bootstrap';
 import FaPlayCircle from 'react-icons/lib/fa/play-circle';
 import TiPlus from 'react-icons/lib/ti/plus';
 
