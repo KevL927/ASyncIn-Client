@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import update from 'react-addons-update';
+
 import * as actions from '../../actions/actions';
 import * as playlistActions from '../../actions/playlist-actions';
 import TrackListWithDelete from './TrackListWithDelete';
-import update from 'react-addons-update';
-
 
 class RenderTracks extends Component {
+    playTrackOnClick(event, track) {
+        event.preventDefault();
+        this.props.dispatch(actions.currentListeningUrl(track));
+    }
+    
     onTrackItemClick(event, track) {
         event.preventDefault();
         this.props.dispatch(actions.queue(track));
@@ -33,6 +38,7 @@ class RenderTracks extends Component {
         if(this.props.playlistObject) {
             return (
                 <TrackListWithDelete
+                    playTrackOnClick={this.playTrackOnClick.bind(this)}
                     onTrackItemClick={this.onTrackItemClick.bind(this)} 
                     onClickDeleteTrack={this.onClickDeleteTrack.bind(this)} 
                     moveTrackInPlaylist={this.moveTrackInPlaylist.bind(this)}

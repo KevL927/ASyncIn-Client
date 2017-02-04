@@ -18,16 +18,18 @@ import RenderSavedPlaylistTracks from '../PlaylistPlayer/RenderSavedPlaylistTrac
 import Feedback from '../Feedback';
 import './styles.css';
 
-
 const borderRadiusStyle = { borderRadius: 2 };
-const tooltip_delete = (
-  <Tooltip id="tooltip_delete"><strong>Delete</strong> playlist</Tooltip>
+
+const tooltip_edit = (
+  <Tooltip id="tooltip_edit"><strong>Edit</strong> playlist name</Tooltip>
 );
+
 const tooltip_add = (
   <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
 );
-const tooltip_edit = (
-  <Tooltip id="tooltip_edit"><strong>Edit</strong> playlist name</Tooltip>
+
+const tooltip_delete = (
+  <Tooltip id="tooltip_delete"><strong>Delete</strong> playlist</Tooltip>
 );
 
 class MyPlaylistsDashboard extends Component {
@@ -56,9 +58,9 @@ class MyPlaylistsDashboard extends Component {
 		if(playlists) {
 		 	return <ul className="saved-playlists-ul">
 					 	<RenderSavedPlaylistTracks 
-					 	currentUser={this.props.currentUser} 
-					 	playlistObject={playlists} 
-					 	playlistIndex={playlistIndex} 
+					 		currentUser={this.props.currentUser} 
+					 		playlistObject={playlists} 
+					 		playlistIndex={playlistIndex} 
 					 	/>
 				 	</ul>;
 		}
