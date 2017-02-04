@@ -71,7 +71,7 @@ class Register extends Component {
                     <label className="password">Verify Password:</label>
                     <input type="password" className="input" name="password" ref="confirmPasswordText" placeholder="Please retype your password" required />
                     <button id="register-button" type="submit"className="register-button">Submit</button>
-                    <Link to="/login" id="loginlink"> Already have an account? Log in here. </Link>
+                    <p>Already have an account? <Link to="/login" id="loginlink">Log In Here</Link></p>
                     <div id="login-icons">
                         <a id="google-login" href="https://asyncin.herokuapp.com/auth/google" className="google-login"><FaGooglePlusSquare size={50} color="#dd4b39"/></a>
                         <a id="facebook-login" href="https://asyncin.herokuapp.com/auth/facebook" className="facebook-login"><FaFacebookOffical size={50} color="#3b5998"/></a>
