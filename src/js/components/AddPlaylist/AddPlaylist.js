@@ -96,14 +96,14 @@ class AddPlaylist extends Component {
                     </Button>
                     { (this.props.error) ? <div><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><Feedback feedback={this.props.error} /></div> : <div></div> }
                     { (this.props.feedback) ? <div><i className="fa fa-check-square-o" aria-hidden="true"></i><Feedback feedback={this.props.feedback} /></div> : <div></div> }
-                    <Button>
+                    <div className="btn btn-default">    
                         <SavedPlaylistsDropdown 
                             onSubmitClearTemp={this.props.onSubmitClearTemp} 
                             userPlaylists={this.props.userSavedPlaylists} 
                             newPlaylist={this.props.newPlaylist} 
                             currentUser={this.props.currentUser} 
                         />
-                    </Button>
+                    </div>
                 </ButtonGroup>
             </div> 
 		);
