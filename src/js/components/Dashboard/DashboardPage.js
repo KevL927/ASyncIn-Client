@@ -53,7 +53,6 @@ class DashboardPage extends Component {
   }
 }
 
-
 export default connect(  
   ({ currentUser, userSavedPlaylists, queue }) => 
   ({ currentUser, userSavedPlaylists, queue })
