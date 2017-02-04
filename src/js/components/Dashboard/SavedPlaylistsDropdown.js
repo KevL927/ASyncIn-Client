@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ButtonToolbar, DropdownButton, MenuItem } from 'react-bootstrap';
 
-import * as playlistActions from '../../actions/playlist-actions';
 import * as actions from '../../actions/actions';
+import * as playlistActions from '../../actions/playlist-actions';
 
 class SavedPlaylistsDropdown extends Component {
-	onClickAddNewPlaylist(newPlaylist, targetPlaylist, event){
+	onClickAddNewPlaylist(newPlaylist, targetPlaylist, event) {
 		event.preventDefault();
 		let newPlaylistArray = targetPlaylist.tracks.concat(newPlaylist),
 			newPlaylistObject = targetPlaylist;
 		newPlaylistObject.tracks = newPlaylistArray;
 		
 		this.props.dispatch(playlistActions.updatePlaylist(newPlaylistObject, sessionStorage.access_token));
-		 setTimeout(() => {
+		setTimeout(() => {
             this.props.dispatch(actions.clearFeedback());
         }, 5000);
 		this.props.dispatch(actions.clearError());
@@ -49,4 +49,4 @@ class SavedPlaylistsDropdown extends Component {
 	}
 } 
 
-export default connect()(SavedPlaylistsDropdown) ;
+export default connect()(SavedPlaylistsDropdown);

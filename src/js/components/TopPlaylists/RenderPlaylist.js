@@ -100,11 +100,10 @@ class RenderPlaylist extends Component {
                       </OverlayTrigger>
                     </div>
                   </div>
-                      {this.viewTracks(playlist)}
+                  {this.viewTracks(playlist)}
                 </div>
                 </ScrollArea>
-              )
-          )}
+          ))}
         </div>
       );
     }
