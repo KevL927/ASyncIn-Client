@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import play from '../../../play.png';
+import play from './img/play.png';
 import './styles.css';
 
 export default () => {

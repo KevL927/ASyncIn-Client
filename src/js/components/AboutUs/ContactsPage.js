@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import FaGithubSquare from 'react-icons/lib/fa/github-square';
 
+import surbhiPic from './img/surbhi-pic.png';
+import laviePic from './img/lavie-pic.png';
+import michellePic from './img/michelle-pic.png';
 import './styles.css';
 
 export default () => {
   return (
     <div className="contactDev">
-      <span id="meet_header"> Meet the Team</span>
+      <span id="meet_header">Meet the Team</span>
       <div id="project-demo">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/A8AEijXbFms" frameBorder="0" allowFullScreen></iframe>
       </div>
       <div className="Surbhi_container">
         <div className='Surbhi'>
-          <img src="http://i.imgur.com/y4gDQZH.png"/>
+          <img src={surbhiPic} />
           <h1>Surbhi Poswalia</h1>
           <h3 className="project_roles">Project Manager</h3>
         </div>
@@ -23,7 +26,7 @@ export default () => {
       </div>
       <div className="Lavie_container">
         <div className="Lavie">
-          <img src="http://i.imgur.com/fx2K2d0.png" />
+          <img src={laviePic} />
           <h1>Lavie Ruan</h1>
           <h3 className="project_roles">Scrum Master</h3>
         </div>
@@ -45,7 +48,7 @@ export default () => {
       </div>
       <div className="Michelle_container">
         <div className='Michelle'>
-          <img src="http://i.imgur.com/iyMPoeK.png"/>
+          <img src={michellePic} />
           <h1>Michelle Nguyen</h1>
           <h3 className="project_roles">Design Manager</h3>
         </div>

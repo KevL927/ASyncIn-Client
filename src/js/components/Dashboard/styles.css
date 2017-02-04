@@ -1,18 +1,14 @@
-
 /*********************************************************************
 //--------------------------USER PLAYLIST PAGE--------------------------
 //*********************************************************************/
 
-#UserPlaylist-page {
-    background: -webkit-linear-gradient(rgba(138, 91, 16, .85), rgba(255, 197, 103, .1)), url("http://i.imgur.com/wZLxya6.jpg");
-    background: linear-gradient(rgba(138, 91, 16, .85), rgba(255, 197, 103, .1)), url("http://i.imgur.com/wZLxya6.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0
-}
-
 h4 {
     text-align: center
+}
+
+#user-playlist-buttons-li {
+    -webkit-text-decoration-line: none;
+    text-decoration-line: none
 }
 
 .content {
@@ -47,11 +43,6 @@ h4 {
     text-decoration: none
 }
 
-#user-playlist-buttons-li {
-    -webkit-text-decoration-line: none;
-    text-decoration-line: none
-}
-
 .user-playlist-buttons {
     text-decoration: none;
     color: #fff;
@@ -71,23 +62,28 @@ h4 {
     transform: scale(1.1)
 }
 
-
 /*********************************************************************
 //------------------------------DASHBOARD--------------------------
 //*********************************************************************/
 
-.DashboardPage {
-    text-align: center
+#my-saved-playlists,
+#welcome {
+    text-align: center;
+    text-shadow: 0 3px 0 #8e4600, 0 5px 10px #000, 0 7px 2px rgba(0, 0, 0, .1), 0 18px 16px rgba(0, 0, 0, .1)
 }
 
 #welcome {
     font-size: 4em
 }
 
-#my-saved-playlists,
-#welcome {
-    text-align: center;
-    text-shadow: 0 3px 0 #8e4600, 0 5px 10px #000, 0 7px 2px rgba(0, 0, 0, .1), 0 18px 16px rgba(0, 0, 0, .1)
+#playlist_toggle_div {
+    position: relative;
+    left: 48%;
+    
+}
+
+.DashboardPage {
+    text-align: center
 }
 
 .trackButtons {
@@ -100,10 +96,3 @@ h4 {
 .blackColor {
     color: #000
 }
-
-#playlist_toggle_div {
-    position: relative;
-    left: 48%;
-    
-}
-

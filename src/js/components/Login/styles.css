@@ -1,6 +1,6 @@
 input[type=text]:not(#displayName):not(.input), select {
-    background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/mouse_left_click-24.png) .2em .3em no-repeat, -webkit-linear-gradient(top, #f7f7f8, #fff);
-    background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/mouse_left_click-24.png) .2em .3em no-repeat, linear-gradient(180deg, #f7f7f8 0, #fff);
+    background: url("img/mouse_left_click.png") .2em .3em no-repeat, -webkit-linear-gradient(top, #f7f7f8, #fff);
+    background: url("img/mouse_left_click.png") .2em .3em no-repeat, linear-gradient(180deg, #f7f7f8 0, #fff);
 }
 
 input[type=text]:not(.input), select {
@@ -18,8 +18,8 @@ input[type=text]:not(.input), select {
 }
 
 input[type=text]:not(#displayName):focus {
-    background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/enter-24.png) 33.5em .3em no-repeat, -webkit-linear-gradient(top, #f7f7f8, #fff);
-    background: url(https://maxcdn.icons8.com/Color/PNG/24/Computer_Hardware/enter-24.png) 33.5em .3em no-repeat, linear-gradient(180deg, #f7f7f8 0, #fff)
+    background: url("img/enter.png") 33.5em .3em no-repeat, -webkit-linear-gradient(top, #f7f7f8, #fff);
+    background: url("img/enter.png") 33.5em .3em no-repeat, linear-gradient(180deg, #f7f7f8 0, #fff)
 }
 
 input[type=email], input[type=password], .input, select {
@@ -93,7 +93,7 @@ button[type=submit]:hover {
 .LoginPage,
 .Register-page {
     text-align: center;
-    background: url("http://i.imgur.com/BWMCDuH.jpg");
+    background: url("img/concert-stage.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
