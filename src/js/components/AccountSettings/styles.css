@@ -9,7 +9,7 @@
 .update-display-name-form,
 .update-password-form {
     display: inline-block;
-    width: 30%;
+    width: 350px;
     border-radius: 5px;
     background-color: rgba(40, 10, 9, .7);
     padding: 20px;
@@ -17,7 +17,7 @@
 }
 
 .update-third-party-display-name-form {
-    width: 25%;
+    width: 350px;
     border-radius: 5px;
     background-color: rgba(40, 10, 9, .7);
     padding: 20px;
