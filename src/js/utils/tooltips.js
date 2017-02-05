@@ -40,3 +40,27 @@ export const tooltip_queue = (
 export const tooltip_playlist_add = (
   <Tooltip id="tooltip_playlist_add"><strong>Check Off</strong> then click playlist</Tooltip>
 );
+
+export const tooltip_home = (
+  <Tooltip id="tooltip_playlist_add"><strong>Home</strong></Tooltip>
+);
+
+export const tooltip_search = (
+  <Tooltip id="tooltip_playlist_add"><strong>Search</strong></Tooltip>
+);
+
+export const tooltip_top_playlists = (
+  <Tooltip id="tooltip_playlist_add"><strong>Top Playlists</strong></Tooltip>
+);
+
+export const tooltip_about_us = (
+  <Tooltip id="tooltip_playlist_add"><strong>About Us</strong></Tooltip>
+);
+
+export const tooltip_logout = (
+  <Tooltip id="tooltip_playlist_add"><strong>Logout</strong></Tooltip>
+);
+
+export const tooltip_settings = (
+  <Tooltip id="tooltip_playlist_add"><strong>Settings</strong></Tooltip>
+);

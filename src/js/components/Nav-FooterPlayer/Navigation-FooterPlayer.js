@@ -15,7 +15,7 @@ import * as actions from '../../actions/actions';
 import * as userActions from '../../actions/user-actions';
 import playMusicFunc from '../MusicPlayer/playMusicFunc';
 import RenderQueue from '../Queue/RenderQueue';
-import { tooltip_queue } from '../../utils/tooltips';
+import { tooltip_queue, tooltip_home, tooltip_search, tooltip_top_playlists, tooltip_about_us, tooltip_logout, tooltip_settings } from '../../utils/tooltips';
 import './styles.css';
 
 class NavigationFooterPlayer extends Component {
@@ -92,12 +92,12 @@ class NavigationFooterPlayer extends Component {
         <div>
           <div className="NavigationBar">
             <ul className="NavUL">
-              <li title="Home"><Link to="/dashboard"><FaHome size={30}/><span className="nav-label">Home</span></Link></li>
-              <li title="Search"><Link to="/dashboard/search"><FaSearch size={30}/><span className="nav-label">Search</span></Link></li>
-              <li title="Top Playlists"><Link to="/dashboard/top"><FaGlobe size={30}/><span className="nav-label">Top Playlists</span></Link></li>
-              <li title="About Us"><Link to="/dashboard/contact"><FaEnvelope size={30}/><span className="nav-label">About Us</span></Link></li>
-              <li className="right-side" title="Logout"><Link to="/" onClick={this.logout.bind(this)}><FaSignOut size={30}/><span className="nav-label">Logout</span></Link></li>
-              <li className="right-side" title="Settings"><Link to="/dashboard/settings"><FaCog size={30}/><span className="nav-label">Settings</span></Link></li>
+              <li><OverlayTrigger placement="bottom" overlay={tooltip_home}><Link to="/dashboard"><FaHome size={30}/><span className="nav-label">Home</span></Link></OverlayTrigger></li>
+              <li><OverlayTrigger placement="bottom" overlay={tooltip_search}><Link to="/dashboard/search"><FaSearch size={30}/><span className="nav-label">Search</span></Link></OverlayTrigger></li>
+              <li><OverlayTrigger placement="bottom" overlay={tooltip_top_playlists}><Link to="/dashboard/top"><FaGlobe size={30}/><span className="nav-label">Top Playlists</span></Link></OverlayTrigger></li>
+              <li><OverlayTrigger placement="bottom" overlay={tooltip_about_us}><Link to="/dashboard/contact"><FaEnvelope size={30}/><span className="nav-label">About Us</span></Link></OverlayTrigger></li>
+              <li className="right-side"><OverlayTrigger placement="bottom" overlay={tooltip_logout}><Link to="/" onClick={this.logout.bind(this)}><FaSignOut size={30}/><span className="nav-label">Logout</span></Link></OverlayTrigger></li>
+              <li className="right-side"><OverlayTrigger placement="bottom" overlay={tooltip_settings}><Link to="/dashboard/settings"><FaCog size={30}/><span className="nav-label">Settings</span></Link></OverlayTrigger></li>
             </ul>
           </div>
         {this.props.children}
