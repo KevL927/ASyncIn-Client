@@ -1,19 +1,10 @@
 import React from 'react';
-import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { OverlayTrigger } from 'react-bootstrap';
 import FaPlayCircle from 'react-icons/lib/fa/play-circle';
 import TiPlus from 'react-icons/lib/ti/plus';
 
+import { tooltip_add, tooltip_play } from '../../utils/tooltips';
 import './styles.css';
-
-const tooltip_add = (
- 	<Tooltip id="tooltip_add"><strong>Add</strong> to the queue</Tooltip>
-);
-const tooltip_play = (
- 	<Tooltip id="tooltip_play"><strong>Play</strong></Tooltip>
-);
-const tooltip_playlist_add = (
- 	<Tooltip id="tooltip_playlist_add"><strong>Check Off</strong> then click playlist</Tooltip>
-);
 
 export default ({ track, onCheckInsert, renderCheckedIndex, index, onClickAddToQueue, playTrackOnClick }) => {
   return (

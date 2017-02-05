@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Collapse from 'react-collapse';
 import update from 'react-addons-update';
 import ScrollArea from 'react-scrollbar';
-import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { OverlayTrigger } from 'react-bootstrap';
 import TiPlus from 'react-icons/lib/ti/plus';
 import FaThumbsUp from 'react-icons/lib/fa/thumbs-up';
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up';
@@ -11,10 +11,7 @@ import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up';
 import * as actions from '../../actions/actions';
 import * as playlistActions from '../../actions/playlist-actions';
 import RenderTrackList from './RenderTrackList';
-
-const tooltip_add = (
-  <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
-);
+import { tooltip_add, tooltip_favourite, tooltip_unfavourite } from '../../utils/tooltips';
 
 class RenderPlaylist extends Component {
   state = {
@@ -41,7 +38,9 @@ class RenderPlaylist extends Component {
     }
     return (
       <button className="user-playlist-buttons" onClick={this.onClickUpdateFavouritePlaylist.bind(this, playlistObject)}>
-        {favouritePlaylistIdArray.indexOf(playlistObject._id) >= 0 ?  <FaThumbsOUp size={22} />: <FaThumbsUp size={22} />}
+        {favouritePlaylistIdArray.indexOf(playlistObject._id) >= 0 ? 
+          <OverlayTrigger placement="bottom" overlay={tooltip_unfavourite}><FaThumbsOUp size={22} /></OverlayTrigger> : 
+          <OverlayTrigger placement="bottom" overlay={tooltip_favourite}><FaThumbsUp size={22} /></OverlayTrigger>}
       </button>
     );
   }
@@ -123,7 +122,7 @@ class RenderPlaylist extends Component {
               </li>
               <div className="playlist-favourite">
                 {this.favouriteOrUnfavourite(playlist)}
-                <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist )}><TiPlus size={22}/></button>
+                <button className="user-playlist-buttons" onClick={this.onClickAddToQueue.bind(this, playlist)}><TiPlus size={22}/></button>
             </div>
              </div>
               <Collapse isOpened={this.checkOpenedOrNot(index)}>

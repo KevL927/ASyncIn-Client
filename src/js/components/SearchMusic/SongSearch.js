@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import update from 'react-addons-update';
-import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { OverlayTrigger } from 'react-bootstrap';
 import { Grid, Row, Col } from 'react-bootstrap';
 import FaVimeo from 'react-icons/lib/fa/vimeo';
 import FaSoundcloud from 'react-icons/lib/fa/soundcloud';
@@ -12,16 +12,7 @@ import TiPlus from 'react-icons/lib/ti/plus';
 import * as actions from '../../actions/actions';
 import SearchResult from './SearchResult';
 import AddPlaylist from '../AddPlaylist/AddPlaylist';
-
-const tooltip_add = (
-  <Tooltip id="tooltip_add"><strong>Add</strong> to the queue</Tooltip>
-);
-const tooltip_play = (
-  <Tooltip id="tooltip_play"><strong>Play</strong></Tooltip>
-);
-const tooltip_playlist_add = (
-  <Tooltip id="tooltip_playlist_add"><strong>Check Off</strong> then click playlist</Tooltip>
-);
+import { tooltip_add, tooltip_play, tooltip_playlist_add } from '../../utils/tooltips';
 
 class SongSearch extends Component {
   state = {
