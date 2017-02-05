@@ -6,11 +6,11 @@ export const tooltip_play = (
 );
 
 export const tooltip_up = (
-  <Tooltip id="tooltip_up"><strong>Move Up</strong> the playlist</Tooltip>
+  <Tooltip id="tooltip_up"><strong>Move Up</strong></Tooltip>
 );
 
 export const tooltip_down = (
-  <Tooltip id="tooltip_down"><strong>Move Down</strong> the playlist</Tooltip>
+  <Tooltip id="tooltip_down"><strong>Move Down</strong></Tooltip>
 );
 
 export const tooltip_add = (
@@ -38,7 +38,7 @@ export const tooltip_queue = (
 );
 
 export const tooltip_playlist_add = (
-  <Tooltip id="tooltip_playlist_add"><strong>Check Off</strong> then click playlist</Tooltip>
+  <Tooltip id="tooltip_playlist_add"><strong>Check</strong> and choose or create new playlist</Tooltip>
 );
 
 export const tooltip_home = (
