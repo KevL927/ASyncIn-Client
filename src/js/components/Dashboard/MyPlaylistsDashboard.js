@@ -102,7 +102,7 @@ class MyPlaylistsDashboard extends Component {
 	    	arr = resultArr.map((playlist, index) => {
 	    		return (
 	        		<li key={index} id="user-playlist-buttons-li">
-	        		{ this.state.editable == playlist._id ?
+	        		{ this.state.editable === playlist._id ?
 		        	<form onSubmit={this.edit.bind(this, playlist)}>
 		        		<input type="text" autoFocus contentEditable onBlur={this.edit.bind(this, playlist)} ref="input" required/> 
 		        	</form>

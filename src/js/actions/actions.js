@@ -33,6 +33,8 @@ export const updateQueue = (accessToken, token, queue) => dispatch => {
         });
 };
 
+export const moveTrackInPlaylist = createAction('moveTrackInPlaylist');
+export const clearUpdatedPlaylistIndex = createAction('CLEAR_UPDATED_PLAYLIST_INDEX');
 export const moveAndUpdateTrackInPlaylist = (direction, playlistIndex, trackIndex) => {
     return (dispatch, getState) => {
             dispatch(moveTrackInPlaylist({ direction, playlistIndex, trackIndex} ));
@@ -42,10 +44,6 @@ export const moveAndUpdateTrackInPlaylist = (direction, playlistIndex, trackInde
 };
 
 export const moveTrackInQueue = createAction('moveTrackInQueue');
-
-export const moveTrackInPlaylist = createAction('moveTrackInPlaylist') ;
-
-export const clearUpdatedPlaylistIndex = createAction('CLEAR_UPDATED_PLAYLIST_INDEX');
 
 export const clearError = createAction('CLEAR_ERROR');
 
