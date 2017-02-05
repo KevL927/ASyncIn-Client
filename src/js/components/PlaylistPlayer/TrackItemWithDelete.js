@@ -1,26 +1,12 @@
 import React from 'react';
 import MdClear from 'react-icons/lib/md/clear';
-import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { OverlayTrigger } from 'react-bootstrap';
 import FaPlayCircle from 'react-icons/lib/fa/play-circle';
 import TiPlus from 'react-icons/lib/ti/plus';
 import FaArrowCircleUp from 'react-icons/lib/fa/arrow-circle-up';
 import FaArrowCircleDown from 'react-icons/lib/fa/arrow-circle-down';
 
-const tooltip_play = (
- 	<Tooltip id="tooltip_play"><strong>Play</strong></Tooltip>
-);
-const tooltip_add = (
- 	<Tooltip id="tooltip_add"><strong>Add</strong> to the queue</Tooltip>
-);
-const tooltip_up = (
-  <Tooltip id="tooltip_up"><strong>Move Up</strong> the playlist</Tooltip>
-);
-const tooltip_down = (
-  <Tooltip id="tooltip_down"><strong>Move Down</strong> the playlist</Tooltip>
-);
-const tooltip_delete = (
-  <Tooltip id="tooltip_delete"><strong>Delete</strong> playlist</Tooltip>
-);
+import { tooltip_add, tooltip_play, tooltip_up, tooltip_down, tooltip_delete } from '../../utils/tooltips';
 
 export default ({ track, trackIndex, playlistIndex, playTrackOnClick, onTrackItemClick, moveTrackInPlaylist, onClickDeleteTrack}) => {
   return (

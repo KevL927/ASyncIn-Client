@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { Tooltip, OverlayTrigger, ButtonToolbar, DropdownButton, MenuItem } from 'react-bootstrap';
+import { OverlayTrigger, ButtonToolbar, DropdownButton, MenuItem } from 'react-bootstrap';
 import FaHome from 'react-icons/lib/fa/home';
 import FaSearch from 'react-icons/lib/fa/search';
 import FaGlobe from 'react-icons/lib/fa/globe';
@@ -11,15 +11,12 @@ import FaSignOut from 'react-icons/lib/fa/sign-out';
 import MdLineWeight from 'react-icons/lib/md/line-weight';
 import ScrollArea from 'react-scrollbar';
 
-import playMusicFunc from '../MusicPlayer/playMusicFunc';
-import RenderQueue from '../Queue/RenderQueue';
 import * as actions from '../../actions/actions';
 import * as userActions from '../../actions/user-actions';
+import playMusicFunc from '../MusicPlayer/playMusicFunc';
+import RenderQueue from '../Queue/RenderQueue';
+import { tooltip_queue } from '../../utils/tooltips';
 import './styles.css';
-
-const tooltip_queue = (
-  <Tooltip id="tooltip_queue"><strong>Queue List</strong></Tooltip>
-);
 
 class NavigationFooterPlayer extends Component {
   updateServerQueue() {

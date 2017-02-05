@@ -10,25 +10,16 @@ import FaUnlockAlt from 'react-icons/lib/fa/unlock-alt';
 import FaTrash from 'react-icons/lib/fa/trash';
 import FaEdit from 'react-icons/lib/fa/edit';
 import TiPlus from 'react-icons/lib/ti/plus';
-import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { OverlayTrigger } from 'react-bootstrap';
 
 import * as actions from '../../actions/actions';
 import * as playlistActions from '../../actions/playlist-actions';
 import RenderSavedPlaylistTracks from '../PlaylistPlayer/RenderSavedPlaylistTracks';
 import Feedback from '../Feedback';
+import { tooltip_edit, tooltip_add, tooltip_delete } from '../../utils/tooltips';
 import './styles.css';
 
 const borderRadiusStyle = { borderRadius: 2 };
-
-const tooltip_edit = (
-  <Tooltip id="tooltip_edit"><strong>Edit</strong> playlist name</Tooltip>
-);
-const tooltip_add = (
-  <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
-);
-const tooltip_delete = (
-  <Tooltip id="tooltip_delete"><strong>Delete</strong> playlist</Tooltip>
-);
 
 class MyPlaylistsDashboard extends Component {
 	state = {

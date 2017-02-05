@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ScrollArea from 'react-scrollbar';
-import { Tooltip, OverlayTrigger } from 'react-bootstrap';
+import { OverlayTrigger } from 'react-bootstrap';
 import TiPlus from 'react-icons/lib/ti/plus';
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up';
 
 import * as actions from '../../actions/actions';
 import * as playlistActions from '../../actions/playlist-actions';
-
-const tooltip_add = (
-    <Tooltip id="tooltip_add"><strong>Add</strong> playlist to queue</Tooltip>
-);
-const tooltip_unfavourite = (
-    <Tooltip id="tooltip_unfavourite"><strong>Unfavourite</strong> playlist </Tooltip>
-);
+import { tooltip_add, tooltip_unfavourite } from '../../utils/tooltips';
 
 class FavouritePlaylist extends Component {
     onClickAddToQueue(playlist, event) {
