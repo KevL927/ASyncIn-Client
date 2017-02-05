@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FaGithubSquare from 'react-icons/lib/fa/github-square';
 
 import surbhiPic from './img/surbhi-pic.png';
@@ -16,7 +16,7 @@ export default () => {
       </div>
       <div className="Surbhi_container">
         <div className='Surbhi'>
-          <img src={surbhiPic} />
+          <img src={surbhiPic} alt="Surbhi" />
           <h1>Surbhi Poswalia</h1>
           <h3 className="project_roles">Project Manager</h3>
         </div>
@@ -27,7 +27,7 @@ export default () => {
       </div>
       <div className="Lavie_container">
         <div className="Lavie">
-          <img src={laviePic} />
+          <img src={laviePic} alt="Lavie" />
           <h1>Lavie Ruan</h1>
           <h3 className="project_roles">Scrum Master</h3>
         </div>
@@ -38,7 +38,7 @@ export default () => {
       </div>
       <div className="Kevin_container">
         <div className='Kevin'>
-          <img src={tigerPic} />
+          <img src={tigerPic} alt="tiger" />
           <h1>Kevin Lee</h1>
           <h3 className="project_roles">Product Manager</h3>
         </div>
@@ -49,7 +49,7 @@ export default () => {
       </div>
       <div className="Michelle_container">
         <div className='Michelle'>
-          <img src={michellePic} />
+          <img src={michellePic} alt="Michelle" />
           <h1>Michelle Nguyen</h1>
           <h3 className="project_roles">Design Manager</h3>
         </div>
