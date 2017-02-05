@@ -64,3 +64,7 @@ export const tooltip_logout = (
 export const tooltip_settings = (
   <Tooltip id="tooltip_playlist_add"><strong>Settings</strong></Tooltip>
 );
+
+export const tooltip_my_playlist = (
+  <Tooltip id="tooltip_playlist_add"><strong>My Playlist</strong></Tooltip>
+);

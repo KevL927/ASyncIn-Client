@@ -11,7 +11,7 @@ import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up';
 import * as actions from '../../actions/actions';
 import * as playlistActions from '../../actions/playlist-actions';
 import RenderTrackList from './RenderTrackList';
-import { tooltip_add, tooltip_favourite, tooltip_unfavourite } from '../../utils/tooltips';
+import { tooltip_add, tooltip_favourite, tooltip_unfavourite, tooltip_my_playlist } from '../../utils/tooltips';
 
 class RenderPlaylist extends Component {
   state = {
@@ -29,7 +29,7 @@ class RenderPlaylist extends Component {
     
   favouriteOrUnfavourite(playlistObject) {
     if(sessionStorage.userId === playlistObject.userId) {
-      return <i className="fa fa-user fa-2x" aria-hidden="true"></i>;
+      return <OverlayTrigger placement="bottom" overlay={tooltip_my_playlist}><i className="fa fa-user fa-2x" aria-hidden="true"></i></OverlayTrigger>;
     }
     let favouritePlaylistIdArray = [];
 
