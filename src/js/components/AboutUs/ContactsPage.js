@@ -43,7 +43,7 @@ export default () => {
           <h3 className="project_roles">Product Manager</h3>
         </div>
         <div className="name-Designation kevin-contact">
-          <p className="paragraph_right">Hello, my name is Kevin and I'm the Product Manager and Full Stack Developer for this project. My responsibilities were, but not limited to: implementing Google and Facebook OAuth, music player functionalities, account settings page and coding various client and server functionalities. Also, I advised the team with choosing the right tools, such as Axios, Redux-actions, React player and more. In my spare time, I enjoy exploring new technologies and becoming an early adapter, read books that can take me to places I can't even dream of and go hiking on the mountains to be with the nature.</p>
+          <p className="paragraph_right">Hello, my name is Kevin and I'm the Product Manager and Full Stack Developer for this project. My responsibilities were, but not limited to: implementing Google and Facebook OAuth, music player functionalities, account settings page and coding various client and server functionalities. Also, I advised the team with choosing the right tools, such as Axios, Redux-actions, React player and more. In my spare time, I enjoy exploring new technologies and becoming an early adopter, read books that can take me to places I can't even dream of and go hiking on the mountains to be with the nature.</p>
           <div><a href="https://github.com/KevL927" className="contact_info">Github<FaGithubSquare/></a></div>
         </div>
       </div>
